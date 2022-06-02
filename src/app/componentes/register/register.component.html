@@ -38,11 +38,11 @@
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
 
-      <mat-radio-group aria-label="Selecione su Genero">
+      <mat-radio-group aria-label="Selecione su Genero" color="primary">
         <mat-radio-button value="1">Hombre</mat-radio-button>
         <mat-radio-button value="2">Mujer</mat-radio-button>
-        <mat-radio-button value="2">Otro</mat-radio-button>
-        <mat-radio-button value="2">Prefiero no decirlo</mat-radio-button>
+        <mat-radio-button value="3">Otro</mat-radio-button>
+        <mat-radio-button value="4">Prefiero no decirlo</mat-radio-button>
       </mat-radio-group>
 
       <mat-form-field class="example-full-width" appearance="fill" class="full-width">
@@ -62,12 +62,12 @@
         <input  matInput  placeholder="Ingrese su razón social" name="u_rsocial"  required>
       </mat-form-field>
 
-      <section class="example-section">
-        <mat-checkbox class="example-margin">Acepto Condiciones</mat-checkbox>
+      <section class="example-section" >
+        <mat-checkbox class="example-margin" color="primary">Acepto Condiciones</mat-checkbox>
       </section>
 
-      <section class="example-section">
-        <mat-checkbox class="example-margin">Autorización</mat-checkbox>
+      <section class="example-section" >
+        <mat-checkbox class="example-margin" color="primary">Autorización</mat-checkbox>
       </section>
       <mat-card-actions>
         <button mat-raised-button color="primary" (click)="openDialog()">REGISTER</button>
