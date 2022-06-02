@@ -7,21 +7,26 @@ import { RegistroVuelosComponent } from './componentes/registro-vuelos/registro-
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {RouterModule, Routes} from "@angular/router";
 import {MaterialModule} from "../material/material.module";
+import { RegisterComponent } from './componentes/register/register.component';
+import {FormsModule} from "@angular/forms";
 
 
 const routes: Routes = [
-  {path:'', component:LoginComponent}
+  {path:'', component:LoginComponent},
+  {path:'registro', component:RegisterComponent}
 ]
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    RegistroVuelosComponent
+    RegistroVuelosComponent,
+    RegisterComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
     BrowserModule,
+    FormsModule,
     BrowserAnimationsModule,
     MaterialModule
   ],

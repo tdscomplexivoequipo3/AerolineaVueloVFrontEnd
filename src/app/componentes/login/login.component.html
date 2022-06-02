@@ -1,2 +1,45 @@
-<p>login works!</p>
-<span>Holassss</span>
+<mat-toolbar>
+  <span>LOGIN</span>
+</mat-toolbar>
+
+<body>
+<mat-card class="my-card">
+
+    <div class="mat-card-content-p1">
+      <mat-card-content>
+        <div class="text">
+          <h1>Inicia Seción</h1>
+          <img src="https://cdn.icon-icons.com/icons2/1746/PNG/512/4047342-air-aircraft-airline-airliner-airplane-airport-airway_113505.png">
+        </div>
+        <form class="login-form">
+          <mat-form-field class="full-width">
+            <mat-label>Email</mat-label>
+            <mat-icon matPrefix color="primary">people</mat-icon>
+            <input  matInput  placeholder="Email" name="email">
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <mat-label>Password</mat-label>
+            <mat-icon matPrefix color="primary">password</mat-icon>
+            <input  matInput  placeholder="Password" name="password">
+          </mat-form-field>
+        </form>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button   color="primary">LOGIN</button>
+      </mat-card-actions>
+      <a routerLinkActive="active"
+         [routerLink]="['/registro']"
+         class="nav_rout" >
+        Registrarse
+      </a>
+
+    </div>
+
+
+
+  <div class="mat-card-content-p2">
+  </div>
+
+</mat-card>
+</body>
+
