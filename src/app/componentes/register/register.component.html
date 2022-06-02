@@ -1,6 +1,9 @@
 <mat-toolbar>
   <span>REGISTER</span>
 </mat-toolbar>
+
+<body>
+
 <mat-card class="my-card">
   <mat-card-content>
     <form class="my-form">
@@ -8,49 +11,71 @@
         <mat-label>Nombre</mat-label>
         <input  matInput  placeholder="Ingrese su nombre"  name="fname"  required>
       </mat-form-field>
+
       <mat-form-field class="full-width">
         <mat-label>Apellido</mat-label>
         <input  matInput  placeholder="Ingrese su apellido" name="lname"  required>
       </mat-form-field>
+
       <mat-form-field class="full-width">
         <mat-label>Identificación</mat-label>
         <input  matInput  placeholder="Ingrese su Cedúla" name="u_identificacion"  required>
       </mat-form-field>
-      <mat-form-field class="full-width">
-        <mat-label>Identificación</mat-label>
-        <input  matInput  placeholder="Ingrese su Cedúla" name="u_identificacion"  required>
+
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Seleccione su País de nacimiento</mat-label>
+        <mat-select >
+          <mat-option value="option1">Ecuador</mat-option>
+          <mat-option value="option2">Colombia</mat-option>
+          <mat-option value="option3">Perú</mat-option>
+        </mat-select>
       </mat-form-field>
+
       <mat-form-field class="full-width">
-        <mat-label>Address</mat-label>
-        <input  matInput  placeholder="Address" name="address"  required>
-      </mat-form-field>
-      <mat-form-field class="full-width">
-        <mat-label>Email</mat-label>
-        <input  matInput  placeholder="Email" name="email">
-      </mat-form-field>
-      <mat-form-field class="full-width">
-        <mat-label>Password</mat-label>
-        <input  matInput  placeholder="Password"  name="password">
-      </mat-form-field>
-      <section class="example-section">
-        <label class="full-width">Gender:</label>
-        <br>
-        <br>
-        <mat-radio-group>
-          <mat-radio-button class="example-margin" value="after">Male</mat-radio-button>
-          <mat-radio-button class="example-margin" value="before">Female</mat-radio-button>
-          <mat-radio-button class="example-margin" value="before">Other</mat-radio-button>
-        </mat-radio-group>
-      </section>
-      <mat-form-field class="full-width">
-        <mat-label>Date of Birth</mat-label>
-        <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+        <mat-label>Fecha de Nacimiento</mat-label>
+        <input matInput [matDatepicker]="picker" placeholder="d/m/yyyy">
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
+
+      <mat-radio-group aria-label="Selecione su Genero">
+        <mat-radio-button value="1">Hombre</mat-radio-button>
+        <mat-radio-button value="2">Mujer</mat-radio-button>
+        <mat-radio-button value="2">Otro</mat-radio-button>
+        <mat-radio-button value="2">Prefiero no decirlo</mat-radio-button>
+      </mat-radio-group>
+
+      <mat-form-field class="example-full-width" appearance="fill" class="full-width">
+      <mat-label>Telefono</mat-label>
+      <span matPrefix>+1 &nbsp;</span>
+      <input type="tel" matInput placeholder="555-555-1234">
+      <mat-icon matSuffix>mode_edit</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <mat-label>Razón Social</mat-label>
+        <input  matInput  placeholder="Ingrese su razón social" name="u_rsocial"  required>
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <mat-label>Razón Social</mat-label>
+        <input  matInput  placeholder="Ingrese su razón social" name="u_rsocial"  required>
+      </mat-form-field>
+
+      <section class="example-section">
+        <mat-checkbox class="example-margin">Acepto Condiciones</mat-checkbox>
+      </section>
+
+      <section class="example-section">
+        <mat-checkbox class="example-margin">Autorización</mat-checkbox>
+      </section>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" (click)="openDialog()">REGISTER</button>
+      </mat-card-actions>
     </form>
   </mat-card-content>
-  <mat-card-actions>
-    <button mat-raised-button color="primary">REGISTER</button>
-  </mat-card-actions>
+
 </mat-card>
+
+
+</body>
