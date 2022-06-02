@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Plane} from "../../models/plane";
 
 @Component({
   selector: 'app-login',
