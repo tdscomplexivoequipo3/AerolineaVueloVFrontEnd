@@ -3,79 +3,84 @@
 </mat-toolbar>
 
 <body>
-
 <mat-card class="my-card">
-  <mat-card-content>
-    <form class="my-form">
-      <mat-form-field class="full-width">
-        <mat-label>Nombre</mat-label>
-        <input  matInput  placeholder="Ingrese su nombre"  name="fname"  required>
-      </mat-form-field>
 
-      <mat-form-field class="full-width">
-        <mat-label>Apellido</mat-label>
-        <input  matInput  placeholder="Ingrese su apellido" name="lname"  required>
-      </mat-form-field>
+  <div class="mat-card-content-p2">
+    <h1>REGISTRO</h1>
+  </div>
 
-      <mat-form-field class="full-width">
-        <mat-label>Identificación</mat-label>
-        <input  matInput  placeholder="Ingrese su Cedúla" name="u_identificacion"  required>
-      </mat-form-field>
+  <div class="mat-card-content-p1">
+    <mat-card-content>
+      <form class="my-form">
+        <mat-form-field class="full-width">
+          <mat-label>Nombre</mat-label>
+          <input  matInput  placeholder="Ingrese su nombre"  name="fname"  required>
+          <mat-icon matPrefix>perm_identity</mat-icon>
+        </mat-form-field>
 
-      <mat-form-field appearance="fill" class="full-width">
-        <mat-label>Seleccione su País de nacimiento</mat-label>
-        <mat-select >
-          <mat-option value="option1">Ecuador</mat-option>
-          <mat-option value="option2">Colombia</mat-option>
-          <mat-option value="option3">Perú</mat-option>
-        </mat-select>
-      </mat-form-field>
+        <mat-form-field class="full-width">
+          <mat-label>Apellido</mat-label>
+          <input  matInput  placeholder="Ingrese su apellido" name="lname"  required>
+          <mat-icon matPrefix>perm_identity</mat-icon>
+        </mat-form-field>
 
-      <mat-form-field class="full-width">
-        <mat-label>Fecha de Nacimiento</mat-label>
-        <input matInput [matDatepicker]="picker" placeholder="d/m/yyyy">
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
-      </mat-form-field>
+        <mat-form-field class="full-width">
+          <mat-label>Identificación</mat-label>
+          <input  matInput  placeholder="Ingrese su Cedúla" name="u_identificacion"  required>
+          <mat-icon matPrefix>fingerprint</mat-icon>
+        </mat-form-field>
 
-      <mat-radio-group aria-label="Selecione su Genero" color="primary">
-        <mat-radio-button value="1">Hombre</mat-radio-button>
-        <mat-radio-button value="2">Mujer</mat-radio-button>
-        <mat-radio-button value="3">Otro</mat-radio-button>
-        <mat-radio-button value="4">Prefiero no decirlo</mat-radio-button>
-      </mat-radio-group>
+        <mat-form-field  class="full-width-select">
+          <mat-label>Seleccione su País de nacimiento</mat-label>
+          <mat-select >
+            <mat-option value="option1">Ecuador</mat-option>
+            <mat-option value="option2">Colombia</mat-option>
+            <mat-option value="option3">Perú</mat-option>
+          </mat-select>
+        </mat-form-field>
 
-      <mat-form-field class="example-full-width" appearance="fill" class="full-width">
-      <mat-label>Telefono</mat-label>
-      <span matPrefix>+1 &nbsp;</span>
-      <input type="tel" matInput placeholder="555-555-1234">
-      <mat-icon matSuffix>mode_edit</mat-icon>
-      </mat-form-field>
+        <mat-form-field class="full-width-date" >
+          <mat-label>Fecha de Nacimiento</mat-label>
+          <input matInput [matDatepicker]="picker" placeholder="d/m/yyyy">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
 
-      <mat-form-field class="full-width">
-        <mat-label>Razón Social</mat-label>
-        <input  matInput  placeholder="Ingrese su razón social" name="u_rsocial"  required>
-      </mat-form-field>
+        <section class="selector">
+          <h4>Genéro: </h4>
+          <mat-button-toggle-group  aria-label="Font Style">
+            <mat-button-toggle value="bold">Hombre</mat-button-toggle>
+            <mat-button-toggle value="italic">Mujer</mat-button-toggle>
+            <mat-button-toggle value="underline">Prefiero no decir</mat-button-toggle>
+          </mat-button-toggle-group>
+        </section>
 
-      <mat-form-field class="full-width">
-        <mat-label>Razón Social</mat-label>
-        <input  matInput  placeholder="Ingrese su razón social" name="u_rsocial"  required>
-      </mat-form-field>
 
-      <section class="example-section" >
-        <mat-checkbox class="example-margin" color="primary">Acepto Condiciones</mat-checkbox>
-      </section>
+        <mat-form-field class="full-width" >
+          <mat-label>Telefono</mat-label>
+          <span matPrefix>+1 &nbsp;</span>
+          <input type="tel" matInput placeholder="555-555-1234">
+          <mat-icon matSuffix>mode_edit</mat-icon>
+        </mat-form-field>
 
-      <section class="example-section" >
-        <mat-checkbox class="example-margin" color="primary">Autorización</mat-checkbox>
-      </section>
-      <mat-card-actions>
-        <button mat-raised-button color="primary" (click)="openDialog()">REGISTER</button>
-      </mat-card-actions>
-    </form>
-  </mat-card-content>
+        <mat-form-field class="full-width">
+          <mat-label>Razón Social</mat-label>
+          <input  matInput  placeholder="Ingrese su razón social" name="u_rsocial"  required>
+          <mat-icon matPrefix>spellcheck</mat-icon>
+        </mat-form-field>
 
+        <section class="section check" >
+          <mat-checkbox class="example-margin" color="primary">Acepto Condiciones</mat-checkbox>
+        </section>
+
+        <section class="section check" >
+          <mat-checkbox class="example-margin" color="primary">Autorización</mat-checkbox>
+        </section>
+        <mat-card-actions>
+          <button mat-raised-button color="primary" (click)="openDialog()">REGISTER</button>
+        </mat-card-actions>
+      </form>
+    </mat-card-content>
+  </div>
 </mat-card>
-
-
 </body>
