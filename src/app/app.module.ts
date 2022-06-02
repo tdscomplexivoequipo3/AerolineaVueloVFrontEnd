@@ -9,6 +9,7 @@ import {MaterialModule} from "../material/material.module";
 import { RegistroComponent } from './componentes/register/register.component';
 import {FormsModule} from "@angular/forms";
 import {RegistroUserComponent} from "./componentes/register/register.component";
+import { HeaderComponent } from './layout/header/header.component';
 
 
 const routes: Routes = [
@@ -22,7 +23,8 @@ const routes: Routes = [
     LoginComponent,
     RegistroVuelosComponent,
     RegistroComponent,
-    RegistroUserComponent
+    RegistroUserComponent,
+    HeaderComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
