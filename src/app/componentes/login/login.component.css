@@ -4,10 +4,6 @@
   width: 100%;
 }
 
-.full-width {
-  width: 100%;
-}
-
 .mat-card .text {
   margin: 0;
 }
@@ -80,6 +76,34 @@ body {
 
 .border{
   background-color: #ffffff;
+}
+
+
+.full-width{
+  background-color:rgba(0,0,0,0.035);
+  border-left: 1px solid rgba(0,0,0,0.4);
+  color:black;
+  margin-top: 10px;
+  padding-top: 5px;
+  border-radius: 10px;
+  width: 100%;
+}
+
+::ng-deep.mat-form-field-underline {
+  /*change color of underline*/
+  background-color: rgba(0,0,0,0.1) !important;
+  margin-left: 10px !important;
+  width: 95% !important;
+}
+
+::ng-deep.mat-form-field-ripple {
+  /*change color of underline when focused*/
+  background-color: rgba(98, 0, 238, 0.2) !important;
+}
+
+.mat-icon{
+  margin-right: 10px;
+  margin-left: 10px;
 }
 
 
