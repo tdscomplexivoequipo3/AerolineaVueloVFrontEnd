@@ -1,1 +1,41 @@
-<p>header works!</p>
+
+  <mat-toolbar color="primary">
+    <span>My Application</span>
+    <button mat-button [matMenuTriggerFor]="aboveMenu">Ofertas y destinos</button>
+    <mat-menu #aboveMenu="matMenu" yPosition="above">
+      <button mat-menu-item>Administra tus viajes</button>
+      <button mat-menu-item>Check In</button>
+    </mat-menu>
+
+    <button mat-button [matMenuTriggerFor]="belowMenu">Mis viajes</button>
+    <mat-menu #belowMenu="matMenu" yPosition="below">
+      <button mat-menu-item>Item 1</button>
+      <button mat-menu-item>Item 2</button>
+    </mat-menu>
+
+    <button mat-button [matMenuTriggerFor]="beforeMenu">Centro de Ayuda</button>
+    <mat-menu #beforeMenu="matMenu" xPosition="before">
+      <button mat-menu-item>Item 1</button>
+      <button mat-menu-item>Item 2</button>
+    </mat-menu>
+
+    <span class="example-spacer">
+
+    </span>
+    <button mat-button [matMenuTriggerFor]="belowMenu" class="boton">Estado de Vuelo</button>
+    <mat-menu #belowMenu="matMenu" yPosition="below">
+      <button mat-menu-item>Item 1</button>
+      <button mat-menu-item>Item 2</button>
+    </mat-menu>
+    <button mat-button [matMenuTriggerFor]="belowMenu" class="boton">Iniciar Sesion</button>
+    <mat-menu #belowMenu="matMenu" yPosition="below">
+      <button mat-menu-item>Item 1</button>
+      <button mat-menu-item>Item 2</button>
+    </mat-menu>
+
+
+
+  </mat-toolbar>
+
+
+
