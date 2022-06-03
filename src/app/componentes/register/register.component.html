@@ -84,3 +84,33 @@
   </div>
 </mat-card>
 </body>
+
+<ng-template #dialoguser>
+        <form class="dialog">
+          <img src="https://cdn.icon-icons.com/icons2/1746/PNG/512/4047342-air-aircraft-airline-airliner-airplane-airport-airway_113505.png">
+          <h3>REGISTRO DE USUARIO</h3>
+          <mat-form-field class="full-width-dialog">
+            <mat-label>Usuario</mat-label>
+            <input  matInput  placeholder="Ingrese su nombre"  name="fname"  required>
+            <mat-icon matSuffix >email</mat-icon>
+          </mat-form-field>
+          <mat-form-field class="full-width-dialog">
+            <mat-label>Contraseña</mat-label>
+            <input  matInput  placeholder="Ingrese su Contraseña" name="lname"
+                    [type]="hide ? 'password' : 'text'"
+                    required>
+            <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </mat-form-field>
+          <mat-form-field class="full-width-dialog">
+            <mat-label>Contraseña</mat-label>
+            <input  matInput  placeholder="Repita la Contraseña" name="lname"
+                    [type]="hide_r ? 'password' : 'text'"
+                    required>
+            <mat-icon matSuffix (click)="hide_r = !hide_r">{{hide_r ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </mat-form-field>
+          <mat-card-actions class="card_actions">
+            <button mat-raised-button color="warn" (click)="closeDialog()">CANCELAR</button>
+            <button mat-stroked-button color="primary"  >CONTINUAR</button>
+          </mat-card-actions>
+        </form>
+</ng-template>

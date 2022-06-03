@@ -1,10 +1,5 @@
-import {Component, Inject, OnInit} from '@angular/core';
+import {Component, Inject, OnInit, TemplateRef, ViewChild} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from "@angular/material/dialog";
-
-export interface DialogData {
-  usuario: string;
-  clave: string;
-}
 
 @Component({
   selector: 'app-registro',
@@ -13,8 +8,11 @@ export interface DialogData {
 })
 export class RegistroComponent {
 
-  usuario?: string;
-   clave?: string;
+  @ViewChild('dialoguser')
+  dialoguser!: TemplateRef<any>;
+
+  hide=true;
+  hide_r=true;
 
   constructor(public dialog: MatDialog) { }
 
@@ -22,30 +20,13 @@ export class RegistroComponent {
   }
 
   openDialog(): void {
-    const dialogRef = this.dialog.open(RegistroUserComponent, {
-      width: '450px',
-      data: {name: this.usuario, animal: this.clave},
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      this.usuario = result;
-    });
+    this.dialog.open(this.dialoguser);
   }
+
+  closeDialog():void{
+    this.dialog.closeAll();
+  }
+
 }
 
-@Component({
-  selector: 'dialog-register',
-  templateUrl: 'dialog_users.html',
-  styleUrls: ['./register.component.css']
-})
-export class RegistroUserComponent {
-  constructor(
-    public dialogRef: MatDialogRef<RegistroComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData,
-  ) {}
 
-  onNoClick(): void {
-    this.dialogRef.close();
-  }
-}

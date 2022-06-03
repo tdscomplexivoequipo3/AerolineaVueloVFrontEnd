@@ -148,3 +148,51 @@ body {
   margin-top: 20px;
   width: 50%;
 }
+
+.dialog{
+  margin: 0;
+  padding: 0;
+}
+
+
+.full-width-dialog {
+  width: 90%;
+  background-color:rgba(0,0,0,0);
+  color:black;
+  padding-top: 5px;
+  border-radius: 10px;
+}
+
+.dialog{
+  text-align: center;
+  width: 350px;
+}
+
+.dialog img {
+  width: 100px;
+  padding: 0;
+  margin: 0;
+}
+
+.dialog h3 {
+  padding: 0;
+  margin: 0;
+}
+
+
+.card_actions{
+  text-align: center;
+  margin-top: 0%;
+  width: 100%;
+}
+
+
+.card_actions button{
+  margin-top: 20px;
+  width: 40%;
+}
+
+.mat-stroked-button{
+  color: black;
+  border: 1px solid black;
+}
