@@ -1,0 +1,51 @@
+
+<body>
+
+<mat-card class="my-card">
+  <mat-card-content>
+    <form class="my-form">
+      <mat-card-title>REGISTRO DE VUELOS</mat-card-title>
+      <mat-card-subtitle>Vuelos de V5</mat-card-subtitle>
+      <br>
+      <mat-form-field class="full-width">
+        <mat-label>Origen</mat-label>
+        <input  matInput  placeholder="Ingrese el lugar de origen"  name="origen"  required>
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <mat-label>Destino</mat-label>
+        <input  matInput  placeholder="Ingrese el lugar de destino" name="destino"  required>
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <mat-label>Precio</mat-label>
+        <input  matInput  placeholder="Ingrese el precio " name="precio"  required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Seleccione el tipo de vuelo</mat-label>
+        <mat-select required>
+          <mat-option value="option1">Comercial</mat-option>
+          <mat-option value="option2">Charter</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Estado</mat-label>
+        <mat-select required>
+          <mat-option value="option1">Activo</mat-option>
+          <mat-option value="option2">Pendiente</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-card-actions>
+        <button mat-raised-button color="primary">GUARDAR</button>
+      </mat-card-actions>
+    </form>
+  </mat-card-content>
+
+</mat-card>
+
+
+</body>
+
