@@ -12,9 +12,12 @@ import { HeaderComponent } from './layout/header/header.component';
 import { ReservaUsuarioComponent } from './componentes/reservas/reserva-usuario/reserva-usuario.component';
 import {FooterComponent} from "./layout/footer/footer.component";
 import {RegisterCitiesComponent} from "./componentes/register-cities/register-cities.component";
+import { HeaderadComponent } from './layoutadmin/headerad/headerad.component';
+import { SliderComponent } from './layoutadmin/slider/slider.component';
 
 const routes: Routes = [
-  {path:'', component:LoginComponent},
+  {path:'', component:HeaderComponent},
+  {path:'login', component:LoginComponent},
   {path:'registro', component:RegistroComponent},
   {path:'reservas', component:ReservaUsuarioComponent},
   {path:'registro/vuelos', component:RegistroVuelosComponent},
@@ -31,7 +34,9 @@ const routes: Routes = [
     ReservaUsuarioComponent,
     FooterComponent,
     RegistroVuelosComponent,
-    RegisterCitiesComponent
+    RegisterCitiesComponent,
+    HeaderadComponent,
+    SliderComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
