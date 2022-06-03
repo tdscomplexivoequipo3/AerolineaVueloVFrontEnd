@@ -9,10 +9,12 @@ import {MaterialModule} from "../material/material.module";
 import { RegistroComponent } from './componentes/register/register.component';
 import {FormsModule} from "@angular/forms";
 import { HeaderComponent } from './layout/header/header.component';
+import { ReservaUsuarioComponent } from './componentes/reservas/reserva-usuario/reserva-usuario.component';
 
 const routes: Routes = [
   {path:'', component:LoginComponent},
-  {path:'registro', component:RegistroComponent}
+  {path:'registro', component:RegistroComponent},
+  {path:'reservas', component:ReservaUsuarioComponent}
 ]
 
 @NgModule({
@@ -21,7 +23,8 @@ const routes: Routes = [
     LoginComponent,
     RegistroVuelosComponent,
     RegistroComponent,
-    HeaderComponent
+    HeaderComponent,
+    ReservaUsuarioComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
