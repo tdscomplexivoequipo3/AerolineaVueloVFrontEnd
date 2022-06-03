@@ -5,9 +5,9 @@ import {Observable} from "rxjs";
 @Injectable({
   providedIn: 'root'
 })
-export class PlaneServiceService {
+export class CityService{
 
-  base_url="http://localhost:9898/api/client/";
+  base_url="http://localhost:9898/api/ciudad/";
 
   constructor(private httpClient:HttpClient) {
   }

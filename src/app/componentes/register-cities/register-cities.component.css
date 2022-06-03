@@ -4,11 +4,44 @@ table {
 .center{
   margin: 0 5%;
 }
-.mat-form-field {
+mat-form-field {
   font-size: 14px;
-  width: 100%;
+  width: 90%;
+}
+
+div mat-form-field .filter {
+  font-size: 14px;
+  width: 20%;
+  margin: 0 5%;
 }
 
 td, th {
   width: 25%;
+}
+
+.btnEli{
+  background: #F65B3A;
+  border-radius: 5px;
+}
+
+.btnEli:hover{
+  background: red;
+  cursor: pointer;
+  transition: .5s;
+}
+
+.btnEdi{
+  background: #428bca;
+  border-radius: 5px;
+}
+
+.btnEdi:hover{
+  background: blue;
+  cursor: pointer;
+  transition: .5s;
+}
+
+button{
+  border: transparent;
+  background-color: transparent;
 }

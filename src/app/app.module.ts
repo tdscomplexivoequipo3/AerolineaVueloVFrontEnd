@@ -10,11 +10,15 @@ import { RegistroComponent } from './componentes/register/register.component';
 import {FormsModule} from "@angular/forms";
 import { HeaderComponent } from './layout/header/header.component';
 import { ReservaUsuarioComponent } from './componentes/reservas/reserva-usuario/reserva-usuario.component';
+import {FooterComponent} from "./layout/footer/footer.component";
+import {RegisterCitiesComponent} from "./componentes/register-cities/register-cities.component";
 
 const routes: Routes = [
   {path:'', component:LoginComponent},
   {path:'registro', component:RegistroComponent},
-  {path:'reservas', component:ReservaUsuarioComponent}
+  {path:'reservas', component:ReservaUsuarioComponent},
+  {path:'registro/vuelos', component:RegistroVuelosComponent},
+  {path:'registro/vuelos/cities', component:RegisterCitiesComponent}
 ]
 
 @NgModule({
@@ -24,7 +28,10 @@ const routes: Routes = [
     RegistroVuelosComponent,
     RegistroComponent,
     HeaderComponent,
-    ReservaUsuarioComponent
+    ReservaUsuarioComponent,
+    FooterComponent,
+    RegistroVuelosComponent,
+    RegisterCitiesComponent
   ],
   imports: [
     RouterModule.forRoot(routes),

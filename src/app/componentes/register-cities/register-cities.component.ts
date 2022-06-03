@@ -13,7 +13,7 @@ import {MatDialog} from "@angular/material/dialog";
 export class RegisterCitiesComponent implements OnInit {
   city:Cities=new Cities();
 
-  displayedColumns: string[] = ['id', 'name', 'progress', 'fruit'];
+  displayedColumns: string[] = ['id', 'nombre', 'estado', 'edit','delete'];
   // @ts-ignore
   dataSource: MatTableDataSource<Cities>;
 
@@ -28,7 +28,12 @@ export class RegisterCitiesComponent implements OnInit {
 
   constructor(public dialog: MatDialog) { }
 
+
   ngOnInit(): void {
+    this.city.id=1;
+    this.city.nombre="Cuenca";
+    this.city.estado=true;
+    this.listcities.push(this.city);
     this.dataSource = new MatTableDataSource(this.listcities);
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
