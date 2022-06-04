@@ -1,7 +1,12 @@
+body{
+  height: 100%;
+  background-color: #1d4f71;
+}
+
 nav {
   position: relative;
   width: 230px;
-  height: 770px;
+  height: 100%;
 }
 
 nav ul {

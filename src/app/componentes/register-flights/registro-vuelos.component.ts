@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {GlobalConstants} from "../../common/GlobalConstants";
 
 @Component({
   selector: 'app-register-flights',
@@ -7,7 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegistroVuelosComponent implements OnInit {
 
-  constructor() { }
+  public classReference = GlobalConstants;
+  constructor() {
+    this.classReference.apiURL="employe";
+  }
 
   ngOnInit(): void {
   }

@@ -1,6 +1,20 @@
+<div class="container" *ngIf="classReference.apiURL == 'employe'">
 
-<app-header *ngIf="{{bandera}}"></app-header>
-<router-outlet></router-outlet>
+  <div class="menu">
+    <app-headerad ></app-headerad>
+  </div>
+
+  <div class="seccion2">
+    <router-outlet></router-outlet>
+  </div>
+
+</div>
+
+<div class="container_part2" *ngIf="classReference.apiURL != 'employe'">
+    <app-header ></app-header>
+    <router-outlet></router-outlet>
+</div>
+
 
 
 

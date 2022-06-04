@@ -16,12 +16,11 @@ import { HeaderadComponent } from './layoutadmin/headerad/headerad.component';
 import { SliderComponent } from './layoutadmin/slider/slider.component';
 
 const routes: Routes = [
-  {path:'', component:HeaderComponent},
-  {path:'login', component:LoginComponent},
+  {path:'', component:LoginComponent},
   {path:'registro', component:RegistroComponent},
   {path:'reservas', component:ReservaUsuarioComponent},
   {path:'registro/vuelos', component:RegistroVuelosComponent},
-  {path:'registro/vuelos/cities', component:RegisterCitiesComponent}
+  {path:'registro/vuelos/cities', component:RegisterCitiesComponent},
 ]
 
 @NgModule({

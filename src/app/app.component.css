@@ -1,0 +1,26 @@
+.container{
+  padding: 0px;
+  margin: 0px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: 100%;
+  width: 100%;
+}
+
+.menu{
+  height: 100%;
+  width: 20%;
+}
+
+.seccion2{
+  height: auto;
+  width: 80%;
+}
+
+.container_part2{
+  padding: 0px;
+  margin: 0px;
+  height: 100%;
+}
+

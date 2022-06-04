@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from "@angular/router";
+import {GlobalConstants} from "../../../common/GlobalConstants";
 
 @Component({
   selector: 'app-reserva-usuario',
@@ -7,7 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReservaUsuarioComponent implements OnInit {
 
-  constructor() { }
+
+  public classReference = GlobalConstants;
+  constructor(private _router: Router) {
+    this.classReference.apiURL="no_employe";
+  }
 
   ngOnInit(): void {
   }

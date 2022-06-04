@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Plane} from "../../models/Plane";
+import {GlobalConstants} from "../../common/GlobalConstants";
+
 
 @Component({
   selector: 'app-login',
@@ -8,9 +9,14 @@ import {Plane} from "../../models/Plane";
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  public classReference = GlobalConstants;
+
+  constructor(){
+    this.classReference.apiURL="no_employe";
+  }
 
   ngOnInit(): void {
+
   }
 
 }

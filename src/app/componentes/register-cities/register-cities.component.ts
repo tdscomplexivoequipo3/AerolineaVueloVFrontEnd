@@ -4,6 +4,7 @@ import {MatPaginator} from "@angular/material/paginator";
 import {MatSort} from "@angular/material/sort";
 import {Cities} from "../../models/Cities";
 import {MatDialog} from "@angular/material/dialog";
+import {GlobalConstants} from "../../common/GlobalConstants";
 
 @Component({
   selector: 'app-register-cities',
@@ -26,7 +27,10 @@ export class RegisterCitiesComponent implements OnInit {
   @ViewChild('dialogcities')
   dialogcities!: TemplateRef<any>;
 
-  constructor(public dialog: MatDialog) { }
+  public classReference = GlobalConstants;
+  constructor(public dialog: MatDialog) {
+    this.classReference.apiURL="employe";
+  }
 
 
   ngOnInit(): void {

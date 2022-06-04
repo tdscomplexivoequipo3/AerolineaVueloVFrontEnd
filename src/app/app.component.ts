@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {Router} from "@angular/router";
+import {GlobalConstants} from "./common/GlobalConstants";
 
 @Component({
   selector: 'app-root',
@@ -6,7 +8,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  bandera:boolean=true;
-
   title = 'vueloV5';
+
+  public classReference = GlobalConstants;
+
+  constructor(private _router: Router){}
+
 }
