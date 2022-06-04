@@ -14,6 +14,7 @@ import {FooterComponent} from "./layout/footer/footer.component";
 import {RegisterCitiesComponent} from "./componentes/register-cities/register-cities.component";
 import { HeaderadComponent } from './layoutadmin/headerad/headerad.component';
 import { SliderComponent } from './layoutadmin/slider/slider.component';
+import{InicioComponent} from "./layout/inicio/inicio.component";
 
 const routes: Routes = [
   {path:'', component:LoginComponent},
@@ -35,7 +36,8 @@ const routes: Routes = [
     RegistroVuelosComponent,
     RegisterCitiesComponent,
     HeaderadComponent,
-    SliderComponent
+    SliderComponent,
+    InicioComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
