@@ -14,6 +14,9 @@ import {FooterComponent} from "./layout/footer/footer.component";
 import {RegisterCitiesComponent} from "./componentes/register-cities/register-cities.component";
 import { HeaderadComponent } from './layoutadmin/headerad/headerad.component';
 import { SliderComponent } from './layoutadmin/slider/slider.component';
+import {HttpClientModule} from "@angular/common/http";
+import {UsuarioService} from "./services/Usuario.service";
+
 
 const routes: Routes = [
   {path:'', component:LoginComponent},
@@ -42,9 +45,10 @@ const routes: Routes = [
     BrowserModule,
     FormsModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [UsuarioService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

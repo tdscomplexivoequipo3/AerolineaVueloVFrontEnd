@@ -10,44 +10,46 @@
       <form class="my-form">
         <mat-form-field class="full-width">
           <mat-label>Nombre</mat-label>
-          <input  matInput  placeholder="Ingrese su nombre"  name="fname"  required>
+          <input [(ngModel)]="objeto.nombres" matInput  placeholder="Ingrese su nombre"  name="nombres"  required>
           <mat-icon matPrefix>perm_identity</mat-icon>
         </mat-form-field>
 
         <mat-form-field class="full-width">
           <mat-label>Apellido</mat-label>
-          <input  matInput  placeholder="Ingrese su apellido" name="lname"  required>
+          <input  matInput   [(ngModel)]="objeto.apellidos" placeholder="Ingrese su apellido" name="apellidos"  required>
           <mat-icon matPrefix>perm_identity</mat-icon>
         </mat-form-field>
 
         <mat-form-field class="full-width">
           <mat-label>Identificación</mat-label>
-          <input  matInput  placeholder="Ingrese su Cedúla" name="u_identificacion"  required>
+          <input  [(ngModel)]="objeto.doc_identificacion" matInput  placeholder="Ingrese su Cedúla" name="docIdentificacion"  required>
           <mat-icon matPrefix>fingerprint</mat-icon>
         </mat-form-field>
 
         <mat-form-field  class="full-width-select">
           <mat-label>Seleccione su País de nacimiento</mat-label>
-          <mat-select >
-            <mat-option value="option1">Ecuador</mat-option>
-            <mat-option value="option2">Colombia</mat-option>
-            <mat-option value="option3">Perú</mat-option>
+          <mat-select [(ngModel)]="objeto.pais" name="pais">
+            <mat-option value="ecuador">Ecuador</mat-option>
+            <mat-option value="colombia">Colombia</mat-option>
+            <mat-option value="perú">Perú</mat-option>
           </mat-select>
         </mat-form-field>
 
         <mat-form-field class="full-width-date" >
           <mat-label>Fecha de Nacimiento</mat-label>
-          <input matInput [matDatepicker]="picker" placeholder="d/m/yyyy">
+          <input [(ngModel)]="objeto.fechaNacimiento"
+                 name="fechaNacimiento"
+                 matInput [matDatepicker]="picker" placeholder="d/m/yyyy">
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
 
         <section class="selector">
           <h4>Genéro: </h4>
-          <mat-button-toggle-group  aria-label="Font Style">
-            <mat-button-toggle value="bold">Hombre</mat-button-toggle>
-            <mat-button-toggle value="italic">Mujer</mat-button-toggle>
-            <mat-button-toggle value="underline">Prefiero no decir</mat-button-toggle>
+          <mat-button-toggle-group [(ngModel)]="objeto.genero"  name="genero" aria-label="Font Style">
+            <mat-button-toggle value="hombre">Hombre</mat-button-toggle>
+            <mat-button-toggle value="mujer">Mujer</mat-button-toggle>
+            <mat-button-toggle value="no_quiere_decir">Prefiero no decir</mat-button-toggle>
           </mat-button-toggle-group>
         </section>
 
@@ -55,26 +57,30 @@
         <mat-form-field class="full-width" >
           <mat-label>Telefono</mat-label>
           <span matPrefix>+1 &nbsp;</span>
-          <input type="tel" matInput placeholder="555-555-1234">
+          <input [(ngModel)]="objeto.telefono"  name="telefono" type="tel" matInput placeholder="555-555-1234">
           <mat-icon matSuffix>mode_edit</mat-icon>
         </mat-form-field>
 
         <mat-form-field class="full-width">
           <mat-label>Razón Social</mat-label>
-          <input  matInput  placeholder="Ingrese su razón social" name="u_rsocial"  required>
+          <input [(ngModel)]="objeto.razonSocial"
+                 matInput  placeholder="Ingrese su razón social" name="razonSocial"  required>
           <mat-icon matPrefix>spellcheck</mat-icon>
         </mat-form-field>
 
-        <section class="section check" >
-          <mat-checkbox class="example-margin" color="primary">Acepto Condiciones</mat-checkbox>
+        <section class="section check"
+                 >
+          <mat-checkbox class="example-margin" color="primary"  [(ngModel)]="objeto.terminosCondiciones" name="terminosCondiciones" value="true">Acepto Condiciones</mat-checkbox>
         </section>
 
         <section class="section check" >
-          <mat-checkbox class="example-margin" color="primary">Autorización</mat-checkbox>
+          <mat-checkbox class="example-margin" color="primary" [(ngModel)]="objeto.autorizacion" name="autorizacion"value="true">Autorización</mat-checkbox>
         </section>
+
         <mat-card-actions>
           <button mat-raised-button color="primary" (click)="openDialog()">REGISTER</button>
         </mat-card-actions>
+
       </form>
     </mat-card-content>
   </div>
@@ -83,16 +89,16 @@
 
 <ng-template #dialoguser>
         <form class="dialog">
-          <img src="https://cdn.icon-icons.com/icons2/1746/PNG/512/4047342-air-aircraft-airline-airliner-airplane-airport-airway_113505.png">
+          <img src="assets/icon.png">
           <h3>REGISTRO DE USUARIO</h3>
           <mat-form-field class="full-width-dialog">
             <mat-label>Usuario</mat-label>
-            <input  matInput  placeholder="Ingrese su nombre"  name="fname"  required>
+            <input  matInput type="email" [(ngModel)]="objeto.email" placeholder="Ingrese su email"  name="email"  required>
             <mat-icon matSuffix >email</mat-icon>
           </mat-form-field>
           <mat-form-field class="full-width-dialog">
             <mat-label>Contraseña</mat-label>
-            <input  matInput  placeholder="Ingrese su Contraseña" name="lname"
+            <input  matInput [(ngModel)]="objeto.clave"  placeholder="Ingrese su Contraseña" name="clave"
                     [type]="hide ? 'password' : 'text'"
                     required>
             <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
@@ -106,7 +112,7 @@
           </mat-form-field>
           <mat-card-actions class="card_actions">
             <button mat-raised-button color="warn" (click)="closeDialog()">CANCELAR</button>
-            <button mat-stroked-button color="primary" >CONTINUAR</button>
+            <button mat-stroked-button color="primary" (click)="registrar()" >CONTINUAR</button>
           </mat-card-actions>
         </form>
 </ng-template>

@@ -1,15 +1,16 @@
-<body >
-<nav class='animated bounceInDown bg-dark'  >
+<body>
+
+<nav class="nav navbar-nav item">
   <ul>
-    <li class='sub-menu'><a>Viajes<div class='fa fa-caret-down right'></div></a>
+    <li ><a>Viajes<div ></div></a>
       <ul>
-        <li><a >Lista de Viajes</a></li>
-        <li><a >Registro de Viajes</a></li>
+        <li><a [routerLink]="['registro/vuelos/cities']" routerLinkActive="active" >Lista de Viajes</a></li>
+        <li><a [routerLink]="['registro/vuelos']">Registro de Viajes</a></li>
       </ul>
     </li>
-    <li class='sub-menu'><a>Transporte<div class='fa fa-caret-down right'></div></a>
+    <li ><a>Transporte<div ></div></a>
       <ul>
-        <li><a >Reserva</a></li>
+        <li><a href='/filtro'>Reserva</a></li>
       </ul>
     </li>
 
