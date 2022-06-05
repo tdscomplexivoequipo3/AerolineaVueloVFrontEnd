@@ -13,6 +13,7 @@ export  class  UsuarioService  {
   private httpHeaders = new HttpHeaders({'Content-Type':'application/json'});
   private url: string = this.urlEndPoint + '/signup';
   private url_l: string = this.urlEndPoint + '/login';
+  //:v
 
   constructor(private http_client:HttpClient) { }
 
