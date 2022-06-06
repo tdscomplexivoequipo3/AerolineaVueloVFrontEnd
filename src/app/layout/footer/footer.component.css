@@ -1,4 +1,8 @@
 .footer{
   height: 150px;
-  background-color: #ECECEE;
+  background-color: #12171A;
+  text-align: center;
+}
+.example-spacer{
+  flex: 1 1 auto;
 }

@@ -7,7 +7,6 @@
   </div>
 
 </div>
-
 <div class="principal">
   <div class="divDatos">
     <mat-tab-group mat-align-tabs="start" class="textd">
@@ -26,10 +25,69 @@
         Content 1
       </mat-tab>
     </mat-tab-group>
+  </div>
+</div>
+<div>
+  <div class="divCovid">
+    <div class="izquierda">
+      <h2 class="textoCovid">	<mat-icon>face</mat-icon><i>Informacion sobre covid-19</i></h2>
+      <p>En nuestro Centro de información COVID-19 encontrarás todo lo necesario para viajar, cambiar tu vuelo, documentación y más.</p>
+    </div>
+    <div class="derecha">
+      <mat-toolbar class="barra">
+        <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+          <mat-icon> list_alt</mat-icon>Requisitos para tus viajes
+        </button>
+        <span class="example-spacer"></span>
+        <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+          <mat-icon>keyboard_arrow_right</mat-icon>
+        </button>
+      </mat-toolbar>
+      <hr>
+    </div>
 
   </div>
-
-
+</div>
+<div class="divCiudades">
+<h2>Ofertas de Vuelo desde  <mat-form-field >
+  <select matNativeControl required>
+    <option value="volvo">Cuenca</option>
+    <option value="saab">Machala</option>
+    <option value="mercedes">Quito</option>
+    <option value="audi">Guayaquil</option>
+  </select>
+</mat-form-field>
+</h2>
+</div>
+<div class="content" >
+    <div  *ngFor="let num of [1,2,3]" >
+      <mat-card class="mat-elevation-z4" >
+        <img mat-card-img src="https://ep01.epimg.net/elviajero/imagenes/2021/03/18/actualidad/1616073644_501302_1616076295_noticia_normal.jpg" alt="logo" width="100%">
+        <mat-card-content >
+          <h1>
+            Cuenca
+          </h1>
+        </mat-card-content>
+        <mat-card-actions style="text-align: right">
+          <button mat-button color="warn"><mat-icon>trending_flat</mat-icon></button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+</div>
+<div class="divCiudades">
+  <a href="" style="text-decoration: none;font-size: large">Términos y condiciones generales<mat-icon color="warn">open_in_new</mat-icon></a>
+</div>
+<div class="divPromociones">
+  <a href="" style="text-decoration: none">
+    <div class="divContIzquierda">
+    </div>
+    Promoción 1
+  </a>
+  <a href="" style="text-decoration: none">
+    <div class="divContDerecha">
+    </div>
+    Promoción 2
+  </a>
 </div>
 
 

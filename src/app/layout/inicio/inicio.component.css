@@ -1,14 +1,14 @@
 .principal{
-  background: white;
+  background: transparent;
   display: flex;
   justify-content: center;
   height: 51%;
+
 }
 .carusel{
   background-image: url("https://www.xtrafondos.com/descargar.php?id=5846&resolucion=2560x1440");
   height: 450px;
   width: 1400px;
-  border-style: solid;
   border-radius: 20px;
   display: flex;
   justify-content: center;
@@ -37,16 +37,135 @@
   display: flex;
 }
 .divDatos{
-  background-color: transparent;
-  height: 100px;
+  background-color: Transparent;
+  height: 250px;
   width: 1200px;
   display: flex;
   justify-content: left;
-  align-items: center;
+  align-items: flex-start;
+  border-radius: 10px;
+  border-style: solid;
+  margin: 25px auto;
+  border: 1px solid #ccc;
+  border-top-color: transparent;
+  box-shadow: 1px -3px 10px #592A08;
+  position: relative;
+  top: -28px;
+}
+.divCovid{
+  background-color: Transparent;
+  height: 188px;
+  width: 1200px;
+  display: flex;
+  justify-content: left;
+  align-items: flex-start;
+  border-radius: 10px;
+  border-style: solid;
+  margin: 25px auto;
+  border: 1px solid #ccc;
+  border-top-color: transparent;
+  box-shadow: 1px 1px 2px #592A08;
+  position: relative;
+  top: -116px;
 }
 .textd{
   color:black;
   background-color: white;
   border-radius: 5px;
+}
+.barra{
+  background-color: transparent;
+}
+.example-spacer{
+  flex: 1 1 auto;
+}
+.izquierda{
+  width: 600px;
+  text-align: -moz-left;
+}
+.derecha{
+  width: 600px;
+  text-align: -webkit-center;
+  position: relative;
+  top: 21px;
+}
+.textoCovid{
+  font-family:"fangsong";
+  position: relative;
+  top:10px;
+  text-align: center;
+  color: #541788;
+}
+.divCiudades{
+  background-color: Transparent;
+  height: 188px;
+  width: 1200px;
+  display: flex;
+  justify-content: left;
+  align-items: flex-start;
+  border-radius: 10px;
+  margin: 25px auto;
+  border-top-color: transparent;
+  position: relative;
+  top: -116px;
+  font-family: "fangsong";
+}
+.content{
+  padding: 16px;
+  background-color: Transparent;
+  height: 400px;
+  width: 1200px;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10px;
+  margin: 25px auto;
+  border-top-color: transparent;
+  position: relative;
+  top: -189px;
+}
+.content> mat-card{
+width: 300px;
+  height: 200px;
+  justify-content: space-between;
+  display: inline-block;
+}
+.divPromociones{
+  background-color: Transparent;
+  height: 188px;
+  width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-radius: 10px;
+  margin: 25px auto;
+  border-top-color: transparent;
+  position: relative;
+  top: -269px;
+}
+.divContIzquierda{
+  width: 590px;
+  height: 120px;
+  position: relative;
+  top: 21px;
+  background-image: url("https://www.caf.com/media/2244138/los-paisajes-de-roberto-burle-marx-iluminan-artespacio-4.jpg");
+  border-radius: 10px;
+  margin: 25px auto;
+  border: 1px solid #ccc;
+  border-top-color: transparent;
+  box-shadow: 1px -3px 10px #592A08;
+
+}
+.divContDerecha{
+  width: 590px;
+  height: 120px;
+  position: relative;
+  top: 21px;
+  background-image: url("https://www.creaxid.com.mx/blog/wp-content/uploads/2017/02/la-promocion-de-ventas.jpg");
+  border-radius: 10px;
+  margin: 25px auto;
+  border: 1px solid #ccc;
+  border-top-color: transparent;
+  box-shadow: 1px -3px 10px #592A08;
 }
 

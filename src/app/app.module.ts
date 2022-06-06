@@ -16,6 +16,7 @@ import { HeaderadComponent } from './layoutadmin/headerad/headerad.component';
 import { SliderComponent } from './layoutadmin/slider/slider.component';
 import {HttpClientModule} from "@angular/common/http";
 import {UsuarioService} from "./services/Usuario.service";
+import {InicioComponent} from "./layout/inicio/inicio.component";
 
 
 const routes: Routes = [
@@ -38,7 +39,8 @@ const routes: Routes = [
     RegistroVuelosComponent,
     RegisterCitiesComponent,
     HeaderadComponent,
-    SliderComponent
+    SliderComponent,
+    InicioComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
