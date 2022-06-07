@@ -1,0 +1,40 @@
+<div class="principal1">
+  <div class="divIzquierda">
+    <div class="textoInfo">
+      <h1 style="color: white">Conoce el Estado <br> del Vuelo <mat-icon>flight_takeoff</mat-icon></h1>
+      <p style="color: white"> Manténte informado de los horarios
+        actualizados de salida y llegada de tu vuelo</p>
+    </div>
+
+  </div>
+  <div class="divDerecha">
+    <div class="formulario">
+      <h2>Buscar un Vuelo</h2>
+      <p>Ingresa los datos para encontrar tu abuelo</p>
+      <p>
+        <mat-form-field appearance="outline" >
+          <mat-label>Numero de Vuelo</mat-label>
+          <input matInput placeholder="Vuelo">
+          <mat-icon matSuffix>find_in_page</mat-icon>
+        </mat-form-field>
+      </p>
+      <mat-form-field appearance="outline" class="example-form-field">
+        <mat-label>Fecha de Vuelo</mat-label>
+        <input matInput [matDatepicker]="datepicker" placeholder="7/7/2022">
+        <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
+        <mat-datepicker #datepicker>
+          <mat-datepicker-actions>
+            <button mat-button matDatepickerCancel>Cancelar</button>
+            <button mat-raised-button color="primary" matDatepickerApply>Aplicar</button>
+          </mat-datepicker-actions>
+        </mat-datepicker>
+      </mat-form-field>
+      <br>
+      <div class="example-button-row">
+        <button mat-flat-button color="primary" style="width: 228px" (click)="openDialog()">Buscar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+

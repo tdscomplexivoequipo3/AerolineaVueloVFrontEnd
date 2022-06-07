@@ -168,4 +168,7 @@ width: 300px;
   border-top-color: transparent;
   box-shadow: 1px -3px 10px #592A08;
 }
+.divContenedor{
+  padding: 16px;
+}
 
