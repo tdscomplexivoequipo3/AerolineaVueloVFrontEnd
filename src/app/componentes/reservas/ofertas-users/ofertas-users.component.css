@@ -1,0 +1,160 @@
+body{
+  margin: 0;
+  padding: 0;
+  height: auto;
+}
+
+.generic{
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.general{
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-auto-rows: 100%;
+
+}
+
+.left{
+  grid-column: 1/2;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.05);
+  border-right: 1px solid white;
+}
+
+.rigth{
+  grid-column: 2/3;
+  margin-left: 10px;
+}
+
+.c_fechas{
+  padding: 10px;
+  border-top: 2px solid #151633;
+  border-left: 2px solid #151633;
+  border-bottom: 2px solid rgba(0,0,0,0);
+  border-right: 2px solid rgba(0,0,0,0);
+  width: 1fr;
+  height: auto;
+  border-radius: 10px;
+  color: rgba(40, 40, 40, 1);
+  box-shadow:  -4px -3px rgba(0, 0, 0, 0.1);
+}
+
+.c_fechas:hover{
+  transition: margin .4s;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+h4{
+  margin: 0;
+  padding: 0;
+
+}
+p{
+  margin: 0;
+  padding: 0;
+
+}
+
+h3{
+  margin: 0;
+  padding: 0;
+}
+
+.enca{
+  display: flex;
+  flex-direction: row;
+}
+
+.mat-icon{
+  font-size: 30px;
+  margin-left: auto;
+
+}
+
+.total{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.fondo_inicial{
+  width: 100%;
+  height: 350px;
+}
+
+@supports(object-fit: cover){
+  .fondo_inicial img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center center;
+  }
+}
+
+.title{
+  margin-left: 20px;
+  position: absolute;
+  top: 30%;
+  right: 75%;
+  color: white;
+}
+
+.vuelos{
+  display: flex;
+  flex-direction: column;
+}
+
+.vuelos_g{
+  display: flex;
+  flex-direction: row;
+  margin-right: 5%;
+  margin-left: 5%;
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 1);
+}
+
+
+.v_left{
+  margin-left: 10px;
+}
+
+.duracion,.partida{
+ margin-left: 60px;
+}
+
+.v_rigth{
+  margin-left: auto;
+}
+
+.options{
+border: 1px solid #512DA8;
+  margin-right: 5%;
+  margin-top: 5px;
+  margin-left: 10%;
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+}
+
+.optionif{
+  margin-top: 10px;
+}
+
+.boton_envio{
+  margin-left: auto;
+}
+
+
+

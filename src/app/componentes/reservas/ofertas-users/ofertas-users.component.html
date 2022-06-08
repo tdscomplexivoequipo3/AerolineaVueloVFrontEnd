@@ -1,0 +1,80 @@
+<body>
+    <div class="generic">
+
+      <div class="total">
+        <div class="fondo_inicial">
+          <h1 class="title">Viaja por todo el Ecuador</h1>
+          <img src="https://pbs.twimg.com/media/EiCu4Z8XgAEnpIL.jpg">
+        </div>
+      </div>
+
+      <div class="general">
+        <div class="left">
+
+          <div class="c_fechas" (click)="activarfiltro(i)"
+               *ngFor="let item of vuelos; let i = index"
+               [style.border-right-color]= "changeColor[i]  ? 'black' : 'rgba(0,0,0,0)'"
+               [style.border-bottom-color]= "changeColor[i]  ? 'black' : 'rgba(0,0,0,0)'"
+               [style.color]= "changeColor[i]  ? '#151633' : 'black'"
+               [style.margin]= "changeColor[i]  ? '15px' : '5px'"
+          >
+            <div class="enca">
+              <h4>{{item.fechaIda}}</h4>
+              <mat-icon  matPrefix >calendar_today</mat-icon>
+            </div>
+            <p>Desde</p>
+            <p>22 USD</p>
+          </div>
+        </div>
+
+        <div class="rigth">
+
+          <div class="vuelos" *ngFor="let item of vuelos; let i = index">
+            <div class="vuelos_g"  [style.border-block-color]= "changeColor_options[i]  ? 'black' : '#512DA8' "
+                 [style.border-width]= "changeColor_options[i]  ? '2px' : '1px'">
+              <div class="v_left">
+                <p>Viaja de {{item.origen}}</p>
+                <h3>{{item.fechaIda}}</h3>
+              </div>
+              <div class="duracion">
+                <h4>Duración</h4>
+                <p>0H:51</p>
+              </div>
+              <div class="partida">
+                <h4>Partida</h4>
+                <p>{{item.fechaIda}}</p>
+              </div>
+              <div class="v_rigth">
+                <p>Desde</p>
+                <h4>USD {{item.precio}}</h4>
+                <p>Tasas Incluidas Vuelo directo</p>
+              </div>
+
+              <mat-card-actions>
+                <button mat-raised-button  (click)="mostrar(i)"
+                        [textContent]= "changeColor_options[i]? 'Ocultar' : 'Mostrar'"
+                        color="primary">
+                  Mostrar</button>
+              </mat-card-actions>
+            </div>
+
+            <div *ngIf="changeColor_options[i]" class="optionif">
+              <div  class="options" *ngFor="let item_j of vuelos_envio[i].tipos_vuelo; let j = index">
+                <div>
+                  {{item_j}}
+                  {{vuelos_envio[i].id_vuelo}}
+                  s
+                </div>
+                <button mat-raised-button class="boton_envio">Enviar</button>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+
+    </div>
+
+</body>
