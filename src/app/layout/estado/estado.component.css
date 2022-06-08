@@ -1,0 +1,38 @@
+.principal1{
+  height: 600px;
+  width: auto;
+  display: flex;
+}
+.textoInfo{
+  height: 100px;
+  width: 400px;
+  position: relative;
+  top: 50px;
+  margin: 0 auto;
+  left: -152px;
+}
+.divIzquierda{
+  width: 800px;
+  background-image: url("https://i.pinimg.com/originals/b5/be/37/b5be3705a0d67e8ea039bb651430b6de.jpg");
+  height: 600px;
+display: flex;
+  justify-content: space-evenly;
+}
+.divDerecha{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.formulario{
+  margin: 0;
+  left: 250px;
+  position: relative;
+  top: -20px;
+}
+.example-form-field {
+  margin-right: 50px;
+  width: 228px;
+}
+
+
