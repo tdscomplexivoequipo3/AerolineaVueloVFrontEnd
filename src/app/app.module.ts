@@ -18,6 +18,8 @@ import {HttpClientModule} from "@angular/common/http";
 import {UsuarioService} from "./services/Usuario.service";
 import { OfertasUsersComponent } from './componentes/reservas/ofertas-users/ofertas-users.component';
 import { EquipajeComponent } from './componentes/reservas/equipaje/equipaje.component';
+import {EstadoComponent} from "./layout/estado/estado.component";
+import {DialogComponent} from "./layout/dialog/dialog.component";
 
 
 const routes: Routes = [
@@ -44,7 +46,9 @@ const routes: Routes = [
     HeaderadComponent,
     SliderComponent,
     OfertasUsersComponent,
-    EquipajeComponent
+    EquipajeComponent,
+    EstadoComponent,
+    DialogComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
