@@ -18,6 +18,7 @@ body{margin: 0; padding: 0;
 }
 
 .title{
+  margin-left: 20px;
   position: absolute;
   top: 30%;
   right: 75%;
@@ -47,6 +48,7 @@ body{margin: 0; padding: 0;
 }
 
 .ofertas{
+  background-color: rgba(40, 40, 40, 1);
   padding-right:6%;
   padding-left:6%;
   padding-top: 1%;
@@ -67,7 +69,9 @@ body{margin: 0; padding: 0;
   padding-left: 20px;
   padding-right: 5px;
   padding-top: 40%;
-  border-bottom:  5px solid #b4bb4b;
+  border-bottom:  3px solid white;
+  border-right:  3px solid white;
+  border-top:  3px solid white;
   border-radius: 3px;
 }
 
@@ -81,7 +85,9 @@ body{margin: 0; padding: 0;
   padding-left: 20px;
   padding-right: 5px;
   padding-top: 50%;
-  border-bottom:  5px solid #344288;
+  border-bottom:  3px solid white;
+  border-right:  3px solid white;
+  border-top:  3px solid white;
   border-radius: 3px;
 }
 
@@ -95,21 +101,26 @@ body{margin: 0; padding: 0;
   padding-left: 20px;
   padding-right: 5px;
   padding-top: 60%;
-  border-bottom:  5px solid darkcyan;
+  border-bottom:  3px solid white;
+  border-right:  3px solid white;
+  border-top:  3px solid white;
   border-radius: 3px;
 
 }
 
 .o1:hover{
-border: 10px solid white;
+  margin: 10px;
+  transition: margin .5s;
 }
 
 .o2:hover{
-  border: 10px solid white;
+  margin: 10px;
+  transition: margin .5s;
 }
 
 .o3:hover{
-  border: 10px solid white;
+  margin: 10px;
+  transition: margin .5s;
 }
 
 p{
@@ -135,7 +146,8 @@ p{
   color: white;
 }
 
-h3{
+h2{
+  color: rgba(40, 40, 40, 1);
   margin-left: 2%;
 }
 
@@ -146,7 +158,7 @@ h3{
   border-radius: 10px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr ;
-  grid-auto-rows: 420px ;
+  grid-auto-rows: 490px ;
   grid-column-gap: 10px;
   padding: 2% 2%;
 
@@ -177,6 +189,7 @@ h3{
 }
 
 .title_c h2{
+  margin: 0;
     margin-left: 10px;
 }
 
@@ -188,4 +201,9 @@ h3{
   width: 100%;
   height: 300px;
   border-radius: 10px 100px 10px 100px;
+}
+
+.ciudades img:hover{
+  margin: 10px;
+  transition: margin .5s;
 }

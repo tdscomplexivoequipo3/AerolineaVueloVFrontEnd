@@ -16,6 +16,8 @@ import { HeaderadComponent } from './layoutadmin/headerad/headerad.component';
 import { SliderComponent } from './layoutadmin/slider/slider.component';
 import {HttpClientModule} from "@angular/common/http";
 import {UsuarioService} from "./services/Usuario.service";
+import { OfertasUsersComponent } from './componentes/reservas/ofertas-users/ofertas-users.component';
+import { EquipajeComponent } from './componentes/reservas/equipaje/equipaje.component';
 
 
 const routes: Routes = [
@@ -24,6 +26,8 @@ const routes: Routes = [
   {path:'reservas', component:ReservaUsuarioComponent},
   {path:'registro/vuelos', component:RegistroVuelosComponent},
   {path:'registro/vuelos/cities', component:RegisterCitiesComponent},
+  {path:'oferas/vuelos', component:OfertasUsersComponent},
+  {path:'equipaje', component:EquipajeComponent}
 ]
 
 @NgModule({
@@ -38,7 +42,9 @@ const routes: Routes = [
     RegistroVuelosComponent,
     RegisterCitiesComponent,
     HeaderadComponent,
-    SliderComponent
+    SliderComponent,
+    OfertasUsersComponent,
+    EquipajeComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
