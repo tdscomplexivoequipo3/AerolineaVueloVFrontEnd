@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {RouterModule, Routes} from "@angular/router";
 import {MaterialModule} from "../material/material.module";
 import { RegistroComponent } from './componentes/register/register.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { HeaderComponent } from './layout/header/header.component';
 import { ReservaUsuarioComponent } from './componentes/reservas/reserva-usuario/reserva-usuario.component';
 import {FooterComponent} from "./layout/footer/footer.component";
@@ -26,7 +26,7 @@ const routes: Routes = [
   {path:'reservas', component:ReservaUsuarioComponent},
   {path:'registro/vuelos', component:RegistroVuelosComponent},
   {path:'registro/vuelos/cities', component:RegisterCitiesComponent},
-  {path:'oferas/vuelos', component:OfertasUsersComponent},
+  {path:'ofertas/vuelos', component:OfertasUsersComponent},
   {path:'equipaje', component:EquipajeComponent}
 ]
 
@@ -52,7 +52,8 @@ const routes: Routes = [
     FormsModule,
     BrowserAnimationsModule,
     MaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [UsuarioService],
   bootstrap: [AppComponent]

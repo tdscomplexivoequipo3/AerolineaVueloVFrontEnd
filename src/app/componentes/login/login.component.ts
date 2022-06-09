@@ -16,6 +16,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 export class LoginComponent implements OnInit {
 
   public objeto:UsuarioResponse=new UsuarioResponse();
+  error=false;
 
   public classReference = GlobalConstants;
   constructor(public dialog: MatDialog,
@@ -29,29 +30,18 @@ export class LoginComponent implements OnInit {
   }
 
   login():void{
-    this.service.login(this.objeto).subscribe(data => {
-      //almacenar token_______________________________________
-      sessionStorage.setItem('user', JSON.stringify(data));
-
-        Swal.fire({
-          icon: 'success',
-          title: 'Logeo',
-          text: 'Logeo Correcto',
-          confirmButtonColor: "#0c3255"
-        })
-
-      this.router.navigate(['/reservas']);
-
-
-      },err=> {
-        Swal.fire({
-          icon: 'warning',
-          title: 'Acceso Denegado',
-          text: err.error.message,
-          confirmButtonColor: "#0c3255"
-        })
-      }
-    );
+    if(this.objeto.email!=null && this.objeto.clave!=null){
+      this.service.login(this.objeto).subscribe(data => {
+          //almacenar token_______________________________________
+          sessionStorage.setItem('user', JSON.stringify(data));
+          this.router.navigate(['/reservas']);
+        },err=> {
+          this.error=true;
+          this.objeto.email="";
+          this.objeto.clave=""
+        }
+      );
+    }
   }
 
 }

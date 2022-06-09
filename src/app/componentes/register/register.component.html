@@ -7,7 +7,7 @@
 
   <div class="mat-card-content-p1">
     <mat-card-content>
-      <form class="my-form">
+      <form class="my-form" #formulario="ngForm">
         <mat-form-field class="full-width">
           <mat-label>Nombre</mat-label>
           <input [(ngModel)]="objeto.nombres" matInput  placeholder="Ingrese su nombre"  name="nombres"  required>
@@ -26,9 +26,9 @@
           <mat-icon matPrefix>fingerprint</mat-icon>
         </mat-form-field>
 
-        <mat-form-field  class="full-width-select">
+        <mat-form-field  class="full-width-select" >
           <mat-label>Seleccione su País de nacimiento</mat-label>
-          <mat-select [(ngModel)]="objeto.pais" name="pais">
+          <mat-select [(ngModel)]="objeto.pais" name="pais" required>
             <mat-option value="ecuador">Ecuador</mat-option>
             <mat-option value="colombia">Colombia</mat-option>
             <mat-option value="perú">Perú</mat-option>
@@ -39,14 +39,14 @@
           <mat-label>Fecha de Nacimiento</mat-label>
           <input [(ngModel)]="objeto.fechaNacimiento"
                  name="fechaNacimiento"
-                 matInput [matDatepicker]="picker" placeholder="d/m/yyyy">
+                 matInput [matDatepicker]="picker" placeholder="d/m/yyyy" required>
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
 
         <section class="selector">
           <h4>Genéro: </h4>
-          <mat-button-toggle-group [(ngModel)]="objeto.genero"  name="genero" aria-label="Font Style">
+          <mat-button-toggle-group [(ngModel)]="objeto.genero"  name="genero" aria-label="Font Style" value="no_quiere_decir">
             <mat-button-toggle value="hombre">Hombre</mat-button-toggle>
             <mat-button-toggle value="mujer">Mujer</mat-button-toggle>
             <mat-button-toggle value="no_quiere_decir">Prefiero no decir</mat-button-toggle>
@@ -57,7 +57,7 @@
         <mat-form-field class="full-width" >
           <mat-label>Telefono</mat-label>
           <span matPrefix>+1 &nbsp;</span>
-          <input [(ngModel)]="objeto.telefono"  name="telefono" type="tel" matInput placeholder="555-555-1234">
+          <input required [(ngModel)]="objeto.telefono"  name="telefono" type="tel" matInput placeholder="555-555-1234">
           <mat-icon matSuffix>mode_edit</mat-icon>
         </mat-form-field>
 
@@ -78,7 +78,8 @@
         </section>
 
         <mat-card-actions>
-          <button mat-raised-button color="primary" (click)="openDialog()">REGISTER</button>
+          <button mat-raised-button color="primary" (click)="openDialog()"
+                  [disabled]="!formulario.valid">REGISTER</button>
         </mat-card-actions>
 
       </form>
@@ -88,7 +89,7 @@
 </body>
 
 <ng-template #dialoguser>
-        <form class="dialog">
+        <form class="dialog" #formulario="ngForm">
           <img src="assets/icon.png">
           <h3>REGISTRO DE USUARIO</h3>
           <mat-form-field class="full-width-dialog">
@@ -96,6 +97,7 @@
             <input  matInput type="email" [(ngModel)]="objeto.email" placeholder="Ingrese su email"  name="email"  required>
             <mat-icon matSuffix >email</mat-icon>
           </mat-form-field>
+
           <mat-form-field class="full-width-dialog">
             <mat-label>Contraseña</mat-label>
             <input  matInput [(ngModel)]="objeto.clave"  placeholder="Ingrese su Contraseña" name="clave"
@@ -103,16 +105,20 @@
                     required>
             <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
           </mat-form-field>
+
           <mat-form-field class="full-width-dialog">
             <mat-label>Contraseña</mat-label>
-            <input  matInput  placeholder="Repita la Contraseña" name="lname"
+            <input  matInput  #clave_r  placeholder="Repita la Contraseña" name="clave_r"
                     [type]="hide_r ? 'password' : 'text'"
                     required>
             <mat-icon matSuffix (click)="hide_r = !hide_r">{{hide_r ? 'visibility_off' : 'visibility'}}</mat-icon>
           </mat-form-field>
+
+          <mat-label  [style.color]="'red'" *ngIf="error==true">Claves no coincidentes</mat-label>
+
           <mat-card-actions class="card_actions">
             <button mat-raised-button color="warn" (click)="closeDialog()">CANCELAR</button>
-            <button mat-stroked-button color="primary" (click)="registrar()" >CONTINUAR</button>
+            <button mat-stroked-button color="primary" (click)="registrar(clave_r.value)" [disabled]="!formulario.valid">CONTINUAR</button>
           </mat-card-actions>
         </form>
 </ng-template>

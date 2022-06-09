@@ -4,34 +4,29 @@
       <div class="total">
         <div class="fondo_inicial">
           <h1 class="title">Viaja por todo el Ecuador</h1>
-          <img src="https://pbs.twimg.com/media/EiCu4Z8XgAEnpIL.jpg">
         </div>
       </div>
 
       <div class="general">
         <div class="left">
-
+          <h3 class="esp_h3">Seleccione un mes:</h3>
           <div class="c_fechas" (click)="activarfiltro(i)"
-               *ngFor="let item of vuelos; let i = index"
-               [style.border-right-color]= "changeColor[i]  ? 'black' : 'rgba(0,0,0,0)'"
-               [style.border-bottom-color]= "changeColor[i]  ? 'black' : 'rgba(0,0,0,0)'"
-               [style.color]= "changeColor[i]  ? '#151633' : 'black'"
-               [style.margin]= "changeColor[i]  ? '15px' : '5px'"
+               *ngFor="let item of filter; let i = index"
+               [style.color]= "changeColor[i]  ? '#292a5e' : 'black'"
+               [style.margin]= "changeColor[i]  ? '10px' : '5px'"
           >
             <div class="enca">
-              <h4>{{item.fechaIda}}</h4>
+              <h4>Mes: {{item.mes}}</h4>
               <mat-icon  matPrefix >calendar_today</mat-icon>
             </div>
-            <p>Desde</p>
-            <p>22 USD</p>
           </div>
         </div>
 
         <div class="rigth">
 
-          <div class="vuelos" *ngFor="let item of vuelos; let i = index">
-            <div class="vuelos_g"  [style.border-block-color]= "changeColor_options[i]  ? 'black' : '#512DA8' "
-                 [style.border-width]= "changeColor_options[i]  ? '2px' : '1px'">
+          <div class="vuelos" *ngFor="let item of vuelos_filtrados; let i = index">
+            <div class="vuelos_g"  [style.border-block-color]= "changeColor_options[i]  ? 'black' : '#000' "
+                 [style.border-width]= "changeColor_options[i]  ? '2px' : '1.7px'">
               <div class="v_left">
                 <p>Viaja de {{item.origen}}</p>
                 <h3>{{item.fechaIda}}</h3>
@@ -53,17 +48,27 @@
               <mat-card-actions>
                 <button mat-raised-button  (click)="mostrar(i)"
                         [textContent]= "changeColor_options[i]? 'Ocultar' : 'Mostrar'"
-                        color="primary">
+                        class="boton_m">
                   Mostrar</button>
               </mat-card-actions>
             </div>
 
             <div *ngIf="changeColor_options[i]" class="optionif">
-              <div  class="options" *ngFor="let item_j of vuelos_envio[i].tipos_vuelo; let j = index">
+              <div  class="options ligth">
                 <div>
-                  {{item_j}}
-                  {{vuelos_envio[i].id_vuelo}}
-                  s
+                  <h4>{{vuelos_envio[i].tipos_vuelo[0]}}</h4> | Solo artículo personal y sin cambios
+                </div>
+                <button mat-raised-button class="boton_envio">Enviar</button>
+              </div>
+              <div  class="options top">
+                <div>
+                  <h4>{{vuelos_envio[i].tipos_vuelo[1]}}</h4> | +Equipaje de mano 10kg
+                </div>
+                <button mat-raised-button class="boton_envio">Enviar</button>
+              </div>
+              <div  class="options premium">
+                <div>
+                  <h4>{{vuelos_envio[i].tipos_vuelo[2]}}</h4> | +Maleta 23kg
                 </div>
                 <button mat-raised-button class="boton_envio">Enviar</button>
               </div>
