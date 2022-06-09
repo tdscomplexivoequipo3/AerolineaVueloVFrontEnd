@@ -1,6 +1,6 @@
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {RegisterRequest} from "../models/RegisterRequest";
+import {RegisterRequest} from "../models/Request/RegisterRequest";
 import {UsuarioResponse} from "../models/Response/UsuarioResponse";
 import {Injectable} from "@angular/core";
 

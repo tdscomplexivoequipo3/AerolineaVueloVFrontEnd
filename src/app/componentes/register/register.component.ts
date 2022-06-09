@@ -1,9 +1,10 @@
 import {Component, Inject, OnInit, TemplateRef, ViewChild} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from "@angular/material/dialog";
 import {GlobalConstants} from "../../common/GlobalConstants";
-import {RegisterRequest} from "../../models/RegisterRequest";
+import {RegisterRequest} from "../../models/Request/RegisterRequest";
 import {UsuarioService} from "../../services/Usuario.service";
 import Swal from 'sweetalert2';
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-registro',
@@ -20,7 +21,8 @@ export class RegistroComponent {
   public objeto:RegisterRequest=new RegisterRequest();
   error=false;
 
-  constructor(public dialog: MatDialog,private service:UsuarioService) {
+  constructor(public dialog: MatDialog,private service:UsuarioService,private router:Router
+    ,private activatedRoute: ActivatedRoute) {
     this.classReference.apiURL="no_employe";
   }
 
@@ -45,6 +47,10 @@ export class RegistroComponent {
             text: 'Registro Correcto',
             confirmButtonColor: "#0c3255"
           })
+        //almacenar token_______________________________________
+        sessionStorage.setItem('user', JSON.stringify(data));
+        this.router.navigate(['/reservas',data.email]);
+
         },err=> {
           Swal.fire({
             icon: 'warning',

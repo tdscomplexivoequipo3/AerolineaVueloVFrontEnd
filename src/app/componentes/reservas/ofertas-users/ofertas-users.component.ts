@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Vuelo_Envio} from "../../../models/Vuelo_Envio";
 import {VueloResponse} from "../../../models/Response/VueloResponse";
-import {DatePipe} from "@angular/common";
+import {VueloService} from "../../../services/Vuelo.service";
 import {FechaFilter} from "../../../models/FechaFilter";
 import {ActivatedRoute, Router} from "@angular/router";
 
@@ -12,68 +12,34 @@ import {ActivatedRoute, Router} from "@angular/router";
 })
 export class OfertasUsersComponent implements OnInit {
 
-  constructor(private router: Router,private activatedRoute: ActivatedRoute) {
+  constructor(private router: Router,private activatedRoute: ActivatedRoute,private service:VueloService) {
 
-    for (let i = 0; i < this.vuelos.length; i++) {
-      this.changeColor.push(false);
-      this.vuelos_envio.push(new Vuelo_Envio(this.vuelos[i].idVuelo))
-      this.changeColor_options.push(false);
-      //Filtrado
-      let mes=this.vuelos[i].fechaIda.substr(5,2);
-      if(!this.filter.find(i => i.mes === mes)){
-        this.filter.push(new FechaFilter(mes));
+    this.service.listAll().subscribe(
+      objets => {
+        this.vuelos = objets
+        for (let i = 0; i < this.vuelos.length; i++) {
+          this.changeColor.push(false);
+          this.vuelos_envio.push(new Vuelo_Envio(this.vuelos[i].idVuelo));
+          this.changeColor_options.push(false);
+          //Filtrado
+          let mes=this.vuelos[i].fechaIda.substr(5,2);
+          if(!this.filter.find(i => i.mes === mes)){
+            this.filter.push(new FechaFilter(mes));
+          }
+        }
+
+        this.vuelos_filtrados=this.vuelos;
+        this.filter.sort((a,b) => a.mes-b.mes);
       }
-    }
+    );
 
-    this.vuelos_filtrados=this.vuelos;
-    this.filter.sort((a,b) => a.mes-b.mes);
+
+
+
   }
 
   changeColor:boolean[]=[];
-  vuelos:VueloResponse[]=[ {idVuelo:1,
-    precio:10,
-    origen:"Cuenca",
-    destino:"Quito",
-    estado:false,
-    idTipoVuelo:1,
-    fechaIda:"2022/10/12",
-    fechaVuelta:"2022/10/12",
-    horaSalida:10,
-    horaLlegada:11,
-    imagen:"" },
-    {idVuelo:2,
-      precio:20,
-      origen:"Guaayquil",
-      destino:"Santo Domingo",
-      estado:false,
-      idTipoVuelo:1,
-      fechaIda:"2022/09/12",
-      fechaVuelta:"2022/09/12",
-      horaSalida:15,
-      horaLlegada:18,
-      imagen:"" },
-    {idVuelo:3,
-      precio:20,
-      origen:"Guaayquil",
-      destino:"Santo ",
-      estado:false,
-      idTipoVuelo:1,
-      fechaIda:"2022/10/12",
-      fechaVuelta:"2022/09/12",
-      horaSalida:15,
-      horaLlegada:18,
-      imagen:"" },
-    {idVuelo:4,
-      precio:20,
-      origen:"Guaayquil",
-      destino:"Santo ",
-      estado:false,
-      idTipoVuelo:1,
-      fechaIda:"2022/11/12",
-      fechaVuelta:"2022/09/12",
-      horaSalida:15,
-      horaLlegada:18,
-      imagen:"" }];
+  vuelos:VueloResponse[]=[];
 
   //_____________________________
   vuelos_envio:Vuelo_Envio[]=[];
