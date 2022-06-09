@@ -1,0 +1,66 @@
+<body>
+  <mat-card-content>
+      <form class="my-form">
+        <mat-card-title>PROGRMACIÓN DE VUELOS</mat-card-title>
+        <br>
+        <mat-card-subtitle>Progrmación de vuelos de V5</mat-card-subtitle>
+        <br>
+        <mat-form-field class="full-width" appearance="fill">
+          <mat-label>Fecha de ida</mat-label>
+          <input placeholder="Ingrse la fecha de ida" matInput [matDatepicker]="picker" required>
+          <mat-datepicker-toggle matSuffix [for]="picker">
+            <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+          </mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <br>
+
+        <mat-form-field class="full-width" appearance="fill">
+          <mat-label>Fecha de Vuelta</mat-label>
+          <input placeholder="Ingrse la fecha de vuelta" matInput [matDatepicker]="picker1" required>
+          <mat-datepicker-toggle matSuffix [for]="picker">
+            <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+          </mat-datepicker-toggle>
+          <mat-datepicker #picker1></mat-datepicker>
+        </mat-form-field>
+        <br>
+
+        <mat-form-field class="full-width" appearance="fill">
+          <input [ngxTimepicker]="pickertime">
+          <ngx-material-timepicker #pickertime></ngx-material-timepicker>
+        </mat-form-field>
+        <br>
+
+        <mat-form-field class="full-width">
+          <mat-label>Placa</mat-label>
+          <input  matInput  placeholder="Ingrese la placa"  name="placa"  required>
+        </mat-form-field>
+
+
+        <mat-form-field class="full-width">
+          <mat-label>Tipo</mat-label>
+          <input  matInput  placeholder="Ingrese el tipo" name="tipo"  required>
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+          <mat-label>Descripción</mat-label>
+          <input  matInput  placeholder="Ingrese una descripción" name="tipo"  required>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Estado</mat-label>
+          <mat-select required>
+            <mat-option value="option1">Activo</mat-option>
+            <mat-option value="option2">Pendiente</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+      </form>
+      <br>
+      <div class="btnac">
+        <button mat mat-raised-button color="warn" mat-button mat-dialog-close>Cancelar</button>
+        <button mat-raised-button color="primary">GUARDAR</button>
+      </div>
+  </mat-card-content>
+</body>
+

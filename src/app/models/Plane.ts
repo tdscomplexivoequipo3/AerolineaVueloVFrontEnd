@@ -1,3 +1,8 @@
 export class Plane {
-  id_avion:any;
+  id:any;
+  descripcion:any;
+  placa:any;
+  tipo:any;
+  estado:any;
+
 }
