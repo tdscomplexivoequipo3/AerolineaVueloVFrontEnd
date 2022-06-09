@@ -26,6 +26,7 @@ import {InicioComponent} from "./layout/inicio/inicio.component";
 import {RegisterSeatComponent} from "./componentes/register-seat/register-seat.component";
 import {VueloService} from "./services/Vuelo.service";
 import {ResumenComponent} from "./componentes/reservas/equipaje/resumen/resumen.component";
+import {UserTokenService} from "./services/UserTokenService";
 
 
 
@@ -73,7 +74,7 @@ const routes: Routes = [
     MaterialModule,
     HttpClientModule
   ],
-  providers: [UsuarioService,VueloService],
+  providers: [UsuarioService,VueloService,UserTokenService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

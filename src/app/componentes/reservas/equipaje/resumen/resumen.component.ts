@@ -5,6 +5,7 @@ import {VueloService} from "../../../../services/Vuelo.service";
 import {Observable} from "rxjs";
 import {UsuarioResponse} from "../../../../models/Response/UsuarioResponse";
 import {UsuarioService} from "../../../../services/Usuario.service";
+import {UserTokenService} from "../../../../services/UserTokenService";
 
 @Component({
   selector: 'app-resumen',
@@ -19,7 +20,7 @@ export class ResumenComponent implements OnInit {
   constructor(private router: Router,
               private activatedRoute: ActivatedRoute,
               private serviceVuelo:VueloService,
-              private serviceUsuario:UsuarioService) {
+              private serviceUsuario:UserTokenService) {
 
     this.activatedRoute.params.subscribe( params => {
       let mail = params['email'];

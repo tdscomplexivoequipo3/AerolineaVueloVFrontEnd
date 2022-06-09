@@ -3,6 +3,7 @@ import {GlobalConstants} from "../../common/GlobalConstants";
 import {UsuarioService} from "../../services/Usuario.service";
 import {UsuarioResponse} from "../../models/Response/UsuarioResponse";
 import {ActivatedRoute, Router} from "@angular/router";
+import {RegisterRequest} from "../../models/Request/RegisterRequest";
 
 
 @Component({
