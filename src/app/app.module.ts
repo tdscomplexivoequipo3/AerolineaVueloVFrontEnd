@@ -29,9 +29,9 @@ import {RegisterSeatComponent} from "./componentes/register-seat/register-seat.c
 const routes: Routes = [
   {path:'', component:LoginComponent},
   {path:'registro', component:RegistroComponent},
-  {path:'reservas', component:ReservaUsuarioComponent},
+  {path:'reservas/:email', component:ReservaUsuarioComponent},
   {path:'registro/vuelos', component:RegistroVuelosComponent},
-  {path:'oferas/vuelos', component:OfertasUsersComponent},
+  {path:'oferas/vuelos/:email', component:OfertasUsersComponent},
   {path:'equipaje', component:EquipajeComponent},
   {path:'registro/vuelos/type', component:TypeFlightsComponent},
   {path:'registro/avion', component:RegisterPlaneComponent},

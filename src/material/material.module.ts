@@ -92,7 +92,7 @@ import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
     OverlayModule,
     PortalModule,
     ScrollingModule,
-    NgxMaterialTimepickerModule,
+    NgxMaterialTimepickerModule
   ],
 
 })

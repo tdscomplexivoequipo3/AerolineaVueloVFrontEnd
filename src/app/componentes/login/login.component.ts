@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
       this.service.login(this.objeto).subscribe(data => {
           //almacenar token_______________________________________
           sessionStorage.setItem('user', JSON.stringify(data));
-          this.router.navigate(['/reservas',data.email]);
+          this.router.navigate(['/reservas']);
         },err=> {
           this.error=true;
           this.objeto.email="";
