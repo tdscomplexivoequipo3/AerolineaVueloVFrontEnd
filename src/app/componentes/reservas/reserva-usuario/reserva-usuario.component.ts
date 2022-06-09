@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {GlobalConstants} from "../../../common/GlobalConstants";
 
 @Component({
@@ -11,11 +11,18 @@ export class ReservaUsuarioComponent implements OnInit {
 
 
   public classReference = GlobalConstants;
-  constructor(private _router: Router) {
+  constructor(private router: Router,private activatedRoute: ActivatedRoute) {
     this.classReference.apiURL="no_employe";
   }
 
   ngOnInit(): void {
+  }
+
+  onClickVuelos():void{
+    this.activatedRoute.params.subscribe( params => {
+      let id = params['email'];
+      this.router.navigate(['/ofertas/vuelos',id]);
+    })
   }
 
 }

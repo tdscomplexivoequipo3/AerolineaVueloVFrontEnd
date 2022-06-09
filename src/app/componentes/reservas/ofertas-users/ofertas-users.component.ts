@@ -3,6 +3,7 @@ import {Vuelo_Envio} from "../../../models/Vuelo_Envio.";
 import {VueloResponse} from "../../../models/Response/VueloResponse";
 import {DatePipe} from "@angular/common";
 import {FechaFilter} from "../../../models/FechaFilter";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-ofertas-users',
@@ -11,7 +12,8 @@ import {FechaFilter} from "../../../models/FechaFilter";
 })
 export class OfertasUsersComponent implements OnInit {
 
-  constructor() {
+  constructor(private router: Router,private activatedRoute: ActivatedRoute) {
+
     for (let i = 0; i < this.vuelos.length; i++) {
       this.changeColor.push(false);
       this.vuelos_envio.push(new Vuelo_Envio(this.vuelos[i].idVuelo))
