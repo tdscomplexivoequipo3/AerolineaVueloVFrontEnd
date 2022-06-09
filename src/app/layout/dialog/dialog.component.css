@@ -1,0 +1,43 @@
+.estado{
+  position: relative;
+  width: 800px;
+  height: 300px;
+
+}
+.estado2{
+  background-color: transparent;
+  width: 800px;
+  height: 150px;
+  justify-content: center;
+  border-radius: 10px;
+  margin: 25px auto;
+  border-top-color: transparent;
+  position: relative;
+  top: 46px;
+  box-shadow: 1px 1px 2px #592A08;
+}
+.ulestado{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 650px;
+  height: 45px;
+
+}
+.ulestado li{
+  float: left;
+  list-style: none;
+  width: 124px;
+  text-align: center;
+  font-size: 14px;
+  color: black;
+  text-decoration: none;
+}
+.etiquetah2{
+  background-color: #5DADE2 ;
+  border-radius: 10px;
+  font-size: small;
+  margin: 1px;
+  margin-left: 19px;
+  margin-right: 21px;
+}
