@@ -25,6 +25,8 @@ import {ProgrammingFlightsComponent} from "./componentes/programming-flights/pro
 import {InicioComponent} from "./layout/inicio/inicio.component";
 import {RegisterSeatComponent} from "./componentes/register-seat/register-seat.component";
 import {VueloService} from "./services/Vuelo.service";
+import {ResumenComponent} from "./componentes/reservas/equipaje/resumen/resumen.component";
+
 
 
 const routes: Routes = [
@@ -37,6 +39,7 @@ const routes: Routes = [
   {path:'registro/vuelos/type', component:TypeFlightsComponent},
   {path:'registro/avion', component:RegisterPlaneComponent},
   {path:'registro/programa/vuelo', component:ProgrammingFlightsComponent},
+  {path:'reserva/:email/:id_vuelo', component:ResumenComponent}
 ]
 
 @NgModule({
@@ -60,6 +63,7 @@ const routes: Routes = [
     ProgrammingFlightsComponent,
     InicioComponent,
     RegisterSeatComponent,
+    ResumenComponent
   ],
   imports: [
     RouterModule.forRoot(routes),

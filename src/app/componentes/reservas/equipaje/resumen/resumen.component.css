@@ -10,17 +10,57 @@ body{
   justify-content: center;
 }
 
+.image{
+  background-color: #1d4f71;
+  width: 40%;
+  height: 73%;
+  margin-top: 10px;
+}
+
 .resumen{
   background-color: #1d4f71;
-  height: 60%;
+  height: 70%;
+  width: 350px;
   margin-top: 20px;
 }
 
 .row{
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 }
 
-.input{
-  margin-left: auto;
+.row input{
+  margin: 2px 8px 10px;
+  color: #000000;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 5px;
+  height: 20px;
+  font-size: 15px;
+  outline: 1px solid black;
 }
+
+.row input:hover{
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.4);
+  transition: background-color 2s;
+}
+
+.row label{
+   margin-left:10px ;
+  font-weight: 500;
+  font-size: 15px;
+  margin-top: 0;
+}
+
+.resumen  .row:first-child label{
+  margin-top: 20px;
+}
+
+.resumen h3{
+   color: white;
+  margin-left: 10px;
+}
+
+
+
+

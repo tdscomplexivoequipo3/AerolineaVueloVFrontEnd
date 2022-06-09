@@ -12,8 +12,15 @@ import {ActivatedRoute, Router} from "@angular/router";
 })
 export class OfertasUsersComponent implements OnInit {
 
-  constructor(private router: Router,private activatedRoute: ActivatedRoute,private service:VueloService) {
+  changeColor:boolean[]=[];
+  vuelos:VueloResponse[]=[];
+  vuelos_envio:Vuelo_Envio[]=[];
+  changeColor_options:boolean[]=[];
+  filter:FechaFilter[]=[];
+  vuelos_filtrados:VueloResponse[]=[];
 
+  constructor(private router: Router,private activatedRoute: ActivatedRoute,
+              private service:VueloService) {
     this.service.listAll().subscribe(
       objets => {
         this.vuelos = objets
@@ -27,25 +34,12 @@ export class OfertasUsersComponent implements OnInit {
             this.filter.push(new FechaFilter(mes));
           }
         }
-
         this.vuelos_filtrados=this.vuelos;
         this.filter.sort((a,b) => a.mes-b.mes);
       }
     );
-
-
-
-
   }
 
-  changeColor:boolean[]=[];
-  vuelos:VueloResponse[]=[];
-
-  //_____________________________
-  vuelos_envio:Vuelo_Envio[]=[];
-  changeColor_options:boolean[]=[];
-  filter:FechaFilter[]=[];
-  vuelos_filtrados:VueloResponse[]=[];
 
   ngOnInit(): void {
   }
@@ -56,6 +50,7 @@ export class OfertasUsersComponent implements OnInit {
         this.changeColor[i]=false;
       }
     }
+
     this.changeColor[k]=!this.changeColor[k];
 
     this.vuelos_filtrados= this.vuelos.filter((obj) => {
@@ -66,11 +61,20 @@ export class OfertasUsersComponent implements OnInit {
     for (let i = 0; i < this.vuelos_filtrados.length; i++) {
       this.vuelos_envio.push(new Vuelo_Envio(this.vuelos_filtrados[i].idVuelo))
     }
-
   }
 
   mostrar(k:number):void{
     this.changeColor_options[k]=!this.changeColor_options[k];
   }
+
+  solicitar(id:number):void{
+    this.activatedRoute.params.subscribe( params => {
+      let mail = params['email'];
+      this.router.navigate(['/reserva',mail,id]);
+    })
+
+  }
+
+
 
 }
