@@ -1,50 +1,84 @@
 <body>
-   <div class="totalidad">
-       <div class="resumen">
-         <h3>Resumen de Viaje</h3>
+  <div class="container">
 
-         <div class="row">
-           <label>Precio</label>
-           <input  class="input" value="{{this.vuelo.precio}}" disabled>
-         </div>
+    <div class="total">
+      <div class="fondo_inicial">
+        <h1 class="title">Vuelos Agiles</h1>
+      </div>
+    </div>
 
-         <div class="row">
-           <label>Origen</label>
-           <input   class="input"  value="{{this.vuelo.origen}}" disabled>
-         </div>
+    <div class="totalidad">
+      <div class="resumen">
 
-         <div class="row">
-           <label>Destino</label>
-           <input   class="input" value="{{this.vuelo.destino}}" disabled>
-         </div>
+        <div class="portada">
+          <h3>Resumen de Viaje</h3>
+          <mat-icon  matPrefix color="primary">card_travel</mat-icon>
+        </div>
 
-         <div class="row">
-           <label>Fecha Ida</label>
-           <input   class="input" value="{{this.vuelo.fechaIda}}" disabled>
-         </div>
+        <div class="row">
+          <label class="label_t">Precio: </label>
+          <div class="row_c">
+            <input  class="input" value="{{this.vuelo.precio}}" disabled>
+            <label class="label_">Total</label>
+          </div>
+        </div>
 
-         <div class="row">
-           <label>Fecha Vuelta</label>
-           <input  class="input" value="{{this.vuelo.fechaVuelta}}" disabled >
-         </div>
+        <div class="row">
+          <label class="label_t">Lugar: </label>
+          <div class="row_c">
+            <input  class="input"  value="{{this.vuelo.origen}}" disabled>
+            <label class="label_">Origen</label>
+          </div>
+          <div class="row_c">
+            <input   class="input" value="{{this.vuelo.destino}}" disabled>
+            <label class="label_">Destino</label>
+          </div>
+        </div>
 
-         <div class="row">
-           <label>Hora Salida</label>
-           <input  class="input" value="{{this.vuelo.imagen}}"  disabled>
-         </div>
+        <div class="row">
+          <label class="label_t">Fechas : </label>
+          <div class="row_c">
+            <input   class="input" value="{{this.vuelo.fechaIda}}" disabled>
+            <label class="label_">Fecha Ida</label>
+          </div>
+          <div class="row_c">
+            <input  class="input" value="{{this.vuelo.fechaVuelta}}" disabled >
+            <label class="label_">Fecha Vuelta</label>
+          </div>
+        </div>
 
 
-         <div class="row">
-           <label>Hora LLegada</label>
-           <input  class="input" value="{{this.vuelo.horaLlegada}}" disabled>
-         </div>
-       </div>
+        <div class="row">
+          <label class="label_t">Horario: </label>
+          <div class="row_c">
+            <input  class="input" value="{{this.vuelo.imagen}}"  disabled>
+            <label class="label_">Hora Salida</label>
+          </div>
+
+          <div class="row_c">
+            <input  class="input" value="{{this.vuelo.horaLlegada}}" disabled>
+            <label class="label_">Hora LLegada</label>
+          </div>
+        </div>
+
+        <div class="acciones">
+          <mat-card-actions>
+            <button mat-raised-button (click)="registrar()">
+              Reservar Vuelo
+              <mat-icon  class="icon_b" matPrefix color="primary">flight_takeoff</mat-icon>
+            </button >
+          </mat-card-actions>
+        </div>
+
+      </div>
 
       <div class="image">
-      dfsdf
+        <img src="{{this.vuelo.horaSalida}}">
       </div>
 
 
-   </div>
+    </div>
+  </div>
+
 
 </body>

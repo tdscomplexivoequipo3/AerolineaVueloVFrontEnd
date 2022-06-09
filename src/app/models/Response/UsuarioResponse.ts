@@ -1,6 +1,6 @@
 export class UsuarioResponse{
 
-  id_cliente:any;
+  id:any;
   pais:any;
   docIdentificacion:any;
   nombres:any;

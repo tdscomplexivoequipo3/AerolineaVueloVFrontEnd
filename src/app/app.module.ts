@@ -13,7 +13,7 @@ import { ReservaUsuarioComponent } from './componentes/reservas/reserva-usuario/
 import {FooterComponent} from "./layout/footer/footer.component";
 import { HeaderadComponent } from './layoutadmin/headerad/headerad.component';
 import { SliderComponent } from './layoutadmin/slider/slider.component';
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {UsuarioService} from "./services/Usuario.service";
 import { OfertasUsersComponent } from './componentes/reservas/ofertas-users/ofertas-users.component';
 import { EquipajeComponent } from './componentes/reservas/equipaje/equipaje.component';
@@ -27,6 +27,7 @@ import {RegisterSeatComponent} from "./componentes/register-seat/register-seat.c
 import {VueloService} from "./services/Vuelo.service";
 import {ResumenComponent} from "./componentes/reservas/equipaje/resumen/resumen.component";
 import {UserTokenService} from "./services/UserTokenService";
+import {UnAuthorizedInterceptor} from "./UnAuthorizedInterceptor";
 
 
 
@@ -74,7 +75,9 @@ const routes: Routes = [
     MaterialModule,
     HttpClientModule
   ],
-  providers: [UsuarioService,VueloService,UserTokenService],
+  providers: [UsuarioService,VueloService,UserTokenService,
+  {provide:HTTP_INTERCEPTORS, useClass: UnAuthorizedInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

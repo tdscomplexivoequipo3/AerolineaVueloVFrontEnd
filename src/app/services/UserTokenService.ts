@@ -3,6 +3,7 @@ import {Observable} from "rxjs";
 import {RegisterRequest} from "../models/Request/RegisterRequest";
 import {UsuarioResponse} from "../models/Response/UsuarioResponse";
 import {Injectable} from "@angular/core";
+import {Router} from "@angular/router";
 
 @Injectable({
   providedIn: 'root'
@@ -10,12 +11,21 @@ import {Injectable} from "@angular/core";
 export  class  UserTokenService  {
 
   private urlEndPoint="http://localhost:8080/api/usuario";
-  private httpHeaders_permition = new HttpHeaders({'Content-Type':'application/json','Authorization':'Bearer '+JSON.parse(sessionStorage.getItem("user")+"").token});
 
-  constructor(private http_client:HttpClient) { }
+  constructor(private http_client:HttpClient,private router:Router) {
+    if(sessionStorage.getItem("user")==null){
+      this.router.navigate(['']);
+    }
+  }
 
   getUser(email:string):Observable<UsuarioResponse>{
-    return this.http_client.get<UsuarioResponse>(`${this.urlEndPoint}/${email}`,{headers:this.httpHeaders_permition});
+    var reqHeader = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + JSON.parse(sessionStorage.getItem("user")+"").token
+    });
+    return this.http_client.get<UsuarioResponse>(`${this.urlEndPoint}/${email}`,{headers:reqHeader});
   }
+
+
 
 }
