@@ -7,22 +7,29 @@
           <h1>Inicia Seción</h1>
           <img src="assets/icon.png">
         </div>
-        <form class="login-form">
+        <form class="login-form" id="form_general">
           <mat-form-field class="full-width">
             <mat-label>Email</mat-label>
             <mat-icon  matPrefix color="primary">people</mat-icon>
-            <input  [(ngModel)]="objeto.email" name="email" matInput  placeholder="Email">
+            <input  [(ngModel)]="objeto.email" name="email" matInput  placeholder="Email" required>
           </mat-form-field>
           <mat-form-field class="full-width">
             <mat-label>Password</mat-label>
             <mat-icon matPrefix  color="primary">password</mat-icon>
-            <input  matInput  placeholder="Password" [(ngModel)]="objeto.clave" name="clave">
+            <input  matInput type="password" placeholder="Password" [(ngModel)]="objeto.clave" name="clave" required>
           </mat-form-field>
         </form>
       </mat-card-content>
+      <mat-label
+        [style.color]="'red'" *ngIf="error==true">Usuario no existente</mat-label>
       <mat-card-actions>
-        <button mat-raised-button  (click)="login()"  color="primary">LOGIN</button>
+        <button mat-raised-button  (click)="login()" color="primary"
+        form="form_general">
+          LOGIN
+        </button >
       </mat-card-actions>
+
+
       <a routerLinkActive="active"
          [routerLink]="['/registro']"
          class="nav_rout" >

@@ -5,5 +5,5 @@ export  class Vuelo_Envio {
   }
 
   id_vuelo:any;
-  tipos_vuelo:string[]=["ligth","top","premium"];
+  tipos_vuelo:string[]=["Basic","Ligth","Premium"];
 }

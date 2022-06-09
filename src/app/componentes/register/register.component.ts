@@ -18,6 +18,7 @@ export class RegistroComponent {
   hide_r=true;
   public classReference = GlobalConstants;
   public objeto:RegisterRequest=new RegisterRequest();
+  error=false;
 
   constructor(public dialog: MatDialog,private service:UsuarioService) {
     this.classReference.apiURL="no_employe";
@@ -34,23 +35,29 @@ export class RegistroComponent {
     this.dialog.closeAll();
   }
 
-  registrar():void{
-    this.service.register(this.objeto).subscribe(data => {
-        Swal.fire({
-          icon: 'success',
-          title: 'Registro Estado',
-          text: 'Registro Correcto',
-          confirmButtonColor: "#0c3255"
-        })
-    },err=> {
-        Swal.fire({
-          icon: 'warning',
-          title: 'Acceso Denegado',
-          text: err.error.message,
-          confirmButtonColor: "#0c3255"
-        })
-      }
-    );
+  registrar(clave_r:string):void{
+    console.log(clave_r+"  "+this.objeto.clave+" pito")
+    if(clave_r==this.objeto.clave){
+      this.service.register(this.objeto).subscribe(data => {
+          Swal.fire({
+            icon: 'success',
+            title: 'Registro Estado',
+            text: 'Registro Correcto',
+            confirmButtonColor: "#0c3255"
+          })
+        },err=> {
+          Swal.fire({
+            icon: 'warning',
+            title: 'Acceso Denegado',
+            text: err.error.message,
+            confirmButtonColor: "#0c3255"
+          })
+        }
+      );
+    }else{
+      this.error=true;
+    }
+
   }
 
 }
