@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {GlobalConstants} from "../../common/GlobalConstants";
-import {RegisterRequest} from "../../models/RegisterRequest";
-import {MatDialog} from "@angular/material/dialog";
 import {UsuarioService} from "../../services/Usuario.service";
 import {UsuarioResponse} from "../../models/Response/UsuarioResponse";
-import Swal from "sweetalert2";
 import {ActivatedRoute, Router} from "@angular/router";
 
 
@@ -19,8 +16,7 @@ export class LoginComponent implements OnInit {
   error=false;
 
   public classReference = GlobalConstants;
-  constructor(public dialog: MatDialog,
-              private service:UsuarioService,
+  constructor(private service:UsuarioService,
               private router:Router
     ,private activatedRoute: ActivatedRoute){
     this.classReference.apiURL="no_employe";
@@ -34,7 +30,7 @@ export class LoginComponent implements OnInit {
       this.service.login(this.objeto).subscribe(data => {
           //almacenar token_______________________________________
           sessionStorage.setItem('user', JSON.stringify(data));
-          this.router.navigate(['/reservas']);
+          this.router.navigate(['/reservas',data.email]);
         },err=> {
           this.error=true;
           this.objeto.email="";

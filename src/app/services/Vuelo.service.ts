@@ -7,7 +7,7 @@ import {Injectable} from "@angular/core";
 @Injectable({
   providedIn: 'root'
 })
-export  class  UsuarioService  {
+export  class VueloService {
 
   private urlEndPoint="http://localhost:8080/api/usuario";
   private httpHeaders = new HttpHeaders({'Content-Type':'application/json'});

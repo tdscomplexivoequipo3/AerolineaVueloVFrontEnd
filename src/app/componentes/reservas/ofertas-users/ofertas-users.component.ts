@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Vuelo_Envio} from "../../../models/Vuelo_Envio.";
+import {Vuelo_Envio} from "../../../models/Vuelo_Envio";
 import {VueloResponse} from "../../../models/Response/VueloResponse";
 import {DatePipe} from "@angular/common";
 import {FechaFilter} from "../../../models/FechaFilter";

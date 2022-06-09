@@ -24,6 +24,7 @@ import {RegisterPlaneComponent} from "./componentes/register-plane/register-plan
 import {ProgrammingFlightsComponent} from "./componentes/programming-flights/programming-flights.component";
 import {InicioComponent} from "./layout/inicio/inicio.component";
 import {RegisterSeatComponent} from "./componentes/register-seat/register-seat.component";
+import {VueloService} from "./services/Vuelo.service";
 
 
 const routes: Routes = [
@@ -31,7 +32,7 @@ const routes: Routes = [
   {path:'registro', component:RegistroComponent},
   {path:'reservas/:email', component:ReservaUsuarioComponent},
   {path:'registro/vuelos', component:RegistroVuelosComponent},
-  {path:'oferas/vuelos/:email', component:OfertasUsersComponent},
+  {path:'ofertas/vuelos/:email', component:OfertasUsersComponent},
   {path:'equipaje', component:EquipajeComponent},
   {path:'registro/vuelos/type', component:TypeFlightsComponent},
   {path:'registro/avion', component:RegisterPlaneComponent},
@@ -68,7 +69,7 @@ const routes: Routes = [
     MaterialModule,
     HttpClientModule
   ],
-  providers: [UsuarioService],
+  providers: [UsuarioService,VueloService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
