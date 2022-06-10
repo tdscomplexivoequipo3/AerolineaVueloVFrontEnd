@@ -28,6 +28,9 @@ import {VueloService} from "./services/Vuelo.service";
 import {ResumenComponent} from "./componentes/reservas/equipaje/resumen/resumen.component";
 import {UserTokenService} from "./services/UserTokenService";
 import {UnAuthorizedInterceptor} from "./UnAuthorizedInterceptor";
+import {CentroaComponent} from "./layout/centroa/centroa.component";
+import {CoronavirusComponent} from "./layout/menus/coronavirus/coronavirus.component";
+import {CambiosComponent} from "./layout/menus/cambios/cambios.component";
 
 
 
@@ -41,7 +44,19 @@ const routes: Routes = [
   {path:'registro/vuelos/type', component:TypeFlightsComponent},
   {path:'registro/avion', component:RegisterPlaneComponent},
   {path:'registro/programa/vuelo', component:ProgrammingFlightsComponent},
-  {path:'reserva/:email/:id_vuelo', component:ResumenComponent}
+  {path:'reserva/:email/:id_vuelo', component:ResumenComponent},
+  {path:'centroa',component:CentroaComponent,
+   children:[
+  {
+    path: 'coronavirus',
+    component: CoronavirusComponent
+  },
+  {
+    path:'cambios',
+    component:CambiosComponent
+  }
+]},
+  {path:'estado',component:EstadoComponent}
 ]
 
 @NgModule({
@@ -65,7 +80,10 @@ const routes: Routes = [
     ProgrammingFlightsComponent,
     InicioComponent,
     RegisterSeatComponent,
-    ResumenComponent
+    ResumenComponent,
+    CentroaComponent,
+    CambiosComponent,
+    CoronavirusComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
@@ -73,7 +91,8 @@ const routes: Routes = [
     FormsModule,
     BrowserAnimationsModule,
     MaterialModule,
-    HttpClientModule
+    HttpClientModule,
+
   ],
   providers: [UsuarioService,VueloService,UserTokenService,
   {provide:HTTP_INTERCEPTORS, useClass: UnAuthorizedInterceptor, multi: true }
