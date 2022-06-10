@@ -49,7 +49,9 @@ export class RegistroComponent {
           })
         //almacenar token_______________________________________
         sessionStorage.setItem('user', JSON.stringify(data));
+          this.closeDialog();
         this.router.navigate(['/reservas',data.email]);
+
 
         },err=> {
           Swal.fire({

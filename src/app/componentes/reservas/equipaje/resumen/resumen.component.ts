@@ -49,7 +49,6 @@ export class ResumenComponent implements OnInit {
   registrar():void{
     this.observable_user?.subscribe(
       _objet=>{
-       //_____________--
         var r1: ReservaRequest =new ReservaRequest();
         r1.fechaIda=this.vuelo.fechaIda;
         r1. fechaVuelta=this.vuelo.fechaVuelta;
