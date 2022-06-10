@@ -22,8 +22,18 @@
 
     </span>
     <button mat-button  class="botonVuelo" routerLink="estado">Estado de vuelo</button>
-    <button mat-button class="botonInicio" [routerLink]="'/'">Iniciar Sesión</button>
 
+    <div *ngIf=" classReference.user.nombres==null">
+      <button mat-button class="botonInicio" [routerLink]="'/'">Iniciar Sesión</button>
+    </div>
+
+    <div *ngIf="classReference.user.nombres!=null">
+      <h3>{{classReference.user.nombres}} {{classReference.user.apellidos}}</h3>
+    </div>
+
+    <div *ngIf="classReference.user.nombres!=null">
+      <button mat-button class="botonInicio" [routerLink]="'/'">Cerrar Sesión</button>
+    </div>
 
 
   </mat-toolbar>

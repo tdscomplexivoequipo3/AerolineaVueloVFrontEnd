@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {UsuarioResponse} from "../../models/Response/UsuarioResponse";
+import {GlobalConstants} from "../../common/GlobalConstants";
 
 @Component({
   selector: 'app-header',
@@ -7,7 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  public classReference = GlobalConstants;
+
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

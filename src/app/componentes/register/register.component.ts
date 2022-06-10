@@ -49,6 +49,8 @@ export class RegistroComponent {
           })
         //almacenar token_______________________________________
         sessionStorage.setItem('user', JSON.stringify(data));
+        this.classReference.user.nombres=data.nombres;
+        this.classReference.user.apellidos=data.apellidos;
           this.closeDialog();
         this.router.navigate(['/reservas',data.email]);
 

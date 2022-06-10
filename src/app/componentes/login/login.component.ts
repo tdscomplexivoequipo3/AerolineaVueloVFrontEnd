@@ -32,6 +32,7 @@ export class LoginComponent implements OnInit {
           //almacenar token_______________________________________
           sessionStorage.setItem('user', JSON.stringify(data));
           this.router.navigate(['/reservas',data.email]);
+          this.classReference.user=data;
         },err=> {
           this.error=true;
           this.objeto.email="";
