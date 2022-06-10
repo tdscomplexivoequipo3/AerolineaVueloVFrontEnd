@@ -1,6 +1,6 @@
 .principal1{
   height: 600px;
-  width: auto;
+  width: 100%;
   display: flex;
 }
 .textoInfo{
@@ -22,13 +22,10 @@ display: flex;
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
+
 .formulario{
-  margin: 0;
-  left: 250px;
-  position: relative;
-  top: -20px;
+  margin-left: 10%;
 }
 .example-form-field {
   margin-right: 50px;
