@@ -1,0 +1,33 @@
+<div class="principalc">
+  <div class="subprincipalc">
+        <h1 style="color: #512DA8;font-weight: lighter"> <i>Centro de Ayuda</i></h1>
+  </div>
+</div>
+
+
+<mat-sidenav-container>
+  <mat-sidenav mode="side" opened >
+    <button mat-button routerLink="coronavirus"><mat-icon>favorite_border</mat-icon> Coronavirus (COVID-19) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mat-icon>keyboard_arrow_right</mat-icon></button>
+
+    <hr>
+    <button mat-button  routerLink="cambios"><mat-icon> local_airport</mat-icon> Cambios y devoluciones &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mat-icon>keyboard_arrow_right</mat-icon></button>
+    <hr>
+    <button mat-button ><mat-icon>report_problem</mat-icon> Problemas con el vuelo &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mat-icon>keyboard_arrow_right</mat-icon></button>
+    <hr>
+    <button mat-button ><mat-icon> rate_review</mat-icon> Cuentas y contraseña &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mat-icon>keyboard_arrow_right</mat-icon></button>
+    <hr>
+    <button mat-button ><mat-icon> insert_invitation</mat-icon> Check-in automatico y embarque &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mat-icon>keyboard_arrow_right</mat-icon></button>
+    <hr>
+    <button mat-button ><mat-icon>card_travel</mat-icon> Equipaje&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mat-icon>keyboard_arrow_right</mat-icon></button>
+    <hr>
+    <button mat-button ><mat-icon> local_library</mat-icon>Documentos para viajar y certificados <mat-icon>keyboard_arrow_right</mat-icon></button>
+    <hr>
+    <button mat-button ><mat-icon>airline_seat_legroom_reduced</mat-icon> Necesidades especiales &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mat-icon>keyboard_arrow_right</mat-icon></button>
+    <hr>
+    <button mat-button >	<mat-icon>pets</mat-icon> Viajes con mascotas &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mat-icon>keyboard_arrow_right</mat-icon></button>
+    <hr>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
