@@ -34,12 +34,10 @@ mat-card {
   border-radius: 10px !important;
   padding: 0;
   display: flex;
-  box-shadow: 4px 4px 1px #282828 !important;
-
 }
 
 #form_general{
-  border-top-left-radius: 100px;
+  border-top-left-radius: 80px;
   background-color: #ffffff;
   margin: 0;
   padding: 0;
@@ -128,7 +126,7 @@ mat-card-content{
 .a1{
   background-color: #1d4f71;
   padding-top: 3px;
-  border-top-left-radius: 95px;
+  border-top-left-radius: 75px;
 }
 
 .flex-low{
