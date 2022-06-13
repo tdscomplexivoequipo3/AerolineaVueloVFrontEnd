@@ -4,6 +4,7 @@ import {VueloResponse} from "../../../models/Response/VueloResponse";
 import {VueloService} from "../../../services/Vuelo.service";
 import {FechaFilter} from "../../../models/FechaFilter";
 import {ActivatedRoute, Router} from "@angular/router";
+import {NgxSpinnerService} from "ngx-spinner";
 
 @Component({
   selector: 'app-ofertas-users',
@@ -20,7 +21,7 @@ export class OfertasUsersComponent implements OnInit {
   vuelos_filtrados:VueloResponse[]=[];
 
   constructor(private router: Router,private activatedRoute: ActivatedRoute,
-              private service:VueloService) {
+              private service:VueloService,private spinner: NgxSpinnerService) {
     this.service.listAll().subscribe(
       objets => {
         this.vuelos = objets
@@ -42,6 +43,11 @@ export class OfertasUsersComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.spinner.show();
+    setTimeout(() => {
+      /** spinner ends after 5 seconds */
+      this.spinner.hide();
+    }, 1000);
   }
 
   activarfiltro(k:number):void{
