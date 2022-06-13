@@ -12,37 +12,44 @@
           <h3 class="esp_h3">Seleccione un mes:</h3>
           <div class="c_fechas" (click)="activarfiltro(i)"
                *ngFor="let item of filter; let i = index"
-               [style.color]= "changeColor[i]  ? '#292a5e' : 'black'"
-               [style.margin]= "changeColor[i]  ? '10px' : '5px'"
+               [style.border-top-color]= "changeColor[i]  ? '#ffffff' : 'rgba(41,42,94,0)'"
+               [style.border-left-color]= "changeColor[i]  ? '#ffffff' : 'rgba(41,42,94,0)'"
+               [style.border-bottom-color]= "changeColor[i]  ? 'rgba(41,42,94,0)' : 'rgb(255,255,255)'"
+               [style.border-right-color]= "changeColor[i]  ? 'rgba(41,42,94,0)' : 'rgba(0,0,0,1)'"
+               [style.background-color]= "changeColor[i]  ? 'rgba(255,255,255,0.1)' : 'rgba(255,255,255,0)'"
           >
             <div class="enca">
               <h4>Mes: {{item.mes}}</h4>
-              <mat-icon  matPrefix >calendar_today</mat-icon>
             </div>
+            <div>
+              <mat-icon >calendar_today</mat-icon>
+            </div>
+
           </div>
         </div>
 
         <div class="rigth">
-          <h3 class="title_ri">Vuelos Disponibles</h3>
+            <h3 class="title_ri">Vuelos Disponibles</h3>
+
           <div class="vuelos" *ngFor="let item of vuelos_filtrados; let i = index">
             <div class="vuelos_g"  [style.border-block-color]= "changeColor_options[i]  ? 'black' : '#000' "
                  [style.border-width]= "changeColor_options[i]  ? '2px' : '1.7px'">
               <div class="v_left">
                 <p>Viaja de {{item.origen}}</p>
-                <h3>{{item.fechaIda}}</h3>
+                <h4>{{item.fechaIda}}</h4>
               </div>
               <div class="duracion">
-                <h4>Duración</h4>
                 <p>0H:51</p>
+                <h4>Duración</h4>
               </div>
               <div class="partida">
-                <h4>Partida</h4>
                 <p>{{item.fechaIda}}</p>
+                <h4>Partida</h4>
+
               </div>
               <div class="v_rigth">
-                <p>Desde</p>
-                <h4>USD {{item.precio}}</h4>
-                <p>Tasas Incluidas Vuelo directo</p>
+                <p>Precio</p>
+                <h4 class="precio">USD {{item.precio}}</h4>
               </div>
 
               <mat-card-actions>
@@ -58,19 +65,20 @@
                 <div>
                   <h4>{{vuelos_envio[i].tipos_vuelo[0]}}</h4> | Solo artículo personal y sin cambios
                 </div>
-                <button mat-raised-button class="boton_envio" (click)="solicitar(vuelos_envio[i].id_vuelo)">Enviar</button>
+
+                <button mat-raised-button class="boton_envio" (click)="solicitar(vuelos_envio[i].id_vuelo)"><mat-icon>flight_takeoff</mat-icon></button>
               </div>
               <div  class="options top">
                 <div>
                   <h4>{{vuelos_envio[i].tipos_vuelo[1]}}</h4> | +Equipaje de mano 10kg
                 </div>
-                <button mat-raised-button class="boton_envio"  (click)="solicitar(vuelos_envio[i].id_vuelo)">Enviar</button>
+                <button mat-raised-button class="boton_envio"  (click)="solicitar(vuelos_envio[i].id_vuelo)"><mat-icon>flight_takeoff</mat-icon></button>
               </div>
               <div  class="options premium">
                 <div>
                   <h4>{{vuelos_envio[i].tipos_vuelo[2]}}</h4> | +Maleta 23kg
                 </div>
-                <button mat-raised-button class="boton_envio" (click)="solicitar(vuelos_envio[i].id_vuelo)">Enviar</button>
+                <button mat-raised-button class="boton_envio" (click)="solicitar(vuelos_envio[i].id_vuelo)"><mat-icon>flight_takeoff</mat-icon></button>
               </div>
             </div>
 

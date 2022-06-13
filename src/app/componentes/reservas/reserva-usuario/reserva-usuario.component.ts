@@ -11,11 +11,14 @@ export class ReservaUsuarioComponent implements OnInit {
 
 
   public classReference = GlobalConstants;
-  constructor(private router: Router,private activatedRoute: ActivatedRoute) {
+  public c:boolean=true;
+
+  constructor(private router: Router,private activatedRoute: ActivatedRoute){
     this.classReference.apiURL="no_employe";
   }
 
   ngOnInit(): void {
+
   }
 
   onClickVuelos():void{
@@ -24,5 +27,13 @@ export class ReservaUsuarioComponent implements OnInit {
       this.router.navigate(['/ofertas/vuelos',id]);
     })
   }
+
+  onClickVuelosCharter():void{
+    this.activatedRoute.params.subscribe( params => {
+      let id = params['email'];
+      this.router.navigate(['/ofertas/charter',id]);
+    })
+  }
+
 
 }

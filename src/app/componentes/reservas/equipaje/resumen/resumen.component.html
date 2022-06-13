@@ -1,9 +1,18 @@
+<ngx-spinner
+  bdColor = "rgba(255, 255, 255, 1)"
+  size = "medium"
+  color = "#fff"
+  type = "square-jelly-box"
+  template= "<img src='https://media.giphy.com/media/kUTME7ABmhYg5J3psM/giphy.gif' />"
+  [fullScreen] = "true">
+  <p style="color: black" > Cargando... </p>
+</ngx-spinner>
 <body>
   <div class="container">
 
     <div class="total">
       <div class="fondo_inicial">
-        <h1 class="title">Vuelos Agiles</h1>
+        <h1 class="title">Viaje Select</h1>
       </div>
     </div>
 
@@ -61,6 +70,13 @@
           </div>
         </div>
 
+        <div class="row">
+        <div class="row_c image">
+          <img src="{{this.vuelo.horaSalida}}">
+        </div>
+        </div>
+
+
         <div class="acciones">
           <mat-card-actions>
             <button mat-raised-button (click)="registrar()">
@@ -72,9 +88,6 @@
 
       </div>
 
-      <div class="image">
-        <img src="{{this.vuelo.horaSalida}}">
-      </div>
 
 
     </div>

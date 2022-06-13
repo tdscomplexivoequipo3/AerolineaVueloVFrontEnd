@@ -8,6 +8,7 @@ import {UserTokenService} from "../../../../services/UserTokenService";
 import {ReservaService} from "../../../../services/ReservaService";
 import {ReservaRequest} from "../../../../models/Request/ReservaRequest";
 import Swal from "sweetalert2";
+import {NgxSpinnerService} from "ngx-spinner";
 
 @Component({
   selector: 'app-resumen',
@@ -23,7 +24,8 @@ export class ResumenComponent implements OnInit {
               private activatedRoute: ActivatedRoute,
               private serviceVuelo:VueloService,
               private serviceUsuario:UserTokenService,
-              private serviceReserva:ReservaService) {
+              private serviceReserva:ReservaService,
+              private spinner: NgxSpinnerService) {
 
     this.activatedRoute.params.subscribe( params => {
       let mail = params['email'];
@@ -36,17 +38,19 @@ export class ResumenComponent implements OnInit {
       _objet=>{
         this.vuelo=_objet
       }, error => console.log(error));
-
-
-
   }
 
   vuelo:VueloResponse=new VueloResponse();
 
   ngOnInit(): void {
+    this.spinner.show();
+    setTimeout(() => {
+      /** spinner ends after 5 seconds */
+      this.spinner.hide();
+    }, 1000);
   }
 
-  registrar():void{
+  registrar():void{2
     this.observable_user?.subscribe(
       _objet=>{
         var r1: ReservaRequest =new ReservaRequest();
@@ -69,7 +73,15 @@ export class ResumenComponent implements OnInit {
               title: 'Registro Estado',
               text: 'Registro Correcto',
               confirmButtonColor: "#0c3255"
-            })
+            }).then(async (result) => {
+               if(result.isConfirmed){
+                 this.activatedRoute.params.subscribe( params => {
+                   let id = params['email'];
+                   this.router.navigate(['/reservas',id]);
+                 })
+               }
+            });
+
           },err=> {
             Swal.fire({
               icon: 'warning',
@@ -82,10 +94,6 @@ export class ResumenComponent implements OnInit {
 
         //__________-
       }, error => console.log(error));
-
-
-
-
 
   }
 

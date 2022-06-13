@@ -26,6 +26,14 @@ export  class  UserTokenService  {
     return this.http_client.get<UsuarioResponse>(`${this.urlEndPoint}/${email}`,{headers:reqHeader});
   }
 
+  getUserC(cedula:string):Observable<UsuarioResponse>{
+    var reqHeader = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + JSON.parse(sessionStorage.getItem("user")+"").token
+    });
+    return this.http_client.get<UsuarioResponse>(`${this.urlEndPoint}/usuario/${cedula}`,{headers:reqHeader});
+  }
+
 
 
 }

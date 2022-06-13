@@ -1,0 +1,145 @@
+<body>
+
+<div class="general">
+  <div class="total">
+    <div class="fondo_inicial">
+      <h1 class="title">Pasajeros</h1>
+    </div>
+  </div>
+
+  <div class="total_b">
+    <div class="form">
+      <div class="portada">
+        <h3>Registro de Pasajeros de Vuelo</h3>
+      </div>
+
+      <div class="row black">
+        <label class="label_t ">Identificación</label>
+        <div class="row_c">
+          <input  class="input l_b" type="text" name="identificacion"  [(ngModel)]="id_busqueda">
+          <label class="label_">Ingrese la Identificación</label>
+          <div *ngIf="if_null"><h5>Identificación no reconocida</h5></div>
+          <div *ngIf="if_redunt"><h5>Usuario ya ingresado</h5></div>
+        </div>
+
+        <div class="row_search">
+          <mat-card-actions>
+            <button class="search_button"
+                    mat-raised-button (click)="search()">
+              Buscar
+            </button >
+          </mat-card-actions>
+          <mat-card-actions>
+            <button class="more_button"
+                    mat-raised-button (click)="anadir()">
+              Añadir Pasajero
+            </button >
+          </mat-card-actions>
+        </div>
+      </div>
+
+      <form #formulario="ngForm" *ngIf="if_form">
+      <div class="background_c" >
+        <div class="portada left">
+          <h3>Datos</h3>
+        </div>
+        <div class="row">
+          <label class="label_t" >Pasajero </label>
+          <div class="row_c">
+            <input  class="input" [(ngModel)]="user.nombres" name="nombres" required
+            [readonly]="if_onlyread">
+            <label class="label_">Nombre</label>
+
+            <div class="row_i">
+              <input  class="input" [(ngModel)]="user.apellidos" name="apellidos" required
+                      [readonly]="if_onlyread">
+              <label class="label_">Apellido</label>
+            </div>
+          </div>
+
+          <div class="row_c">
+            <input  class="input" [(ngModel)]="user.docIdentificacion" name="docIdentificacion"
+                    [readonly]="if_onlyread" (keypress)="onKeyPress($event)" minlength="10" maxlength="10" required>
+            <label class="label_"
+            >Identificación</label>
+          </div>
+        </div>
+
+        <div class="row">
+          <label class="label_t">Eliga</label>
+          <div class="row_c">
+            <mat-card-actions>
+              <button [disabled]="!formulario.valid" mat-raised-button [style.background-color]= "'#1d4f71'"
+                      [style.color]= "'#ffffff'" (click)="if_onlyread ? guardar() : guardarNewDates()" >
+                Guardar
+                <mat-icon>bookmark</mat-icon>
+              </button >
+            </mat-card-actions>
+          </div>
+
+          <div class="row_c">
+            <mat-card-actions>
+              <button mat-raised-button [style.background-color]= "'#000000'"
+                      [style.color]= "'#ffffff'"
+              (click)="cancelar()">
+                Cancelar
+                <mat-icon>cancel</mat-icon>
+              </button >
+            </mat-card-actions>
+          </div>
+        </div>
+      </div>
+      </form>
+
+
+
+      <div #numero class="back_black" *ngIf="users.length>0">
+        <div class="portada left">
+          <h3>Pasajeros Añadidos</h3>
+        </div>
+
+        <div class="row bord"  *ngFor="let item of users; let i = index">
+          <label class="label_t">Pasajero </label>
+
+          <div class="row_c">
+            <input  class="input"  value="{{item.nombres}}"  readonly>
+            <label class="label_">Nombre</label>
+
+            <div class="row_i">
+              <input  class="input" value="{{item.apellidos}}" readonly>
+              <label class="label_">Apellido</label>
+            </div>
+          </div>
+
+          <div class="row_c">
+            <input  class="input" value="{{item.docIdentificacion}}" readonly>
+            <label class="label_">Identificación</label>
+          </div>
+
+          <div class="row_action">
+            <mat-card-actions>
+              <button color="warn" mat-fab (click)="borrar(item.docIdentificacion)">
+                <mat-icon>delete</mat-icon>
+              </button >
+            </mat-card-actions>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="fin">
+        <mat-card-actions>
+          <button mat-stroked-button class="fin_">
+            Finalizar Proceso
+          </button >
+        </mat-card-actions>
+      </div>
+
+    </div>
+  </div>
+
+
+</div>
+
+</body>

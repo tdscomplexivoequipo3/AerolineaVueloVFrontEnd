@@ -1,11 +1,119 @@
-<div class="container">
+<body>
 
-  <div class="menu">
-    <app-header></app-header>
+  <div class="general">
+    <div class="total">
+      <div class="fondo_inicial">
+        <h1 class="title">Programa Charter</h1>
+      </div>
+    </div>
+
+    <div class="total_b">
+      <form>
+        <div class="portada">
+          <h3>Registro de Vuelo Charter</h3>
+        </div>
+        <div class="row">
+          <label class="label_t">Fechas </label>
+          <div class="row_c">
+            <div class="row_c_cont">
+              <input [(ngModel)]="vuelo.fechaIda" name="fechaIda"
+                     matInput [matDatepicker]="picker" placeholder="d/m/yyyy" required>
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </div>
+
+            <label class="label_">Fecha Ida</label>
+          </div>
+
+
+          <div class="row_c">
+            <div class="row_c_cont">
+              <input [(ngModel)]="vuelo.fechaVuelta" name="fechaVuelta"
+                     matInput [matDatepicker]="picker_v" placeholder="d/m/yyyy" required>
+              <mat-datepicker-toggle matSuffix [for]="picker_v"></mat-datepicker-toggle>
+              <mat-datepicker #picker_v></mat-datepicker>
+            </div>
+            <label class="label_">Fecha Vuelta</label>
+          </div>
+
+        </div>
+
+
+
+        <div class="row">
+          <label class="label_t">Horarios</label>
+          <div class="row_c">
+            <input  class="input"  type="number" [(ngModel)]="vuelo.horaSalida" name="horaSalida">
+            <label class="label_">Hora de Salida</label>
+          </div>
+          <div class="row_c">
+            <input  class="input" type="number" [(ngModel)]="vuelo.horaLlegada" name="horaLlegada">
+            <label class="label_">Hora de LLegada</label>
+          </div>
+          <div class="row_c r">
+            <label class="label_r">Total: {{vuelo.horaSalida+vuelo.horaLlegada}}</label>
+          </div>
+
+        </div>
+
+
+        <div class="row">
+          <label class="label_t">Observación</label>
+          <div class="row_c">
+            <input  class="input" >
+            <label class="label_">Comentario</label>
+          </div>
+        </div>
+
+        <div class="row">
+          <label class="label_t">Vuelo</label>
+          <div class="row_c">
+            <mat-form-field  class="full-width-select" >
+              <mat-label>Seleccione</mat-label>
+              <mat-select [(ngModel)]="vuelo.origen" name="origen" required>
+                <mat-option value="ecuador">Ecuador</mat-option>
+                <mat-option value="colombia">Colombia</mat-option>
+                <mat-option value="perú">Perú</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <label class="label_">Vuelo de Origen</label>
+          </div>
+          <div class="row_c">
+            <mat-form-field  class="full-width-select" >
+              <mat-label>Seleccione</mat-label>
+              <mat-select [(ngModel)]="vuelo.destino" name="destino" required>
+                <mat-option value="ecuador">Ecuador</mat-option>
+                <mat-option value="colombia">Colombia</mat-option>
+                <mat-option value="perú">Perú</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <label class="label_">Vuelo de Destino</label>
+          </div>
+        </div>
+
+        <div class="row">
+          <label class="label_t">Pasajeros</label>
+          <div class="row_c">
+            <button mat-raised-button [routerLink]="['/lista_pasajeros']">
+              Pasajeros
+            </button >
+            <label class="label_">Establecer Pasajeros</label>
+          </div>
+        </div>
+
+        <div class="row_ac">
+        <mat-card-actions>
+          <button mat-raised-button
+                  >
+            RESERVAR
+          </button >
+        </mat-card-actions>
+        </div>
+
+      </form>
+    </div>
+
+
   </div>
 
-  <div class="seccion2">
-    <router-outlet></router-outlet>
-  </div>
-
-</div>
+</body>

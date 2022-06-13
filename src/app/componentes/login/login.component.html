@@ -3,41 +3,51 @@
     <div class="mat-card-content-p1">
       <mat-card-content>
         <div class="text">
-          <h1>Inicia Seción</h1>
-          <img src="assets/icon.png">
+          <h1>Iniciar Seción</h1>
+          <mat-icon>perm_identity</mat-icon>
         </div>
-        <form class="login-form" id="form_general">
-          <mat-form-field class="full-width">
-            <mat-label>Email</mat-label>
-            <mat-icon  matPrefix color="primary">people</mat-icon>
-            <input  [(ngModel)]="objeto.email" name="email" matInput  placeholder="Email" required>
-          </mat-form-field>
-          <mat-form-field class="full-width">
-            <mat-label>Password</mat-label>
-            <mat-icon matPrefix  color="primary">password</mat-icon>
-            <input  matInput type="password" placeholder="Password" [(ngModel)]="objeto.clave" name="clave" required>
-          </mat-form-field>
-        </form>
+        <div class="a1">
+          <form class="login-form" id="form_general">
+            <mat-form-field class="full-width">
+              <mat-label>Email</mat-label>
+              <mat-icon  matSuffix color="primary">people</mat-icon>
+              <input  [(ngModel)]="objeto.email" name="email" matInput  placeholder="Email" required>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+              <mat-label>Password</mat-label>
+              <mat-icon matSuffix>no_encryption</mat-icon>
+              <input  matInput type="password" placeholder="Password" [(ngModel)]="objeto.clave" name="clave" required>
+            </mat-form-field>
+          </form>
+        </div>
       </mat-card-content>
-      <mat-label
-        [style.color]="'red'" *ngIf="error==true">Usuario no existente</mat-label>
-      <mat-card-actions>
-        <button mat-raised-button  (click)="login()" color="primary"
-        form="form_general">
-          LOGIN
-        </button >
-      </mat-card-actions>
 
+      <div class="about">
+        <mat-label
+          [style.color]="'red'" *ngIf="error==true">Usuario no existente</mat-label>
+        <mat-card-actions>
+          <button mat-raised-button  (click)="login()" color="primary"
+                  form="form_general">
+            LOGIN
+          </button >
+        </mat-card-actions>
+        <a routerLinkActive="active"
+           [routerLink]="['/registro']"
+           class="nav_rout" >
+          Registrarse
+        </a>
+      </div>
+    </div>
 
-      <a routerLinkActive="active"
-         [routerLink]="['/registro']"
-         class="nav_rout" >
-        Registrarse
-      </a>
+  <div class="backgrounddiv">
+    <div class="backgroundimage">
+      <div class="title">
+        <h4>Aeropuerto Ecuatoriano de Ecuador</h4>
+      </div>
 
     </div>
-  <div class="mat-card-content-p2">
   </div>
+
 </mat-card>
 </body>
 

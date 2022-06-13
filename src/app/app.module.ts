@@ -31,8 +31,9 @@ import {UnAuthorizedInterceptor} from "./UnAuthorizedInterceptor";
 import {CentroaComponent} from "./layout/centroa/centroa.component";
 import {CoronavirusComponent} from "./layout/menus/coronavirus/coronavirus.component";
 import {CambiosComponent} from "./layout/menus/cambios/cambios.component";
-
-
+import {NgxSpinnerModule} from "ngx-spinner";
+import {ReservaCharterComponent} from "./componentes/reservas/reserva-charter/reserva-charter.component";
+import { ListaPasajerosComponent } from './componentes/reservas/reserva-charter/lista-pasajeros/lista-pasajeros.component';
 
 const routes: Routes = [
   {path:'', component:LoginComponent},
@@ -45,6 +46,8 @@ const routes: Routes = [
   {path:'registro/avion', component:RegisterPlaneComponent},
   {path:'registro/programa/vuelo', component:ProgrammingFlightsComponent},
   {path:'reserva/:email/:id_vuelo', component:ResumenComponent},
+  {path:'ofertas/charter/:email', component:ReservaCharterComponent},
+  {path:'lista_pasajeros',component:ListaPasajerosComponent},
   {path:'centroa',component:CentroaComponent,
    children:[
   {
@@ -83,7 +86,9 @@ const routes: Routes = [
     ResumenComponent,
     CentroaComponent,
     CambiosComponent,
-    CoronavirusComponent
+    CoronavirusComponent,
+    ReservaCharterComponent,
+    ListaPasajerosComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
@@ -92,7 +97,7 @@ const routes: Routes = [
     BrowserAnimationsModule,
     MaterialModule,
     HttpClientModule,
-
+    NgxSpinnerModule
   ],
   providers: [UsuarioService,VueloService,UserTokenService,
   {provide:HTTP_INTERCEPTORS, useClass: UnAuthorizedInterceptor, multi: true }

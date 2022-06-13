@@ -2,8 +2,8 @@ export class ReservaRequest{
   idReserva:any;
   fechaIda:any;
   fechaVuelta:any;
-  horaSalida:any;
-  horaLlegada:any;
+  horaSalida:any=0;
+  horaLlegada:any=0;
   estado:any;
   observacion:any;
   fechaRegistro:any;
