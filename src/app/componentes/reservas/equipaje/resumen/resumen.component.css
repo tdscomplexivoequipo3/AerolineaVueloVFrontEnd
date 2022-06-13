@@ -54,8 +54,6 @@ body{
   grid-column: 1/2;
   border-top: 2px solid #ffffff;
   border-left: 2px solid #ffffff;
-  border-bottom: 2px solid #1d4f71;
-  border-right: 2px solid #1d4f71;
   border-radius: 10px;
   min-height: 700px;
   max-height: 750px;
@@ -64,7 +62,7 @@ body{
   margin-top: 20px;
   color: white;
   margin-bottom: 20px;
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.7);
 }
 
 .row_c img{

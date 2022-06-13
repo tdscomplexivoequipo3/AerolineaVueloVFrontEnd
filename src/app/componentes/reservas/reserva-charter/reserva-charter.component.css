@@ -157,3 +157,13 @@ button{
   justify-content: center;
   align-items: center;
 }
+
+.pasajeros_button{
+  background-color: #282828;
+  color: #ffffff;
+}
+
+.pasajeros_button:hover{
+  background-color: #1d4f71;
+  color: #ffffff;
+}

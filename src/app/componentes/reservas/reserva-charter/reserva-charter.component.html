@@ -8,7 +8,7 @@
     </div>
 
     <div class="total_b">
-      <form>
+      <form #formulario="ngForm">
         <div class="portada">
           <h3>Registro de Vuelo Charter</h3>
         </div>
@@ -60,7 +60,7 @@
         <div class="row">
           <label class="label_t">Observación</label>
           <div class="row_c">
-            <input  class="input" >
+            <input  class="input" [(ngModel)]="vuelo.observacion" name="observacion" required>
             <label class="label_">Comentario</label>
           </div>
         </div>
@@ -94,7 +94,7 @@
         <div class="row">
           <label class="label_t">Pasajeros</label>
           <div class="row_c">
-            <button mat-raised-button [routerLink]="['/lista_pasajeros']">
+            <button mat-raised-button [routerLink]="['/lista_pasajeros']" class="pasajeros_button">
               Pasajeros
             </button >
             <label class="label_">Establecer Pasajeros</label>
@@ -104,7 +104,7 @@
         <div class="row_ac">
         <mat-card-actions>
           <button mat-raised-button
-                  >
+                  [disabled]="!formulario.valid" (click)="registrar()">
             RESERVAR
           </button >
         </mat-card-actions>

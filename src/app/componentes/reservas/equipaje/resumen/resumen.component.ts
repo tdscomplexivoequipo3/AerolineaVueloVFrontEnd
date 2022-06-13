@@ -50,7 +50,7 @@ export class ResumenComponent implements OnInit {
     }, 1000);
   }
 
-  registrar():void{2
+  registrar():void{
     this.observable_user?.subscribe(
       _objet=>{
         var r1: ReservaRequest =new ReservaRequest();
