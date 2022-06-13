@@ -47,19 +47,22 @@
                 <h4>{{item.fechaIda}}</h4>
               </div>
               <div class="duracion">
-                <p>0H:51</p>
-                <h4>Duración</h4>
+                <div>
+                  <h4>Duración:</h4>
+                  <p>0H:51</p>
+                </div>
+                <mat-icon>alarm</mat-icon>
               </div>
               <div class="partida">
-                <p>{{item.fechaIda}}</p>
-                <h4>Partida</h4>
-
+                <div>
+                  <h4>Partida:</h4>
+                  <p>{{item.fechaIda}}</p>
+                </div>
               </div>
               <div class="v_rigth">
-                <p>Precio</p>
+                <p>Precio:</p>
                 <h4 class="precio">USD {{item.precio}}</h4>
               </div>
-
               <mat-card-actions>
                 <button mat-raised-button  (click)="mostrar(i)"
                         [textContent]= "changeColor_options[i]? 'Ocultar' : 'Mostrar'"
