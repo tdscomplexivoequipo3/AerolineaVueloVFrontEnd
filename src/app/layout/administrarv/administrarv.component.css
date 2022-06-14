@@ -1,0 +1,84 @@
+mat-sidenav{
+  margin: 0;
+  width: 620px;
+  height: 600px;
+  background: #FFFFFF;
+  color: black;
+  padding: 16px;
+  text-align: center;
+  border-left: black;
+  border-bottom-width: 10px;
+  justify-content: center;
+
+}
+mat-sidenav-container{
+  height: 600px;
+
+}
+mat-sidenav-content{
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.letra{
+  color: #1B0088;
+  font-size: 50px;
+  font-weight: lighter;
+}
+/*---Estilo de botones---*/
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.cta {
+  position: relative;
+  margin: auto;
+  padding: 19px 22px;
+  transition: all 0.2s ease;
+}
+.cta:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  border-radius: 28px;
+  background: rgba(93, 173, 226, 0.5);
+  width: 56px;
+  height: 56px;
+  transition: all 0.3s ease;
+}
+.cta span {
+  position: relative;
+  font-size: 16px;
+  line-height: 18px;
+  font-weight: 900;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+.cta svg {
+  position: relative;
+  top: 0;
+  margin-left: 10px;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke: #111;
+  stroke-width: 2;
+  transform: translateX(-5px);
+  transition: all 0.3s ease;
+}
+.cta:hover:before {
+  width: 100%;
+  background: #5DADE2 ;
+}
+.cta:hover svg {
+  transform: translateX(0);
+}
+.cta:active {
+  transform: scale(0.96);
+}
+/*---Fin Estilo de botones---*/

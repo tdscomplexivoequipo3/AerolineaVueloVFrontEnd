@@ -1,0 +1,113 @@
+<div class="contenido" >
+  <div>
+    <h1>Check-in y embarque</h1>
+    <ul class="lista">
+      <li>
+        <mat-accordion>
+
+          <mat-expansion-panel (opened)="panelOpenState = true"
+                               (closed)="panelOpenState = false">
+            <mat-expansion-panel-header>
+              <mat-panel-title><h3>Embarque</h3>
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <h4>¿Dónde puedo ver la duración de mi vuelo?</h4>
+            <p>Entra en la sección <a href="">Mis viajes</a> en nuestra página. Allí podrás ver cuánto demora tu vuelo en llegar a destino.</p>
+            <h4>¿Dónde puedo ver mi tarjeta de embarque?</h4>
+            <p>Puedes revisar tu tarjeta de embarque desde:</p>
+
+            <ul class="mlistas">
+              <li>La sección <a href="">Mis viajes</a> de nuestro sitio, ingresando tu Nº de Orden o código de reserva y apellido. </li>
+            </ul>
+            <p>También puedes acceder desde el email o WhatsApp que te enviamos al momento de comprar tu pasaje.</p>
+            <p>Si tu vuelo tiene Check-in , al comprar te enviamos una tarjeta de embarque temporal que se actualizará 48 horas antes de tu viaje. Te informaremos a través de email y WhatsApp si tu vuelo ya tiene este servicio.</p>
+            <p>Te recomendamos guardarla en tu teléfono para que la puedas revisar siempre que lo necesites sin necesidad de tener conexión a internet.</p>
+            <p>Si no puedes ver tu tarjeta de embarque acércate a un counter el día de tu viaje y te ayudaremos. En vuelos internacionales te entregaremos la tarjeta de embarque en el aeropuerto debido a revisiones de documentación por COVID-19.</p>
+
+            <h4>¿Cómo puedo saber si mi vuelo está a tiempo?</h4>
+            <p>Para revisar el estado de tu vuelo y saber si está a tiempo, entra a la sección <a href="http://localhost:4200/estado" target="_blank">Estado de Vuelo.</a></p>
+            <h4>¿Puedo embarcar antes si viajo con una persona de la tercera edad?</h4>
+            <p>Las personas de la tercera edad, embarazadas o personas que viajan con niños tienen prioridad en el embarque.</p>
+            <p>Si la persona de la tercera edad necesita asistencia especial infórmanos en el aeropuerto para poder asistirle.</p>
+            <h4>¿Puedo saber si un pasajero se embarcó en el avión?</h4>
+            <p>Para resguardar la privacidad de nuestros pasajeros, no revelamos a terceros los datos de embarque ni detalles del vuelo.</p>
+            <p>En la única situación donde se puede entregar información del embarque es en el caso de menores no acompañados, siempre que la persona que solicite los datos sea la indicada en el Formulario de menores viajando solos como quien entregó o retirará al menor en el aeropuerto.</p>
+            <h4>¿Con cuánta anticipación tengo que estar en el aeropuerto para mi viaje?</h4>
+            <p>Debido a los controles sanitarios en los aeropuertos, te recomendamos llegar con anticipación. </p>
+            <table >
+              <tr>
+                <th>Vuelos</th>
+
+                <th>Horario de presentación</th>
+              </tr>
+              <tr>
+                <td>Internacionales</td>
+                <td>4 horas antes de la salida del vuelo</td>
+              </tr>
+              <tr style="border: 1px solid">
+                <td>Nacionales</td>
+                <td>2 horas antes de la salida del vuelo</td>
+              </tr>
+            </table>
+          </mat-expansion-panel>
+
+        </mat-accordion>
+      </li>
+      <li>
+        <mat-accordion>
+
+          <mat-expansion-panel (opened)="panelOpenState = true"
+                               (closed)="panelOpenState = false">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <h3>Check-in</h3>
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <h4>¿Qué pasajeros tendrán el Check-in ?</h4>
+            <p>Está disponible para todos nuestros pasajeros.</p>
+            <p>Si tienes un vuelo internacional, compraste en nuestra versión clásica, agencia de viajes u otro sitio web, debes completar los datos de viaje. Esto lo podrás hacer desde las 72 horas antes de tu vuelo para activar tu Check-in automático.</p>
+            <p>Cuando queden 48 horas para tu vuelo, ya tendrás la información actualizada en tu tarjeta de embarque con los últimos detalles de tu viaje.</p>
+            <h4>¿Por qué no puedo hacer el Check-in online para mi vuelo?</h4>
+            <p>Existen varias razones en las cuales no podrás hacer tu Check-in en nuestro sitio:</p>
+            <ul class="mlistas">
+              <li>Si tienes un viaje nacional comprado en nuestra agencia solo tienes que entrar a nuestra pagina y ya no tienes que hacer tu Check-in porque nosotros lo hacemos por ti  ¡Es automático! </li>
+              <li> Si tienes un vuelo internacional, compraste en nuestra versión clásica , la agencia de viajes u otro sitio web, debes completar los datos de viaje. Esto lo podrás hacer desde las 72 horas antes de tu vuelo para activar tu Check-in automático.</li>
+            </ul>
+            <h4>¿Puedo volar si no pude seleccionar asiento?</h4>
+            <p>Sí, queremos que sepas que si estás chequeado en tu vuelo, tu espacio está confirmado en el avión, independientemente de que no tengas el número de tu asiento asignado.</p>
+            <p>Para estos casos, te pedimos que te acerques a nuestros counters el día de tu vuelo donde te asignaremos tu número de asiento y te entregaremos la tarjeta de embarque.</p>
+            <h4>¿Puedo volar si no pude realizar mi Check-in online?</h4>
+            <p>Sí. Si no pudiste hacer tu Check-in en nuestro sitio  no te preocupes, podrás hacerlo directamente en el aeropuerto: en los módulos de auto atención o directamente en el counter. En ese momento te entregaremos tu tarjeta de embarque para que puedas abordar el avión.</p>
+          </mat-expansion-panel>
+
+        </mat-accordion>
+      </li>
+      <li>
+        <mat-accordion>
+
+          <mat-expansion-panel (opened)="panelOpenState = true"
+                               (closed)="panelOpenState = false">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <h3>Embarque Denegado</h3>
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+
+            <h4 >¿Recibiré una compensación si me deniegan el embarque?</h4>
+            <p>Nos preocupamos de nuestros pasajeros, y si existe una denegación de embarque, te compensaremos por ello. Cada compensación será informada en el aeropuerto.</p>
+            <p>En nuestra agencia hacemos todo lo posible por evitar la denegación de embarque. Por eso, en nuestro programa Viajero Flexible buscamos anticipadamente a voluntarios que quieran cambiarse de vuelo. En este caso, es posible que horas antes del viaje, los pasajeros reciban una invitación a registrarse como voluntarios, seleccionando una compensación y un vuelo alternativo.</p>
+            <h4>Si me deniegan el embarque, ¿Cómo sabré cuál será mi compensación?</h4>
+           <p>En caso de que tu embarque sea denegado, las compensaciones serán informadas en el aeropuerto. Cada compensación depende de la ruta, del tiempo de atraso a destino y también del tiempo de espera del pasajero.</p>
+            <h4>Si me deniegan el embarque, ¿Puedo elegir el vuelo en el que viajaré?</h4>
+            <p>En ciertas ocasiones, buscamos voluntarios que estén dispuestos a cambiar su vuelo y premiamos su flexibilidad. De esta manera, pueden elegir su compensación y un vuelo alternativo, en nuestro programa Viajero flexible.</p>
+
+          </mat-expansion-panel>
+        </mat-accordion>
+      </li>
+
+    </ul>
+
+  </div>
+
+</div>
+

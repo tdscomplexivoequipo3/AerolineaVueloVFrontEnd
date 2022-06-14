@@ -1,0 +1,21 @@
+
+<div class="divconteniner">
+  <h3  style="text-align: center" class="letra">Busca tu viaje</h3>
+  <p>Ingresa el email con el que ingresaste tu compra</p>
+  <form class="example-form">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label  >Email</mat-label>
+      <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
+             placeholder="Ex. pat@example.com">
+      <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+        Por favor ingrese un email válido
+      </mat-error>
+      <mat-error *ngIf="emailFormControl.hasError('required')">
+        Email es <strong>requerido</strong>
+      </mat-error>
+    </mat-form-field>
+      <button mat-flat-button color="accent" class="botonv">Enviar</button>
+
+  </form>
+
+</div>

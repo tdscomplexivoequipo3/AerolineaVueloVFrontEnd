@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {RouterModule, Routes} from "@angular/router";
 import {MaterialModule} from "../material/material.module";
 import { RegistroComponent } from './componentes/register/register.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { HeaderComponent } from './layout/header/header.component';
 import { ReservaUsuarioComponent } from './componentes/reservas/reserva-usuario/reserva-usuario.component';
 import {FooterComponent} from "./layout/footer/footer.component";
@@ -34,6 +34,17 @@ import {CambiosComponent} from "./layout/menus/cambios/cambios.component";
 import {NgxSpinnerModule} from "ngx-spinner";
 import {ReservaCharterComponent} from "./componentes/reservas/reserva-charter/reserva-charter.component";
 import { ListaPasajerosComponent } from './componentes/reservas/reserva-charter/lista-pasajeros/lista-pasajeros.component';
+import {ProblemasComponent} from "./layout/menus/problemas/problemas.component";
+import {CuentasComponent} from "./layout/menus/cuentas/cuentas.component";
+import {EmbarqueComponent} from "./layout/menus/embarque/embarque.component";
+import {EquipajemComponent} from "./layout/menus/equipajem/equipajem.component";
+import {DocumentosComponent} from "./layout/menus/documentos/documentos.component";
+import {NecesidadesComponent} from "./layout/menus/necesidades/necesidades.component";
+import {MascotasComponent} from "./layout/menus/mascotas/mascotas.component";
+import {AdministrarvComponent} from "./layout/administrarv/administrarv.component";
+import {SolicitarvComponent} from "./layout/menusviajes/solicitarv/solicitarv.component";
+import {IngresavComponent} from "./layout/menusviajes/ingresav/ingresav.component";
+import {DestinosComponent} from "./layout/destinos/destinos.component";
 
 const routes: Routes = [
   {path:'', component:LoginComponent},
@@ -49,17 +60,68 @@ const routes: Routes = [
   {path:'ofertas/charter/:email', component:ReservaCharterComponent},
   {path:'lista_pasajeros',component:ListaPasajerosComponent},
   {path:'centroa',component:CentroaComponent,
-   children:[
-  {
-    path: 'coronavirus',
-    component: CoronavirusComponent
-  },
-  {
-    path:'cambios',
-    component:CambiosComponent
-  }
-]},
-  {path:'estado',component:EstadoComponent}
+    children:[
+      {
+        path: 'coronavirus',
+        component: CoronavirusComponent
+      },
+      {
+        path: '',
+        component: CoronavirusComponent
+      },
+      {
+        path:'cambios',
+        component:CambiosComponent
+      },
+      {
+        path:'problemas',
+        component:ProblemasComponent
+      },
+      {
+        path:'cuentas',
+        component:CuentasComponent
+      },
+      {
+        path:'embarque',
+        component:EmbarqueComponent
+      },
+      {
+        path:"equipajem",
+        component:EquipajemComponent
+      },
+      {
+        path:'documentos',
+        component:DocumentosComponent
+      },
+      {
+        path:'necesidades',
+        component:NecesidadesComponent
+      },
+      {
+        path:'mascotas',
+        component:MascotasComponent
+      }
+
+
+    ]},
+  {path:'estado',component:EstadoComponent},
+  {path:'administrarviajes',component:AdministrarvComponent,
+    children:[
+      {
+        path: 'solicitarv',
+        component: SolicitarvComponent
+      },
+      {path: '',
+        component: SolicitarvComponent
+      },
+      {
+        path:'ingresadatos',
+        component: IngresavComponent
+      }
+
+    ]},
+  {path:'inicioc',component:InicioComponent},
+  {path:'destinos',component:DestinosComponent}
 ]
 
 @NgModule({
@@ -88,7 +150,19 @@ const routes: Routes = [
     CambiosComponent,
     CoronavirusComponent,
     ReservaCharterComponent,
-    ListaPasajerosComponent
+    ListaPasajerosComponent,
+    ProblemasComponent,
+    CuentasComponent,
+    EmbarqueComponent,
+    EquipajemComponent,
+    DocumentosComponent,
+    NecesidadesComponent,
+    MascotasComponent,
+    AdministrarvComponent,
+    SolicitarvComponent,
+    IngresavComponent,
+    DestinosComponent,
+
   ],
   imports: [
     RouterModule.forRoot(routes),
@@ -97,7 +171,8 @@ const routes: Routes = [
     BrowserAnimationsModule,
     MaterialModule,
     HttpClientModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    ReactiveFormsModule
   ],
   providers: [UsuarioService,VueloService,UserTokenService,
   {provide:HTTP_INTERCEPTORS, useClass: UnAuthorizedInterceptor, multi: true }

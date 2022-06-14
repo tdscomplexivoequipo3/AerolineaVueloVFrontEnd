@@ -1,0 +1,15 @@
+.contenido{
+  height: calc(100vh - 65px);
+  margin: 16px;
+  margin-left: 32px;
+  display: flex;
+  justify-content: left;
+  align-items: flex-start;
+}
+.lista{
+  list-style: none;
+}
+.mlistas{
+  list-style: initial;
+}
+table, td, th { border: 1px solid; }

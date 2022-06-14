@@ -1,1 +1,28 @@
-<p>administrarv works!</p>
+<mat-sidenav-container>
+  <mat-sidenav mode="side" opened>
+    <h1 class="letra"><i>Mis viajes</i></h1>
+    <a routerLink="solicitarv" class="cta">
+      <span>Solicitar vía acceso email</span>
+      <svg width="13px" height="10px" viewBox="0 0 13 10">
+        <path d="M1,5 L11,5"></path>
+        <polyline points="8 1 12 5 8 9"></polyline>
+      </svg>
+    </a>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <a routerLink="ingresadatos" class="cta">
+      <span>Ingresa con los datos de tu viaje</span>
+      <svg width="13px" height="10px" viewBox="0 0 13 10">
+        <path d="M1,5 L11,5"></path>
+        <polyline points="8 1 12 5 8 9"></polyline>
+      </svg>
+    </a>
+
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

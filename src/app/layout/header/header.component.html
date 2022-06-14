@@ -1,18 +1,56 @@
 
   <mat-toolbar color="primary" class="headerprincipal">
-    <button mat-button >
+    <button mat-button  routerLink="inicioc">
       <img src="" alt="Logo">
     </button>
-    <button mat-button [matMenuTriggerFor]="aboveMenu">Ofertas y destinos<mat-icon>keyboard_arrow_down</mat-icon></button>
+    <button mat-button [matMenuTriggerFor]="aboveMenu" class="btn">
+      <svg width="277" height="62">
+        <defs>
+          <linearGradient id="grad1">
+            <stop offset="0%" stop-color="#FFFFFF"/>
+            <stop offset="100%" stop-color="#FFFFFF" />
+          </linearGradient>
+        </defs>
+        <rect x="2" y="5" rx="25" fill="none" stroke="url(#grad1)" width="207" height="50"></rect>
+      </svg>
+      <span>Ofertas y destinos<mat-icon>keyboard_arrow_down
+    </mat-icon></span>
+      </button>
+    <!--
+    <a href="http://marcel-pirnay.be/" class="btn">
+      <svg width="277" height="62">
+        <defs>
+          <linearGradient id="grad1">
+            <stop offset="0%" stop-color="#FF8282"/>
+            <stop offset="100%" stop-color="#E178ED" />
+          </linearGradient>
+        </defs>
+        <rect x="5" y="5" rx="25" fill="none" stroke="url(#grad1)" width="266" height="50"></rect>
+      </svg>
+      <span>Voir mes réalisations</span>
+      <span>Welcome in my world</span>
+    </a>
+    -->
     <mat-menu #aboveMenu="matMenu" yPosition="above">
       <button mat-menu-item><mat-icon> list_alt</mat-icon>Ofertas de Vuelos</button>
-      <button mat-menu-item ><mat-icon>commute</mat-icon>Destinos</button>
+      <button mat-menu-item routerLink="destinos"><mat-icon>commute</mat-icon>Destinos</button>
       <button mat-menu-item><mat-icon>store</mat-icon>Promociones de temporada</button>
     </mat-menu>
 
-    <button mat-button [matMenuTriggerFor]="belowMenu">Mis viajes<mat-icon>keyboard_arrow_down</mat-icon></button>
+    <button mat-button [matMenuTriggerFor]="belowMenu" class="btn1">
+      <svg width="270" height="70">
+        <defs>
+          <linearGradient id="grad2">
+            <stop offset="0%" stop-color="#FFFFFF"/>
+            <stop offset="100%" stop-color="#FFFFFF" />
+          </linearGradient>
+        </defs>
+        <rect x="7" y="5" rx="25" fill="none" stroke="url(#grad2)" width="140" height="50"></rect>
+      </svg>
+      <span>Mis viajes<mat-icon>keyboard_arrow_down</mat-icon></span>
+    </button>
     <mat-menu #belowMenu="matMenu" yPosition="below">
-      <button mat-menu-item><mat-icon> list_alt</mat-icon>Administra tus viajes</button>
+      <button mat-menu-item routerLink="administrarviajes"><mat-icon> list_alt</mat-icon>Administra tus viajes</button>
       <button mat-menu-item><mat-icon>playlist_add_check</mat-icon>Check In</button>
     </mat-menu>
 

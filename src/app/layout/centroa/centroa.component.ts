@@ -6,8 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./centroa.component.css']
 })
 export class CentroaComponent implements OnInit {
-  panelOpenState = false;
-
 
   constructor() { }
 

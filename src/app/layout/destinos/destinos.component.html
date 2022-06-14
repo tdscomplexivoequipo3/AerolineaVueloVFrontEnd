@@ -1,0 +1,33 @@
+<div class="principalc">
+  <div>
+    <h2 class="titulo"><i>Destinos Nacionales</i> </h2>
+    <h2 class="titulo"><i>e Internacionales</i></h2>
+  </div>
+</div>
+<p>
+  <mat-toolbar>
+    <a mat-button href="#" target="_blank">Nacionales</a>
+    <a mat-button href="#" target="_blank">Internacionales</a>
+  </mat-toolbar>
+</p>
+<div class="componentes">
+
+</div>
+<mat-accordion>
+
+  <mat-expansion-panel (opened)="panelOpenState = true"
+                       (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title><h3><u>Terminos y Condiciones</u></h3>
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <ul>
+      <li>Las Tarifas exhibidas son referenciales, pudiendo variar su precio ya que se encuentran sujetas a restricciones y condiciones de compra.</li>
+      <li>Al comprar a través de nuestro sitio web, ¡no pagas cargos por servicio!</li>
+      <li>Las tarifas incluyen cargo por combustible vigente a la fecha de esta publicación, el cual podría variar en el futuro dependiendo de las fluctuaciones o variaciones del precio del mismo. Para mayor información, revisa la tabla de cargos por combustible</li>
+      <li>Tasas de embarque: El precio referencial informado para vuelos nacionales e internacionales considera tasas de embarque, determinadas por la autoridad competente de cada país y pueden cambiar su valor.</li>
+      <li>Para mayor información ingresa a nuestro <a href="">Centro de Ayuda.</a></li>
+    </ul>
+  </mat-expansion-panel>
+
+</mat-accordion>
