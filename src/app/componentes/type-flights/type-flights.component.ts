@@ -38,15 +38,17 @@ export class TypeFlightsComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.typeflight.id=1;
-    this.typeflight.nombre="Charter";
-    this.typeflight.descripcion="Descripcion";
-    this.listtypeflight.push(this.typeflight);
-    this.dataSource = new MatTableDataSource(this.listtypeflight);
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+    this.listarTypeflight();
   }
 
+  listarTypeflight(){
+    this.typeflightService.getAll().subscribe(data=>{
+      this.listtypeflight=data;
+      this.dataSource = new MatTableDataSource(this.listtypeflight);
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+    })
+  }
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;

@@ -45,18 +45,20 @@ import {AdministrarvComponent} from "./layout/administrarv/administrarv.componen
 import {SolicitarvComponent} from "./layout/menusviajes/solicitarv/solicitarv.component";
 import {IngresavComponent} from "./layout/menusviajes/ingresav/ingresav.component";
 import {DestinosComponent} from "./layout/destinos/destinos.component";
+import {WatchFlightsComponent} from "./componentes/watch-flights/watch-flights.component";
 
 const routes: Routes = [
   {path:'', component:LoginComponent},
   {path:'registro', component:RegistroComponent},
   {path:'reservas/:email', component:ReservaUsuarioComponent},
-  {path:'registro/vuelos', component:RegistroVuelosComponent},
+  {path:'registro/new/flight', component:RegistroVuelosComponent},
   {path:'ofertas/vuelos/:email', component:OfertasUsersComponent},
   {path:'equipaje', component:EquipajeComponent},
   {path:'registro/vuelos/type', component:TypeFlightsComponent},
   {path:'registro/avion', component:RegisterPlaneComponent},
   {path:'registro/programa/vuelo', component:ProgrammingFlightsComponent},
   {path:'reserva/:email/:id_vuelo', component:ResumenComponent},
+  {path:'registro/watch/flights', component:WatchFlightsComponent},
   {path:'ofertas/charter/:email', component:ReservaCharterComponent},
   {path:'lista_pasajeros',component:ListaPasajerosComponent},
   {path:'centroa',component:CentroaComponent,
@@ -149,6 +151,7 @@ const routes: Routes = [
     CentroaComponent,
     CambiosComponent,
     CoronavirusComponent,
+    WatchFlightsComponent,
     ReservaCharterComponent,
     ListaPasajerosComponent,
     ProblemasComponent,
@@ -162,7 +165,6 @@ const routes: Routes = [
     SolicitarvComponent,
     IngresavComponent,
     DestinosComponent,
-
   ],
   imports: [
     RouterModule.forRoot(routes),

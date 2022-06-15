@@ -1,5 +1,5 @@
 export class TypeFlight{
-  id:any;
+  idTipoVuelo:any;
   nombre:any;
   descripcion:any;
 }

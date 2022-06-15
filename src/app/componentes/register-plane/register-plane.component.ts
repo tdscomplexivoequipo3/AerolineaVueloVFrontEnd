@@ -18,9 +18,9 @@ export class RegisterPlaneComponent implements OnInit {
 
   plane:Plane=new Plane();
 
-  displayedColumns: string[] = ['id', 'nombre', 'descripcion', 'estado', 'edit','delete'];
+  displayedColumns: string[] = ['id', 'placa', 'tipo', 'descripcion', 'estado', 'edit','delete'];
   // @ts-ignore
-  dataSource: MatTableDataSource<Cities>;
+  dataSource: MatTableDataSource<Plane>;
 
   // @ts-ignore
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -29,12 +29,24 @@ export class RegisterPlaneComponent implements OnInit {
   @ViewChild('dialogvuelo')
   dialogvuelo!: TemplateRef<any>;
 
+  listplanes:Array<Plane>=[];
+
   public classReference = GlobalConstants;
   constructor(public dialog: MatDialog, private servicePlane:PlaneService) {
     this.classReference.apiURL="employe";
   }
 
   ngOnInit(): void {
+    this.listarPlanes()
+  }
+
+  listarPlanes(){
+    this.servicePlane.getAll().subscribe(data=>{
+      this.listplanes=data;
+      this.dataSource = new MatTableDataSource(this.listplanes);
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+    })
   }
 
   applyFilter(event: Event) {

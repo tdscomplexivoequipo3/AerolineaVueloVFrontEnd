@@ -1,0 +1,36 @@
+
+<body>
+<mat-card-content>
+  <button mat-raised-button color="accent" class="center" color="accent" [routerLink]="['/registro/new/flight']">Nuevo Vuelo</button>
+  <br>
+  <div>
+    <mat-form-field appearance="standard" class="center filter">
+      <mat-label>Busqueda</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+    </mat-form-field>
+  </div>
+  <div class="grid">
+    <div *ngFor="let a of listflights">
+      <mat-card>
+          <div class="grid1">
+            <div class="btnac">
+              <img mat-card-md-image src="{{a.imagen}}" >
+            </div>
+            <div class="grid">
+              <span><strong>Origen: {{a.origen}}</strong></span>
+              <span><strong>Destino: {{a.destino}}</strong></span>
+            </div>
+          </div>
+        <mat-card-content class="grid1 btnac">
+          <span>Fecha Ida: {{a.fechaIda}}</span>
+          <span>Fecha Vuelta : {{a.fechaVuelta}}</span>
+          <span>Hora Salida: {{a.horaSalida}}</span>
+          <span>Hora llegada: {{a.horaLlegada}}</span>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+
+</mat-card-content>
+</body>
+

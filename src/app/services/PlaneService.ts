@@ -14,8 +14,8 @@ export class PlaneService {
 
   constructor(private httpClient:HttpClient) {  }
 
-  getAll():Observable<any>{
-    return this.httpClient.get<any>(this.base_url);
+  getAll():Observable<Plane[]>{
+    return this.httpClient.get<Plane[]>(this.base_url+"/vueloAll", {headers: this.httpHeaders});
   }
 
   edit(cliente:any, id:String){

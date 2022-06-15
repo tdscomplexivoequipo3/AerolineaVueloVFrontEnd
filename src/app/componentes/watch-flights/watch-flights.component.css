@@ -1,9 +1,17 @@
-.grid{
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 5%;
+.my-form{
+  min-width: 150px;
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+  background-color: rgba(1,1,1,0);
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
 
+td, th {
+  width: 25%;
+}
 
 .btnac{
   text-align: center;
@@ -29,15 +37,22 @@ body {
 }
 
 .mat-card-content{
-  min-width: 20%;
+  min-width: 150px;
   max-width: 80%;
   width: 100%;
   background-color: #ffffff;
   padding: 25px;
 }
-@media (max-width: 850px)  {
-  .grid{
-    grid-template-columns: repeat(1, 1fr);
-  }
+
+.grid{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 5%;
+}
+
+.grid1{
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-gap: 2%;
 }
 

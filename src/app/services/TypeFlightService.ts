@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {TypeFlight} from "../models/TypeFlight";
+import {Plane} from "../models/Plane";
 
 @Injectable({
   providedIn: 'root'
@@ -15,8 +16,8 @@ export class TypeFlightService {
   constructor(private httpClient:HttpClient) {
   }
 
-  getAll():Observable<any>{
-    return this.httpClient.get<any>(this.base_url);
+  getAll():Observable<TypeFlight[]>{
+    return this.httpClient.get<TypeFlight[]>(this.base_url+"/rolAll", {headers: this.httpHeaders});
   }
 
   edit(cliente:any, id:String){

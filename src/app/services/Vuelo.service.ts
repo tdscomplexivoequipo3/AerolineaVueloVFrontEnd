@@ -4,6 +4,7 @@ import {Injectable} from "@angular/core";
 import {VueloResponse} from "../models/Response/VueloResponse";
 import {Router} from "@angular/router";
 import {UnAuthorizedInterceptor} from "../UnAuthorizedInterceptor";
+import {Flight} from "../models/Flight";
 
 @Injectable({
   providedIn: 'root'
@@ -31,9 +32,17 @@ export  class VueloService {
   getVueloById(id:number):Observable<VueloResponse>{
     var reqHeader = new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization': 'Bearer ' + JSON.parse(sessionStorage.getItem("user")+"").token
+      'Authorization': 'Bearer '+JSON.parse(sessionStorage.getItem("user")+"").token
     });
     return this.http_client.get<VueloResponse>(`${this.url_getId}/${id}`,{headers:reqHeader});
+  }
+
+  create(vuelo:Flight):Observable<Flight>{
+    var reqHeader = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization':'Bearer '+ JSON.parse(sessionStorage.getItem("user")+"").token
+    });
+    return this.http_client.post<Flight>(this.urlEndPoint, vuelo,{headers:reqHeader});
   }
 
 }

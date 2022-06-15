@@ -1,5 +1,5 @@
 export class Plane {
-  id:any;
+  idAvion:any;
   descripcion:any;
   placa:any;
   tipo:any;
