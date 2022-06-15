@@ -49,7 +49,7 @@ export class ReservaCharterComponent implements OnInit {
         this.vuelo.idUsuario=_objet.id;
         this.vuelo.pago=false;
         this.vuelo.fechaRegistro=new Date();
-        this.vuelo.estado=1;
+        this.vuelo.estado=2;
 
         this.serviceReserva.register(this.vuelo).subscribe(data => {
             Swal.fire({

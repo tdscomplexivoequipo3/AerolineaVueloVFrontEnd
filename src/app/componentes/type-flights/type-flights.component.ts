@@ -60,6 +60,7 @@ export class TypeFlightsComponent implements OnInit {
   }
 
   abridialogotype(){
+    this.typeflight=new TypeFlight();
     this.dialog.open(this.dialogtypeflight);
   }
 
@@ -71,6 +72,11 @@ export class TypeFlightsComponent implements OnInit {
         text: 'Registro Correcto',
         confirmButtonColor: "#0c3255"
       })
+
+     this.listarTypeflight();
+      this.dialog.closeAll();
+
+
     },err=> {
       Swal.fire({
         icon: 'warning',

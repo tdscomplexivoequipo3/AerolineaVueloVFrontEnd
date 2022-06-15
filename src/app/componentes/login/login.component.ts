@@ -33,6 +33,11 @@ export class LoginComponent implements OnInit {
           sessionStorage.setItem('user', JSON.stringify(data));
           this.router.navigate(['/reservas',data.email]);
           this.classReference.user=data;
+
+          if(data.rol=='admin'){
+            this.router.navigate(['/registro/watch/flights']);
+          }
+
         },err=> {
           this.error=true;
           this.objeto.email="";

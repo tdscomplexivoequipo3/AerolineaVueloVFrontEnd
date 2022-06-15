@@ -14,5 +14,6 @@ export class UsuarioResponse{
   terminosCondiciones:any;
   autorizacion:any;
   token:any;
+  rol:any;
 
 }
