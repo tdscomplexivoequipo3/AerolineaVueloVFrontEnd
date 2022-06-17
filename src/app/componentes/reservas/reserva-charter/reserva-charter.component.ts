@@ -49,9 +49,9 @@ export class ReservaCharterComponent implements OnInit {
         this.vuelo.idUsuario=_objet.id;
         this.vuelo.pago=false;
         this.vuelo.fechaRegistro=new Date();
-        this.vuelo.estado=2;
+        this.vuelo.estado=1;
 
-        this.serviceReserva.register(this.vuelo).subscribe(data => {
+        this.serviceReserva.registerSinVuelo(this.vuelo).subscribe(data => {
             Swal.fire({
               icon: 'success',
               title: 'Registro Estado',
@@ -81,6 +81,27 @@ export class ReservaCharterComponent implements OnInit {
 
   }
 
+  calculoTiempo():string{
+    if((this.vuelo.horaSalida==null || this.vuelo.horaSalida=='') ||
+      (this.vuelo.horaLlegada==null || this.vuelo.horaLlegada=='')){
+      return '0';
+    }else{
+      var hora1 = this.vuelo.horaSalida.split(":"),
+        hora2 =  this.vuelo.horaLlegada.split(":"),
+        t1 = new Date(),
+        t2 = new Date();
 
+      t1.setHours(Number(hora1[0]), Number(hora1[1]), 0);
+      t2.setHours(Number(hora2[0]), Number(hora2[1]), 0);
+
+      t1.setHours(t1.getHours() - t2.getHours(), t1.getMinutes() - t2.getMinutes(), t1.getSeconds() - t2.getSeconds());
+
+      t1.setHours(t1.getHours() - t2.getHours(), t1.getMinutes() - t2.getMinutes(), t1.getSeconds() - t2.getSeconds());
+
+      var result:string=(t1.getHours() ? t1.getHours() + (t1.getHours() > 1 ? " horas" : " hora") : "") + (t1.getMinutes() ? ", " + t1.getMinutes() + (t1.getMinutes() > 1 ? " minutos" : " minuto") : "") + (t1.getSeconds() ? (t1.getHours() || t1.getMinutes() ? " y " : "") + t1.getSeconds() + (t1.getSeconds() > 1 ? " segundos" : " segundo") : "");
+
+      return result;
+    }
+    }
 
 }

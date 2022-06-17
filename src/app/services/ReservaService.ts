@@ -12,9 +12,14 @@ import {ReservaRequest} from "../models/Request/ReservaRequest";
 })
 export  class ReservaService {
 
+  @Injectable({
+    providedIn: 'root'
+  })
   private urlEndPoint="http://localhost:8080/api/reserva";
-  private url: string = this.urlEndPoint;
-  private url_getId: string = this.urlEndPoint ;
+  private url: string = this.urlEndPoint +"";
+  private url_sv: string = this.urlEndPoint +"/createSinVuelo";
+  private url_getId: string = this.urlEndPoint +"/reservasByUsuario";
+  private url_getById: string = this.urlEndPoint +"/reserva";
 
   constructor(private http_client:HttpClient,private router:Router) {
     if(sessionStorage.getItem("user")==null){
@@ -29,5 +34,40 @@ export  class ReservaService {
     });
     return this.http_client.post<ReservaRequest>(this.url,object,{headers:reqHeader});
   }
+
+  registerSinVuelo(object:ReservaRequest):Observable<ReservaRequest>{
+    var reqHeader = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + JSON.parse(sessionStorage.getItem("user")+"").token
+    });
+    return this.http_client.post<ReservaRequest>(this.url_sv,object,{headers:reqHeader});
+  }
+
+  update(object:ReservaRequest):Observable<ReservaRequest>{
+    var reqHeader = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + JSON.parse(sessionStorage.getItem("user")+"").token
+    });
+    return this.http_client.put<ReservaRequest>(this.url,object,{headers:reqHeader});
+  }
+
+  getByid(id:String):Observable<ReservaRequest[]>{
+    var reqHeader = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + JSON.parse(sessionStorage.getItem("user")+"").token
+    });
+
+    id=JSON.parse(sessionStorage.getItem("user")+"").id;
+    return this.http_client.get<ReservaRequest[]>(`${this.url_getId}/${id}`,{headers:reqHeader});
+  }
+
+  getReservaByid(id:String):Observable<ReservaRequest>{
+    var reqHeader = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + JSON.parse(sessionStorage.getItem("user")+"").token
+    });
+    return this.http_client.get<ReservaRequest>(`${this.url_getById}/${id}`,{headers:reqHeader});
+  }
+
 
 }

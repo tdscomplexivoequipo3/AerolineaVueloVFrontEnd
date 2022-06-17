@@ -11,4 +11,5 @@ export class RegisterRequest{
   razonSocial:any;
   terminosCondiciones=false;
   autorizacion=false;
+  id:any;
 }

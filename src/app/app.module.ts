@@ -33,7 +33,7 @@ import {CoronavirusComponent} from "./layout/menus/coronavirus/coronavirus.compo
 import {CambiosComponent} from "./layout/menus/cambios/cambios.component";
 import {NgxSpinnerModule} from "ngx-spinner";
 import {ReservaCharterComponent} from "./componentes/reservas/reserva-charter/reserva-charter.component";
-import { ListaPasajerosComponent } from './componentes/reservas/reserva-charter/lista-pasajeros/lista-pasajeros.component';
+import {ListaPasajerosComponent} from './componentes/reservas/reserva-charter/lista-pasajeros/lista-pasajeros.component';
 import {ProblemasComponent} from "./layout/menus/problemas/problemas.component";
 import {CuentasComponent} from "./layout/menus/cuentas/cuentas.component";
 import {EmbarqueComponent} from "./layout/menus/embarque/embarque.component";
@@ -46,6 +46,9 @@ import {SolicitarvComponent} from "./layout/menusviajes/solicitarv/solicitarv.co
 import {IngresavComponent} from "./layout/menusviajes/ingresav/ingresav.component";
 import {DestinosComponent} from "./layout/destinos/destinos.component";
 import {WatchFlightsComponent} from "./componentes/watch-flights/watch-flights.component";
+import { HistorialUserComponent } from './componentes/reservas/historial-user/historial-user.component';
+import {AsientoService} from "./services/Asiento.service";
+import {PasajeroService} from "./services/Pasajero.service";
 
 const routes: Routes = [
   {path:'', component:LoginComponent},
@@ -60,7 +63,8 @@ const routes: Routes = [
   {path:'reserva/:email/:id_vuelo', component:ResumenComponent},
   {path:'registro/watch/flights', component:WatchFlightsComponent},
   {path:'ofertas/charter/:email', component:ReservaCharterComponent},
-  {path:'lista_pasajeros',component:ListaPasajerosComponent},
+  {path:'lista_pasajeros/:reserva',component:ListaPasajerosComponent},
+  {path:'historial',component:HistorialUserComponent},
   {path:'centroa',component:CentroaComponent,
     children:[
       {
@@ -165,6 +169,7 @@ const routes: Routes = [
     SolicitarvComponent,
     IngresavComponent,
     DestinosComponent,
+    HistorialUserComponent,
   ],
   imports: [
     RouterModule.forRoot(routes),
@@ -174,9 +179,9 @@ const routes: Routes = [
     MaterialModule,
     HttpClientModule,
     NgxSpinnerModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
-  providers: [UsuarioService,VueloService,UserTokenService,
+  providers: [UsuarioService,VueloService,UserTokenService,AsientoService,PasajeroService,
   {provide:HTTP_INTERCEPTORS, useClass: UnAuthorizedInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]

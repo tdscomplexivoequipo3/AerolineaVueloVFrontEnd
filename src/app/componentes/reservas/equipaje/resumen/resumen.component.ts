@@ -58,7 +58,7 @@ export class ResumenComponent implements OnInit {
         r1. fechaVuelta=this.vuelo.fechaVuelta;
         r1.horaSalida=this.vuelo.horaSalida;
         r1.horaLlegada=this.vuelo.horaLlegada;
-        r1.estado=this.vuelo.estado;
+        r1.estado=1;
         r1. observacion="sin observaciones";
         r1.fechaRegistro=new Date();
         r1.origen=this.vuelo.origen;

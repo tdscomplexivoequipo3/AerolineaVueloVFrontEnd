@@ -10,5 +10,7 @@ export class VueloResponse{
   horaSalida:any;
   horaLlegada:any;
   imagen:any;
+  idAvion:any;
+
 
 }

@@ -51,6 +51,9 @@ export class RegistroComponent {
         sessionStorage.setItem('user', JSON.stringify(data));
         this.classReference.user.nombres=data.nombres;
         this.classReference.user.apellidos=data.apellidos;
+        this.classReference.user.id=data.id;
+        this.classReference.user.email=data.email;
+
           this.closeDialog();
         this.router.navigate(['/reservas',data.email]);
 

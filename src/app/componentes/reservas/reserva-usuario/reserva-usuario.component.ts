@@ -3,6 +3,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {GlobalConstants} from "../../../common/GlobalConstants";
 import {NgxSpinnerService} from "ngx-spinner";
 
+
 @Component({
   selector: 'app-reserva-usuario',
   templateUrl: './reserva-usuario.component.html',
@@ -14,8 +15,13 @@ export class ReservaUsuarioComponent implements OnInit {
   public classReference = GlobalConstants;
   public c:boolean=true;
 
-  constructor(private router: Router,private activatedRoute: ActivatedRoute,private spinner: NgxSpinnerService){
+  constructor(
+    private router: Router,private activatedRoute: ActivatedRoute,private spinner: NgxSpinnerService){
     this.classReference.apiURL="no_employe";
+  }
+
+  showSuccess() {
+    this.router.navigate(['/historial']);
   }
 
   ngOnInit(): void {

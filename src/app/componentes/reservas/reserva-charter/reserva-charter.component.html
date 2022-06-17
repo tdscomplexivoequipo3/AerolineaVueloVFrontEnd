@@ -43,15 +43,15 @@
         <div class="row">
           <label class="label_t">Horarios</label>
           <div class="row_c">
-            <input  class="input"  type="number" [(ngModel)]="vuelo.horaSalida" name="horaSalida">
+            <input  class="input"   type="time" [(ngModel)]="vuelo.horaSalida" name="horaSalida">
             <label class="label_">Hora de Salida</label>
           </div>
           <div class="row_c">
-            <input  class="input" type="number" [(ngModel)]="vuelo.horaLlegada" name="horaLlegada">
+            <input  class="input" type="time" [(ngModel)]="vuelo.horaLlegada" name="horaLlegada">
             <label class="label_">Hora de LLegada</label>
           </div>
           <div class="row_c r">
-            <label class="label_r">Total: {{vuelo.horaSalida+vuelo.horaLlegada}}</label>
+            <label class="label_r">Total: {{calculoTiempo()}}</label>
           </div>
 
         </div>
@@ -88,16 +88,6 @@
               </mat-select>
             </mat-form-field>
             <label class="label_">Vuelo de Destino</label>
-          </div>
-        </div>
-
-        <div class="row">
-          <label class="label_t">Pasajeros</label>
-          <div class="row_c">
-            <button mat-raised-button [routerLink]="['/lista_pasajeros']" class="pasajeros_button">
-              Pasajeros
-            </button >
-            <label class="label_">Establecer Pasajeros</label>
           </div>
         </div>
 
