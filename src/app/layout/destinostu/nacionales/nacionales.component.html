@@ -1,0 +1,38 @@
+<div class="divCiudades">
+  <h2 class="tituloI">Vuelos desde:
+  <mat-form-field ><select matNativeControl required>
+    <option value="volvo">Cuenca</option>
+    <option value="saab">Loja</option>
+    <option value="mercedes">Quito</option>
+    <option value="audi">Guayaquil</option>
+    <option value="audi">Coca</option>
+    <option value="audi">Manta</option>
+  </select>
+  </mat-form-field>
+  </h2>
+</div>
+
+<div class="componentes">
+  <div  *ngFor="let num of [1,2,3,4,5,6]" class="divContenedor">
+    <mat-card class="elementos" >
+      <img mat-card-img src="https://ep01.epimg.net/elviajero/imagenes/2021/03/18/actualidad/1616073644_501302_1616076295_noticia_normal.jpg" alt="logo" width="100%">
+      <p>Viaja el 01/08/2022</p>
+      <mat-card-content style="font-size: 10px">
+        <h3 style="padding: 0;margin: 0">
+          Quito
+        </h3>
+        <tr>
+          <td class="ida"> Solo ida</td>
+          <td class="ida1">&nbsp;Vuelta</td>
+        </tr>
+        <p style="margin: 2px">Precio Final</p>
+        <h3 style="margin: 0">485,87</h3>
+      </mat-card-content>
+      <mat-card-actions style="text-align: right">
+        <button mat-button color="warn"><mat-icon>trending_flat</mat-icon></button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
+
+

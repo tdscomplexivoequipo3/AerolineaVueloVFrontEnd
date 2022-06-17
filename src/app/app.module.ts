@@ -46,6 +46,8 @@ import {SolicitarvComponent} from "./layout/menusviajes/solicitarv/solicitarv.co
 import {IngresavComponent} from "./layout/menusviajes/ingresav/ingresav.component";
 import {DestinosComponent} from "./layout/destinos/destinos.component";
 import {WatchFlightsComponent} from "./componentes/watch-flights/watch-flights.component";
+import { NacionalesComponent } from './layout/destinostu/nacionales/nacionales.component';
+import { InternacionalesComponent } from './layout/destinostu/internacionales/internacionales.component';
 
 const routes: Routes = [
   {path:'', component:LoginComponent},
@@ -123,7 +125,21 @@ const routes: Routes = [
 
     ]},
   {path:'inicioc',component:InicioComponent},
-  {path:'destinos',component:DestinosComponent}
+  {path:'destinos',component:DestinosComponent,
+    children:[
+      {
+        path: 'vnacionales',
+        component: NacionalesComponent
+      },
+      {path:'',
+        component: NacionalesComponent
+      },
+      {
+        path: 'internacionales',
+        component: InternacionalesComponent
+      }
+    ]
+  }
 ]
 
 @NgModule({
@@ -165,6 +181,8 @@ const routes: Routes = [
     SolicitarvComponent,
     IngresavComponent,
     DestinosComponent,
+    NacionalesComponent,
+    InternacionalesComponent,
   ],
   imports: [
     RouterModule.forRoot(routes),
