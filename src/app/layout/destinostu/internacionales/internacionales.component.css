@@ -1,0 +1,29 @@
+.componentes{
+  padding: 16px;
+  background-color: #ffffff;
+  height: 876px;
+  width: 1420px;
+  display:flex;
+  border-radius: 10px;
+  margin:1rem;
+  border-top-color: transparent;
+  position: relative;
+  top: 0px;
+  left:33px;
+  flex-wrap: wrap;
+}
+.divContenedor{
+  padding: 16px;
+}
+.elementos{
+  width: 380px;
+  height: 380px;
+  font-size: 30px;
+  --hover: #2C3E50 ;
+}
+.elementos:hover,.elementos:focus{
+  box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
+  -webkit-transform: translateY(-0.25em);
+  transform: translateY(-0.25em);
+
+}
