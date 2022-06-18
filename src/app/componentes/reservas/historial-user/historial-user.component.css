@@ -1,0 +1,103 @@
+.mat-tab-group {
+  margin-bottom: 48px;
+}
+
+.container{
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.head{
+  height: 400px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url("https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0e/2e/33/26/mompiche.jpg?w=700&h=500&s=1");
+}
+
+.fondo_inicial{
+  width: 100%;
+  height: 100%;
+  margin-bottom: 20px;
+}
+
+@supports(object-fit: cover){
+  .fondo_inicial img{
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+  }
+}
+
+.title{
+  margin-left: 20px;
+  color: white;
+  margin-top: 15%;
+}
+
+table {
+  width: 100%;
+}
+
+.t_c{
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+
+.t_p .mat-header-cell{
+  color: #282828 !important;
+  background-color: white;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.t_p .mat-cell{
+  color: white;
+  font-size: 15px;
+  background-color: #282828;
+}
+
+.t_c .mat-header-cell{
+  color: #282828 !important;
+  background-color: white;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.t_c .mat-cell{
+  color: white;
+  font-size: 15px;
+  background-color: #1d4f71;
+}
+
+.t_c h3{
+  color: #1d4f71;
+  margin-left: 10px;
+}
+
+.expand_button{
+  margin-top: 10px;
+  border-bottom: 1px solid #1d4f71;
+  border-right: 1px solid #1d4f71;
+  color: #1d4f71;
+  border-radius: 10px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+
+}
+
+.colapse_button{
+  margin-top: 10px;
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
+  color: black;
+  margin-left: 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}

@@ -1,0 +1,175 @@
+<ngx-spinner
+  bdColor = "rgba(0, 0, 0, 1)"
+  size = "medium"
+  color = "#fff"
+  type = "square-jelly-box"
+  template= "<img src='https://media.giphy.com/media/iJOZwC1R7WVxAxs4Gs/giphy.gif'/>"
+  [fullScreen] = "true">
+</ngx-spinner>
+
+<body>
+<div class="container">
+
+  <div class="head">
+    <div class="fondo_inicial">
+      <h1 class="title">Viaja por todo el Ecuador</h1>
+    </div>
+  </div>
+
+  <mat-tab-group mat-align-tabs="center" animationDuration="2000ms" >
+    < <mat-tab>
+    <ng-template mat-tab-label>
+      <p>
+        Vuelos Comerciales
+      </p>
+    </ng-template>
+
+    <div class="t_c">
+
+        <h3>Vuelos Comerciales</h3>
+
+        <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+          <!-- ID Column -->
+          <ng-container matColumnDef="estado">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Estado </th>
+            <td mat-cell *matCellDef="let row"> {{row.estado}} </td>
+          </ng-container>
+
+          <!-- Progress Column -->
+          <ng-container matColumnDef="fechaVuelta">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Origen  </th>
+            <td mat-cell *matCellDef="let row"> {{row.origen}} </td>
+          </ng-container>
+
+          <!-- Progress Column -->
+          <ng-container matColumnDef="horaSalida">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Destino </th>
+            <td mat-cell *matCellDef="let row"> {{row.destino}} </td>
+          </ng-container>
+          <!-- Fruit Column -->
+          <ng-container matColumnDef="horaLlegada">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Hora Llegada</th>
+            <td mat-cell *matCellDef="let row"> {{row.horaLlegada}} </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+          <!-- Row shown when there is no matching data. -->
+          <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell" colspan="4">sin Procesos Pendiente "</td>
+          </tr>
+        </table>
+
+        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+    </div>
+
+  </mat-tab>
+
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <p>
+          <span matBadge={{numero_procesos_notificacion}}
+                name="numero_procesos_notificacion"
+                matBadgeOverlap="true">-- Vuelos Charter</span>
+        </p>
+      </ng-template>
+      <div>
+        <div class="example-action-buttons">
+          <button mat-button (click)="accordion.openAll()"
+                  class="expand_button"
+          >Expand All</button>
+          <button mat-button (click)="accordion.closeAll()"
+          class="colapse_button"
+          >Collapse All</button>
+        </div>
+        <mat-accordion class="example-headers-align" multi>
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-description>
+                Listado de Pasajeros
+                <mat-icon>account_circle</mat-icon>
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+
+            <div>
+              <div class="t_p">
+
+                <h3>Vuelos Comerciales</h3>
+
+                <table mat-table [dataSource]="dataSource_" matSort class="mat-elevation-z8">
+
+                  <!-- ID Column -->
+                  <ng-container matColumnDef="estado">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Estado </th>
+                    <td mat-cell *matCellDef="let row"> {{row.estado}} </td>
+                  </ng-container>
+
+                  <!-- Progress Column -->
+                  <ng-container matColumnDef="fechaVuelta">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Origen  </th>
+                    <td mat-cell *matCellDef="let row"> {{row.origen}} </td>
+                  </ng-container>
+
+                  <!-- Progress Column -->
+                  <ng-container matColumnDef="horaSalida">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Destino </th>
+                    <td mat-cell *matCellDef="let row"> {{row.destino}} </td>
+                  </ng-container>
+                  <!-- Fruit Column -->
+                  <ng-container matColumnDef="horaLlegada">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Hora Llegada</th>
+                    <td mat-cell *matCellDef="let row"> {{row.horaLlegada}} </td>
+                  </ng-container>
+
+                  <ng-container matColumnDef="accion">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Pasajeros</th>
+                    <td mat-cell *matCellDef="let row">
+                      <button mat-raised-button
+                              [style.background-color]="'#1d4f71'"
+                              [style.color]="'#fff'"
+                              (click)="establecerListadoPasajeros(row.idReserva)">
+                      Establecer Listado
+                      </button >
+                    </td>
+                  </ng-container>
+
+                  <tr mat-header-row *matHeaderRowDef="displayedColumns_"></tr>
+                  <tr mat-row *matRowDef="let row; columns: displayedColumns_;"></tr>
+
+                  <!-- Row shown when there is no matching data. -->
+                  <tr class="mat-row" *matNoDataRow>
+                    <td class="mat-cell" colspan="4">Sin Vuelos Comerciales "</td>
+                  </tr>
+                </table>
+
+                <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+              </div>
+            </div>
+
+          </mat-expansion-panel>
+
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-description>
+                Vuelos Programados
+                <mat-icon>date_range</mat-icon>
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+
+            <div>
+
+            </div>
+
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+
+
+</div>
+
+
+
