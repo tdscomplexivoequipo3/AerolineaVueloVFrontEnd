@@ -3,7 +3,7 @@ import {UsuarioResponse} from "../../../../models/Response/UsuarioResponse";
 import {UserTokenService} from "../../../../services/UserTokenService";
 import {animate, state, style, transition, trigger} from "@angular/animations";
 import {MatDialog} from "@angular/material/dialog";
-import {ToastrService} from "ngx-toastr";
+
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {PasajeroService} from "../../../../services/Pasajero.service";
 import {AsientoService} from "../../../../services/Asiento.service";

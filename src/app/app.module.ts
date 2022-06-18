@@ -49,6 +49,8 @@ import {WatchFlightsComponent} from "./componentes/watch-flights/watch-flights.c
 import { HistorialUserComponent } from './componentes/reservas/historial-user/historial-user.component';
 import {AsientoService} from "./services/Asiento.service";
 import {PasajeroService} from "./services/Pasajero.service";
+import {NacionalesComponent} from "./layout/destinostu/nacionales/nacionales.component";
+import {InternacionalesComponent} from "./layout/destinostu/internacionales/internacionales.component";
 
 const routes: Routes = [
   {path:'', component:LoginComponent},
@@ -127,7 +129,22 @@ const routes: Routes = [
 
     ]},
   {path:'inicioc',component:InicioComponent},
-  {path:'destinos',component:DestinosComponent}
+  {path:'destinos',component:DestinosComponent,
+  children:[
+    {
+      path: '',
+      component: NacionalesComponent
+    },
+    {
+      path: 'destinos/nacionales',
+      component: NacionalesComponent
+    },
+    {
+      path: 'destinos/internacionales',
+      component: InternacionalesComponent
+    }
+  ]},
+
 ]
 
 @NgModule({
@@ -170,6 +187,8 @@ const routes: Routes = [
     IngresavComponent,
     DestinosComponent,
     HistorialUserComponent,
+    NacionalesComponent,
+    InternacionalesComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
