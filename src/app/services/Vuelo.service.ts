@@ -45,4 +45,12 @@ export  class VueloService {
     return this.http_client.post<Flight>(this.urlEndPoint, vuelo,{headers:reqHeader});
   }
 
+  update(vuelo:Flight):Observable<Flight>{
+    var reqHeader = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization':'Bearer '+ JSON.parse(sessionStorage.getItem("user")+"").token
+    });
+    return this.http_client.put<Flight>(this.urlEndPoint, vuelo,{headers:reqHeader});
+  }
+
 }

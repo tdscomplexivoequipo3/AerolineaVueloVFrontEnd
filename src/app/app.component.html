@@ -4,13 +4,124 @@
   <app-footer></app-footer>
 </div>
 
-<div class="container" *ngIf="classReference.apiURL == 'employe'">
-  <div class="menu">
-    <app-headerad></app-headerad>
+<div *ngIf="classReference.apiURL == 'employe'">
+  <body id="body">
+
+  <header>
+    <div class="icon__menu">
+      <i class="fas fa-bars" id="btn_open"></i>
+    </div>
+  </header>
+
+  <div class="menu__side" id="menu_side">
+
+    <div class="name__page">
+      <img src="./assets/Images/plane.png" alt="">
+    </div>
+
+    <div class="options__menu">
+
+      <a href="/gestion/inicio">
+        <div class="option">
+          <i class="fas fa-home" title="Inicio"></i>
+          <h4>Inicio</h4>
+        </div>
+      </a>
+
+      <li class="list__item list__item--click">
+        <div class="list__button list__button--click">
+          <a>
+            <div class="option">
+              <i class="fa-solid fa-plane" title="Gestión de Vuelos"></i>
+              <h4>Vuelos</h4>
+            </div>
+          </a>
+          <mat-icon class="list__arrow">keyboard_arrow_down</mat-icon>
+        </div>
+
+        <ul class="list__show">
+          <li class="list__inside">
+            <a  class="nav__link nav__link--inside" [routerLink]="['/registro/watch/flights']">
+              <mat-icon>flight_takeoff</mat-icon>
+              <span>  Vuelos</span>
+            </a>
+          </li>
+          <li class="list__inside">
+            <a class="nav__link nav__link--inside" [routerLink]="['/registro/vuelos/type']">
+              <mat-icon> merge_type</mat-icon>
+              <span>  Tipos</span>
+            </a>
+          </li>
+          <li class="list__inside">
+            <a class="nav__link nav__link--inside" [routerLink]="['/registro/avion']">
+              <mat-icon> flight</mat-icon>
+              <span>  Aviones</span>
+            </a>
+          </li>
+        </ul>
+
+      </li>
+
+      <li class="list__item list__item--click">
+        <div class="list__button list__button--click">
+          <a>
+            <div class="option">
+              <i class="fa-solid fa-users" title="Gestión de Usuarios"></i>
+              <h4>Usuarios</h4>
+            </div>
+          </a>
+          <mat-icon class="list__arrow">keyboard_arrow_down</mat-icon>
+        </div>
+
+        <ul class="list__show">
+          <li class="list__inside">
+            <a class="nav__link nav__link--inside" [routerLink]="['/asignacion/roles']">
+              <mat-icon title="asignacion de roles">person</mat-icon>
+              <span>  Usuarios</span>
+            </a>
+          </li>
+        </ul>
+
+      </li>
+
+      <li class="list__item list__item--click">
+        <div class="list__button list__button--click">
+          <a>
+            <div class="option">
+              <i class="far fa-id-badge" title="Gestión de reserva"></i>
+              <h4>Gestión de Reserva</h4>
+            </div>
+          </a>
+          <mat-icon class="list__arrow">keyboard_arrow_down</mat-icon>
+        </div>
+
+        <ul class="list__show">
+          <li class="list__inside">
+            <a class="nav__link nav__link--inside" [routerLink]="['/registro/gestion/reservas']">
+              <mat-icon title="asignacion de roles">person</mat-icon>
+              <span>  Reservas</span>
+            </a>
+          </li>
+        </ul>
+
+      </li>
+
+      <a>
+        <div class="option">
+          <i class="far fa-address-card" title="Nosotros"></i>
+          <h4>Nosotros</h4>
+        </div>
+      </a>
+
+    </div>
   </div>
-  <div class="seccion2">
+
+  <main>
     <router-outlet></router-outlet>
-  </div>
+  </main>
+
+  <script src="js/script.js"></script>
+  </body>
 </div>
 
 

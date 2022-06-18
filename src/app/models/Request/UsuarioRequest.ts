@@ -12,4 +12,5 @@ export class UsuarioRequest{
   razonSocial:any;
   terminosCondiciones:any;
   autorizacion:any;
+  idRol:any;
 }

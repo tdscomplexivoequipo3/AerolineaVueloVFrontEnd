@@ -55,6 +55,7 @@ export class HistorialUserComponent implements OnInit {
 
   consultar():void{
       this.service_reserva.getByid(this.classReference.user.id).subscribe(a=>{
+        console.log(a);
         this.list=a.filter((obj) => {
           return obj.estado!=2;
         });;

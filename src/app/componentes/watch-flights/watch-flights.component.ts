@@ -1,14 +1,10 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {MatTableDataSource} from "@angular/material/table";
-import {Cities} from "../../models/Cities";
 import {GlobalConstants} from "../../common/GlobalConstants";
 import {MatDialog} from "@angular/material/dialog";
 import {TypeFlightService} from "../../services/TypeFlightService";
 import {VueloService} from "../../services/Vuelo.service";
-import {Flight} from "../../models/Flight";
-import {MatPaginator} from "@angular/material/paginator";
-import {MatSort} from "@angular/material/sort";
 import {VueloResponse} from "../../models/Response/VueloResponse";
+
 
 @Component({
   selector: 'app-watch-flights',
@@ -17,16 +13,9 @@ import {VueloResponse} from "../../models/Response/VueloResponse";
 })
 export class WatchFlightsComponent implements OnInit {
 
-  displayedColumns: string[] = ['id', 'origen', 'destino', 'precio', 'tvuelo', 'estado', 'edit','delete'];
-  // @ts-ignore
-  dataSource: MatTableDataSource<VueloResponse>;
-
-  // @ts-ignore
-  @ViewChild(MatSort) sort: MatSort;
-  // @ts-ignore
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-
   listflights:Array<VueloResponse>=[];
+  //Fitro
+  listflightsF:Array<VueloResponse>=[];
 
   public classReference = GlobalConstants;
   constructor(public dialog: MatDialog, private typeflightService:TypeFlightService,
@@ -39,22 +28,36 @@ export class WatchFlightsComponent implements OnInit {
   }
 
   listarflights(){
+    this.listflights=new Array<VueloResponse>();
     this.vueloService.listAll().subscribe(data=>{
       this.listflights=data;
-      this.dataSource = new MatTableDataSource(this.listflights);
-      this.dataSource.paginator = this.paginator;
-      this.dataSource.sort = this.sort;
+
+      for (let es of this.listflights){
+        if(es.estado==1){
+          es.estado="Activo";
+        }else if (es.estado==3){
+          es.estado="Pendiente";
+        }else if(es.estado==2){
+          es.estado="Inactivo";
+        }
+      }
     })
   }
 
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-
-    if (this.dataSource.paginator) {
-      this.dataSource.paginator.firstPage();
+  flitrar($event :any) {
+    this.listflightsF=new Array<VueloResponse>();
+    for (let fa of this.listflights){
+      if (fa.origen==$event.target.value || fa.destino==$event.target.value){
+        this.listflightsF.push(fa);
+        console.log(this.listflightsF)
+      }
+    }
+    console.log(this.listflightsF.length)
+    if(this.listflightsF.length>=1){
+      this.listflights=this.listflightsF;
+    }else{
+      this.listarflights();
     }
   }
-
 
 }

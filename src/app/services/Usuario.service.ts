@@ -3,6 +3,9 @@ import {Observable} from "rxjs";
 import {RegisterRequest} from "../models/Request/RegisterRequest";
 import {UsuarioResponse} from "../models/Response/UsuarioResponse";
 import {Injectable} from "@angular/core";
+import {TypeFlight} from "../models/TypeFlight";
+import {VueloResponse} from "../models/Response/VueloResponse";
+import {UsuarioRequest} from "../models/Request/UsuarioRequest";
 
 @Injectable({
   providedIn: 'root'
@@ -17,12 +20,25 @@ export  class  UsuarioService  {
 
   constructor(private http_client:HttpClient) { }
 
+  getAll():Observable<UsuarioResponse[]>{
+    var reqHeader = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + JSON.parse(sessionStorage.getItem("user")+"").token
+    });
+
+    return this.http_client.get<UsuarioResponse[]>(this.urlEndPoint+"/usuarioAll", {headers:reqHeader});
+  }
+
   register(object:RegisterRequest):Observable<RegisterRequest>{
     return this.http_client.post<RegisterRequest>(this.url,object,{headers:this.httpHeaders});
   }
 
   login(object:UsuarioResponse):Observable<UsuarioResponse>{
     return this.http_client.post<UsuarioResponse>(this.url_l,object,{headers:this.httpHeaders});
+  }
+
+  update(object:UsuarioRequest):Observable<UsuarioRequest>{
+    return this.http_client.put<UsuarioRequest>(this.url,object,{headers:this.httpHeaders});
   }
 
 }

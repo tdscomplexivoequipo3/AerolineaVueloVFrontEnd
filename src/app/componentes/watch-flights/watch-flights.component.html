@@ -1,12 +1,12 @@
-
-<body>
+<br><br>
+<h1 style="text-align: center"><strong>Vuelos Programados</strong></h1>
 <mat-card-content>
   <button mat-raised-button color="accent" class="center" color="accent" [routerLink]="['/registro/new/flight']">Nuevo Vuelo</button>
   <br>
   <div>
     <mat-form-field appearance="standard" class="center filter">
       <mat-label>Busqueda</mat-label>
-      <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+      <input matInput (keyup)="flitrar($event)" placeholder="Ex. Example" #input>
     </mat-form-field>
   </div>
   <div class="grid">
@@ -16,10 +16,14 @@
             <div class="btnac">
               <img mat-card-md-image src="{{a.imagen}}" >
             </div>
-            <div class="grid">
-              <span><strong>Origen: {{a.origen}}</strong></span>
-              <span><strong>Destino: {{a.destino}}</strong></span>
+            <div>
+              <div class="grid2">
+                <span><strong>Origen: {{a.origen}}</strong></span>
+                <span><strong>Destino: {{a.destino}}</strong></span>
+                <span ><strong>Estado: {{a.estado}}</strong></span>
+              </div>
             </div>
+
           </div>
         <mat-card-content class="grid1 btnac">
           <span>Fecha Ida: {{a.fechaIda}}</span>
@@ -27,10 +31,13 @@
           <span>Hora Salida: {{a.horaSalida}}</span>
           <span>Hora llegada: {{a.horaLlegada}}</span>
         </mat-card-content>
+        <div class="btnac">
+          <button mat mat-raised-button color="primary" mat-button [routerLink]="['/registro/edit/flight/',a.idVuelo]">Editar</button>
+          <button mat mat-raised-button color="accent" maccentat-button>Activar</button>
+        </div>
       </mat-card>
     </div>
   </div>
 
 </mat-card-content>
-</body>
 

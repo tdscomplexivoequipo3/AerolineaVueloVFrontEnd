@@ -51,6 +51,9 @@ import {AsientoService} from "./services/Asiento.service";
 import {PasajeroService} from "./services/Pasajero.service";
 import {NacionalesComponent} from "./layout/destinostu/nacionales/nacionales.component";
 import {InternacionalesComponent} from "./layout/destinostu/internacionales/internacionales.component";
+import {ScriptService} from "./services/ScriptService";
+import {DesignationRolesComponent} from "./componentes/designation-roles/designation-roles.component";
+import {GestionReservasComponent} from "./componentes/gestion-reservas/gestion-reservas.component";
 
 const routes: Routes = [
   {path:'', component:LoginComponent},
@@ -144,7 +147,10 @@ const routes: Routes = [
       component: InternacionalesComponent
     }
   ]},
-
+  {path:'asignacion/roles',component:DesignationRolesComponent},
+  {path:'registro/edit/flight/:idvuelo', component:RegistroVuelosComponent},
+  {path:'registro/gestion/reservas', component:GestionReservasComponent},
+  {path:'registro/charter/flight/:idreserva', component:RegistroVuelosComponent},
 ]
 
 @NgModule({
@@ -188,7 +194,9 @@ const routes: Routes = [
     DestinosComponent,
     HistorialUserComponent,
     NacionalesComponent,
-    InternacionalesComponent
+    InternacionalesComponent,
+    DesignationRolesComponent,
+    GestionReservasComponent,
   ],
   imports: [
     RouterModule.forRoot(routes),
@@ -200,7 +208,7 @@ const routes: Routes = [
     NgxSpinnerModule,
     ReactiveFormsModule,
   ],
-  providers: [UsuarioService,VueloService,UserTokenService,AsientoService,PasajeroService,
+  providers: [UsuarioService,VueloService,UserTokenService,AsientoService,PasajeroService,ScriptService,
   {provide:HTTP_INTERCEPTORS, useClass: UnAuthorizedInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]

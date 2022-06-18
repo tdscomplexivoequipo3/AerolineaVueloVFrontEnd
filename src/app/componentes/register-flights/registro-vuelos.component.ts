@@ -11,6 +11,7 @@ import {TypeFlight} from "../../models/TypeFlight";
 import {Flight} from "../../models/Flight";
 import {Plane} from "../../models/Plane";
 import {PlaneService} from "../../services/PlaneService";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-register-flights',
@@ -30,6 +31,8 @@ export class RegistroVuelosComponent implements OnInit {
 
   listPlane:Array<Plane>=[];
 
+  idvuelo:any;
+
   flight:Flight=new Flight();
 
 
@@ -37,11 +40,20 @@ export class RegistroVuelosComponent implements OnInit {
   constructor(public dialog: MatDialog,
               private typeflightService:TypeFlightService,
               private vueloService:VueloService,
-              private planeService:PlaneService) {
+              private planeService:PlaneService,
+              private route:ActivatedRoute,
+              private router:Router) {
     this.classReference.apiURL="employe";
   }
 
   ngOnInit(): void {
+    this.idvuelo=this.route.snapshot.params['idvuelo'];
+    if (this.idvuelo){
+      this.vueloService.getVueloById(this.idvuelo).subscribe((data:any)=>{
+        this.flight=data;
+        this.flight.estado=String(this.flight.estado);
+      })
+    }
     this.listartipovuelo();
     this.listarPlanes();
   }
@@ -62,10 +74,17 @@ export class RegistroVuelosComponent implements OnInit {
     this.flight.idUsuario=JSON.parse(sessionStorage.getItem("user")+"").id;
     this.flight.estado=Number(this.flight.estado);
     this.flight.precio=Number(this.flight.precio);
-    console.log(this.flight)
-    this.vueloService.create(this.flight).subscribe(m=>{
-      window.location.reload();
-    })
+
+    if (this.idvuelo){
+      this.vueloService.update(this.flight).subscribe(m=>{
+        this.router.navigate(['/registro/watch/flights'])
+      })
+    }else{
+      this.vueloService.create(this.flight).subscribe(m=>{
+        this.router.navigate(['/registro/watch/flights'])
+      })
+    }
+
   }
 
   cargarImg(e: any) {

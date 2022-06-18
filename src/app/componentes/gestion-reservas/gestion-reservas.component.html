@@ -1,0 +1,68 @@
+<br><br>
+<h1 style="text-align: center"><strong>Restion de Vuelos Charter</strong></h1>
+<mat-form-field appearance="standard">
+  <mat-label>Filter</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+</mat-form-field>
+
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource" matSort>
+
+    <ng-container matColumnDef="origen">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Origen </th>
+      <td mat-cell *matCellDef="let row"> {{row.origen}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="destino">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Destino </th>
+      <td mat-cell *matCellDef="let row"> {{row.destino}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="fechas">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> F. Salida </th>
+      <td mat-cell *matCellDef="let row"> {{row.fechaIda}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="fechal">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> F. Llegada </th>
+      <td mat-cell *matCellDef="let row"> {{row.fechaVuelta}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="horas">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Hora Salida </th>
+      <td mat-cell *matCellDef="let row"> {{row.horaSalida}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="horal">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Hora Llegada </th>
+      <td mat-cell *matCellDef="let row"> {{row.horaLlegada}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="estado">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> estado </th>
+      <td mat-cell *matCellDef="let row">
+        <i *ngIf="row.estado==2" class="fa-solid fa-clipboard-check">Pendiente</i>
+        <i *ngIf="row.estado==1" class="fa-solid fa-check">Aceptado</i>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="gestion">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Gestionar </th>
+      <td mat-cell *matCellDef="let row">
+        <i class="fa-solid fa-list-check" [routerLink]="['/registro/charter/flight/',row.idReserva]"></i><h5>Gestionar</h5></td>
+
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+    </tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+</div>
+

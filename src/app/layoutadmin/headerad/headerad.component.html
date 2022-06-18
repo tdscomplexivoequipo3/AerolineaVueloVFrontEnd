@@ -1,22 +1,19 @@
 <body>
-
 <nav class="nav navbar-nav item">
   <ul>
-    <li ><a>Servicios<div ></div></a>
+    <li ><a>  Gestion de Vuelos<div ></div></a>
       <ul>
-        <li><a [routerLink]="['/registro/watch/flights']">Vuelos</a></li>
-        <li><a [routerLink]="['/registro/vuelos/type']">Tipos de vuelos</a></li>
-        <li><a [routerLink]="['/registro/avion']">Aviones</a></li>
+        <li><a [routerLink]="['/registro/watch/flights']">Vuelos <mat-icon>flight_takeoff</mat-icon></a></li>
+        <li><a [routerLink]="['/registro/vuelos/type']">Tipos <mat-icon> merge_type</mat-icon></a></li>
+        <li><a [routerLink]="['/registro/avion']">Aviones <mat-icon> flight</mat-icon></a></li>
       </ul>
     </li>
-    <li ><a>Personal<div ></div></a>
+    <li ><a>Gestion de Usuarios<div ></div></a>
       <ul>
-        <li><a href='/filtro'>Gestion de Usuarios</a></li>
+        <li><a [routerLink]="['/asignacion/roles']">Usuarios <mat-icon title="asignacion de roles">person</mat-icon></a></li>
       </ul>
     </li>
 
   </ul>
 </nav>
 </body>
-
-
