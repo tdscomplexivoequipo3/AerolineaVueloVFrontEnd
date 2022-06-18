@@ -24,7 +24,7 @@ export  class VueloService {
   listAll():Observable<VueloResponse[]>{
     var reqHeader = new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization': 'Bearer ' + JSON.parse(sessionStorage.getItem("user")+"").token
+      //'Authorization': 'Bearer ' + JSON.parse(sessionStorage.getItem("user")+"").token
     });
     return this.http_client.get<VueloResponse[]>(this.url,{headers:reqHeader});
   }
