@@ -191,6 +191,8 @@ export class ListaPasajerosComponent implements OnInit {
     this.get();
     this.activatedRoute.params.subscribe( params => {
 
+      console.log(params['reserva']+"pito")
+
       this.service_reserva.getReservaByid(params['reserva']).subscribe(reserva_obj=>{
 
         this.users.map(obj=>{
