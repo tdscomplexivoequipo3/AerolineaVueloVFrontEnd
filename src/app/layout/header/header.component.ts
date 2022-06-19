@@ -11,7 +11,7 @@ import {Router} from "@angular/router";
 export class HeaderComponent implements OnInit {
 
   btnadmin=false;
-
+  isloggin=false;
   public classReference = GlobalConstants;
   user:UsuarioResponse=new UsuarioResponse();
   constructor(private router:Router) {
@@ -19,6 +19,7 @@ export class HeaderComponent implements OnInit {
     if (!this.user){
       this.router.navigate(['/'])
     }else{
+      this.isloggin=true;
       if (this.user.rol!='cliente'){
         this.btnadmin=true;
       }
@@ -28,6 +29,13 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  vuelocharter(){
+    if (this.user){
+      this.router.navigate(['/reservas',this.user.email])
+    }else{
+      this.router.navigate(['/login'])
+    }
+  }
   cerrarSession(){
     sessionStorage.clear();
     window.location.reload();

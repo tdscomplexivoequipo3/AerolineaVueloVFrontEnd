@@ -8,9 +8,15 @@
   width: 100%;
 }
 
-.pers{
-  margin-left: 80%;
+.example-spacer {
+  flex: 1 1 auto;
 }
+
+.lis-pos{
+  text-align: right;
+  margin-left: 70%;
+}
+
 .hover{
   cursor: pointer;
   margin: 12px;

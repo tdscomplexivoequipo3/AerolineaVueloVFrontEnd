@@ -1,6 +1,6 @@
 
   <mat-toolbar color="primary" class="headerprincipal">
-    <button mat-button  routerLink="inicioc">
+    <button mat-button  [routerLink]="['']">
       <img src="" alt="Logo">
     </button>
     <button mat-button [matMenuTriggerFor]="aboveMenu" class="btn">
@@ -54,6 +54,20 @@
       <button mat-menu-item><mat-icon>playlist_add_check</mat-icon>Check In</button>
     </mat-menu>
 
+    <button mat-button (click)="vuelocharter()" class="btn1">
+      <svg width="270" height="70">
+        <defs>
+          <linearGradient id="grad2">
+            <stop offset="0%" stop-color="#FFFFFF"/>
+            <stop offset="100%" stop-color="#FFFFFF" />
+          </linearGradient>
+        </defs>
+        <rect x="7" y="5" rx="25" fill="none" stroke="url(#grad2)" width="140" height="50"></rect>
+      </svg>
+      <span>Vuelo Charter</span>
+    </button>
+
+
     <button mat-button class="botonVuelo" routerLink="centroa">Centro de Ayuda</button>
 
     <span class="example-spacer">
@@ -61,21 +75,22 @@
     </span>
     <button mat-button  class="botonVuelo" routerLink="estado">Estado de vuelo</button>
 
-    <div *ngIf=" classReference.user.nombres==null">
-      <button mat-button class="botonInicio" [routerLink]="'/'">Iniciar Sesión</button>
+
+      <div *ngIf="!isloggin">
+        <button mat-button class="botonInicio" [routerLink]="'login'">Iniciar Sesión</button>
+      </div>
+
+    <div *ngIf="isloggin">
+      <button class="botonInicio" [matMenuTriggerFor]="perfil">
+        <span class="hover">{{user.nombres}} {{user.apellidos}}<mat-icon> person_pin</mat-icon></span>
+
+      </button>
+      <mat-menu #perfil="matMenu">
+        <button mat-menu-item [routerLink]="'/administracion/home'" *ngIf="btnadmin">Administración<mat-icon>person_pin</mat-icon></button>
+        <button mat-menu-item (click)="cerrarSession()" >Cerrar Sesión<mat-icon>exit_to_app</mat-icon></button>
+      </mat-menu>
     </div>
 
-    <div *ngIf="classReference.user.nombres!=null">
-      <h3>{{classReference.user.nombres}} {{classReference.user.apellidos}}</h3>
-    </div>
-
-    <div *ngIf="classReference.user.nombres!=null">
-      <button mat-button class="botonInicio" [routerLink]="'/'" (click)="cerrarSession()">Cerrar Sesión</button>
-    </div>
-
-    <div *ngIf="btnadmin">
-      <button mat-button class="botonInicio" [routerLink]="'/administracion/home'">Administracion</button>
-    </div>
   </mat-toolbar>
 
 

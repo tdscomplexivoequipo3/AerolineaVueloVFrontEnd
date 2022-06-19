@@ -18,21 +18,20 @@ export class ReservaCharterComponent implements OnInit {
 
   observable_user?:Observable<UsuarioResponse>;
   vuelo:ReservaRequest=new ReservaRequest();
+  user:UsuarioResponse=new UsuarioResponse();
   public classReference = GlobalConstants;
   constructor(private router: Router,
               private activatedRoute: ActivatedRoute,
               private serviceVuelo:VueloService,
               private serviceUsuario:UserTokenService,
               private serviceReserva:ReservaService) {
-    this.activatedRoute.params.subscribe( params => {
-      let mail = params['email'];
-      let id= params['id_vuelo'];
-      this.observable_user=serviceUsuario.getUser(mail);
       this.classReference.user=JSON.parse(sessionStorage.getItem("user")+"");
       if (!this.classReference.user){
         this.router.navigate(['/'])
+      }else{
+        this.observable_user=serviceUsuario.getUser(this.classReference.user.email);
       }
-    })
+
   }
 
   ngOnInit(): void {

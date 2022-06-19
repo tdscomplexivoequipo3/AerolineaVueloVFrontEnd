@@ -15,20 +15,20 @@ export class AppComponent {
   issloading=true;
   buttonad=false;
   user=GlobalConstants;
+  cliente="cliente";
 
   public classReference = GlobalConstants;
   constructor(private _router: Router, private script:ScriptService){
+    script.carga(["script"]);
+
     this.user=JSON.parse(sessionStorage.getItem("user")+"");
     // @ts-ignore
-    if (this.user!="cliente"){
+    if (this.user!=this.cliente){
       this.buttonad=true;
     }
-    script.carga(["script"]);
   }
 
-  roles(){
 
-  }
   cerrarSesion(){
 
   }

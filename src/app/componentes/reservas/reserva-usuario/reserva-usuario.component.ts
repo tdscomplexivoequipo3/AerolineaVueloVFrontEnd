@@ -12,13 +12,19 @@ import {NgxSpinnerService} from "ngx-spinner";
 export class ReservaUsuarioComponent implements OnInit {
 
 
+  isloggin=false;
   public classReference = GlobalConstants;
   public c:boolean=true;
 
   constructor(
     private router: Router,private activatedRoute: ActivatedRoute,private spinner: NgxSpinnerService){
     this.classReference.apiURL="no_employe";
-
+    this.classReference.user=JSON.parse(sessionStorage.getItem("user")+"");
+    if (!this.classReference.user){
+      this.router.navigate(['/'])
+    }else{
+      this.isloggin=true;
+    }
   }
 
   showSuccess() {
@@ -35,8 +41,7 @@ export class ReservaUsuarioComponent implements OnInit {
 
   onClickVuelos():void{
     this.activatedRoute.params.subscribe( params => {
-      let id = params['email'];
-      this.router.navigate(['/ofertas/vuelos',id]);
+      this.router.navigate(['/ofertas/vuelos',this.classReference.user.email]);
     })
   }
 

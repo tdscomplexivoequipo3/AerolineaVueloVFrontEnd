@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {GlobalConstants} from "../../common/GlobalConstants";
+import {UsuarioResponse} from "../../models/Response/UsuarioResponse";
 interface Viaje {
   value: string;
   viewValue: string;
@@ -23,7 +25,10 @@ export class InicioComponent implements OnInit {
     {value: 'premium', viewValue: 'Premium Economy'},
     {value: 'business', viewValue: 'Premium Business'},
   ];
-  constructor() { }
+  user:UsuarioResponse=new UsuarioResponse();
+  constructor() {
+    this.user=JSON.parse(sessionStorage.getItem("user")+"");
+  }
 
   ngOnInit(): void {
   }

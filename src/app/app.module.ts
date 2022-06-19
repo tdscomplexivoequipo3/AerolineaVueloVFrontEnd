@@ -56,9 +56,9 @@ import {DesignationRolesComponent} from "./componentes/designation-roles/designa
 import {GestionReservasComponent} from "./componentes/gestion-reservas/gestion-reservas.component";
 
 const routes: Routes = [
-  {path:'', component:LoginComponent},
-  {path:'registro', component:RegistroComponent},
   {path:'reservas/:email', component:ReservaUsuarioComponent},
+  {path:'registro', component:RegistroComponent},
+  {path:'login', component:LoginComponent},
   {path:'registro/new/flight', component:RegistroVuelosComponent},
   {path:'ofertas/vuelos/:email', component:OfertasUsersComponent},
   {path:'equipaje', component:EquipajeComponent},
@@ -131,7 +131,7 @@ const routes: Routes = [
       }
 
     ]},
-  {path:'inicioc',component:InicioComponent},
+  {path:'',component:InicioComponent},
   {path:'destinos',component:DestinosComponent,
   children:[
     {
