@@ -28,6 +28,11 @@ export class AppComponent {
     }
   }
 
+  inicioGlobal(){
+    this._router.navigate(['']).then(value => {
+      window.location.reload();
+    })
+  }
 
   cerrarSesion(){
 

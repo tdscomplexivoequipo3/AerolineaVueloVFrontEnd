@@ -12,7 +12,7 @@
       <i class="fas fa-bars" id="btn_open"></i>
     </div>
     <div *ngIf="issloading==true" class="lis-pos">
-      <button class="hover" [routerLink]="['']">
+      <button class="hover" (click)="inicioGlobal()">
         <span class="hover">Inicio<mat-icon> list_alt</mat-icon></span>
       </button>
     </div>
