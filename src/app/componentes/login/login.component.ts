@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
     ,private activatedRoute: ActivatedRoute){
     this.classReference.apiURL="no_employe";
   }
-
+  public user = GlobalConstants;
   ngOnInit(): void {
   }
 
@@ -34,8 +34,8 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['/reservas',data.email]);
           this.classReference.user=data;
 
-          if(data.rol=='admin'){
-            this.router.navigate(['/registro/watch/flights']);
+          if(data.rol!='cliente'){
+            this.router.navigate(['administracion/home']);
           }
 
         },err=> {

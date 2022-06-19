@@ -10,15 +10,8 @@ export class ReservaRequest{
   idServicio:any;
   idVuelo:any;
   idUsuario:any;
-  private _estado:number=0;
+  estado:any;
   horaSalida:any=0;
   horaLlegada:any=0;
 
-  public get estado(): number {
-    return this._estado;
-  }
-
-  set estado(value: number) {
-    this._estado = value;
-  }
 }

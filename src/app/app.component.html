@@ -4,12 +4,28 @@
   <app-footer></app-footer>
 </div>
 
-<div *ngIf="classReference.apiURL == 'employe'">
+<div *ngIf="classReference.apiURL== 'employe'">
   <body id="body">
 
   <header>
     <div class="icon__menu">
       <i class="fas fa-bars" id="btn_open"></i>
+    </div>
+    <div *ngIf="issloading==true" class="pers">
+      <button class="hover" [matMenuTriggerFor]="perfil">
+        <span class="hover">Angel Villa<mat-icon> person_pin</mat-icon></span>
+
+      </button>
+      <mat-menu #perfil="matMenu">
+        <button mat-menu-item style="text-align: center" [routerLink]="['/rol_ingreso']">Perfil<mat-icon> person_pin</mat-icon></button>
+        <button mat-menu-item style="text-align: center" (click)="cerrarSesion()" >Cerrar Sesión<mat-icon>exit_to_app</mat-icon></button>
+      </mat-menu>
+    </div>
+    <div *ngIf="issloading==true" class="pers">
+      <button class="hover" [routerLink]="['/reservas']">
+        <span class="hover">Inicio Angel Villa<mat-icon>person</mat-icon></span>
+
+      </button>
     </div>
   </header>
 
@@ -21,7 +37,7 @@
 
     <div class="options__menu">
 
-      <a href="/gestion/inicio">
+      <a href="/administracion/home">
         <div class="option">
           <i class="fas fa-home" title="Inicio"></i>
           <h4>Inicio</h4>

@@ -57,7 +57,7 @@ export class HistorialUserComponent implements OnInit {
       this.service_reserva.getByid(this.classReference.user.id).subscribe(a=>{
         console.log(a);
         this.list=a.filter((obj) => {
-          return obj.estado!=2;
+          return Number(obj.estado)!=2;
         });;
         this.dataSource = new MatTableDataSource(this.list);
         this.dataSource.paginator = this.paginator;
@@ -68,7 +68,7 @@ export class HistorialUserComponent implements OnInit {
   consultaPendientes():void{
     this.service_reserva.getByid(this.classReference.user.id).subscribe(a=>{
       this.list_=a.filter((obj) => {
-        return obj.estado==2;
+        return Number(obj.estado)==2;
       });;
       this.dataSource_ = new MatTableDataSource(this.list_);
       this.dataSource.paginator = this.paginator;

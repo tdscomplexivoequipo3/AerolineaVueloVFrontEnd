@@ -151,6 +151,7 @@ const routes: Routes = [
   {path:'registro/edit/flight/:idvuelo', component:RegistroVuelosComponent},
   {path:'registro/gestion/reservas', component:GestionReservasComponent},
   {path:'registro/charter/flight/:idreserva', component:RegistroVuelosComponent},
+  {path:'administracion/home', component:SliderComponent},
 ]
 
 @NgModule({

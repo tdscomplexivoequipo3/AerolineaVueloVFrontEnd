@@ -1,5 +1,5 @@
 export class UsuarioRequest{
-  id_cliente:any;
+  idCliente:any;
   pais:any;
   docIdentificacion:any;
   nombres:any;

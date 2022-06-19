@@ -29,6 +29,15 @@ export  class  UsuarioService  {
     return this.http_client.get<UsuarioResponse[]>(this.urlEndPoint+"/usuarioAll", {headers:reqHeader});
   }
 
+  getBycedula(cedula:any):Observable<UsuarioRequest[]>{
+    var reqHeader = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + JSON.parse(sessionStorage.getItem("user")+"").token
+    });
+
+    return this.http_client.get<UsuarioRequest[]>(this.urlEndPoint+"/usuario/"+cedula, {headers:reqHeader});
+  }
+
   register(object:RegisterRequest):Observable<RegisterRequest>{
     return this.http_client.post<RegisterRequest>(this.url,object,{headers:this.httpHeaders});
   }
@@ -37,8 +46,11 @@ export  class  UsuarioService  {
     return this.http_client.post<UsuarioResponse>(this.url_l,object,{headers:this.httpHeaders});
   }
 
-  update(object:UsuarioRequest):Observable<UsuarioRequest>{
-    return this.http_client.put<UsuarioRequest>(this.url,object,{headers:this.httpHeaders});
+  update(object:UsuarioRequest):Observable<UsuarioResponse>{
+    var reqHeader = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + JSON.parse(sessionStorage.getItem("user")+"").token
+    });
+    return this.http_client.put<UsuarioResponse>(this.urlEndPoint,object,{headers:reqHeader});
   }
-
 }

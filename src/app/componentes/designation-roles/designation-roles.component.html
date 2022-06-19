@@ -161,8 +161,8 @@
     <br><br>
     <mat-form-field class="full-widthrol">
       <mat-label>Roles</mat-label>
-      <mat-select [(ngModel)]="usuario.idRol" name="avion" required>
-        <mat-option *ngFor="let rol of listRoles" [value]="rol.idRol">
+      <mat-select [(ngModel)]="empleado.cargo" name="avion" required>
+        <mat-option *ngFor="let rol of listRoles" [value]="rol.codigo">
           {{rol.codigo}}
         </mat-option>
       </mat-select>

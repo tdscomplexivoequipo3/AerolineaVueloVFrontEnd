@@ -76,6 +76,8 @@ export class RegisterPlaneComponent implements OnInit {
         text: 'Registro Correcto',
         confirmButtonColor: "#0c3255"
       })
+      this.dialog.closeAll();
+      this.listarPlanes();
     },err=> {
         Swal.fire({
           icon: 'warning',

@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import {Observable} from "rxjs";
 import {UsuarioResponse} from "../../../models/Response/UsuarioResponse";
-import {VueloResponse} from "../../../models/Response/VueloResponse";
 import {VueloService} from "../../../services/Vuelo.service";
 import {ReservaRequest} from "../../../models/Request/ReservaRequest";
 import {ActivatedRoute, Router} from "@angular/router";
 import {UserTokenService} from "../../../services/UserTokenService";
 import {ReservaService} from "../../../services/ReservaService";
 import Swal from "sweetalert2";
+import {GlobalConstants} from "../../../common/GlobalConstants";
 
 @Component({
   selector: 'app-reserva-charter',
@@ -18,7 +18,7 @@ export class ReservaCharterComponent implements OnInit {
 
   observable_user?:Observable<UsuarioResponse>;
   vuelo:ReservaRequest=new ReservaRequest();
-
+  public classReference = GlobalConstants;
   constructor(private router: Router,
               private activatedRoute: ActivatedRoute,
               private serviceVuelo:VueloService,
@@ -28,6 +28,10 @@ export class ReservaCharterComponent implements OnInit {
       let mail = params['email'];
       let id= params['id_vuelo'];
       this.observable_user=serviceUsuario.getUser(mail);
+      this.classReference.user=JSON.parse(sessionStorage.getItem("user")+"");
+      if (!this.classReference.user){
+        this.router.navigate(['/'])
+      }
     })
   }
 
@@ -50,7 +54,7 @@ export class ReservaCharterComponent implements OnInit {
         this.vuelo.pago=false;
         this.vuelo.fechaRegistro=new Date();
         this.vuelo.estado=1;
-
+        console.log(this.vuelo)
         this.serviceReserva.registerSinVuelo(this.vuelo).subscribe(data => {
             Swal.fire({
               icon: 'success',

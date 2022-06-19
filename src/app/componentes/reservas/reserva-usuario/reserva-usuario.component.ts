@@ -18,6 +18,7 @@ export class ReservaUsuarioComponent implements OnInit {
   constructor(
     private router: Router,private activatedRoute: ActivatedRoute,private spinner: NgxSpinnerService){
     this.classReference.apiURL="no_employe";
+
   }
 
   showSuccess() {

@@ -1,5 +1,12 @@
-.example-spacer {
-  flex: 1 1 auto;
+body {
+  background-color: #282828;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url("src/assets/Images/home.png");
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
 }
-
 

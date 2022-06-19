@@ -8,6 +8,26 @@
   width: 100%;
 }
 
+.pers{
+  margin-left: 80%;
+}
+.hover{
+  cursor: pointer;
+  margin: 12px;
+  font-size: 15px;
+}
+
+button{
+  background-color: transparent;
+  border: transparent;
+}
+
+button:hover{
+  color: #000;
+  transition: .5s;
+}
+
+
 .menu{
   height: 100%;
   width: 20%;
@@ -171,8 +191,9 @@ a.selected{
   }
 
   .menu__side_move{
-    width: 80px;
-    left: -80px;
+
+    width: 250px;
+    left: -500px;
   }
 }
 

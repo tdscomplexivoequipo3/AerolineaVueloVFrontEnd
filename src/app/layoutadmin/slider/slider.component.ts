@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {GlobalConstants} from "../../common/GlobalConstants";
+import {MatDialog} from "@angular/material/dialog";
+import {TypeFlightService} from "../../services/TypeFlightService";
 
 @Component({
   selector: 'app-slider',
@@ -7,14 +10,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SliderComponent implements OnInit {
 
-  events: string[] = [];
-  // @ts-ignore
-  opened: boolean;
 
-  shouldRun = /(^|.)(stackblitz|webcontainer).(io|com)$/.test(window.location.host);
-
-  constructor() { }
-
+  public classReference = GlobalConstants;
+  constructor() {
+    this.classReference.apiURL="employe";
+  }
   ngOnInit(): void {
   }
 

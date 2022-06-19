@@ -11,6 +11,8 @@ import {MatDialog} from "@angular/material/dialog";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {animate, state, style, transition, trigger} from "@angular/animations";
 import {UsuarioRequest} from "../../models/Request/UsuarioRequest";
+import {EmpleadoRequest} from "../../models/Request/EmpleadoRequest";
+import {EmpleadoService} from "../../services/EmpleadoService";
 
 @Component({
   selector: 'app-designation-roles',
@@ -50,6 +52,7 @@ export class DesignationRolesComponent implements OnInit {
 
   public classReference = GlobalConstants;
   constructor(private rolService:RolService,
+              private empleadoService:EmpleadoService,
               private userService:UsuarioService,
               public dialog: MatDialog,
               private snackBar: MatSnackBar) {
@@ -57,8 +60,11 @@ export class DesignationRolesComponent implements OnInit {
   }
 
   rol:Rol=new Rol();
-  usuario:UsuarioRequest=new UsuarioRequest();
+  usuario:UsuarioResponse=new UsuarioResponse();
+
   listRoles:Rol[]=[];
+
+  empleado:EmpleadoRequest=new EmpleadoRequest();
 
   listUsers:Array<UsuarioRequest>=[];
 
@@ -104,15 +110,14 @@ export class DesignationRolesComponent implements OnInit {
   openDialogoRol(){
     this.dialog.open(this.dialogrol);
   }
-  openDialogoRolAsig(user:UsuarioRequest){
-    console.log(user)
+  openDialogoRolAsig(user:UsuarioResponse){
     this.dialog.open(this.dialogasignarrol);
     this.usuario=user;
   }
 
   guardarrol(){
     this.rolService.create(this.rol).subscribe(x=>{
-      this.snackBar.open("SERVICIO CREADO", "",{
+      this.snackBar.open("ROL CREADO", "",{
         duration: 1 * 1000,
       });
       this.listarRoles();
@@ -120,10 +125,17 @@ export class DesignationRolesComponent implements OnInit {
   }
 
   guardarAsignacion(){
-    console.log(this.usuario.id_cliente)
-    /*this.userService.update(this.usuario).subscribe(m=>{
-      this.listarUser();
-    })*/
+    this.empleado.idUsuario=this.usuario.id;
+    this.empleado.estado=true;
+   console.log(this.empleado)
+    this.empleadoService.save(this.empleado).subscribe(m=>{
+          this.snackBar.open("ROL ACTUALIZADO", "",{
+            duration: 1 * 1000,
+          });
+          this.listarUser();
+          this.dialog.closeAll();
+      })
+
   }
 
   editarRol(id:any){

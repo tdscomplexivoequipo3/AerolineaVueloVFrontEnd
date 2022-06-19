@@ -70,10 +70,12 @@
     </div>
 
     <div *ngIf="classReference.user.nombres!=null">
-      <button mat-button class="botonInicio" [routerLink]="'/'">Cerrar Sesión</button>
+      <button mat-button class="botonInicio" [routerLink]="'/'" (click)="cerrarSession()">Cerrar Sesión</button>
     </div>
 
-
+    <div *ngIf="btnadmin">
+      <button mat-button class="botonInicio" [routerLink]="'/administracion/home'">Administracion</button>
+    </div>
   </mat-toolbar>
 
 
