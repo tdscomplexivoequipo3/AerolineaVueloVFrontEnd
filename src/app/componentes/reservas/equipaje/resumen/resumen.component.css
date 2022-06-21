@@ -13,13 +13,13 @@ body{
 }
 
 .title{
-  margin-left: 20px;
+  margin-left: 10px;
   color: #000000;
-  margin-top: 15%;
+  margin-top: 10%;
 }
 
 .total{
-  height: 450px;
+  height: 300px;
   width: 100%;
   display: flex;
   justify-content: center;

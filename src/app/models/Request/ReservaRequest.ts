@@ -13,5 +13,4 @@ export class ReservaRequest{
   estado:any;
   horaSalida:any=0;
   horaLlegada:any=0;
-
 }

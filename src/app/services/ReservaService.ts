@@ -59,7 +59,7 @@ export  class ReservaService {
     });
 
     id=JSON.parse(sessionStorage.getItem("user")+"").id;
-    return this.http_client.get<ReservaRequest[]>(`${this.url_getId}/${id}`,{headers:reqHeader});
+    return this.http_client.get<ReservaRequest[]>(`${this.url_getId}/${JSON.parse(sessionStorage.getItem("user")+"").id}`,{headers:reqHeader});
   }
   getByvueloid(id:String):Observable<ReservaResponse>{
     var reqHeader = new HttpHeaders({

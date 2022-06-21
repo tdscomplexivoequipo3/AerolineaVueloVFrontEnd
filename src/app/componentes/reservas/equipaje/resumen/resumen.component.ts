@@ -51,50 +51,63 @@ export class ResumenComponent implements OnInit {
   }
 
   registrar():void{
-    this.observable_user?.subscribe(
-      _objet=>{
-        var r1: ReservaRequest =new ReservaRequest();
-        r1.fechaIda=this.vuelo.fechaIda;
-        r1. fechaVuelta=this.vuelo.fechaVuelta;
-        r1.horaSalida=this.vuelo.horaSalida;
-        r1.horaLlegada=this.vuelo.horaLlegada;
-        r1.estado=1;
-        r1. observacion="sin observaciones";
-        r1.fechaRegistro=new Date();
-        r1.origen=this.vuelo.origen;
-        r1.destino=this.vuelo.destino;
-        r1.pago=false;
-        r1.idVuelo=this.vuelo.idVuelo;
-        r1.idUsuario=_objet.id;
 
-        this.serviceReserva.register(r1).subscribe(data => {
-            Swal.fire({
-              icon: 'success',
-              title: 'Registro Estado',
-              text: 'Registro Correcto',
-              confirmButtonColor: "#0c3255"
-            }).then(async (result) => {
-               if(result.isConfirmed){
-                 this.activatedRoute.params.subscribe( params => {
-                   let id = params['email'];
-                   this.router.navigate(['/reservas',id]);
-                 })
-               }
-            });
+    Swal.fire({
+      icon: 'question',
+      title: 'Viaje',
+      text: 'Confirmación de Reserva',
+      showCancelButton: true,
+      confirmButtonColor: "#0c3255",
+      confirmButtonText: "Aceptar",
+      cancelButtonColor: "#ff5656",
+      cancelButtonText:"Cancelar"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.observable_user?.subscribe(
+          _objet=>{
+            var r1: ReservaRequest =new ReservaRequest();
+            r1.fechaIda=this.vuelo.fechaIda;
+            r1. fechaVuelta=this.vuelo.fechaVuelta;
+            r1.horaSalida=this.vuelo.horaSalida;
+            r1.horaLlegada=this.vuelo.horaLlegada;
+            r1.estado=1;
+            r1. observacion="sin observaciones";
+            r1.fechaRegistro=new Date();
+            r1.origen=this.vuelo.origen;
+            r1.destino=this.vuelo.destino;
+            r1.pago=false;
+            r1.idVuelo=this.vuelo.idVuelo;
+            r1.idUsuario=_objet.id;
 
-          },err=> {
-            Swal.fire({
-              icon: 'warning',
-              title: 'Acceso Denegado',
-              text: err.error.message,
-              confirmButtonColor: "#0c3255"
-            })
-          }
-        );
+            this.serviceReserva.register(r1).subscribe(data => {
+                Swal.fire({
+                  icon: 'success',
+                  title: 'Registro Estado',
+                  text: 'Registro Correcto',
+                  confirmButtonColor: "#0c3255"
+                }).then(async (result) => {
+                  if(result.isConfirmed){
+                    this.activatedRoute.params.subscribe( params => {
+                      let id = params['email'];
+                      this.router.navigate(['/reservas',id]);
+                    })
+                  }
+                });
 
-        //__________-
-      }, error => console.log(error));
+              },err=> {
+                Swal.fire({
+                  icon: 'warning',
+                  title: 'Acceso Denegado',
+                  text: err.error.message,
+                  confirmButtonColor: "#0c3255"
+                })
+              }
+            );
 
+            //__________-
+          }, error => console.log(error));
+      }
+    })
   }
 
 }

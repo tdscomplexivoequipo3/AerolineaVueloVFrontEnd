@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {GlobalConstants} from "../../../common/GlobalConstants";
 import {NgxSpinnerService} from "ngx-spinner";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 
 @Component({
@@ -11,12 +12,11 @@ import {NgxSpinnerService} from "ngx-spinner";
 })
 export class ReservaUsuarioComponent implements OnInit {
 
-
   isloggin=false;
   public classReference = GlobalConstants;
   public c:boolean=true;
 
-  constructor(
+  constructor(private _snackBar: MatSnackBar,
     private router: Router,private activatedRoute: ActivatedRoute,private spinner: NgxSpinnerService){
     this.classReference.apiURL="no_employe";
     this.classReference.user=JSON.parse(sessionStorage.getItem("user")+"");
@@ -28,7 +28,19 @@ export class ReservaUsuarioComponent implements OnInit {
   }
 
   showSuccess() {
-    this.router.navigate(['/historial']);
+    if(this.isloggin){
+      this.router.navigate(['/historial']);
+    }else{
+        this.showSuccessInCorrect("Inice Seción Primero","IN");
+    }
+  }
+
+  durationInSeconds = 3;
+  showSuccessInCorrect(message: string, action: string) {
+    this._snackBar.open(message, action,{
+      duration: this.durationInSeconds * 1000,
+      panelClass: ['red-snackbar', 'login-snackbar']
+    });
   }
 
   ngOnInit(): void {

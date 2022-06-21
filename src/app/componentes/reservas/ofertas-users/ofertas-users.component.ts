@@ -24,7 +24,11 @@ export class OfertasUsersComponent implements OnInit {
               private service:VueloService,private spinner: NgxSpinnerService) {
     this.service.listAll().subscribe(
       objets => {
-        this.vuelos = objets
+        this.vuelos = objets.filter((obj) => {
+          return obj.idTipoVuelo != 1;
+        });
+
+
         for (let i = 0; i < this.vuelos.length; i++) {
           this.changeColor.push(false);
           this.vuelos_envio.push(new Vuelo_Envio(this.vuelos[i].idVuelo));

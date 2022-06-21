@@ -8,79 +8,27 @@
 </ngx-spinner>
 
 <body>
-<div class="total">
-  <div class="fondo_inicial">
-    <h1 class="title">Viaja por todo el Ecuador</h1>
-    <img src="https://cdn.mwallpapers.com/photos/celebrities/city/quito-wallpaper-android-iphone-desktop-hd-backgrounds-wallpapers-1080p-4khd-wallpapers-desktop-background-android-iphone-1080p-4k-3vmmf.jpg">
-  </div>
-</div>
 
 <div class="ofertas">
 
   <div class="o1">
     <h1>Ofertas Especiales</h1>
     <p>-Se parte de nuestras mejores ofertas sisi yo digo que si</p>
-      <mat-card-actions class="card_reservas">
-        <button mat-raised-button  class="o1_b" >Buscar</button>
-      </mat-card-actions>
   </div>
 
-  <div class="o2">
+  <div class="o2" (click)="onClickVuelos()">
     <h1>Vuelos Comerciales</h1>
     <p>-Viajes por todo el Ecuador a precios bajos</p>
-    <mat-card-actions class="card_reservas">
-      <button mat-raised-button  (click)="onClickVuelos()" class="o2_b" >Buscar</button>
-    </mat-card-actions>
   </div>
 
-  <div class="o3">
+  <div class="o3" (click)="onClickVuelosCharter()">
     <h1>Vuelos Charter</h1>
     <p>-Disfrute de Ecuador con la mejor compañia</p>
-    <mat-card-actions class="card_reservas">
-      <button mat-raised-button (click)="onClickVuelosCharter()" class="o3_b" >Buscar</button>
-    </mat-card-actions>
   </div>
 
-  <div class="historal" *ngIf="isloggin">
-    <h2>Vuelos Reservados</h2>
+  <div class="historal" (click)="showSuccess()">
+    <h2>Vuelos Reservados </h2>
     <p>-Consulte sus Reservas y Procesos</p>
-    <div class="left_h">
-      <mat-card-actions class="card_reservas">
-        <button mat-raised-button (click)="showSuccess()" class="o3_b" >Ir</button>
-      </mat-card-actions>
-    </div>
-  </div>
-
-</div>
-
-
-<h2>Ciudades más visitadas</h2>
-<div class="ciudades">
-  <div class="c1">
-    <img src="https://catapultados.com/wp-content/uploads/2020/10/que-hacer-en-guayaquil.jpg">
-    <div class="title_c"><h2>Guayaquil</h2></div>
-    <p>Guayaquil es una ciudad portuaria de Ecuador, conocida como la puerta de acceso a las playas del Pacífico y a las Islas Galápagos</p>
-    <mat-card-actions class="card_reservas">
-      <button mat-raised-button  class="o3_b" >Buscar</button>
-    </mat-card-actions>
-  </div>
-
-  <div class="c2">
-    <img src="https://phantom-elmundo.unidadeditorial.es/1827b2a077ccbaba6d2a2cb48d83bf7a/resize/414/f/jpg/assets/multimedia/imagenes/2020/02/24/15825494055551.jpg">
-    <div class="title_c"><h2>Quito</h2></div>
-    <p>Quito, la capital de Ecuador, se ubica en la altura de las laderas de los Andes a 2,850 m. Fue construida sobre los cimientos de una antigua ciudad inca y es famosa por su centro colonial bien conservado</p>
-    <mat-card-actions class="card_reservas">
-      <button mat-raised-button  class="o3_b" >Buscar</button>
-    </mat-card-actions>
-  </div>
-
-  <div class="c3">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Santo_Domingo%2C_Ecuador.jpg">
-    <div class="title_c"><h2>Santo Domingo</h2></div>
-    <p>Santo Domingo, también conocida como Santo Domingo de los Colorados, es una ciudad ecuatoriana; cabecera cantonal de Santo Domingo y capital de los Tsáchilas</p>
-    <mat-card-actions class="card_reservas">
-      <button mat-raised-button  class="o3_b" >Buscar</button>
-    </mat-card-actions>
   </div>
 
 </div>
