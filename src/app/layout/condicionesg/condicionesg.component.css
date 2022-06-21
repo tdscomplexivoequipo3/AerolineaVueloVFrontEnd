@@ -1,0 +1,32 @@
+.divprincipal{
+  width: 1400px;
+  height: auto;
+  position: relative;
+  left: 70px;
+}
+.titulo{
+  margin: 40px;
+  font-weight: lighter;
+  font-size: 30px;
+  font-style: oblique;
+  color: #1B0088;
+}
+.subtitulos{
+  margin: 20px;
+  font-weight: lighter;
+  font-size: 20px;
+  font-style: oblique;
+  color: #1B0088;
+}
+.li2{
+  margin: 20px;
+  list-style: none;
+}
+.li3{
+  margin: 20px;
+}
+li.li3::marker{
+  color: #11837C;
+  font-size: 19px;
+  font-weight: bold;
+}

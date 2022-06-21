@@ -84,3 +84,6 @@ mat-expansion-panel{
  font-size: 12px;
   margin: 1rem;
 }
+.mat-expansion-panel:not([class*='mat-elevation-z']) {
+  box-shadow: none;
+}

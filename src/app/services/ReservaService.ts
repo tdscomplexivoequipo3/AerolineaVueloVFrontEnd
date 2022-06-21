@@ -6,6 +6,7 @@ import {Router} from "@angular/router";
 import {UnAuthorizedInterceptor} from "../UnAuthorizedInterceptor";
 import {RegisterRequest} from "../models/Request/RegisterRequest";
 import {ReservaRequest} from "../models/Request/ReservaRequest";
+import {ReservaResponse} from "../models/Response/ReservaResponse";
 
 @Injectable({
   providedIn: 'root'
@@ -59,6 +60,15 @@ export  class ReservaService {
 
     id=JSON.parse(sessionStorage.getItem("user")+"").id;
     return this.http_client.get<ReservaRequest[]>(`${this.url_getId}/${id}`,{headers:reqHeader});
+  }
+  getByvueloid(id:String):Observable<ReservaResponse>{
+    var reqHeader = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + JSON.parse(sessionStorage.getItem("user")+"").token
+    });
+
+    id=JSON.parse(sessionStorage.getItem("user")+"").id;
+    return this.http_client.get<ReservaResponse>(`${this.url_getId}/${id}`,{headers:reqHeader});
   }
 
   getReservaByid(id:String):Observable<ReservaRequest>{

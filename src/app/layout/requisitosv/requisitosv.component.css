@@ -1,0 +1,164 @@
+.principal{
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  height: 51%;
+}
+.carusel{
+  background-image: url("https://cnnespanol.cnn.com/wp-content/uploads/2022/05/220523085523-01-worlds-fastest-passenger-jet-full-169.jpg?quality=100&strip=info");
+  height: 340px;
+  width: 1470px;
+  border-radius:0 0 15px 15px ;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  border-color: black;
+  background-position: center;
+}
+.texto {
+  text-align: left;
+  color: #10004F;
+  justify-content: left;
+  font-size: 40px;
+  font-family: lighter;
+  font-weight: lighter;
+
+}
+.div1{
+  width: 1400px;
+  height: auto;
+  left: 70px;
+  position: relative;
+}
+li::marker{
+  color: black;
+  font-size: 17px;
+  font-weight: bold;
+}
+.panel{
+  background-color:#FFFFFF;
+  margin: 1rem;
+  display: flex;
+  height: 180px;
+  align-items: center;
+  justify-content: left;
+  border-radius: 5px;
+}
+.panel2{
+  width: 1200px;
+  background-color: #FFFFFF;
+  border-radius: 15px;
+  align-items: center;
+  border-bottom:3px dotted #9999CC;
+  border-left: 3px dotted #9999CC;
+  position: relative;
+  left: 150px;
+}
+.panel3{
+  background-color: #FFFFFF;
+  height: 50px;
+  margin: 1rem;
+  font-size: 14px;
+  justify-content: space-between;
+}
+.caja3{
+  width: 1200px;
+  background-color: #FFFFFF;
+  border-radius: 23px;
+}
+.cajatrayectoria{
+  color: blue;
+  font-size: 12px;
+  margin: 1rem;
+}
+.caja {
+  width: 250px;
+  height:25px;
+  float: left;
+  margin-left: 8px;
+  border-color:#FFFFFF;
+  border-width: 5px;
+}
+.div2{
+width: 1400px;
+  position: relative;
+  left: 70px;
+}
+.boton1{
+  position: relative;
+  left: 600px;
+}
+.div3 {
+  position: relative;
+  width: 1400px;
+  height: 400px;
+  background-color: #F3F2F6;
+  left: 70px;
+  border-radius: 10px;
+}
+.margenes{
+  margin: 40px;
+}
+.div4{
+  background-color: #F3F2F6;
+  width: 1100px;
+  height: 350px;
+  position: relative;
+  top: 30px;
+  left: 50px;
+}
+.texto1{
+  color: #1B0088;
+  font-weight: inherit;
+  font-size: 25px;
+}
+.li1{
+  margin: 40px;
+}
+li.li1::marker{
+  color: #11837C;
+  font-size: 19px;
+  font-weight: bold;
+}
+.principal1{
+  display: flex;
+  width: 1400px;
+  height: auto;
+  position: relative;
+  left: 70px;
+}
+.div5{
+ background-color: #FFFFFF;
+  width: 900px;
+  height: auto;
+}
+.div6{
+  background-color: #FFFFFF;
+  width: 500px;
+  height: 300px;
+  justify-content: center;
+  align-items: center;
+
+}
+.img{
+  width:300px;
+  height:300px;
+  border-radius:150px;
+  position: relative;
+  left:100px;
+}
+.al1{
+  text-decoration: none;
+  color: red;
+}
+.mat-expansion-panel:not([class*='mat-elevation-z']) {
+  box-shadow: none;
+}
+.div7{
+  background-color: #FFFFFF;
+  height: 150px;
+  width: 900px;
+  position: relative;
+  left: 70px;
+
+}

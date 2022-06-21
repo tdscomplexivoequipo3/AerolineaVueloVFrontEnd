@@ -1,0 +1,149 @@
+<div class="principal">
+  <div class="carusel">
+    <div class="texto">
+      <h3>Requisitos para viajar</h3>
+    </div>
+  </div>
+</div>
+<div class="div1">
+  <h3 style="color: #1B0088;font-weight: inherit;font-size: 20px">Revisa las condiciones del destino al que quieres viajar</h3>
+  <br/>
+  <p>Asegúrate de que cumples con estas condiciones y evita problemas el día de tu viaje o durante tu estadía:</p>
+  <ol >
+    <li>Revisa la información de tu país antes del vuelo para revisar los requisitos de destinos nacionales. Para restricciones internacionales, visite la información de la respectiva aerolínea</li>
+    <li>Lee con atención las restricciones que existen actualmente.Puede visitar nuestro <a routerLink="/centroa" style="text-decoration: none">centro de ayuda.</a></li>
+    <li>Te recomendamos revisar esta información antes de comprar tu pasaje, pero también los días previos a tu vuelo porque esta puede cambiar muy seguido.</li>
+  </ol>
+  <p>Si tienes un vuelo de conexión con otra aerolínea, infórmate en su sitio web sobre los requisitos que debes cumplir para esa parte de tu viaje. También te recomendamos revisar el
+    <a href="https://www.iata.org/en/programs/covid-19-resources-guidelines/" target="_blank" style="text-decoration: none;color: #512DA8">sitio web</a> de la Asociación de Transporte Aéreo Internacional (IATA) para obtener información adicional.</p>
+</div>
+<div class="panel">
+  <div class="panel2">
+    <mat-toolbar class="caja3">
+      <mat-form-field appearance="outline" class="cajatrayectoria">
+        <mat-label style="color: black">viaje</mat-label >
+        <mat-select [(ngModel)]="selectedValue"   >
+          <mat-option *ngFor="let viaje of viajes" [value]="viaje.value">
+            {{viaje.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="cajatrayectoria">
+        <mat-label style="color: black">Tipo de vuelo</mat-label >
+        <mat-select [(ngModel)]="selectedValue1"  name="food" >
+          <mat-option *ngFor="let vuelo of vuelos" [value]="vuelo.value">
+            {{vuelo.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <button mat-button [matMenuTriggerFor]="menu3" >
+        <button mat-button color="primary" style="font-size: 12px" >{{+bebe+adultos+nino}}&nbsp;Pasajeros<mat-icon>keyboard_arrow_down
+        </mat-icon>
+        </button>
+      </button>
+      <mat-menu #menu3="matMenu" yPosition="below" style="justify-content: center;align-content: center">
+        <mat-form-field appearance="outline" (click)="$event.stopPropagation();$event.preventDefault();">
+          <mat-label>Adultos</mat-label>
+          <input matInput placeholder="0" type="number" autocomplete="off" [(ngModel)]="adultos" >
+          <mat-hint>12 o mas años</mat-hint>
+        </mat-form-field>
+        <mat-form-field appearance="outline" (click)="$event.stopPropagation();$event.preventDefault();">
+          <mat-label>Niños</mat-label>
+          <input matInput placeholder="0" type="number" autocomplete="off" [(ngModel)]="nino">
+          <mat-hint>De 2 a 12 años</mat-hint>
+        </mat-form-field>
+        <mat-form-field appearance="outline" (click)="$event.stopPropagation();$event.preventDefault();">
+          <mat-label>Bebé</mat-label>
+          <input matInput placeholder="0" type="number" autocomplete="off" [(ngModel)]="bebe">
+          <mat-hint>Menores de 2 años</mat-hint>
+        </mat-form-field>
+      </mat-menu>
+    </mat-toolbar>
+    <div class="panel3">
+      <mat-form-field appearance="outline" class="caja">
+        <input matInput placeholder="Ciudad de origen" required >
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="caja">
+        <input matInput placeholder="Ciudad de Destino" required >
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="caja">
+        <mat-label>Seleccione una fecha</mat-label>
+        <mat-date-range-input [rangePicker]="picker">
+          <input matStartDate placeholder="Fecha de Ida">
+          <input matEndDate placeholder="Fecha de regreso">
+        </mat-date-range-input>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-date-range-picker #picker></mat-date-range-picker>
+      </mat-form-field>
+
+      <button mat-stroked-button color="warn" style="width: 180px;height: 40px;margin: 8px">Buscar</button>
+    </div>
+  </div>
+</div>
+<div class="div2">
+  <h3 style="color: #706661;font-size: 20px">Aviso Legal</h3>
+  <p style="color: #706661;font-size: 15px">
+    La información que se pone a disposición del público en este apartado tiene como objetivo ayudar a nuestros pasajeros y potenciales clientes en sus primeros pasos durante el diseño y preparación de sus planes de viaje. Dicha información está proporcionada por Smarttravel, que recopila fuentes públicas y privadas de máxima confianza. Está prohibido almacenar, revisar o grabar esta información sin el consentimiento expreso de Smartravel. Asimismo “Timatic®” propiedad de IATA es una de las fuentes de información disponiendo Smartvel de los derechos de uso de dicha información para esta web (todos los derechos reservados y sujeto a sus términos y condiciones disponibles en http://www.timaticweb2.com/userterms). Dado el carácter cambiante de esta información no podemos garantizar que esta información sea precisa o esté actualizada en todo momento. Por ello, siempre se recomienda a nuestros pasajeros que se informen directamente con las autoridades nacionales correspondientes de inmigración y de aduanas/control de fronteras en relación con las normas aplicables a su caso en particular. Nuestro agencia no se hace responsable de las decisiones que se adopten basándose en la información facilitada.
+  </p>
+  <br>
+  <button mat-flat-button color="warn" class="boton1" routerLink="/inicioc">Buscar Vuelos</button>
+</div>
+<div class="div3">
+  <div class="div4">
+    <h3 class="texto1">Ten en cuenta lo siguiente:</h3>
+    <p class="margenes">Hay restricciones de entrada que cada gobierno establece para los viajeros y éstas varían constantemente. Esto aplica para vuelos internacionales, pero también hay requisitos para vuelos nacionales.</p>
+    <ul>
+      <li class="li1">Si tu lugar de destino requiere un test PCR, te recomendamos que este especifique la fecha y hora en la que fue tomado.</li>
+      <li class="li1">Sin importar tu destino, siempre lleva una mascarilla contigo, ya que hay vuelos donde es obligatorio su uso.</li>
+      <li class="li1">Revisa si para abordar el avión o al llegar a tu lugar de destino debes presentar tu certificado de vacunación. </li>
+    </ul>
+  </div>
+</div>
+<div class="principal1">
+  <div class="div5">
+<h3 class="texto1">Preguntas Frecuentes</h3>
+    <p>Preguntas relacionadas con el viaje</p>
+    <mat-accordion>
+
+      <mat-expansion-panel (opened)="panelOpenState = true"
+                           (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+          <mat-panel-title><h3 style="color: #1B0088">Que documentos debo presentar para viajar</h3>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <p>Debes presentar tu tarjeta de embarque y tu documento de identidad. En el caso de la tarjeta de embarque, puede ser presentada de forma virtual (app) o física.</p>
+        <a routerLink="/centroa" class="al1">Conoce más</a>
+      </mat-expansion-panel>
+    </mat-accordion>
+    <mat-accordion>
+
+      <mat-expansion-panel (opened)="panelOpenState = true"
+                           (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+          <mat-panel-title><h3 style="color: #1B0088">¿Donde debo usar mascarilla?</h3>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <p>El uso obligatorio de la mascarilla a bordo de los vuelos de la compañia dependerá de la normativa de la autoridad del país del operador del vuelo. En la puerta de embarque y antes del despegue, te informaremos si el uso de la mascarilla es obligatoria u opcional, así que te solicitamos llevar una contigo siempre.</p>
+        <a routerLink="/centroa" class="al1">Conoce más</a>
+      </mat-expansion-panel>
+    </mat-accordion>
+    <mat-accordion>
+
+      <mat-expansion-panel (opened)="panelOpenState = true"
+                           (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+          <mat-panel-title><h3 style="color: #1B0088">Si tengo la vacuna ¿A dónde puedo ir ?</h3>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <p> Existen restricciones de entrada establecidas por cada gobierno que están sujetas a cambios de forma constante.</p>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+  <div class="div6">
+    <img src="https://thumbs.dreamstime.com/b/vamos-t%C3%ADtulo-de-motivaci%C3%B3n-viaje-cartel-con-maletas-caricatura-y-un-avi%C3%B3n-papel-volador-ejemplo-del-vector-en-d-plana-156091674.jpg" class="img">
+  </div>
+</div>
+<div class="div7">
+<p>Conozca mas en el: <a routerLink="/centroa" class="al1">Centro de ayuda <mat-icon>open_in_new</mat-icon> </a></p>
+</div>

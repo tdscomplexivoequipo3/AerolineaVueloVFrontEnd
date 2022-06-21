@@ -54,6 +54,8 @@ import {InternacionalesComponent} from "./layout/destinostu/internacionales/inte
 import {ScriptService} from "./services/ScriptService";
 import {DesignationRolesComponent} from "./componentes/designation-roles/designation-roles.component";
 import {GestionReservasComponent} from "./componentes/gestion-reservas/gestion-reservas.component";
+import {RequisitosvComponent} from "./layout/requisitosv/requisitosv.component";
+import {CondicionesgComponent} from "./layout/condicionesg/condicionesg.component";
 
 const routes: Routes = [
   {path:'reservas/:email', component:ReservaUsuarioComponent},
@@ -152,6 +154,8 @@ const routes: Routes = [
   {path:'registro/gestion/reservas', component:GestionReservasComponent},
   {path:'registro/charter/flight/:idreserva', component:RegistroVuelosComponent},
   {path:'administracion/home', component:SliderComponent},
+  {path:'restricciones',component:RequisitosvComponent},
+  {path:'condiciones',component:CondicionesgComponent}
 ]
 
 @NgModule({
@@ -198,6 +202,9 @@ const routes: Routes = [
     InternacionalesComponent,
     DesignationRolesComponent,
     GestionReservasComponent,
+    RequisitosvComponent,
+    CondicionesgComponent,
+
   ],
   imports: [
     RouterModule.forRoot(routes),
