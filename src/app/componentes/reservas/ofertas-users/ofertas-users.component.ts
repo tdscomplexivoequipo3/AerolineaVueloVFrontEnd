@@ -22,6 +22,26 @@ export class OfertasUsersComponent implements OnInit {
 
   constructor(private router: Router,private activatedRoute: ActivatedRoute,
               private service:VueloService,private spinner: NgxSpinnerService) {
+
+    this.busquedanormal();
+
+    this.activatedRoute.params.subscribe( params => {
+      let ciudad = params['ciudad'];
+      let id= params['id_vuelo'];
+    })
+
+
+  }
+
+  busquedaciudad(ciudad:any):void{
+
+  }
+
+  busquedaid(ciudad:any):void{
+
+  }
+
+  busquedanormal():void{
     this.service.listAll().subscribe(
       objets => {
         this.vuelos = objets.filter((obj) => {
