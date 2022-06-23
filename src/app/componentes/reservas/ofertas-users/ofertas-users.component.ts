@@ -23,7 +23,7 @@ export class OfertasUsersComponent implements OnInit {
   constructor(private router: Router,private activatedRoute: ActivatedRoute,
               private service:VueloService,private spinner: NgxSpinnerService) {
 
-    //poner condicion de que es normal
+    //poner condicion de que es normal o otra vuelta (ciudad o vuelo)
     this.busquedanormal();
 
     this.activatedRoute.params.subscribe( params => {
