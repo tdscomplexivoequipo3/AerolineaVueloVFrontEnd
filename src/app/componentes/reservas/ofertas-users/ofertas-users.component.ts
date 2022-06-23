@@ -99,7 +99,7 @@ export class OfertasUsersComponent implements OnInit {
   solicitar(id:number,tipo:string):void{
     this.activatedRoute.params.subscribe( params => {
       let mail = params['email'];
-      this.router.navigate(['/reserva',mail,id]);
+      this.router.navigate(['/reserva',mail,id,tipo]);
     })
 
   }
