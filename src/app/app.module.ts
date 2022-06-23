@@ -60,7 +60,7 @@ import { ValidationPasajerosComponent } from './componentes/validation-pasajeros
 import { ListadoPasajerosComponent } from './componentes/reservas/listado-pasajeros/listado-pasajeros.component';
 
 const routes: Routes = [
-  {path:'reservas/:email', component:ReservaUsuarioComponent},
+  {path:'reservas/:email/:tipo', component:ReservaUsuarioComponent},
   {path:'registro', component:RegistroComponent},
   {path:'login', component:LoginComponent},
   {path:'registro/new/flight', component:RegistroVuelosComponent},

@@ -30,7 +30,6 @@ export class OfertasUsersComponent implements OnInit {
       let id= params['id_vuelo'];
     })
 
-
   }
 
   busquedaciudad(ciudad:any):void{
@@ -97,7 +96,7 @@ export class OfertasUsersComponent implements OnInit {
     this.changeColor_options[k]=!this.changeColor_options[k];
   }
 
-  solicitar(id:number):void{
+  solicitar(id:number,tipo:string):void{
     this.activatedRoute.params.subscribe( params => {
       let mail = params['email'];
       this.router.navigate(['/reserva',mail,id]);
