@@ -1,0 +1,26 @@
+.estado{
+  position: relative;
+  width: 800px;
+  height: 300px;
+
+}
+
+.divprincipal1{
+  background-image: url("https://us.123rf.com/450wm/microone/microone1904/microone190400497/120906678-p%C3%A1gina-no-encontrada-red-de-computadoras-404-p%C3%A1gina-de-advertencia-de-error-perdido-oops-mensaje-de-.jpg");
+  width: 450px;
+  height: 350px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+
+
+}
+.titulod{
+  color:rgba(52, 152, 219,0.5);
+  width: 200px;
+  font-size: 40px;
+  position: relative;
+  top:21px;
+  left:19px;
+  font-style: oblique;
+}

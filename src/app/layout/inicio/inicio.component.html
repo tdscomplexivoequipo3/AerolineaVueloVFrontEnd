@@ -140,7 +140,6 @@
   <select matNativeControl required (change)="filtrar($event)">
     <option></option>
     <option *ngFor="let ciudad of listVuelos;">{{ciudad}}</option>
-
   </select>
 </mat-form-field>
 </h2>
@@ -155,7 +154,7 @@
           </h1>
         </mat-card-content>
         <mat-card-actions style="text-align: right">
-          <button mat-button color="warn"><mat-icon>trending_flat</mat-icon></button>
+          <button mat-button color="warn" [routerLink]="['/ofertas/vuelos/',v.destino]"><mat-icon>trending_flat</mat-icon></button>
         </mat-card-actions>
       </mat-card>
     </div>

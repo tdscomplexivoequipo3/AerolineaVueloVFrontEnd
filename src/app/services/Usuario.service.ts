@@ -28,6 +28,13 @@ export  class  UsuarioService  {
 
     return this.http_client.get<UsuarioResponse[]>(this.urlEndPoint+"/usuarioAll", {headers:reqHeader});
   }
+  getAllEmail():Observable<UsuarioResponse[]>{
+    var reqHeader = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
+    return this.http_client.get<UsuarioResponse[]>(this.urlEndPoint+"/usuarioAll", {headers:reqHeader});
+  }
+
 
   getBycedula(cedula:any):Observable<UsuarioRequest[]>{
     var reqHeader = new HttpHeaders({
