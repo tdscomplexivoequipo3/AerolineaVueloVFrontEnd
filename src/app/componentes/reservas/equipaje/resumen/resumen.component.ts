@@ -30,6 +30,9 @@ export class ResumenComponent implements OnInit {
     this.activatedRoute.params.subscribe( params => {
       let mail = params['email'];
       let id= params['id_vuelo'];
+      let tipo= params['tipo'];
+
+      console.log("pitp"+ tipo)
       this.observable=serviceVuelo.getVueloById(id);
       this.observable_user=serviceUsuario.getUser(mail);
     })

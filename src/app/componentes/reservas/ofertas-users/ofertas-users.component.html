@@ -83,14 +83,13 @@
                 <div>
                   <h4>{{vuelos_envio[i].tipos_vuelo[0]}}</h4> | Solo artículo personal y sin cambios
                 </div>
-
-                <button mat-raised-button class="boton_envio" (click)="solicitar(vuelos_envio[i].id_vuelo,'l')"><mat-icon>flight_takeoff</mat-icon></button>
+                <button mat-raised-button class="boton_envio" (click)="solicitar(vuelos_envio[i].id_vuelo,'b')"><mat-icon>flight_takeoff</mat-icon></button>
               </div>
               <div  class="options top">
                 <div>
                   <h4>{{vuelos_envio[i].tipos_vuelo[1]}}</h4> | +Equipaje de mano 10kg
                 </div>
-                <button mat-raised-button class="boton_envio"  (click)="solicitar(vuelos_envio[i].id_vuelo,'t')"><mat-icon>flight_takeoff</mat-icon></button>
+                <button mat-raised-button class="boton_envio"  (click)="solicitar(vuelos_envio[i].id_vuelo,'l')"><mat-icon>flight_takeoff</mat-icon></button>
               </div>
               <div  class="options premium">
                 <div>
