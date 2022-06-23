@@ -56,6 +56,8 @@ import {DesignationRolesComponent} from "./componentes/designation-roles/designa
 import {GestionReservasComponent} from "./componentes/gestion-reservas/gestion-reservas.component";
 import {RequisitosvComponent} from "./layout/requisitosv/requisitosv.component";
 import {CondicionesgComponent} from "./layout/condicionesg/condicionesg.component";
+import { ValidationPasajerosComponent } from './componentes/validation-pasajeros/validation-pasajeros.component';
+import { ListadoPasajerosComponent } from './componentes/reservas/listado-pasajeros/listado-pasajeros.component';
 
 const routes: Routes = [
   {path:'reservas/:email', component:ReservaUsuarioComponent},
@@ -72,6 +74,7 @@ const routes: Routes = [
   {path:'ofertas/charter/:email', component:ReservaCharterComponent},
   {path:'lista_pasajeros/:reserva',component:ListaPasajerosComponent},
   {path:'historial',component:HistorialUserComponent},
+  {path:'validation_pasajeros',component:ValidationPasajerosComponent},
   {path:'centroa',component:CentroaComponent,
     children:[
       {
@@ -204,6 +207,8 @@ const routes: Routes = [
     GestionReservasComponent,
     RequisitosvComponent,
     CondicionesgComponent,
+    ValidationPasajerosComponent,
+    ListadoPasajerosComponent,
 
   ],
   imports: [

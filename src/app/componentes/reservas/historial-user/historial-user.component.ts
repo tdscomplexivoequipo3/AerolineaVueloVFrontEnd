@@ -20,6 +20,7 @@ export class HistorialUserComponent implements OnInit {
 
   displayedColumns: string[] = ['estado', 'fechaVuelta', 'horaSalida','horaLlegada'];
   displayedColumns_: string[] = ['estado', 'fechaVuelta', 'horaSalida','accion'];
+  displayedColumns__: string[] = ['estado', 'fechaVuelta', 'horaSalida','accion'];
 
   public classReference = GlobalConstants;
 
@@ -42,16 +43,34 @@ export class HistorialUserComponent implements OnInit {
   // @ts-ignore
   @ViewChild(MatPaginator) paginator_: MatPaginator;
 
+  //__________________________________________________
+  // @ts-ignore
+  dataSource__ :MatTableDataSource<ReservaRequest>;
+  // @ts-ignore
+  @ViewChild('sortCol2') sort__: MatSort;
+  list__:ReservaRequest[]=[];
+  // @ts-ignore
+  @ViewChild(MatPaginator) paginator__: MatPaginator;
+
   numero_procesos_notificacion:number=0;
   constructor(private service_reserva:ReservaService,private  user_service:UserTokenService,
               private router:Router,private service_vuelo:VueloService) { }
 
   ngOnInit(): void {
+
     this.service_reserva.getByid(this.classReference.user.id).subscribe(a=>{
-      this.numero_procesos_notificacion=a.filter((obj) => {
-        return obj.estado==2;
-      }).length;
+      a.forEach(result=>{
+        if(result.idVuelo!=null){
+          this.service_vuelo.getVueloById(result.idVuelo).subscribe(vuelo=>{
+            if(vuelo.idTipoVuelo==1 && result.estado==2){
+              ++this.numero_procesos_notificacion;
+            }
+          })
+        }
+      })
+
     })
+
     this.procesar();
   }
 
@@ -88,13 +107,29 @@ export class HistorialUserComponent implements OnInit {
       this.dataSource_.paginator = this.paginator_;
       this.dataSource_.sort = this.sort_;
     })
+  }
 
-
+  consultaCharter():void{
+    this.service_reserva.getByid(this.classReference.user.id).subscribe(a=>{
+      a.forEach(result=>{
+        if(result.idVuelo!=null){
+          this.service_vuelo.getVueloById(result.idVuelo).subscribe(vuelo=>{
+            if(vuelo.idTipoVuelo==1 && result.estado!=2){
+              this.list__.push(result);
+            }
+          })
+        }
+      })
+      this.dataSource__ = new MatTableDataSource(this.list__);
+      this.dataSource__.paginator = this.paginator__;
+      this.dataSource__.sort = this.sort__;
+    })
   }
 
   procesar():void{
     this.consultar();
     this.consultaPendientes();
+    this.consultaCharter();
   }
 
   establecerListadoPasajeros(id:any):void{

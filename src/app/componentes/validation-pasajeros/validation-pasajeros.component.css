@@ -1,11 +1,4 @@
-body{
-  margin: 0; padding: 0;
-}
-
-.total{
-  display: flex;
-  justify-content: center;
-  align-items: center;
+body{margin: 0; padding: 0;
 }
 
 .fondo_inicial{
@@ -29,28 +22,34 @@ body{
 .title{
   margin-left: 20px;
   position: absolute;
-  top: 30%;
+  top: 20%;
   right: 75%;
+  color: #000000;
+}
+
+.t_c{
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.mat-elevation-z8{
+  width: 100%;
+}
+
+.t_c .mat-header-cell{
+  color: #282828 !important;
+  background-color: white;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.t_c .mat-cell{
   color: white;
-}
-
-.general{
-  height: 100%;
-  width: 100%;
-}
-
-.general h2{
-  padding-bottom: 10px;
-  border-bottom: 1px solid black;
-  margin-left: 10px;
-}
-
-.formulario{
-  height: 100%;
-  width: 100%;
+  font-size: 15px;
   background-color: #1d4f71;
 }
 
-.cabina{
-  background-color: #834f4f;
+.t_c h3{
+  color: #1d4f71;
+  margin-left: 10px;
 }

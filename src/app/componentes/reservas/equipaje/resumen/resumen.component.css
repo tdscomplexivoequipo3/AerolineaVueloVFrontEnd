@@ -168,9 +168,25 @@ button{
 }
 
 
+mat-stepper{
+  background-color: #282828;
+  color: white;
+}
+
+mat-step{
+  color: white!important;
+}
+
+::ng-deep .mat-step-header .mat-step-icon-selected {
+  background-color: #ffffff;
+  color: black;
+}
 
 
-
+::ng-deep .mat-step-header .stepper-label {
+  background-color: #ffffff;
+  color: #ffffff!important;
+}
 
 
 
