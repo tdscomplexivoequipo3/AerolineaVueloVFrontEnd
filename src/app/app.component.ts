@@ -14,8 +14,9 @@ export class AppComponent {
   title = 'vueloV5';
   issloading=true;
   buttonad=false;
-  user=GlobalConstants;
+  user:UsuarioResponse=new UsuarioResponse();
   cliente="cliente";
+
 
   public classReference = GlobalConstants;
   constructor(private _router: Router, private script:ScriptService){
@@ -34,8 +35,11 @@ export class AppComponent {
     })
   }
 
-  cerrarSesion(){
-
+  cerrarSesion() {
+    this._router.navigate(['']).then(value => {
+      sessionStorage.clear();
+      window.location.reload();
+    })
   }
 
 }

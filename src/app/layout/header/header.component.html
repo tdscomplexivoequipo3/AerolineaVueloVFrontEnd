@@ -84,7 +84,7 @@
 
       </button>
       <mat-menu #perfil="matMenu">
-        <button mat-menu-item [routerLink]="'/administracion/home'" *ngIf="btnadmin">Administración<mat-icon>person_pin</mat-icon></button>
+        <button mat-menu-item (click)="iradmin()" *ngIf="btnadmin">Administración<mat-icon>person_pin</mat-icon></button>
         <button mat-menu-item (click)="cerrarSession()" >Cerrar Sesión<mat-icon>exit_to_app</mat-icon></button>
       </mat-menu>
     </div>

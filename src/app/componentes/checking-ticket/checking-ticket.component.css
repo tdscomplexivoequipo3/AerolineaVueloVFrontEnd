@@ -1,0 +1,13 @@
+td, th {
+  width: 25%;
+}
+
+th{
+  font-weight: bold;
+}
+
+i{
+  font-size: 25px;
+  cursor: pointer;
+  color: #428bca;
+}

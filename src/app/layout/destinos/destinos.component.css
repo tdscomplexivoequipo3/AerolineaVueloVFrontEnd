@@ -18,14 +18,11 @@ body{
 .caja4{
   border-radius: 0 0 15px 15px;
   border-bottom-style: solid;
-  width: 1484px;
   padding: 15px;
   position: relative;
   alignment: center;
-  margin: 1rem;
 }
 .componentes{
-  width: 1484px;
   background-color: #ffffff;
   height: auto;
   margin: 1rem;
@@ -33,11 +30,9 @@ display: flex;
 }
 mat-expansion-panel{
   margin: 1rem;
-  width: 1484px;
 }
 
 .panel{
-  width: 1484px;
   background-color:#F3F2F6;
   height: 200px;
   margin: 1rem;
@@ -47,7 +42,6 @@ mat-expansion-panel{
   border-radius: 5px;
 }
 .panel2{
-  width: 1440px;
   background-color: #F3F2F6;
   height: 150px;
   border-radius: 15px;
@@ -58,13 +52,12 @@ mat-expansion-panel{
 .panel3{
   background-color: #F3F2F6;
   height: 50px;
-  width: 1410px;
   margin: 1rem;
   font-size: 12px;
   justify-content: space-between;
 }
 .caja {
-  width: 350px;
+  width: 250px;
   height: 50px;
   float: left;
   margin-left: 8px;

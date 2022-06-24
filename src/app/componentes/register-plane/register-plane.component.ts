@@ -59,6 +59,7 @@ export class RegisterPlaneComponent implements OnInit {
   }
 
   abridialogovuelos(){
+    this.plane=new Plane();
     this.dialog.open(this.dialogvuelo);
   }
 

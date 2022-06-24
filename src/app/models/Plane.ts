@@ -4,5 +4,4 @@ export class Plane {
   placa:any;
   tipo:any;
   estado:any;
-
 }

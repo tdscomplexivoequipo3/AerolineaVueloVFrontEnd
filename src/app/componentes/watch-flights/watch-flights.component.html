@@ -26,6 +26,9 @@
 
           </div>
         <mat-card-content class="grid1 btnac">
+
+          <!-- <span *ngIf="enOferta(a.idVuelo)">EN OFERTA</span>-->
+
           <span>Fecha Ida: {{a.fechaIda}}</span>
           <span>Fecha Vuelta : {{a.fechaVuelta}}</span>
           <span>Hora Salida: {{a.horaSalida}}</span>
@@ -34,10 +37,34 @@
         <div class="btnac">
           <button mat mat-raised-button color="primary" mat-button [routerLink]="['/registro/edit/flight/',a.idVuelo]">Editar</button>
           <button mat mat-raised-button color="accent" maccentat-button>Activar</button>
+          <button mat mat-raised-button maccentat-button (click)="openPromociono(a)">Ofertar</button>
         </div>
       </mat-card>
     </div>
   </div>
 
 </mat-card-content>
+
+<ng-template #dialgOferta>
+  <form class="my-form">
+    <mat-card-title>REGISTRO PROMOCIÓN</mat-card-title>
+    <br>
+    <span><strong>Origen: </strong>{{flight.origen}}</span><br>
+    <span><strong>Destino: </strong>{{flight.destino}}</span><br>
+    <span><strong>Fecha Salida: </strong>{{flight.fechaIda}}</span><br>
+    <span><strong>Hora Salida: </strong>{{flight.horaSalida}}</span><br>
+    <span><strong>Precio Actual: </strong>{{flight.precio}}</span>
+    <br><br>
+    <mat-form-field class="full-width">
+      <mat-label>Descuento</mat-label>
+      <input  matInput type="number" placeholder="Ingrese el descuento"  name="placa"  [(ngModel)]="promocionRequest.descuento" required>
+    </mat-form-field>
+
+  </form>
+  <br>
+  <div class="btnac">
+    <button mat mat-raised-button color="warn" mat-button mat-dialog-close>Cancelar</button>
+    <button mat-raised-button color="primary"(click)="promocionar(flight)">GUARDAR PROMOCIÓN</button>
+  </div>
+</ng-template>
 

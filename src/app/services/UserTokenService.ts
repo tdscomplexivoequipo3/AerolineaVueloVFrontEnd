@@ -10,7 +10,7 @@ import {Router} from "@angular/router";
 })
 export  class  UserTokenService  {
 
-  private urlEndPoint="http://localhost:8080/api/usuario";
+  private urlEndPoint="https://aerolineavuelov.herokuapp.com/api/usuario";
 
   constructor(private http_client:HttpClient,private router:Router) {
     if(sessionStorage.getItem("user")==null){

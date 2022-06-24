@@ -69,25 +69,15 @@
           <label class="label_t">Vuelo</label>
           <div class="row_c">
             <mat-form-field  class="full-width-select" >
-              <mat-label>Seleccione</mat-label>
-              <mat-select [(ngModel)]="vuelo.origen" name="origen" required>
-                <mat-option value="ecuador">Ecuador</mat-option>
-                <mat-option value="colombia">Colombia</mat-option>
-                <mat-option value="perú">Perú</mat-option>
-              </mat-select>
+                <input  class="input" [(ngModel)]="vuelo.origen" name="origen" required>
+                <label class="label_">Vuelo de Origen</label>
             </mat-form-field>
-            <label class="label_">Vuelo de Origen</label>
           </div>
           <div class="row_c">
             <mat-form-field  class="full-width-select" >
-              <mat-label>Seleccione</mat-label>
-              <mat-select [(ngModel)]="vuelo.destino" name="destino" required>
-                <mat-option value="ecuador">Ecuador</mat-option>
-                <mat-option value="colombia">Colombia</mat-option>
-                <mat-option value="perú">Perú</mat-option>
-              </mat-select>
+              <input  class="input" [(ngModel)]="vuelo.destino" name="destino" required>
+              <label class="label_">Vuelo de Destino</label>
             </mat-form-field>
-            <label class="label_">Vuelo de Destino</label>
           </div>
         </div>
 

@@ -81,7 +81,8 @@ export class RegistroVuelosComponent implements OnInit {
       this.listtypeflight1=value;
       // @ts-ignore
       this.typeFlight=this.listtypeflight1.find(m=>{return (m.nombre).toLowerCase()=="charter"})
-    })
+      console.log(this.typeFlight)
+
     this.datoscharter=true;
       this.reservaService.getReservaByid(this.idreserva).subscribe(x=>{
         this.reserva=x;
@@ -93,7 +94,7 @@ export class RegistroVuelosComponent implements OnInit {
         this.flight.fechaIda=this.reserva.fechaIda;
         this.flight.fechaVuelta=this.reserva.fechaVuelta;
       })
-
+   })
   }
 
   listartipovuelo(){
@@ -147,9 +148,9 @@ export class RegistroVuelosComponent implements OnInit {
       this.reserva.idVuelo=Number(this.flightGet.idVuelo);
       this.reserva.estado=2;
       console.log(this.reserva);
-      /*this.reservaService.update(this.reserva).subscribe(value => {
+      this.reservaService.update(this.reserva).subscribe(value => {
         this.router.navigate(['/registro/gestion/reservas'])
-      })*/
+      })
     })
   }
 

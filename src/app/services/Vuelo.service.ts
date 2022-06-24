@@ -11,7 +11,7 @@ import {Flight} from "../models/Flight";
 })
 export  class VueloService {
 
-  private urlEndPoint="http://localhost:8080/api/vuelo";
+  private urlEndPoint="https://aerolineavuelov.herokuapp.com/api/vuelo";
   private url: string = this.urlEndPoint + "/vueloAll" ;
   private url_getId: string = this.urlEndPoint +"/vuelo" ;
 
@@ -23,8 +23,7 @@ export  class VueloService {
 
   listAll():Observable<VueloResponse[]>{
     var reqHeader = new HttpHeaders({
-      'Content-Type': 'application/json',
-      //'Authorization': 'Bearer ' + JSON.parse(sessionStorage.getItem("user")+"").token
+      'Content-Type': 'application/json'
     });
     return this.http_client.get<VueloResponse[]>(this.url,{headers:reqHeader});
   }

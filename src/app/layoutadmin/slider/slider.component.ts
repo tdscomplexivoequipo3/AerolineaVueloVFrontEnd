@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {GlobalConstants} from "../../common/GlobalConstants";
 import {MatDialog} from "@angular/material/dialog";
 import {TypeFlightService} from "../../services/TypeFlightService";
+import {withModule} from "@angular/core/testing";
 
 @Component({
   selector: 'app-slider',
@@ -16,6 +17,15 @@ export class SliderComponent implements OnInit {
     this.classReference.apiURL="employe";
   }
   ngOnInit(): void {
+    this.recargar();
   }
+  cont=1;
+  recargar(){
 
+    if (this.cont==0){
+      window.location.reload();
+      this.cont=0;
+    }
+
+  }
 }

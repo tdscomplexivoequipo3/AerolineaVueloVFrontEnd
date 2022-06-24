@@ -36,6 +36,13 @@ export class HeaderComponent implements OnInit {
       this.router.navigate(['/login'])
     }
   }
+
+  iradmin(){
+    this.router.navigate(['/administracion/home']).then(value => {
+      window.location.reload();
+    })
+  }
+
   cerrarSession(){
     sessionStorage.clear();
     window.location.reload();

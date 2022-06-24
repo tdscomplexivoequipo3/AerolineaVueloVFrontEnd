@@ -9,7 +9,7 @@ import {Injectable} from "@angular/core";
   providedIn: 'root'
 })
 export class PasajeroService{
-  private urlEndPoint="http://localhost:8080/api/pasajero";
+  private urlEndPoint="https://aerolineavuelov.herokuapp.com/api/pasajero";
   private url: string = this.urlEndPoint;
 
   constructor(private http_client:HttpClient,private router:Router) {

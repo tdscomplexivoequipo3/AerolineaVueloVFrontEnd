@@ -9,7 +9,7 @@ import {Plane} from "../models/Plane";
 })
 export class TypeFlightService {
 
-  private base_url="http://localhost:8080/api/tipoVuelo";
+  private base_url="https://aerolineavuelov.herokuapp.com/api/tipoVuelo";
   private httpHeaders = new HttpHeaders({'Content-Type':'application/json',
     'Authorization':'Bearer '+JSON.parse(sessionStorage.getItem("user")+"").token})
 

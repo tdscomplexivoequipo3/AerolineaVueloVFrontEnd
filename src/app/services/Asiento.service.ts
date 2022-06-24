@@ -8,7 +8,7 @@ import {Injectable} from "@angular/core";
   providedIn: 'root'
 })
 export class AsientoService{
-  private urlEndPoint="http://localhost:8080/api/asiento";
+  private urlEndPoint="https://aerolineavuelov.herokuapp.com/api/asiento";
   private url: string = this.urlEndPoint;
 
 

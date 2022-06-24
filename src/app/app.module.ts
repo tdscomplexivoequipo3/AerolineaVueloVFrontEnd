@@ -60,6 +60,8 @@ import { ValidationPasajerosComponent } from './componentes/validation-pasajeros
 import { ListadoPasajerosComponent } from './componentes/reservas/listado-pasajeros/listado-pasajeros.component';
 import { DialogerrorComponent } from './layout/dialogerror/dialogerror.component';
 import { OfertasdComponent } from './layout/ofertasd/ofertasd.component';
+import {ListadoValidaBoletosComponent} from "./componentes/listado-valida-boletos/listado-valida-boletos.component";
+import {CheckingTicketComponent} from "./componentes/checking-ticket/checking-ticket.component";
 
 const routes: Routes = [
   {path:'reservas/:email', component:ReservaUsuarioComponent},
@@ -163,7 +165,9 @@ const routes: Routes = [
   {path:'condiciones',component:CondicionesgComponent},
   {path:'ofertas/destino/:destino/:id',component:OfertasUsersComponent},
   {path:'inicio/ofertasdestinos',component:OfertasdComponent},
-  {path:'ofertas/busqueda/:origen/:destino/:fida/:fregreso',component:OfertasUsersComponent}
+  {path:'ofertas/busqueda/:origen/:destino/:fida/:fregreso',component:OfertasUsersComponent},
+  {path:'registro/checking/ticket', component:CheckingTicketComponent},
+  {path:'registro/list/ticket/:idvuelo', component:ListadoValidaBoletosComponent},
 ]
 
 @NgModule({
@@ -216,7 +220,8 @@ const routes: Routes = [
     ListadoPasajerosComponent,
     DialogerrorComponent,
     OfertasdComponent,
-
+    ListadoValidaBoletosComponent,
+    CheckingTicketComponent
   ],
   imports: [
     RouterModule.forRoot(routes),

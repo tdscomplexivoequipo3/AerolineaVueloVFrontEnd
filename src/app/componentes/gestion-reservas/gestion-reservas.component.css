@@ -15,4 +15,18 @@ i{
   font-size: 25px;
   cursor: pointer;
   color: #428bca;
+  margin-bottom: 5px;
+  margin-top: 2px;
+}
+
+mat-icon{
+  font-size: 30px;
+  cursor: pointer;
+  color: #428bca;
+  margin-bottom: -5px;
+}
+
+button{
+  background: transparent;
+  border: transparent;
 }

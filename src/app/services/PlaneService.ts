@@ -8,7 +8,7 @@ import {Plane} from "../models/Plane";
 })
 export class PlaneService {
 
-  private base_url="http://localhost:8080/api/avion";
+  private base_url="https://aerolineavuelov.herokuapp.com/api/avion";
   private httpHeaders = new HttpHeaders({'Content-Type':'application/json',
   'Authorization':'Bearer '+JSON.parse(sessionStorage.getItem("user")+"").token});
 

@@ -8,7 +8,7 @@ import {Rol} from "../models/Rol";
 })
 export class RolService{
 
-  private base_url="http://localhost:8080/api/rol";
+  private base_url="https://aerolineavuelov.herokuapp.com/api/rol";
   private httpHeaders = new HttpHeaders({'Content-Type':'application/json',
     'Authorization':'Bearer '+JSON.parse(sessionStorage.getItem("user")+"").token})
 

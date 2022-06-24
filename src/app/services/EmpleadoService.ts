@@ -11,7 +11,7 @@ import {EmpleadoRequest} from "../models/Request/EmpleadoRequest";
 })
 export  class  EmpleadoService {
 
-  private urlEndPoint = "http://localhost:8080/api/empleado";
+  private urlEndPoint = "https://aerolineavuelov.herokuapp.com/api/empleado";
 
   private httpHeaders = new HttpHeaders({'Content-Type': 'application/json'});
 

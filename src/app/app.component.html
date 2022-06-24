@@ -20,7 +20,7 @@
     <div *ngIf="issloading==true">
       <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon"
               class="hover" [matMenuTriggerFor]="perfil">
-        <span class="hover">Angel Villa<mat-icon> person_pin</mat-icon></span>
+        <span class="hover">{{user.nombres}} {{user.apellidos}}<mat-icon> person_pin</mat-icon></span>
       </button>
       <mat-menu #perfil="matMenu">
         <button mat-menu-item style="text-align: center" [routerLink]="['/rol_ingreso']">Perfil<mat-icon> person_pin</mat-icon></button>
@@ -106,7 +106,7 @@
           <a>
             <div class="option">
               <i class="far fa-id-badge" title="Gestión de reserva"></i>
-              <h4>Gestión de Reserva</h4>
+              <h4>Reservas</h4>
             </div>
           </a>
           <mat-icon class="list__arrow">keyboard_arrow_down</mat-icon>
@@ -123,12 +123,27 @@
 
       </li>
 
-      <a>
-        <div class="option">
-          <i class="far fa-address-card" title="Nosotros"></i>
-          <h4>Nosotros</h4>
+      <li class="list__item list__item--click">
+        <div class="list__button list__button--click">
+          <a>
+            <div class="option">
+              <i class="fa-solid fa-plane-circle-check" title="Gestion de Chequeo de Boletos"></i>
+              <h4>Chequeo</h4>
+            </div>
+          </a>
+          <mat-icon class="list__arrow">keyboard_arrow_down</mat-icon>
         </div>
-      </a>
+
+        <ul class="list__show">
+          <li class="list__inside">
+            <a class="nav__link nav__link--inside" [routerLink]="['/registro/checking/ticket']">
+              <i class="fa-solid fa-tickets-airline" title="Cheque ode boletos"></i>
+              <span>Chequeo</span>
+            </a>
+          </li>
+        </ul>
+
+      </li>
 
     </div>
   </div>

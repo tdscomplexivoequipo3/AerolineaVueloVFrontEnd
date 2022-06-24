@@ -14,7 +14,7 @@
 
 .lis-pos{
   text-align: right;
-  margin-left: 70%;
+  margin-left: 60%;
 }
 
 .hover{
@@ -197,7 +197,6 @@ a.selected{
   }
 
   .menu__side_move{
-
     width: 250px;
     left: -500px;
   }

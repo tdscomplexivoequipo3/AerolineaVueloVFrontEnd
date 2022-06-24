@@ -48,14 +48,14 @@ export class RegistroComponent {
             confirmButtonColor: "#0c3255"
           })
         //almacenar token_______________________________________
-        sessionStorage.setItem('user', JSON.stringify(data));
+       /* sessionStorage.setItem('user', JSON.stringify(data));
         this.classReference.user.nombres=data.nombres;
         this.classReference.user.apellidos=data.apellidos;
         this.classReference.user.id=data.id;
-        this.classReference.user.email=data.email;
+        this.classReference.user.email=data.email;*/
 
           this.closeDialog();
-        this.router.navigate(['/reservas',data.email]);
+        this.router.navigate(['/login']);
 
 
         },err=> {

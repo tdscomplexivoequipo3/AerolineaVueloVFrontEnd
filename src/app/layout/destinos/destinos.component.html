@@ -38,51 +38,11 @@
 
 <div class="panel">
   <div class="panel2">
-<mat-toolbar color="primary" class="caja3">
-  <mat-form-field appearance="outline" class="cajatrayectoria">
-    <mat-label style="color: black">viaje</mat-label >
-    <mat-select [(ngModel)]="selectedValue"   >
-      <mat-option *ngFor="let viaje of viajes" [value]="viaje.value">
-        {{viaje.viewValue}}
-      </mat-option>
-    </mat-select>
-   </mat-form-field>
-  <mat-form-field appearance="outline" class="cajatrayectoria">
-    <mat-label style="color: black">Tipo de vuelo</mat-label >
-    <mat-select [(ngModel)]="selectedValue1"  name="food" >
-      <mat-option *ngFor="let vuelo of vuelos" [value]="vuelo.value">
-        {{vuelo.viewValue}}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
-  <button mat-button [matMenuTriggerFor]="menu3" >
-    <button mat-button color="primary" style="font-size: 12px" >{{+bebe+adultos+nino}}&nbsp;Pasajeros<mat-icon>keyboard_arrow_down
-    </mat-icon>
-    </button>
-  </button>
-  <mat-menu #menu3="matMenu" yPosition="below" style="justify-content: center;align-content: center">
-    <mat-form-field appearance="outline" (click)="$event.stopPropagation();$event.preventDefault();">
-      <mat-label>Adultos</mat-label>
-      <input matInput placeholder="0" type="number" autocomplete="off" [(ngModel)]="adultos" >
-      <mat-hint>12 o mas años</mat-hint>
-    </mat-form-field>
-    <mat-form-field appearance="outline" (click)="$event.stopPropagation();$event.preventDefault();">
-      <mat-label>Niños</mat-label>
-      <input matInput placeholder="0" type="number" autocomplete="off" [(ngModel)]="nino">
-      <mat-hint>De 2 a 12 años</mat-hint>
-    </mat-form-field>
-    <mat-form-field appearance="outline" (click)="$event.stopPropagation();$event.preventDefault();">
-      <mat-label>Bebé</mat-label>
-      <input matInput placeholder="0" type="number" autocomplete="off" [(ngModel)]="bebe">
-      <mat-hint>Menores de 2 años</mat-hint>
-    </mat-form-field>
-  </mat-menu>
-</mat-toolbar>
    <div class="panel3">
+
      <mat-form-field appearance="outline" class="caja">
        <input matInput placeholder="Ciudad de origen" required >
      </mat-form-field>
-
      <mat-form-field appearance="outline" class="caja">
        <input matInput placeholder="Ciudad de Destino" required >
      </mat-form-field>
@@ -95,8 +55,8 @@
        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
        <mat-date-range-picker #picker></mat-date-range-picker>
      </mat-form-field>
-
      <button mat-stroked-button color="warn" style="width: 180px;height: 40px;margin: 8px">Buscar</button>
+
    </div>
   </div>
 </div>

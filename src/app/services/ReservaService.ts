@@ -16,7 +16,7 @@ export  class ReservaService {
   @Injectable({
     providedIn: 'root'
   })
-  private urlEndPoint="http://localhost:8080/api/reserva";
+  private urlEndPoint="https://aerolineavuelov.herokuapp.com/api/reserva";
   private url: string = this.urlEndPoint +"";
   private url_sv: string = this.urlEndPoint +"/createSinVuelo";
   private url_getId: string = this.urlEndPoint +"/reservasByUsuario";
