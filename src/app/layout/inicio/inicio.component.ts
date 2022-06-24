@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {VueloService} from "../../services/Vuelo.service";
 import {VueloResponse} from "../../models/Response/VueloResponse";
 import {UsuarioResponse} from "../../models/Response/UsuarioResponse";
+import {ErrorStateMatcher} from "@angular/material/core";
+import {FormControl, FormGroupDirective, NgForm, Validators} from "@angular/forms";
 
 interface Viaje {
   value: string;
@@ -13,6 +15,12 @@ interface Viaje {
   styleUrls: ['./inicio.component.css']
 })
 export class InicioComponent implements OnInit {
+  formulario= new FormControl('', [Validators.required]);
+  formulario1= new FormControl('', [Validators.required]);
+  formulario2= new FormControl('', [Validators.required]);
+  formulario3= new FormControl('', [Validators.required]);
+  matcher = new MyErrorStateMatcher();
+
   user:UsuarioResponse=new UsuarioResponse();
   vuelost:VueloResponse[]=[];
   vuelost2:VueloResponse[]=[]
@@ -74,5 +82,11 @@ export class InicioComponent implements OnInit {
         console.log(this.vuelost)
       }
     }
+  }
+}
+export class MyErrorStateMatcher implements ErrorStateMatcher {
+  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+    const isSubmitted = form && form.submitted;
+    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
   }
 }

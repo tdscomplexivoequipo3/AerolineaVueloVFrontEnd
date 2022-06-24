@@ -5,6 +5,7 @@ import {VueloService} from "../../../services/Vuelo.service";
 import {FechaFilter} from "../../../models/FechaFilter";
 import {ActivatedRoute, Router} from "@angular/router";
 import {NgxSpinnerService} from "ngx-spinner";
+import {GlobalConstants} from "../../../common/GlobalConstants";
 
 @Component({
   selector: 'app-ofertas-users',
@@ -19,27 +20,51 @@ export class OfertasUsersComponent implements OnInit {
   changeColor_options:boolean[]=[];
   filter:FechaFilter[]=[];
   vuelos_filtrados:VueloResponse[]=[];
-
+  ciudad:any;
+  id:any;
+  public classReference = GlobalConstants;
   constructor(private router: Router,private activatedRoute: ActivatedRoute,
               private service:VueloService,private spinner: NgxSpinnerService) {
 
     //poner condicion de que es normal o otra vuelta (ciudad o vuelo)
-    this.busquedanormal();
+
+    //this.busquedanormal();
 
     this.activatedRoute.params.subscribe( params => {
-      let ciudad = params['ciudad'];
-      let id= params['id_vuelo'];
+       this.ciudad = params['destino'];
+       console.log(this.ciudad);
+      this.id= params['id_vuelo'];
     })
 
   }
 
   busquedaciudad(ciudad:any):void{
-
+   this.service.listAll().subscribe(
+     objets => {
+       this.vuelos = objets.filter((obj) => {
+         return obj.idTipoVuelo != 1 && obj.idVuelo==this.id;
+       });
+       if(this.vuelos.length<1){
+         this.vuelos = objets.filter((obj) => {
+           return obj.idTipoVuelo != 1 && obj.destino==ciudad;
+         });
+       }
+       for (let i = 0; i < this.vuelos.length; i++) {
+           this.changeColor.push(false);
+           this.vuelos_envio.push(new Vuelo_Envio(this.vuelos[i].idVuelo));
+           this.changeColor_options.push(false);
+           //Filtrado
+           let mes=this.vuelos[i].fechaIda.substr(5,2);
+           if(!this.filter.find(i => i.mes === mes)){
+             this.filter.push(new FechaFilter(mes));
+           }
+       }
+       this.vuelos_filtrados=this.vuelos;
+       this.filter.sort((a,b) => a.mes-b.mes);
+     }
+   );
   }
 
-  busquedaid(ciudad:any):void{
-
-  }
 
   busquedanormal():void{
     let datetoday=new Date();
@@ -67,6 +92,14 @@ export class OfertasUsersComponent implements OnInit {
 
 
   ngOnInit(): void {
+    console.log(this.ciudad);
+    console.log(this.activatedRoute.snapshot.params);
+    if (this.ciudad){
+      this.busquedaciudad(this.ciudad);
+    }else {
+      this.busquedanormal();
+    }
+
     this.spinner.show();
     setTimeout(() => {
       /** spinner ends after 5 seconds */

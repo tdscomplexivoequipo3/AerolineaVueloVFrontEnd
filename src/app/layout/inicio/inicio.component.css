@@ -113,9 +113,10 @@
 .content{
   padding: 16px;
   background-color: Transparent;
-  height: 400px;
+  height: auto;
   width: 1200px;
-  display:-webkit-box;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   justify-content: space-between;
   align-items: center;
   border-radius: 10px;
@@ -170,6 +171,8 @@ width: 300px;
 }
 .divContenedor{
   padding: 16px;
+  height: auto;
+  width: 400px;
 }
 .panel{
   background-color:#FFFFFF;
