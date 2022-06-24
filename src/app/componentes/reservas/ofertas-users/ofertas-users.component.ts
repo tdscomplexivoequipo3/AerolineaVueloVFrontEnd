@@ -42,12 +42,12 @@ export class OfertasUsersComponent implements OnInit {
   }
 
   busquedanormal():void{
+    let datetoday=new Date();
     this.service.listAll().subscribe(
       objets => {
         this.vuelos = objets.filter((obj) => {
-          return obj.idTipoVuelo != 1;
+          return obj.idTipoVuelo != 1 && new Date(obj.fechaIda)>=datetoday;
         });
-
 
         for (let i = 0; i < this.vuelos.length; i++) {
           this.changeColor.push(false);
@@ -102,9 +102,6 @@ export class OfertasUsersComponent implements OnInit {
       let mail = params['email'];
       this.router.navigate(['/reserva',mail,id,tipo]);
     })
-
   }
-
-
 
 }
