@@ -200,7 +200,7 @@ export class ListaPasajerosComponent implements OnInit {
           this.service_vuelo.getVueloById(reserva_obj.idVuelo).subscribe(vuelo=>{
 
             var asiento=new AsientoRequest();
-            asiento.nombre=this.getNombreAsiento();
+            asiento.nombre="c"+"-"+vuelo.idVuelo;
             asiento.estado=1;
             asiento.idAvion=vuelo.idAvion;
             this.service_asiento.registerAsient(asiento).subscribe(asiento_=>{
@@ -229,12 +229,6 @@ export class ListaPasajerosComponent implements OnInit {
 
   }
 
-  asientos:string[]=new Asientos().asientos;
-   i:number=-1;
-  getNombreAsiento():string{
-      ++this.i;
-       return this.asientos[this.i];
-  }
 
   get():void{
     this.showSuccessCorrect("Pasajeros Registrados","OK");

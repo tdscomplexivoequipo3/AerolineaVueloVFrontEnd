@@ -137,7 +137,7 @@ export class ResumenComponent implements OnInit {
                 this.serviceReserva.register(r1).subscribe(reserva=>{
 
                   var asiento=new AsientoRequest();
-                  asiento.nombre=tipo;
+                  asiento.nombre=tipo+"-"+vuelo.idVuelo;
                   asiento.estado=1;
                   asiento.idAvion=vuelo.idAvion;
                   asiento.precio=this.precio_por_asiento;
