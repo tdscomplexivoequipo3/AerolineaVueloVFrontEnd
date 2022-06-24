@@ -10,7 +10,7 @@
 </div>
 
 <div class="componentes">
-  <div  *ngFor="let v of vuelost2.slice(0,6)" class="divContenedor">
+  <div  *ngFor="let v of vuelost2" class="divContenedor">
     <mat-card class="elementos" >
       <img mat-card-img src="{{v.imagen}}" alt="logo"  style="height:60%;width:100%">
       <p>Viaja el {{v.fechaIda}}</p>
@@ -26,7 +26,7 @@
         <h3 style="margin: 0">{{v.precio}}</h3>
       </mat-card-content>
       <mat-card-actions style="text-align: right">
-        <button mat-button color="warn"><mat-icon>trending_flat</mat-icon></button>
+        <button mat-button color="warn"><mat-icon [routerLink]="['/ofertas/destino/',v.destino,v.idVuelo]">trending_flat</mat-icon></button>
       </mat-card-actions>
     </mat-card>
   </div>

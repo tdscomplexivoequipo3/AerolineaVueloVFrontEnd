@@ -27,7 +27,7 @@ body{
 .componentes{
   width: 1484px;
   background-color: #ffffff;
-  height: 1000px;
+  height: auto;
   margin: 1rem;
 display: flex;
 }

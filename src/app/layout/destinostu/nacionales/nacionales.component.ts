@@ -24,12 +24,19 @@ export class NacionalesComponent implements OnInit {
   }
   todosVuelos(){
     this.vuelosservice.listAll().subscribe(v =>{this.vuelos=v;
-       for(let v1 of this.vuelos){
-           if(this.DestinosNacionales.includes(v1.destino.toLowerCase())){
-             this.vuelost2.push(v1);
-           }
-
-       }
+      console.log(v.length);
+      console.log(this.vuelos.length);
+      let cont=0;
+      for(let ci of this.DestinosNacionales){
+        for(let v1 of this.vuelos){
+          if(ci==v1.destino.toLowerCase()){
+            cont++;
+            this.vuelost2.push(v1);
+          }
+        }
+      }
+      console.log(cont);
+          console.log(this.vuelost2.length)
       });
   }
   TotalCiudades(){
@@ -39,7 +46,7 @@ export class NacionalesComponent implements OnInit {
         for(let cn of this.DestinosNacionales){
              if(ci.destino.toLowerCase()===cn){
                this.listVuelos.add(ci.destino);
-               this.vuelost2.push(ci);
+               //this.vuelost2.push(ci);
                this.vuelost3.push(ci);
              }
         }

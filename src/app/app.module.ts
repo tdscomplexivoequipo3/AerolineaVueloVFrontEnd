@@ -59,6 +59,7 @@ import {CondicionesgComponent} from "./layout/condicionesg/condicionesg.componen
 import { ValidationPasajerosComponent } from './componentes/validation-pasajeros/validation-pasajeros.component';
 import { ListadoPasajerosComponent } from './componentes/reservas/listado-pasajeros/listado-pasajeros.component';
 import { DialogerrorComponent } from './layout/dialogerror/dialogerror.component';
+import { OfertasdComponent } from './layout/ofertasd/ofertasd.component';
 
 const routes: Routes = [
   {path:'reservas/:email', component:ReservaUsuarioComponent},
@@ -160,7 +161,9 @@ const routes: Routes = [
   {path:'administracion/home', component:SliderComponent},
   {path:'restricciones',component:RequisitosvComponent},
   {path:'condiciones',component:CondicionesgComponent},
-  {path:'ofertas/vuelos/:destino',component:OfertasUsersComponent},
+  {path:'ofertas/destino/:destino/:id',component:OfertasUsersComponent},
+  {path:'inicio/ofertasdestinos',component:OfertasdComponent},
+  {path:'ofertas/busqueda/:origen/:destino/:fida/:fregreso',component:OfertasUsersComponent}
 ]
 
 @NgModule({
@@ -212,6 +215,7 @@ const routes: Routes = [
     ValidationPasajerosComponent,
     ListadoPasajerosComponent,
     DialogerrorComponent,
+    OfertasdComponent,
 
   ],
   imports: [

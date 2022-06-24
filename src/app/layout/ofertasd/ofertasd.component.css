@@ -1,0 +1,91 @@
+.principalc{
+  height: 350px;
+  background-image: url("https://conocedores.com/wp-content/uploads/2022/02/mejores-playas-jamaica-10022022in.webp");
+  margin: 0 20px;
+  border-radius:0 0 15px 15px ;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+.titulo{
+  font-size: 40px;
+  color: white;
+  font-weight: lighter;
+}
+.primero{
+  margin: 1rem;
+  position: relative;
+  background-color: #FFFFFF;
+  height: auto;
+}
+.segundo{
+  position: relative;
+  width: 1000px;
+  height: 200px;
+  background-color: white;
+  left: 238px;
+  border-radius: 10px;
+  margin: 1rem;
+}
+.imagen{
+  width: 150px;
+  height: 200px;
+  border-radius: 20px;
+}
+.info1{
+  position: relative;
+  background-color: #FFFFFF;
+  width: 200px;
+  height: 180px;
+  margin: 0px;
+  justify-content: center;
+  align-items: center;
+  left: 30px;
+  align-content: center;
+}
+.info2{
+  background-color: #FFFFFF;
+  position: relative;
+  width:200px;
+  left:281px ;
+  height: 180px;
+  top:0px;
+  margin: 0px;
+}
+.boton{
+  background-color: #FFFFFF;
+  position: relative;
+  width: 100px;
+  height: 180px;
+  top: 0px;
+  left: 321px;
+  margin: 0px;
+}
+.contenedor{
+  position: relative;
+  height:180px ;
+  border-radius: 20px;
+  width: 845px;
+  background-color: #FFFFFF;
+  top: -190px;
+  left: 131px;
+  display: flex;
+  border: 1px solid #ccc;
+  border-top-color: transparent;
+  box-shadow: 1px 1px 2px #592A08;
+}
+.boton button{
+  position: relative;
+  top: 60px;
+  left: 24px;
+}
+.contenedor:hover,.contenedor:focus{
+  box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
+  -webkit-transform: translateY(-0.25em);
+  transform: translateY(-0.25em);
+
+}
+.imagen img{
+  border-radius:  20px 0px 0px 20px;
+
+}
