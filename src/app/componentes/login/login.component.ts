@@ -4,6 +4,7 @@ import {UsuarioService} from "../../services/Usuario.service";
 import {UsuarioResponse} from "../../models/Response/UsuarioResponse";
 import {ActivatedRoute, Router} from "@angular/router";
 import {RegisterRequest} from "../../models/Request/RegisterRequest";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 
 @Component({
@@ -19,7 +20,8 @@ export class LoginComponent implements OnInit {
   public classReference = GlobalConstants;
   constructor(private service:UsuarioService,
               private router:Router
-    ,private activatedRoute: ActivatedRoute){
+    ,private activatedRoute: ActivatedRoute,
+              private _snackBar: MatSnackBar){
     this.classReference.apiURL="no_employe";
   }
   public user = GlobalConstants;
@@ -38,6 +40,7 @@ export class LoginComponent implements OnInit {
           this.classReference.user=data;
         },err=> {
           this.error=true;
+          this.showSuccessInCorrect("Usuario no encontrado","USER")
           this.objeto.email="";
           this.objeto.clave=""
         }
@@ -45,4 +48,14 @@ export class LoginComponent implements OnInit {
     }
   }
 
+  durationInSeconds = 3;
+  showSuccessInCorrect(message: string, action: string) {
+    this._snackBar.open(message, action,{
+      duration: this.durationInSeconds * 1000,
+      panelClass: ['red-snackbar', 'login-snackbar']
+    });
+  }
+
 }
+
+

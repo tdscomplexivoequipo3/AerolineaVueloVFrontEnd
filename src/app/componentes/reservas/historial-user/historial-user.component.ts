@@ -95,6 +95,7 @@ export class HistorialUserComponent implements OnInit {
   consultaPendientes():void{
     this.service_reserva.getByid(this.classReference.user.id).subscribe(a=>{
       a.forEach(result=>{
+        console.log(result.estado+" "+result.idVuelo)
         if(result.idVuelo!=null){
           this.service_vuelo.getVueloById(result.idVuelo).subscribe(vuelo=>{
             if(vuelo.idTipoVuelo==1 && result.estado==2){

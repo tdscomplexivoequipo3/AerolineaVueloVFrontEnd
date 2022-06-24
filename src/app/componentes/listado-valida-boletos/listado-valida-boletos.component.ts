@@ -9,10 +9,8 @@ import {ReservaService} from "../../services/ReservaService";
 import {UsuarioResponse} from "../../models/Response/UsuarioResponse";
 import {UsuarioService} from "../../services/Usuario.service";
 import {ReservaRequest} from "../../models/Request/ReservaRequest";
-import pdfMake from 'pdfmake/build/pdfmake';
-import pdffonts from 'pdfmake/build/vfs_fonts';
 import {DatePipe} from "@angular/common";
-pdfMake.vfs = pdffonts.pdfMake.vfs;
+
 
 @Component({
   selector: 'app-listado-valida-boletos',
@@ -159,8 +157,8 @@ export class ListadoValidaBoletosComponent implements OnInit {
       pageSize: {width: 600, height: 200},
       pageMargins: [10, 10, 10, 10],
     }
-    const pdfs = pdfMake.createPdf(pdf);
-    pdfs.open();
+
+
   }
 
 
