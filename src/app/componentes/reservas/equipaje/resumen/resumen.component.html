@@ -16,8 +16,6 @@
       </div>
     </div>
 
-
-
     <div class="totalidad">
 
       <mat-stepper linear #stepper>
@@ -84,9 +82,9 @@
 
             <div class="acciones">
               <mat-card-actions>
-                <button mat-raised-button (click)="registrar()">
-                  Reservar Vuelo
-                  <mat-icon  class="icon_b" matPrefix color="primary">flight_takeoff</mat-icon>
+                <button mat-raised-button (click)="continuar()" matStepperNext>
+                  Continuar
+                  <mat-icon  class="icon_b" matPrefix color="primary">done_all</mat-icon>
                 </button >
               </mat-card-actions>
             </div>
@@ -97,6 +95,65 @@
           <ng-template matStepLabel class="stepper-label">Proceso de Pago</ng-template>
           <div class="pago">
 
+            <div class="portada">
+              <h3>Proceso de Pago</h3>
+              <mat-icon  matPrefix color="primary">credit_card</mat-icon>
+            </div>
+
+            <form #formulario="ngForm">
+              <div class="row">
+                <label class="label_t">Precio Total: </label>
+                <div class="row_c">
+                  <h4>{{this.precio_por_asiento}}</h4>
+                  <label class="label_">Total</label>
+                </div>
+              </div>
+
+              <div class="row">
+                <label class="label_t">Cedúla: </label>
+
+                <div class="row_c">
+                  <input  type="text" [(ngModel)]="cedula" class="input"
+                          (keypress)="onKeyPress($event)" minlength="10" maxlength="10"
+                          required name="cedula">
+                  <label class="label_">Ingreso de Cedúla</label>
+                </div>
+              </div>
+
+              <div class="row">
+                <label class="label_t">Número de Tarjeta:</label>
+                <div class="row_c">
+                  <input  type="text" [(ngModel)]="numero"  class="input"   [formControl]="username"
+                          minlength="16" maxlength="16"
+                     name="numero" required
+                  >
+                  <label class="label_">Ingreso la Tarjeta</label>
+                  <div *ngIf="username.errors?.['pattern']" class="err">
+                    Tarjeta Invalida
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <label class="label_t">Mes:</label>
+                <div class="row_c">
+                <input  class="input" type="month"  [(ngModel)]="mes">
+                <label class="label_">Caducidad</label>
+              </div>
+
+              </div>
+
+              <div class="acciones">
+                <mat-card-actions>
+                  <button mat-raised-button (click)="registrar()" [disabled]="!formulario.valid">
+                    Reservar Vuelo
+                    <mat-icon  class="icon_b" matPrefix color="primary">flight_takeoff</mat-icon>
+                  </button >
+                </mat-card-actions>
+              </div>
+
+            </form>
+            <button  class="back" (click)="back()">Back</button>
           </div>
         </mat-step>
       </mat-stepper>

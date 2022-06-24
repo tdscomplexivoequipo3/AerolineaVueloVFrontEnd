@@ -3,4 +3,5 @@ export class AsientoRequest{
   nombre:any;
   estado:any;
   idAvion:any;
+  precio:any;
 }

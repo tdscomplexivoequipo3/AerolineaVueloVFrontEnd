@@ -62,14 +62,14 @@ body{
   margin-top: 20px;
   color: white;
   margin-bottom: 20px;
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(255, 255, 255, 1);
 }
 
 .row_c img{
   width: 70%;
   height: auto;
-  border-bottom: 3px solid white;
-  border-right: 3px solid white;
+  border-bottom: 3px solid #3d7e59;
+  border-right: 3px solid #3d7e59;
   border-radius: 10px;
 }
 
@@ -144,9 +144,16 @@ body{
   margin-left: 10px;
 }
 
-button{
- background-color: #1d4f71;
-  color: white !important;
+.resumen button{
+ background-color: #3d7e59;
+  color: white ;
+  width: 40%;
+  font-weight: 500;
+}
+
+.pago button{
+  background-color: #1d4f71;
+  color: white ;
   width: 40%;
   font-weight: 500;
 }
@@ -188,5 +195,43 @@ mat-step{
   color: #ffffff!important;
 }
 
+.pago{
+  background-color: rgb(255, 255, 255);
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.pago h3{
+  color: #000;
+}
+
+.pago .label_t{
+  width: 100px;
+}
+
+.pago h4{
+  width: 100px;
+  margin: 0;
+  padding: 0;
+  color: black;
+}
+
+
+.err{
+  color: #ff0000;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.back{
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  border: 0;
+  text-align: left;
+}
 
 
