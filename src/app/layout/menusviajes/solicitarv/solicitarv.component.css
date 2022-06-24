@@ -24,4 +24,46 @@ justify-content: center;
   font-size: 30px;
   font-weight: lighter;
 }
+.dialogoPositivo{
+  width: auto;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+}
+.dialogoPositivo img{
+  position: relative;
+  left:90px;
+}
+.dialogoPositivo p{
+  width: 400px;
+}
+.example-button-row{
+  justify-content: center;
+}
+.example-button-row a{
+  margin-right: 10px;
+  width: 150px;
+  position: relative;
+  left: 117px;
 
+}
+.dialogoPositivo h2{
+  width: 200px;
+  position: relative;
+  left: 134px;
+}
+.divnegativo{
+  width: 250px;
+  height: 200px;
+align-items: center;
+  justify-content: center;
+}
+.divnegativo h1{
+  width: 150px;
+  color: #10004F;
+  font-size: 30px;
+  font-style: oblique;
+  position: relative;
+  top: 45px;
+  left: 48px;
+}

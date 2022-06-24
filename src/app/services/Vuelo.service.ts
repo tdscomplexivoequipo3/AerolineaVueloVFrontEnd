@@ -36,6 +36,12 @@ export  class VueloService {
     });
     return this.http_client.get<VueloResponse>(`${this.url_getId}/${id}`,{headers:reqHeader});
   }
+  getVueloByIdNoToken(id:Number):Observable<VueloResponse>{
+    var reqHeader = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
+    return this.http_client.get<VueloResponse>(`${this.url_getId}/${id}`,{headers:reqHeader});
+  }
 
   create(vuelo:Flight):Observable<Flight>{
     var reqHeader = new HttpHeaders({

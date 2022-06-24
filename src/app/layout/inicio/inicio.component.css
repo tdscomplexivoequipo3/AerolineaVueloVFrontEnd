@@ -115,7 +115,7 @@
   background-color: Transparent;
   height: 400px;
   width: 1200px;
-  display:flex;
+  display:-webkit-box;
   justify-content: space-between;
   align-items: center;
   border-radius: 10px;

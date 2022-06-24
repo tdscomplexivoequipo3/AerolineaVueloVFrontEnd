@@ -34,7 +34,6 @@
     <mat-menu #aboveMenu="matMenu" yPosition="above">
       <button mat-menu-item><mat-icon> list_alt</mat-icon>Ofertas de Vuelos</button>
       <button mat-menu-item routerLink="destinos"><mat-icon>commute</mat-icon>Destinos</button>
-      <button mat-menu-item><mat-icon>store</mat-icon>Promociones de temporada</button>
     </mat-menu>
 
     <button mat-button [matMenuTriggerFor]="belowMenu" class="btn1">
@@ -51,7 +50,6 @@
     </button>
     <mat-menu #belowMenu="matMenu" yPosition="below">
       <button mat-menu-item routerLink="administrarviajes"><mat-icon> list_alt</mat-icon>Administra tus viajes</button>
-      <button mat-menu-item><mat-icon>playlist_add_check</mat-icon>Check In</button>
     </mat-menu>
 
     <button mat-button (click)="vuelocharter()" class="btn1">

@@ -1,19 +1,16 @@
 <div class="divCiudades">
-  <h2 class="tituloI">Vuelos desde:
-  <mat-form-field ><select matNativeControl required>
-    <option value="volvo">Cuenca</option>
-    <option value="saab">Loja</option>
-    <option value="mercedes">Quito</option>
-    <option value="audi">Guayaquil</option>
-    <option value="audi">Coca</option>
-    <option value="audi">Manta</option>
+  <h2 class="tituloI">Ofertas de vuelos hacia:
+  <mat-form-field >
+    <select matNativeControl required (change)="filtrar($event)">
+    <option ></option>
+    <option *ngFor="let ciudad of listVuelos;">{{ciudad}}</option>
   </select>
   </mat-form-field>
   </h2>
 </div>
 
 <div class="componentes">
-  <div  *ngFor="let v of vuelos.slice(0,6)" class="divContenedor">
+  <div  *ngFor="let v of vuelost2.slice(0,6)" class="divContenedor">
     <mat-card class="elementos" >
       <img mat-card-img src="{{v.imagen}}" alt="logo"  style="height:60%;width:100%">
       <p>Viaja el {{v.fechaIda}}</p>

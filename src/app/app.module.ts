@@ -58,6 +58,7 @@ import {RequisitosvComponent} from "./layout/requisitosv/requisitosv.component";
 import {CondicionesgComponent} from "./layout/condicionesg/condicionesg.component";
 import { ValidationPasajerosComponent } from './componentes/validation-pasajeros/validation-pasajeros.component';
 import { ListadoPasajerosComponent } from './componentes/reservas/listado-pasajeros/listado-pasajeros.component';
+import { DialogerrorComponent } from './layout/dialogerror/dialogerror.component';
 
 const routes: Routes = [
   {path:'reservas/:email', component:ReservaUsuarioComponent},
@@ -158,7 +159,8 @@ const routes: Routes = [
   {path:'registro/charter/flight/:idreserva', component:RegistroVuelosComponent},
   {path:'administracion/home', component:SliderComponent},
   {path:'restricciones',component:RequisitosvComponent},
-  {path:'condiciones',component:CondicionesgComponent}
+  {path:'condiciones',component:CondicionesgComponent},
+  {path:'ofertas/vuelos/:destino',component:OfertasUsersComponent},
 ]
 
 @NgModule({
@@ -209,6 +211,7 @@ const routes: Routes = [
     CondicionesgComponent,
     ValidationPasajerosComponent,
     ListadoPasajerosComponent,
+    DialogerrorComponent,
 
   ],
   imports: [
@@ -220,6 +223,7 @@ const routes: Routes = [
     HttpClientModule,
     NgxSpinnerModule,
     ReactiveFormsModule,
+
   ],
   providers: [UsuarioService,VueloService,UserTokenService,AsientoService,PasajeroService,ScriptService,
   {provide:HTTP_INTERCEPTORS, useClass: UnAuthorizedInterceptor, multi: true }
