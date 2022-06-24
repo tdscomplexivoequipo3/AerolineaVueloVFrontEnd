@@ -85,6 +85,7 @@ export  class ReservaService {
       'Authorization': 'Bearer ' + JSON.parse(sessionStorage.getItem("user")+"").token
     });
 
+
     return this.http_client.get<ReservaRequest[]>(`${this.urlEndPoint}/${"reservasAll"}`,{headers:reqHeader});
   }
 
