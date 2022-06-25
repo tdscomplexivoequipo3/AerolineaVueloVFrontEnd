@@ -3,7 +3,6 @@ import {VueloResponse} from "../../../../models/Response/VueloResponse";
 import {ActivatedRoute, NavigationStart, Router} from "@angular/router";
 import {VueloService} from "../../../../services/Vuelo.service";
 import {Observable} from "rxjs";
-import {UsuarioResponse} from "../../../../models/Response/UsuarioResponse";
 import {UserTokenService} from "../../../../services/UserTokenService";
 import {ReservaService} from "../../../../services/ReservaService";
 import {ReservaRequest} from "../../../../models/Request/ReservaRequest";
@@ -33,6 +32,7 @@ import {UsuarioRequest} from "../../../../models/Request/UsuarioRequest";
 export class ResumenComponent implements OnInit {
 
   observable?:Observable<VueloResponse>;
+  asiento:any;
 
   constructor(private router: Router,
               private activatedRoute: ActivatedRoute,
@@ -48,6 +48,14 @@ export class ResumenComponent implements OnInit {
     this.activatedRoute.params.subscribe( params => {
       let id= params['id_vuelo'];
       let tipo= params['tipo'];
+
+      if(tipo=='l'){
+        this.asiento='Ligth';
+      }else if(tipo=='b'){
+        this.asiento='Basic';
+      }else{
+        this.asiento='Premium';
+      }
 
       this.observable=serviceVuelo.getVueloById(id);
     })
