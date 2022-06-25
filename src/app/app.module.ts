@@ -79,6 +79,7 @@ const routes: Routes = [
   {path:'lista_pasajeros/:reserva',component:ListaPasajerosComponent},
   {path:'historial',component:HistorialUserComponent},
   {path:'validation_pasajeros',component:ValidationPasajerosComponent},
+  {path:'lista_charter/:id_vuelo',component:ListadoPasajerosComponent},
   {path:'centroa',component:CentroaComponent,
     children:[
       {

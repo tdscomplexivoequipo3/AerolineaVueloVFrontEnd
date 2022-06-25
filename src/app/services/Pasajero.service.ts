@@ -28,12 +28,12 @@ export class PasajeroService{
     return this.http_client.post<PasajeroRequest>(this.url,object,{headers:reqHeader});
   }
 
-  listPasajerosAllReservaVueloId(id:any):Observable<G_Vuelo[]>{
+  listPasajerosAllReservaVueloId(id:any):Observable<G_Vuelo>{
     var reqHeader = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': 'Bearer ' + JSON.parse(sessionStorage.getItem("user")+"").token
     });
-    return this.http_client.get<G_Vuelo[]>(`${this.url_all}/${id}`,{headers:reqHeader});
+    return this.http_client.get<G_Vuelo>(`${this.url_all}${id}`,{headers:reqHeader});
   }
 
 
