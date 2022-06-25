@@ -20,7 +20,7 @@ export class HistorialUserComponent implements OnInit {
 
   displayedColumns: string[] = ['estado', 'fechaVuelta', 'horaSalida','horaLlegada'];
   displayedColumns_: string[] = ['estado', 'fechaVuelta', 'horaSalida','accion'];
-  displayedColumns__: string[] = ['estado', 'fechaVuelta', 'horaSalida'];
+  displayedColumns__: string[] = ['estado', 'fechaVuelta', 'horaSalida','accion'];
 
   public classReference = GlobalConstants;
 

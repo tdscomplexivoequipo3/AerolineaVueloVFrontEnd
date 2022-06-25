@@ -92,7 +92,7 @@
           <mat-expansion-panel>
             <mat-expansion-panel-header>
               <mat-panel-description>
-                Listado de Pasajeros
+                Listado
                 <mat-icon>account_circle</mat-icon>
               </mat-panel-description>
             </mat-expansion-panel-header>
@@ -100,7 +100,7 @@
             <div>
               <div class="t_p">
 
-                <h3>Vuelos Comerciales</h3>
+                <h3>Vuelos Charter</h3>
 
                 <table mat-table [dataSource]="dataSource_" matSort #sortCol1="matSort" class="mat-elevation-z8">
 
@@ -170,7 +170,7 @@
             <div>
               <div class="t_p_a">
 
-                <h3>Vuelos Comerciales</h3>
+                <h3>Vuelos Charter</h3>
 
                 <table mat-table [dataSource]="dataSource__" matSort #sortCol2="matSort" class="mat-elevation-z8">
 
@@ -200,6 +200,15 @@
                   <ng-container matColumnDef="horaLlegada">
                     <th mat-header-cell *matHeaderCellDef mat-sort-header> Hora Llegada</th>
                     <td mat-cell *matCellDef="let row"> {{row.horaLlegada}} </td>
+                  </ng-container>
+
+                  <ng-container matColumnDef="accion">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Hora Llegada</th>
+                    <td mat-cell *matCellDef="let row" >
+                      <button [routerLink]="['/lista_charter',row.idVuelo]">
+                      Revisar Pasajeros
+                    </button>
+                    </td>
                   </ng-container>
 
                   <tr mat-header-row *matHeaderRowDef="displayedColumns__"></tr>

@@ -1,29 +1,42 @@
 <div class="total">
-  <h3>Pasajeros Vuelo</h3>
-  <table class="table table-striped" id="table">
-    <thead>
-    <tr>
-      <th class="id">Documento Identificacion</th>
-      <th>Nombres</th>
-      <th>Estado</th>
-      <th class="color_text">Asiento</th>
-    </tr>
-    </thead>
 
-    <tbody>
+  <div class="total_head">
+    <div class="fondo_inicial">
+      <h1 class="title">Resumen de Viaje</h1>
+    </div>
+  </div>
 
-    <tr *ngFor="let each of pasajerosList.list">
-      <td class="id">{{each.documento_identificacion}}</td>
-      <td>{{each.datos}}</td>
-      <td>{{each.estado}}</td>
-      <td>
-        <ul>
-          <li class="color_text" *ngFor="let each_asient of each.asientoList">{{each_asient.nombre}}</li>
-        </ul>
-      </td>
-    </tr>
+  <div class="tb">
 
-    </tbody>
+    <h3>Pasajeros Vuelo</h3>
+    <table class="table table-striped" id="table">
+      <thead>
+      <tr>
+        <th class="id">Documento Identificacion</th>
+        <th>Nombres</th>
+        <th>Estado</th>
+        <th class="color_text">Asiento</th>
+      </tr>
+      </thead>
 
-  </table>
+      <tbody>
+
+      <tr *ngFor="let each of pasajerosList.list">
+        <td class="id">{{each.documento_identificacion}}</td>
+        <td>{{each.datos}}</td>
+        <td>{{each.estado}}</td>
+        <td>
+          <ul>
+            <li class="color_text" *ngFor="let each_asient of each.asientoList">{{each_asient.nombre}}</li>
+          </ul>
+        </td>
+      </tr>
+
+      </tbody>
+
+    </table>
+  </div>
+
+
+
 </div>

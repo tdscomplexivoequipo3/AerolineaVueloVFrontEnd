@@ -1,12 +1,40 @@
 .total{
-  height: 70%;
-  padding: 10px 20px 20px 10px ;
+  height: 100%;
+  padding-bottom: 20px;
+}
+
+.total_head{
+  height: 300px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url("https://cloudfront-eu-central-1.images.arcpublishing.com/prisaradio/Q2WDCVLLY5NSZKNQ2KV7PSYK6E.jpg");
+}
+
+.fondo_inicial{
+  width: 100%;
+  height: 100%;
+  margin-bottom: 20px;
+}
+
+@supports(object-fit: cover){
+  .fondo_inicial img{
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+  }
 }
 
 table{
   border-collapse: collapse;
   width: 100%;
   box-shadow: 3px 3px 1px rgba(40, 40, 40, 0.5);
+  height: 100%;
 }
 
 table>tbody>tr:nth-child(odd)>td,
@@ -63,3 +91,16 @@ font-size: 25px;
 .color_text{
   color: #000000 !important;
 }
+
+.title{
+  margin-left: 10px;
+  color: #000000;
+  margin-top: 10%;
+}
+
+.tb{
+  margin: 0;
+  padding: 20px;
+  height: auto;
+}
+

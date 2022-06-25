@@ -256,3 +256,10 @@ a.selected{
   height: 0;
 }
 
+
+.footer{
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+}

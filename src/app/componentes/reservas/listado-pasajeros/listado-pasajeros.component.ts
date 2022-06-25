@@ -22,10 +22,8 @@ export class ListadoPasajerosComponent implements OnInit {
   ngOnInit(): void {
 
     this.activatedRoute.params.subscribe( params => {
-      //let vuelo = params['id_vuelo'];
-      let vuelo=1;
+      let vuelo = params['id_vuelo'];
       this.pasajero_service.listPasajerosAllReservaVueloId(vuelo).subscribe(pasajeros=>{
-        console.log(pasajeros.id_vuelo)
         this.pasajerosList=pasajeros;
       })
 
