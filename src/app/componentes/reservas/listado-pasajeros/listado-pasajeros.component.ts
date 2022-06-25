@@ -6,15 +6,40 @@ import {ReservaRequest} from "../../../models/Request/ReservaRequest";
 import {PasajeroService} from "../../../services/Pasajero.service";
 import {G_Vuelo} from "../../../models/Response/G_Vuelo";
 import {NgxSpinnerService} from "ngx-spinner";
+import {animate, style, transition, trigger} from "@angular/animations";
 
 @Component({
   selector: 'app-listado-pasajeros',
   templateUrl: './listado-pasajeros.component.html',
-  styleUrls: ['./listado-pasajeros.component.css']
+  styleUrls: ['./listado-pasajeros.component.css'],
+  animations: [
+    trigger(
+      'inOutAnimation',
+      [
+        transition(
+          ':enter',
+          [
+            style({ height: 0, opacity: 0 }),
+            animate('1s ease-out',
+              style({ height: 300, opacity: 1 }))
+          ]
+        ),
+        transition(
+          ':leave',
+          [
+            style({ height: 300, opacity: 1 }),
+            animate('1s ease-in',
+              style({ height: 0, opacity: 0 }))
+          ]
+        )
+      ]
+    )
+  ]
 })
 export class ListadoPasajerosComponent implements OnInit {
 
   pasajerosList:G_Vuelo;
+  option:any="lista"
 
   constructor(private service_reserva:ReservaService,
               private router: Router,private pasajero_service:PasajeroService,

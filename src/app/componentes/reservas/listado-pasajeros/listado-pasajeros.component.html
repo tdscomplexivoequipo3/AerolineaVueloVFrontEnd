@@ -15,7 +15,18 @@
     </div>
   </div>
 
-  <div class="tb">
+  <div class="selector_div">
+    <section class="selector">
+      <h4>Formato </h4>
+      <mat-button-toggle-group   [(ngModel)]="option" name="option"
+                                 aria-label="Font Style" value="lista">
+        <mat-button-toggle value="lista">Lista</mat-button-toggle>
+        <mat-button-toggle value="tabla">Tabla</mat-button-toggle>
+      </mat-button-toggle-group>
+    </section>
+  </div>
+
+  <div class="tb" [@inOutAnimation] *ngIf="option=='tabla'">
 
     <h3>Pasajeros Vuelo</h3>
     <table class="table table-striped" id="table">
@@ -23,7 +34,6 @@
       <tr>
         <th class="id">Documento Identificacion</th>
         <th>Nombres</th>
-        <th>Estado</th>
         <th class="color_text">Asiento</th>
       </tr>
       </thead>
@@ -33,7 +43,6 @@
       <tr *ngFor="let each of pasajerosList.list">
         <td class="id">{{each.documento_identificacion}}</td>
         <td>{{each.datos}}</td>
-        <td>{{each.estado}}</td>
         <td>
           <ul>
             <li class="color_text" *ngFor="let each_asient of each.asientoList">{{each_asient.nombre}}</li>
@@ -44,6 +53,36 @@
       </tbody>
 
     </table>
+  </div>
+
+  <div class="format" [@inOutAnimation] *ngIf="option=='lista'">
+    <h3>Pasajeros Vuelo</h3>
+    <div class="format_second"  *ngFor="let each of pasajerosList.list">
+      <div class="f2 first">
+        <div class="enca">
+          <h4>Documento de Identificación</h4>
+          <mat-icon>fingerprint</mat-icon>
+        </div>
+        <p>{{each.documento_identificacion}}</p>
+      </div>
+      <div class="f2">
+        <div class="enca">
+        <h4>Nombres</h4>
+          <mat-icon>perm_identity</mat-icon>
+        </div>
+        <p>{{each.datos}}</p>
+      </div>
+      <div class="f2">
+        <div class="enca">
+        <h4>Asientos</h4>
+          <mat-icon>airplanemode_active</mat-icon>
+        </div>
+        <ul>
+          <li *ngFor="let each_asient of each.asientoList">{{each_asient.nombre}}</li>
+        </ul>
+      </div>
+    </div>
+
   </div>
 
 
