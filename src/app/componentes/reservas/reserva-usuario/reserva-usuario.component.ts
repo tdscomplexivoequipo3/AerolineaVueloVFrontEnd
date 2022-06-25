@@ -58,10 +58,9 @@ export class ReservaUsuarioComponent implements OnInit {
   }
 
   onClickVuelosCharter():void{
-    this.activatedRoute.params.subscribe( params => {
-      let id = params['email'];
-      this.router.navigate(['/ofertas/charter',id]);
-    })
+
+      this.router.navigate(['/ofertas/charter',JSON.parse(sessionStorage.getItem("user")+"").email]);
+
   }
 
 
