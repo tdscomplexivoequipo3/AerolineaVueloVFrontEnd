@@ -26,18 +26,23 @@ export class LoginComponent implements OnInit {
   }
   public user = GlobalConstants;
   ngOnInit(): void {
+
+
   }
 
   login():void{
-    sessionStorage.clear();
     if(this.objeto.email!=null && this.objeto.clave!=null){
       this.service.login(this.objeto).subscribe(data => {
           //almacenar token_______________________________________
           sessionStorage.setItem('user', JSON.stringify(data));
+        this.classReference.user=data;
+        if( sessionStorage.getItem('volver') != null){
+          location.href = sessionStorage.getItem('volver')
+        }else{
           this.router.navigate(['']).then(value => {
             window.location.reload();
           });
-          this.classReference.user=data;
+        }
         },err=> {
           this.error=true;
           this.showSuccessInCorrect("Usuario no encontrado","USER")

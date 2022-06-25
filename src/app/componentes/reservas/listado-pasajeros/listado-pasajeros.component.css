@@ -102,5 +102,10 @@ font-size: 25px;
   margin: 0;
   padding: 20px;
   height: auto;
+  border-right: 1px solid #1d4f71;
+  margin-right: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 10px;
 }
 

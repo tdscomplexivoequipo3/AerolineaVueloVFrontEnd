@@ -65,6 +65,7 @@ import {CheckingTicketComponent} from "./componentes/checking-ticket/checking-ti
 
 const routes: Routes = [
   {path:'reservas/:email', component:ReservaUsuarioComponent},
+  {path:'reservas', component:ReservaUsuarioComponent},
   {path:'registro', component:RegistroComponent},
   {path:'login', component:LoginComponent},
   {path:'registro/new/flight', component:RegistroVuelosComponent},
@@ -73,7 +74,7 @@ const routes: Routes = [
   {path:'registro/vuelos/type', component:TypeFlightsComponent},
   {path:'registro/avion', component:RegisterPlaneComponent},
   {path:'registro/programa/vuelo', component:ProgrammingFlightsComponent},
-  {path:'reserva/:email/:id_vuelo/:tipo', component:ResumenComponent},
+  {path:'reserva/:id_vuelo/:tipo', component:ResumenComponent},
   {path:'registro/watch/flights', component:WatchFlightsComponent},
   {path:'ofertas/charter/:email', component:ReservaCharterComponent},
   {path:'lista_pasajeros/:reserva',component:ListaPasajerosComponent},

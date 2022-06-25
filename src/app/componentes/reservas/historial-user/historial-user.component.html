@@ -205,7 +205,11 @@
                   <ng-container matColumnDef="accion">
                     <th mat-header-cell *matHeaderCellDef mat-sort-header> Hora Llegada</th>
                     <td mat-cell *matCellDef="let row" >
-                      <button [routerLink]="['/lista_charter',row.idVuelo]">
+                      <button [style.background-color]="'#1d4f71'"
+                              [style.color]="'#fff'"
+                              class="listar_"
+                              mat-button
+                              [routerLink]="['/lista_charter',row.idVuelo]">
                       Revisar Pasajeros
                     </button>
                     </td>

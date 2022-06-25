@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {VueloResponse} from "../../../../models/Response/VueloResponse";
-import {ActivatedRoute, Router} from "@angular/router";
+import {ActivatedRoute, NavigationStart, Router} from "@angular/router";
 import {VueloService} from "../../../../services/Vuelo.service";
 import {Observable} from "rxjs";
 import {UsuarioResponse} from "../../../../models/Response/UsuarioResponse";
@@ -33,7 +33,6 @@ import {UsuarioRequest} from "../../../../models/Request/UsuarioRequest";
 export class ResumenComponent implements OnInit {
 
   observable?:Observable<VueloResponse>;
-  observable_user?:Observable<UsuarioResponse>;
 
   constructor(private router: Router,
               private activatedRoute: ActivatedRoute,
@@ -47,12 +46,10 @@ export class ResumenComponent implements OnInit {
               private pasajero_service:PasajeroService) {
 
     this.activatedRoute.params.subscribe( params => {
-      let mail = params['email'];
       let id= params['id_vuelo'];
       let tipo= params['tipo'];
 
       this.observable=serviceVuelo.getVueloById(id);
-      this.observable_user=serviceUsuario.getUser(mail);
     })
 
     this.observable?.subscribe(
@@ -90,6 +87,13 @@ export class ResumenComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.router.events
+      .subscribe((event: NavigationStart) => {
+        if (event.navigationTrigger === 'popstate') {
+          this.router.navigate(['/reservas']);
+        }
+      });
+
     this.spinner.show();
     setTimeout(() => {
       /** spinner ends after 5 seconds */
@@ -111,8 +115,6 @@ export class ResumenComponent implements OnInit {
       cancelButtonText:"Cancelar"
     }).then((result) => {
       if (result.isConfirmed) {
-        this.observable_user?.subscribe(
-          _objet=>{
             this.activatedRoute.params.subscribe( params => {
 
               let tipo= params['tipo'];
@@ -131,9 +133,8 @@ export class ResumenComponent implements OnInit {
                 r1.destino=this.vuelo.destino;
                 r1.pago=false;
                 r1.idVuelo=this.vuelo.idVuelo;
-                r1.idUsuario=_objet.id;
-
-//reserva
+                r1.idUsuario=JSON.parse(sessionStorage.getItem("user")+"").id;
+                 console.log(r1.idUsuario);
                 this.serviceReserva.register(r1).subscribe(reserva=>{
 
                   var asiento=new AsientoRequest();
@@ -165,7 +166,7 @@ export class ResumenComponent implements OnInit {
                           if(result.isConfirmed){
                             this.activatedRoute.params.subscribe( params => {
                               let id = params['email'];
-                              this.router.navigate(['/reservas',id]);
+                              this.router.navigate(['/reservas']);
                             })
                           }
                         });
@@ -196,7 +197,7 @@ export class ResumenComponent implements OnInit {
               })
             })
             //__________-
-          }, error => console.log(error));
+
       }
     })
   }
@@ -235,6 +236,8 @@ export class ResumenComponent implements OnInit {
   back():void{
     this.router.navigate(['/reservas', JSON.parse(sessionStorage.getItem("user")+"").email]);
   }
+
+
 
 
 

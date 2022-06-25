@@ -26,10 +26,12 @@ export class OfertasUsersComponent implements OnInit {
   constructor(private router: Router,private activatedRoute: ActivatedRoute,
               private service:VueloService,private spinner: NgxSpinnerService) {
 
+    localStorage.removeItem('volver');
     this.activatedRoute.params.subscribe( params => {
        this.ciudad = params['destino'];
-       console.log(this.ciudad);
       this.id= params['id_vuelo'];
+       console.log(this.ciudad);
+        console.log(this.id)
     })
 
   }
@@ -128,8 +130,14 @@ export class OfertasUsersComponent implements OnInit {
 
   solicitar(id:number,tipo:string):void{
     this.activatedRoute.params.subscribe( params => {
-      let mail = params['email'];
-      this.router.navigate(['/reserva',mail,id,tipo]);
+      if(JSON.parse(sessionStorage.getItem("user")+"") !=null ){
+        this.router.navigate(['/reserva',id,tipo]);
+      }else{
+        var URLactual = window.location.href;
+        sessionStorage.setItem('volver', URLactual)
+        this.router.navigate(['/login'])
+      }
+
     })
   }
 
