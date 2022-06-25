@@ -9,6 +9,7 @@ import {ReservaService} from "../../../services/ReservaService";
 import Swal from "sweetalert2";
 import {GlobalConstants} from "../../../common/GlobalConstants";
 
+
 @Component({
   selector: 'app-reserva-charter',
   templateUrl: './reserva-charter.component.html',
@@ -52,7 +53,7 @@ export class ReservaCharterComponent implements OnInit {
         this.vuelo.idUsuario=_objet.id;
         this.vuelo.pago=false;
         this.vuelo.fechaRegistro=new Date();
-        this.vuelo.estado=2;
+        this.vuelo.estado=1;
         console.log(this.vuelo)
         this.serviceReserva.registerSinVuelo(this.vuelo).subscribe(data => {
             Swal.fire({

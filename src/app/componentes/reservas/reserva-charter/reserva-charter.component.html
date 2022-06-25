@@ -8,7 +8,7 @@
     </div>
 
     <div class="total_b">
-      <form #formulario="ngForm">
+      <form class="my-form" #formulario="ngForm">
         <div class="portada">
           <h3>Registro de Vuelo Charter</h3>
         </div>
@@ -24,8 +24,6 @@
 
             <label class="label_">Fecha Ida</label>
           </div>
-
-
           <div class="row_c">
             <div class="row_c_cont">
               <input [(ngModel)]="vuelo.fechaVuelta" name="fechaVuelta"
@@ -43,11 +41,12 @@
         <div class="row">
           <label class="label_t">Horarios</label>
           <div class="row_c">
-            <input  class="input"   type="time" [(ngModel)]="vuelo.horaSalida" name="horaSalida">
+            <input  class="input"   type="time" [(ngModel)]="vuelo.horaSalida"
+                    name="horaSalida" required>
             <label class="label_">Hora de Salida</label>
           </div>
           <div class="row_c">
-            <input  class="input" type="time" [(ngModel)]="vuelo.horaLlegada" name="horaLlegada">
+            <input  class="input" type="time" [(ngModel)]="vuelo.horaLlegada" name="horaLlegada" required>
             <label class="label_">Hora de LLegada</label>
           </div>
           <div class="row_c r">
