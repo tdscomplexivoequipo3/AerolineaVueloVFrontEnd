@@ -41,7 +41,8 @@ this.dialog.open(this.dialognegative);
   TraerCorreo(){
         this.service.getAllEmail(this.email).subscribe(contenedor=>{
           this.usuarios=contenedor
-          if (this.usuarios.rol=='cliente'){
+          console.log(this.usuarios);
+          if (this.usuarios.rol.toLowerCase()=='cliente'){
             this.openDialog();
           }else {
             this.openDialogNo();

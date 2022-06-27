@@ -85,7 +85,6 @@ export  class ReservaService {
   getReservaByid(id:String):Observable<ReservaRequest>{
     var reqHeader = new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization': 'Bearer ' + JSON.parse(sessionStorage.getItem("user")+"").token
     });
     return this.http_client.get<ReservaRequest>(`${this.url_getById}/${id}`,{headers:reqHeader});
   }

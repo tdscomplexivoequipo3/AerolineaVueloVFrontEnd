@@ -9,16 +9,42 @@
         <input matInput placeholder="Codigo de reserva" [formControl]="formulario" [(ngModel)]="idreserva">
       </mat-form-field>
     </p>
-    <p>
-      <mat-form-field appearance="outline">
-        <mat-label>Apellido del pasajero</mat-label>
-        <input matInput placeholder="apellido" [formControl]="formulario1" [(ngModel)]="apellidopasajero">
-      </mat-form-field>
-    </p>
-    <button mat-flat-button color="accent" class="botonv" [disabled]="!formulario.valid || !formulario1.valid">Buscar</button>
+
+    <button mat-flat-button color="accent" class="botonv" [disabled]="!formulario.valid" (click)="TraerReservas()">Buscar</button>
   </form>
 </div>
 <ng-template #dialogoBoleto>
+ <div class="dialogoprincipal" *ngIf="usuario">
+   <div class="hijo1" >
+     <h3>Reserva: {{reserva.idReserva}}</h3>
 
+     <h3>Usuario:</h3><h2>{{usuario.nombres}}&nbsp;{{usuario.apellidos}}</h2>
+
+     <h3>Origen: {{reserva.origen}}</h3>
+
+     <h3>Destino: {{reserva.destino}}</h3>
+   </div>
+  <div class="hijo2">
+    <h3>Fecha de ida</h3><h2>{{reserva.fechaIda}}</h2>
+
+    <h3>Fecha de vuelta</h3><h2>{{reserva.fechaVuelta}}</h2>
+  </div>
+
+  <div class="hijo3" *ngIf="vuelo.precio">
+    <h3>Precio Final</h3>
+    <h2>{{vuelo.precio}}</h2>
+  </div>
+
+
+ </div>
+  <mat-dialog-actions align="end">
+    <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Aceptar</button>
+  </mat-dialog-actions>
+
+</ng-template>
+<ng-template #dialognegative>
+  <div class="divnegativo">
+    <h1>Reserva no encontrada</h1>
+  </div>
 
 </ng-template>
