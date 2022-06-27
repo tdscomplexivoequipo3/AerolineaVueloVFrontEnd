@@ -62,6 +62,13 @@ import { DialogerrorComponent } from './layout/dialogerror/dialogerror.component
 import { OfertasdComponent } from './layout/ofertasd/ofertasd.component';
 import {ListadoValidaBoletosComponent} from "./componentes/listado-valida-boletos/listado-valida-boletos.component";
 import {CheckingTicketComponent} from "./componentes/checking-ticket/checking-ticket.component";
+import {RegisterFlightCharterComponent} from "./componentes/register-flights/register-flight-charter/register-flight-charter.component";
+// modulos primeng
+import {TableModule} from "primeng/table";
+import {ButtonModule}from "primeng/button";
+import {NgxPrintModule} from "ngx-print";
+import {DividerModule} from 'primeng/divider';
+import {ReportefacturasComponent} from "./componentes/reportefacturas/reportefacturas.component";
 
 const routes: Routes = [
   {path:'reservas/:email', component:ReservaUsuarioComponent},
@@ -69,6 +76,7 @@ const routes: Routes = [
   {path:'registro', component:RegistroComponent},
   {path:'login', component:LoginComponent},
   {path:'registro/new/flight', component:RegistroVuelosComponent},
+  {path:'registro/watch/reportes', component:ReportefacturasComponent},
   {path:'ofertas/vuelos/:email', component:OfertasUsersComponent},
   {path:'equipaje', component:EquipajeComponent},
   {path:'registro/vuelos/type', component:TypeFlightsComponent},
@@ -161,7 +169,7 @@ const routes: Routes = [
   {path:'asignacion/roles',component:DesignationRolesComponent},
   {path:'registro/edit/flight/:idvuelo', component:RegistroVuelosComponent},
   {path:'registro/gestion/reservas', component:GestionReservasComponent},
-  {path:'registro/charter/flight/:idreserva', component:RegistroVuelosComponent},
+  {path:'registro/charter/flight/:idreserva', component:RegisterFlightCharterComponent},
   {path:'administracion/home', component:SliderComponent},
   {path:'restricciones',component:RequisitosvComponent},
   {path:'condiciones',component:CondicionesgComponent},
@@ -223,7 +231,9 @@ const routes: Routes = [
     DialogerrorComponent,
     OfertasdComponent,
     ListadoValidaBoletosComponent,
-    CheckingTicketComponent
+    CheckingTicketComponent,
+    RegisterFlightCharterComponent,
+    ReportefacturasComponent,
   ],
   imports: [
     RouterModule.forRoot(routes),
@@ -234,6 +244,11 @@ const routes: Routes = [
     HttpClientModule,
     NgxSpinnerModule,
     ReactiveFormsModule,
+    //primeng modules
+    ButtonModule,
+    TableModule,
+    NgxPrintModule,
+    DividerModule
 
   ],
   providers: [UsuarioService,VueloService,UserTokenService,AsientoService,PasajeroService,ScriptService,

@@ -55,5 +55,17 @@ export  class Asientos {
     return this._asientos;
   }
 
+  get asientoP():string[]{
+    return this.asientos_p;
+  }
+
+  get asientoL():string[]{
+    return this.asientos_l;
+  }
+
+  get asientoB():string[]{
+    return this.asientos_b;
+  }
+
 }
 

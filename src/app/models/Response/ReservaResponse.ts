@@ -1,3 +1,5 @@
+import {VueloResponse} from "./VueloResponse";
+
 export class ReservaResponse{
   idReserva:any;
   fechaIda:any;
@@ -13,4 +15,7 @@ export class ReservaResponse{
   private _estado:number=0;
   horaSalida:any=0;
   horaLlegada:any=0;
+  precio:any
+  //relacion en las dos tablas
+  vuelo?:VueloResponse
 }

@@ -9,29 +9,40 @@ import {Rol} from "../models/Rol";
 export class RolService{
 
   private base_url="https://aerolineavuelov.herokuapp.com/api/rol";
-  private httpHeaders = new HttpHeaders({'Content-Type':'application/json',
-    'Authorization':'Bearer '+JSON.parse(sessionStorage.getItem("user")+"").token})
 
   constructor(private httpClient:HttpClient) {
   }
 
   getAll():Observable<Rol[]>{
-    return this.httpClient.get<Rol[]>(this.base_url+"/rolAll", {headers: this.httpHeaders});
+    var reqHeader = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + JSON.parse(sessionStorage.getItem("user")+"").token
+    });
+    return this.httpClient.get<Rol[]>(this.base_url+"/rolAll", {headers:reqHeader});
   }
 
   edit(rol:Rol, id:String){
-    return this.httpClient.put(this.base_url+"/"+id, rol);
+    var reqHeader = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + JSON.parse(sessionStorage.getItem("user")+"").token
+    });
+    return this.httpClient.put(this.base_url+"/"+id, rol,{headers:reqHeader});
   }
 
   create(rol:Rol):Observable<Rol>{
-    return this.httpClient.post<Rol>(this.base_url, rol,{headers:this.httpHeaders});
+    var reqHeader = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + JSON.parse(sessionStorage.getItem("user")+"").token
+    });
+    return this.httpClient.post<Rol>(this.base_url, rol,{headers:reqHeader});
   }
 
-  getByid(id:String):Observable<any>{
-    return this.httpClient.get<any>(this.base_url+id);
+  getByCodigo(codigo:String):Observable<Rol>{
+    var reqHeader = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + JSON.parse(sessionStorage.getItem("user")+"").token
+    });
+    return this.httpClient.get<Rol>(this.base_url+"/codigo/"+codigo, {headers:reqHeader});
   }
 
-  deleteC(cliente:any, id:String){
-    return this.httpClient.put(this.base_url+"delete/"+id, cliente);
-  }
 }

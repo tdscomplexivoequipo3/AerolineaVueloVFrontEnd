@@ -11,19 +11,19 @@
         <div>
           <mat-form-field class="full-width">
                 <mat-label>Origen</mat-label>
-                <input  matInput  placeholder="Ingrese el lugar de origen"  name="origen" [(ngModel)]="flight.origen"  required [disabled]="datoscharter">
+                <input  matInput  placeholder="Ingrese el lugar de origen"  name="origen" [(ngModel)]="flight.origen"  required>
               </mat-form-field>
 
           <mat-form-field class="full-width">
             <mat-label>Destino</mat-label>
-            <input  matInput  placeholder="Ingrese el lugar de destino" name="destino" [(ngModel)]="flight.destino"  required [disabled]="datoscharter">
+            <input  matInput  placeholder="Ingrese el lugar de destino" name="destino" [(ngModel)]="flight.destino"  required>
           </mat-form-field>
 
           <mat-form-field class="full-width" >
             <mat-label>Fecha de ida</mat-label>
             <input [(ngModel)]="flight.fechaIda"
                    name="fechaida"
-                   matInput [matDatepicker]="picker" placeholder="d/m/yyyy" required [disabled]="datoscharter">
+                   matInput [matDatepicker]="picker" placeholder="d/m/yyyy" required>
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
           </mat-form-field>
@@ -32,7 +32,7 @@
             <mat-label>Fecha de Vuelta</mat-label>
             <input [(ngModel)]="flight.fechaVuelta"
                    name="fechavuelta"
-                   matInput [matDatepicker]="picker1" placeholder="d/m/yyyy" required [disabled]="datoscharter">
+                   matInput [matDatepicker]="picker1" placeholder="d/m/yyyy" required>
             <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
             <mat-datepicker #picker1></mat-datepicker>
           </mat-form-field>
@@ -46,7 +46,7 @@
         <div>
           <mat-form-field class="full-width">
             <mat-label>Tipo de vuelo</mat-label>
-            <mat-select [(ngModel)]="flight.idTipoVuelo" name="tvuelo" required [disabled]="datoscharter">
+            <mat-select [(ngModel)]="flight.idTipoVuelo" name="tvuelo" required>
               <mat-option *ngFor="let type of listtypeflight" [value]="type.idTipoVuelo">
                 {{type.nombre}}
               </mat-option>
@@ -55,12 +55,12 @@
 
           <mat-form-field class="full-width">
             <mat-label>Hora Salida</mat-label>
-            <input matInput type="time"  placeholder="Hora de salida " name="hsalida" [(ngModel)]="flight.horaSalida" required [disabled]="datoscharter">
+            <input matInput type="time"  placeholder="Hora de salida " name="hsalida" [(ngModel)]="flight.horaSalida" required>
           </mat-form-field>
 
           <mat-form-field class="full-width">
             <mat-label>Hora Llegada</mat-label>
-            <input matInput type="time" placeholder="Hora de llegada " name="hllegada" [(ngModel)]="flight.horaLlegada" required [disabled]="datoscharter">
+            <input matInput type="time" placeholder="Hora de llegada " name="hllegada" [(ngModel)]="flight.horaLlegada" required>
           </mat-form-field>
 
           <mat-form-field class="full-width">
@@ -97,22 +97,15 @@
         <div *ngIf="datoscharter">
           <mat-form-field class="full-width">
             <mat-label>Observaciones del cliente</mat-label>
-            <input matInput placeholder="observaciones " name="observa" [(ngModel)]="reserva.observacion" required [disabled]="datoscharter">
+            <input matInput placeholder="observaciones " name="observa" [(ngModel)]="reserva.observacion" required>
           </mat-form-field>
           <br>
         </div>
       </form>
       <br>
       <div class="btnac">
-        <div *ngIf="!datoscharter">
           <button mat mat-raised-button color="warn" mat-button [routerLink]="['/registro/watch/flights']">Atras</button>
           <button mat-raised-button color="primary" [disabled]="!formulario.valid" (click)="guardarVuelo()">GUARDAR</button>
-        </div>
-        <div *ngIf="datoscharter">
-          <button mat mat-raised-button color="warn" mat-button [routerLink]="['/registro/watch/flights']">Cancelar</button>
-          <button mat-raised-button color="primary" [disabled]="!formulario.valid" (click)="guardarAsignacion()">Guardar Asignación</button>
-        </div>
-
       </div>
     </mat-card-content>
 

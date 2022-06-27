@@ -46,18 +46,21 @@
     </ng-container>
 
     <ng-container matColumnDef="estado">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> estado </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Pasaje </th>
       <td mat-cell *matCellDef="let row" style="text-align: center">
-        <i *ngIf="row.fechaIda>fechaactual"class="fa-solid fa-plane"></i>
-        <i *ngIf="row.fechaIda<fechaactual" class="fa-solid fa-plane-slash"></i>
+        <i class="fa-solid fa-people-group" (click)="listarPasajeros(row)" title="Listado de pasajeros"></i>
       </td>
     </ng-container>
 
     <ng-container matColumnDef="listado">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Boletos </th>
-      <td mat-cell *matCellDef="let row" style="text-align: center">
-        <i *ngIf="row.fechaIda>fechaactual" title="Asignar tarjetas de vuelo" class="fa-solid fa-list-check" [routerLink]="['/registro/list/ticket/',row.idVuelo]"></i>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header > Boletos </th>
+      <td mat-cell *matCellDef="let row" style="text-align: center" >
+        <div *ngIf="(user.rol).toLowerCase()=='admin' || (user.rol).toLowerCase()=='jo'">
+          <i *ngIf="row.fechaIda>fechaactual" title="Asignar tarjetas de vuelo" class="fa-solid fa-list-check" [routerLink]="['/registro/list/ticket/',row.idVuelo]"></i>
+        </div>
         <h5 *ngIf="row.fechaIda<fechaactual">No disponible</h5>
+        <h5 *ngIf="row.fechaIda>fechaactual">En proceso</h5>
+        <h5 *ngIf="row.fechaIda==fechaactual">En Salida</h5>
       </td>
 
     </ng-container>
@@ -73,4 +76,19 @@
   <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
 </div>
 
-
+<ng-template #dialogaprobados>
+  <mat-card-title>Listado de Pasajeros Aceptados</mat-card-title>
+  <br><br>
+  <section>
+    <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+      <div *ngFor="let pass of listpasajeros; let i=index">
+        <input type="checkbox" formArrayName="pasajeros" [value]="pass.datos" (change)="onCheckboxChange($event)"
+        />
+        {{ pass.datos}}
+      </div>
+      <br>
+      <button mat-dialog-close mat-button color="warn">Cancelar</button>
+      <button mat-button color="accent" type="submit">Imprimir</button>
+    </form>
+  </section>
+</ng-template>

@@ -27,7 +27,7 @@
         <span class="hover">{{user.nombres}} {{user.apellidos}}<mat-icon> person_pin</mat-icon></span>
       </button>
       <mat-menu #perfil="matMenu">
-        <button mat-menu-item style="text-align: center" [routerLink]="['/rol_ingreso']">Perfil<mat-icon> person_pin</mat-icon></button>
+        <button mat-menu-item style="text-align: center" [routerLink]="['']">Perfil<mat-icon> person_pin</mat-icon></button>
         <button mat-menu-item style="text-align: center" (click)="cerrarSesion()" >Cerrar Sesión<mat-icon>exit_to_app</mat-icon></button>
       </mat-menu>
     </div>
@@ -49,7 +49,7 @@
         </div>
       </a>
 
-      <li class="list__item list__item--click">
+      <li class="list__item list__item--click" *ngIf="(user.rol).toLowerCase()=='jo' || (user.rol).toLowerCase()=='admin'">
         <div class="list__button list__button--click">
           <a>
             <div class="option">
@@ -83,7 +83,7 @@
 
       </li>
 
-      <li class="list__item list__item--click">
+      <li class="list__item list__item--click" *ngIf="(user.rol).toLowerCase()=='admin'">
         <div class="list__button list__button--click">
           <a>
             <div class="option">
@@ -102,10 +102,9 @@
             </a>
           </li>
         </ul>
-
       </li>
 
-      <li class="list__item list__item--click">
+      <li class="list__item list__item--click" *ngIf="(user.rol).toLowerCase()=='jo' || (user.rol).toLowerCase()=='admin'">
         <div class="list__button list__button--click">
           <a>
             <div class="option">
@@ -127,7 +126,7 @@
 
       </li>
 
-      <li class="list__item list__item--click">
+      <li class="list__item list__item--click" *ngIf="(user.rol).toLowerCase()=='st' || (user.rol).toLowerCase()=='admin' || (user.rol).toLowerCase()=='jo'">
         <div class="list__button list__button--click">
           <a>
             <div class="option">
@@ -146,8 +145,21 @@
             </a>
           </li>
         </ul>
-
       </li>
+
+      <a *ngIf="(user.rol).toLowerCase()=='af' || (user.rol).toLowerCase()=='admin'">
+        <div class="option">
+          <i class="fa fa-list-alt" title="Reportes" [routerLink]="['/registro/watch/reportes']"></i>
+          <h4>Reportes</h4>
+        </div>
+      </a>
+
+      <a style="margin-top: 40px">
+        <div class="option" *ngIf="user">
+          <i>{{rol.codigo}} </i>
+          <h4>{{rol.descripcion}} </h4>
+        </div>
+      </a>
 
     </div>
   </div>

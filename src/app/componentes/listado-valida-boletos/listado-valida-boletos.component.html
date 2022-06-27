@@ -1,43 +1,33 @@
 <br><br>
-<h1 style="text-align: center"><strong>Gestión de Vuelos Charter</strong></h1>
+<h1 style="text-align: center"><strong>BOLETERÍA</strong></h1>
 <mat-form-field appearance="standard">
   <mat-label>Filter</mat-label>
   <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
 </mat-form-field>
 
-<div class="mat-elevation-z8">
+<div class="mat-elevation-z8" *ngIf="listpasajeros.length>0">
   <table mat-table [dataSource]="dataSource" matSort>
 
     <ng-container matColumnDef="cedula">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Cedula </th>
-      <td mat-cell *matCellDef="let row"> {{row.docIdentificacion}} </td>
+      <td mat-cell *matCellDef="let row"> {{row.documento_identificacion}} </td>
     </ng-container>
 
     <ng-container matColumnDef="nombre">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombres </th>
-      <td mat-cell *matCellDef="let row"> {{row.nombres}} </td>
+      <td mat-cell *matCellDef="let row"> {{row.datos}} </td>
     </ng-container>
 
-    <ng-container matColumnDef="apellido">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Apellidos </th>
-      <td mat-cell *matCellDef="let row"> {{row.apellidos}} </td>
+    <ng-container matColumnDef="cancelar">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> N° Asientos </th>
+      <td mat-cell *matCellDef="let row">
+        {{row.asientoList.length}} <i><mat-icon>airline_seat_recline_extra</mat-icon></i></td>
     </ng-container>
 
-
-    <ng-container matColumnDef="pais">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> País </th>
-      <td mat-cell *matCellDef="let row"> {{row.pais}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="telefono">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Telefono </th>
-      <td mat-cell *matCellDef="let row"> {{row.telefono}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="gestion">
+    <ng-container matColumnDef="boleto">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Boletos </th>
       <td mat-cell *matCellDef="let row" style="text-align: center">
-          <i class="fa-solid fa-list-check" (click)="openBoleto(row)"></i>
+        <i class="fa-solid fa-list-check" (click)="openBoleto(row)" title="Boletar"></i>
       </td>
     </ng-container>
 
@@ -52,17 +42,27 @@
   <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
 </div>
 
+<h3 style="text-align: center; color: red" *ngIf="listpasajeros.length<=0">NO EXISTEN PASAJEROS PARA ASIGNAR BOLETOS</h3>
+
 <ng-template #dialogboletos>
   <div style="text-align: center">
-    <mat-card-title>Generación de boletos</mat-card-title>
+    <mat-card-title>Generación de boletos</mat-card-title><br><br>
+    <span><strong>Vuelo : </strong> {{idvuelo}}</span><br>
+    <span><strong>Cedula: </strong>{{datos.documento_identificacion}}</span><br>
+    <span><strong>Pasajero:</strong>{{datos.datos}}</span><br>
+    <span><strong>Asiento/s</strong></span><br>
     <br>
-    <span></span>
+    <mat-form-field class="full-width">
+      <mat-label>Equipaje</mat-label>
+      <input matInput placeholder="Equipaje" name="equipaje" [(ngModel)]="pasajeroRequest.equipaje" required>
+    </mat-form-field>
     <br>
-    <span></span>
+    <span *ngFor="let a of numsasi">
+      <button mat-raised-button color="primary" (click)="generarboleto(a,datos)">{{a}} Generar boletos</button><br><br>
+    </span>
     <br>
     <div>
       <button mat mat-raised-button color="warn" mat-button mat-dialog-close>Cancelar</button>
-      <button mat-raised-button color="primary" (click)="generarboleto(user)">Generar boletos</button>
     </div>
   </div>
 </ng-template>

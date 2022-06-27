@@ -11,3 +11,8 @@ i{
   cursor: pointer;
   color: #428bca;
 }
+
+button{
+  border: solid 1px;
+  cursor: pointer;
+}
