@@ -9,3 +9,30 @@ mat-form-field{
   font-size: 30px;
   font-weight: lighter;
 }
+.dialogoprincipal{
+  width: 500px;
+  height: auto;
+  background: linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.5)),url("src/assets/Vuelos v.png") center no-repeat;
+  background-size:cover ;
+}
+
+
+.hijo1{
+  position: relative;
+  left: 40px;
+  top: 50px;
+  margin: 0px;
+  width: 300px;
+}
+.hijo2{
+  position: relative;
+  left: 348px;
+  top:-165px;
+  width: 130px
+}
+.hijo3{
+  position: relative;
+  left: 200px;
+  top:-157px;
+  width: 100px;
+}

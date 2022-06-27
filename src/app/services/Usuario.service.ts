@@ -40,13 +40,12 @@ export  class  UsuarioService {
     return this.http_client.get<UsuarioResponse>(this.urlEndPoint + "/"+email, {headers: reqHeader});
   }
 
-  getByid(id: any): Observable<UsuarioRequest[]> {
+  getByid(id: any): Observable<UsuarioRequest> {
     var reqHeader = new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization': 'Bearer ' + JSON.parse(sessionStorage.getItem("user") + "").token
     });
 
-    return this.http_client.get<UsuarioRequest[]>(this.urlEndPoint + "/user/id_user/" + id, {headers: reqHeader});
+    return this.http_client.get<UsuarioRequest>(this.urlEndPoint + "/user/id_user/" + id, {headers: reqHeader});
   }
 
   getBycedula(cedula: any): Observable<UsuarioRequest[]> {
