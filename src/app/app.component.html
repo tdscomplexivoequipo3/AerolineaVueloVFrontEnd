@@ -15,7 +15,7 @@
     <div class="icon__menu">
       <i class="fas fa-bars" id="btn_open"></i>
     </div>
-    <div *ngIf="issloading==true" class="lis-pos">
+    <div *ngIf="issloading==true" id="lis-pos" class="lis-pos">
       <button class="hover" (click)="inicioGlobal()">
         <span class="hover">Inicio<mat-icon> list_alt</mat-icon></span>
       </button>
@@ -27,7 +27,7 @@
         <span class="hover">{{user.nombres}} {{user.apellidos}}<mat-icon> person_pin</mat-icon></span>
       </button>
       <mat-menu #perfil="matMenu">
-        <button mat-menu-item style="text-align: center" [routerLink]="['']">Perfil<mat-icon> person_pin</mat-icon></button>
+        <!--<button mat-menu-item style="text-align: center" [routerLink]="['']">Perfil<mat-icon> person_pin</mat-icon></button>-->
         <button mat-menu-item style="text-align: center" (click)="cerrarSesion()" >Cerrar Sesión<mat-icon>exit_to_app</mat-icon></button>
       </mat-menu>
     </div>
@@ -37,7 +37,7 @@
   <div class="menu__side" id="menu_side">
 
     <div class="name__page">
-      <img src="./assets/Images/plane.png" alt="">
+      <img src="/assets/Vuelos%20v.png" alt="Logo" id="imagen" class="imagen">
     </div>
 
     <div class="options__menu">

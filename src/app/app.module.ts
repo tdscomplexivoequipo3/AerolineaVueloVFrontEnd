@@ -62,6 +62,9 @@ import { DialogerrorComponent } from './layout/dialogerror/dialogerror.component
 import { OfertasdComponent } from './layout/ofertasd/ofertasd.component';
 import {ListadoValidaBoletosComponent} from "./componentes/listado-valida-boletos/listado-valida-boletos.component";
 import {CheckingTicketComponent} from "./componentes/checking-ticket/checking-ticket.component";
+import {
+  RegisterFlightCharterComponent
+} from "./componentes/register-flights/register-flight-charter/register-flight-charter.component";
 
 const routes: Routes = [
   {path:'reservas/:email', component:ReservaUsuarioComponent},
@@ -161,7 +164,7 @@ const routes: Routes = [
   {path:'asignacion/roles',component:DesignationRolesComponent},
   {path:'registro/edit/flight/:idvuelo', component:RegistroVuelosComponent},
   {path:'registro/gestion/reservas', component:GestionReservasComponent},
-  {path:'registro/charter/flight/:idreserva', component:RegistroVuelosComponent},
+  {path:'registro/charter/flight/:idreserva', component:RegisterFlightCharterComponent},
   {path:'administracion/home', component:SliderComponent},
   {path:'restricciones',component:RequisitosvComponent},
   {path:'condiciones',component:CondicionesgComponent},
@@ -223,7 +226,8 @@ const routes: Routes = [
     DialogerrorComponent,
     OfertasdComponent,
     ListadoValidaBoletosComponent,
-    CheckingTicketComponent
+    CheckingTicketComponent,
+    RegisterFlightCharterComponent
   ],
   imports: [
     RouterModule.forRoot(routes),

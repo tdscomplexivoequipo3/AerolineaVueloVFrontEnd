@@ -18,6 +18,7 @@ import Swal from "sweetalert2";
 export class WatchFlightsComponent implements OnInit {
 
   prom=false;
+  carga=true;
   @ViewChild('dialgOferta')
   dialgOferta!: TemplateRef<any>;
 
@@ -40,6 +41,12 @@ export class WatchFlightsComponent implements OnInit {
 
   ngOnInit(): void {
     this.listarflights();
+  }
+
+  ngAfterViewInit(): void {
+    setTimeout(()=>{
+      this.carga=false;
+    },2000)
   }
 
   listarflights(){

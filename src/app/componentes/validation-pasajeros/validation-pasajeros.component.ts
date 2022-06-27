@@ -17,6 +17,7 @@ import {MatDialog} from "@angular/material/dialog";
 })
 export class ValidationPasajerosComponent implements OnInit {
 
+  carga=true;
   displayedColumns: string[] = ['estado', 'fechaVuelta', 'horaSalida','horaLlegada','aceptar'];
   // @ts-ignore
   dataSource :MatTableDataSource<ReservaRequest>;
@@ -47,6 +48,12 @@ export class ValidationPasajerosComponent implements OnInit {
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
     })
+  }
+
+  ngAfterViewInit(): void {
+    setTimeout(()=>{
+      this.carga=false;
+    },2000)
   }
 
   applyFilter(event: Event) {

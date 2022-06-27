@@ -23,6 +23,7 @@ import {UpperCasePipe} from "@angular/common";
 })
 export class RegistroVuelosComponent implements OnInit {
 
+  carga=true;
   // @ts-ignore
   @ViewChild(MatPaginator) paginator: MatPaginator;
   // @ts-ignore
@@ -43,7 +44,11 @@ export class RegistroVuelosComponent implements OnInit {
   reserva:ReservaRequest=new ReservaRequest();
   datoscharter=false;
 
-
+  ngAfterViewInit(): void {
+    setTimeout(()=>{
+      this.carga=false;
+    },2000)
+  }
 
 
   public classReference = GlobalConstants;

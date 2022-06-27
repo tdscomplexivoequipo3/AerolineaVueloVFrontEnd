@@ -18,6 +18,7 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 })
 export class RegisterFlightCharterComponent implements OnInit {
 
+  carga=true;
   idreserva:any;
   flight:Flight=new Flight();
   typeFlight:TypeFlight=new TypeFlight();
@@ -47,6 +48,12 @@ export class RegisterFlightCharterComponent implements OnInit {
     }
     this.listarPlanes();
     this.listartipovuelo();
+  }
+
+  ngAfterViewInit(): void {
+    setTimeout(()=>{
+      this.carga=false;
+    },2000)
   }
 
   listartipovuelo(){

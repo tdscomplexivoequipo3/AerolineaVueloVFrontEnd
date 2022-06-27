@@ -1,4 +1,4 @@
- <mat-card-content>
+ <mat-card-content *ngIf="carga==false">
    <div style="text-align: center">
      <mat-card-title>Listado de Tipo de Vuelos</mat-card-title>
      <br><br>
@@ -60,6 +60,10 @@
    </div>
 
  </mat-card-content>
+
+ <ng-container *ngIf="carga">
+   <span class="loader"></span>
+ </ng-container>
 
 <ng-template #dialogtypeflight>
   <div style="text-align: center">

@@ -26,7 +26,8 @@ pdfMake.vfs = pdfFonts.pdfMake.vfs;
 })
 export class CheckingTicketComponent implements OnInit {
 
-  displayedColumns: string[] = ['id','origen', 'destino', 'fechas', 'fechal','horas','horal','estado','listado'];
+  carga=true;
+    displayedColumns: string[] = ['id','origen', 'destino', 'fechas', 'fechal','horas','horal','estado','listado'];
 
   // @ts-ignore
   dataSource: MatTableDataSource<VueloResponse>;
@@ -76,6 +77,12 @@ export class CheckingTicketComponent implements OnInit {
 
   ngOnInit(): void {
     this.listarvuelos();
+  }
+
+  ngAfterViewInit(): void {
+    setTimeout(()=>{
+      this.carga=false;
+    },2000)
   }
 
   listarvuelos(){

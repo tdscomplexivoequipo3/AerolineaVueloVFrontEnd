@@ -1,4 +1,4 @@
-<mat-card-content>
+<mat-card-content *ngIf="carga==false">
   <button mat-raised-button color="accent" class="center" color="accent" (click)="abridialogovuelos()">Nuevo Avión</button>
   <br>
   <div >
@@ -56,6 +56,10 @@
     <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
   </div>
 </mat-card-content>
+
+<ng-container *ngIf="carga">
+  <span class="loader"></span>
+</ng-container>
 
 
 <ng-template #dialogvuelo>

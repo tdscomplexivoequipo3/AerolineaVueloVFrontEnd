@@ -1,4 +1,4 @@
-<body>
+<body *ngIf="carga==false">
     <mat-card-content>
       <div class="btnac">
         <mat-card-title>REGISTRO DE VUELOS</mat-card-title>
@@ -110,4 +110,8 @@
     </mat-card-content>
 
 </body>
+
+<ng-container *ngIf="carga">
+  <span class="loader"></span>
+</ng-container>
 

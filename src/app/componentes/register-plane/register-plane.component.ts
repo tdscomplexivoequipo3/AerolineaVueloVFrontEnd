@@ -17,6 +17,7 @@ import Swal from "sweetalert2";
 export class RegisterPlaneComponent implements OnInit {
 
   plane:Plane=new Plane();
+  carga=true;
 
   displayedColumns: string[] = ['id', 'placa', 'tipo', 'descripcion', 'estado', 'edit','delete'];
   // @ts-ignore
@@ -38,6 +39,12 @@ export class RegisterPlaneComponent implements OnInit {
 
   ngOnInit(): void {
     this.listarPlanes()
+  }
+
+  ngAfterViewInit(): void {
+    setTimeout(()=>{
+      this.carga=false;
+    },2000)
   }
 
   listarPlanes(){

@@ -25,6 +25,9 @@ pdfMake.vfs = pdfFonts.pdfMake.vfs;
   styleUrls: ['./gestion-reservas.component.css']
 })
 export class GestionReservasComponent implements OnInit {
+
+  carga=true;
+
   displayedColumns: string[] = ['origen', 'destino', 'fechas', 'fechal','horas','horal','estado','gestion'];
 
   // @ts-ignore
@@ -66,6 +69,12 @@ export class GestionReservasComponent implements OnInit {
 
   ngOnInit(): void {
     this.listarreservas();
+  }
+
+  ngAfterViewInit(): void {
+    setTimeout(()=>{
+      this.carga=false;
+    },2000)
   }
 
 

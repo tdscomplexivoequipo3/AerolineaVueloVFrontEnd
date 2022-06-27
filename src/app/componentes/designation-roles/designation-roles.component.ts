@@ -28,6 +28,7 @@ import {EmpleadoService} from "../../services/EmpleadoService";
 })
 export class DesignationRolesComponent implements OnInit {
 
+  carga=true;
   displayedColumns: string[] = ['identificacion', 'nombres', 'apellidos','rol', 'edit','delete','cambio_rol'];
   // @ts-ignore
   dataSourceus: MatTableDataSource<UsuarioRequest>;
@@ -71,6 +72,12 @@ export class DesignationRolesComponent implements OnInit {
   ngOnInit(): void {
     this.listarRoles();
     this.listarUser();
+  }
+
+  ngAfterViewInit(): void {
+    setTimeout(()=>{
+      this.carga=false;
+    },2000)
   }
 
   openDialogoNUsuario(){

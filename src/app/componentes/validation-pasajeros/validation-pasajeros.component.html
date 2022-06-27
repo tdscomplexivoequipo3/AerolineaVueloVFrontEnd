@@ -1,4 +1,4 @@
-<body>
+<body *ngIf="carga==false">
 <div class="total">
   <div class="fondo_inicial">
     <h1 class="title">Viaja por todo el Ecuador</h1>
@@ -76,6 +76,9 @@
 </div>
 </body>
 
+<ng-container *ngIf="carga">
+  <span class="loader"></span>
+</ng-container>
 
 <ng-template #dialoguser>
   <form class="dialog" #formulario="ngForm">

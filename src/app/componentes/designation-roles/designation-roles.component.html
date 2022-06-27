@@ -1,4 +1,4 @@
-<div class="body">
+<div class="body" *ngIf="carga==false">
   <div class="grid">
     <mat-card-content>
       <h2>Asignación de Roles</h2>
@@ -121,6 +121,9 @@
   </div>
 </div>
 
+<ng-container *ngIf="carga">
+  <span class="loader"></span>
+</ng-container>
 
 <ng-template #dialogrol>
   <div style="text-align: center">
@@ -149,6 +152,7 @@
 </ng-template>
 
 <ng-template #dialogasignarrol>
+
   <div style="text-align: center">
 
     <mat-card-title>Asignacion de Rol para el Sistema</mat-card-title>
@@ -173,5 +177,7 @@
       <button mat-raised-button color="primary" (click)="guardarAsignacion()">GUARDAR</button>
     </div>
   </div>
+
+
 </ng-template>
 

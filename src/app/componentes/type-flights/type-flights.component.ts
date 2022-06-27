@@ -16,6 +16,7 @@ import Swal from "sweetalert2";
 })
 export class TypeFlightsComponent implements OnInit {
 
+  carga=true;
   typeflight:TypeFlight=new TypeFlight();
 
   displayedColumns: string[] = ['id', 'nombre', 'descripcion', 'edit','delete'];
@@ -39,6 +40,12 @@ export class TypeFlightsComponent implements OnInit {
 
   ngOnInit(): void {
     this.listarTypeflight();
+  }
+
+  ngAfterViewInit(): void {
+    setTimeout(()=>{
+      this.carga=false;
+    },2000)
   }
 
   listarTypeflight(){
