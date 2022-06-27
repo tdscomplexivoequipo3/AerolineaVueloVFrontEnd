@@ -1,9 +1,15 @@
 body{
   margin: 0; padding: 0;
-  height: 100%;
-  display: flex;
+  height: auto;
+  background-color: #282828;
 }
 
+ngb-carousel{
+  width: 100%;
+  height: 350px;
+  margin: 0;
+  padding: 0;
+}
 
 .fondo_inicial{
   width: 100%;
@@ -89,7 +95,7 @@ body{
   background-size: cover;
   background-repeat: no-repeat;
   background-image: url("https://www.metropoliabierta.com/uploads/s1/14/54/14/1/5dcbe4770ed8f190940775_5_570x340.jpeg");
-  color: white;
+  color: #ffffff !important;
   padding-left: 20px;
   padding-right: 5px;
   padding-top: 60%;
@@ -115,7 +121,7 @@ body{
 }
 
 .historal h2{
-  color: white;
+  color: #000000;
 }
 
 .historal:hover{
@@ -190,4 +196,6 @@ h2{
   grid-row: 1;
   background-color: white;
 }
+
+
 

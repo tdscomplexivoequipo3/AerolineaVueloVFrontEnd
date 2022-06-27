@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {GlobalConstants} from "../../../common/GlobalConstants";
 import {NgxSpinnerService} from "ngx-spinner";
@@ -26,6 +26,14 @@ export class ReservaUsuarioComponent implements OnInit {
       this.isloggin=true;
     }
   }
+
+  paused = true;
+  unpauseOnArrow = false;
+  pauseOnIndicator = false;
+  pauseOnHover = true;
+  pauseOnFocus = true;
+
+
 
   showSuccess() {
     if(this.isloggin){
@@ -58,9 +66,7 @@ export class ReservaUsuarioComponent implements OnInit {
   }
 
   onClickVuelosCharter():void{
-
       this.router.navigate(['/ofertas/charter',JSON.parse(sessionStorage.getItem("user")+"").email]);
-
   }
 
 

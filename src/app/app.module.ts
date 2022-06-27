@@ -234,7 +234,6 @@ const routes: Routes = [
     HttpClientModule,
     NgxSpinnerModule,
     ReactiveFormsModule,
-
   ],
   providers: [UsuarioService,VueloService,UserTokenService,AsientoService,PasajeroService,ScriptService,
   {provide:HTTP_INTERCEPTORS, useClass: UnAuthorizedInterceptor, multi: true }
