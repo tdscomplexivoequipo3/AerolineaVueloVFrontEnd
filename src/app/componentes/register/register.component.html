@@ -10,19 +10,30 @@
       <form class="my-form" #formulario="ngForm">
         <mat-form-field class="full-width">
           <mat-label>Nombre</mat-label>
-          <input [(ngModel)]="objeto.nombres" matInput  placeholder="Ingrese su nombre"  name="nombres"  required>
+          <input [(ngModel)]="objeto.nombres" matInput  placeholder="Ingrese su nombre"  name="nombres"
+                 type="text"
+                 minlength="5"
+                 required>
           <mat-icon matPrefix>perm_identity</mat-icon>
         </mat-form-field>
 
         <mat-form-field class="full-width">
           <mat-label>Apellido</mat-label>
-          <input  matInput   [(ngModel)]="objeto.apellidos" placeholder="Ingrese su apellido" name="apellidos"  required>
+          <input  matInput   [(ngModel)]="objeto.apellidos"
+                  type="text"
+                  minlength="5"
+                  placeholder="Ingrese su apellido" name="apellidos"  required>
           <mat-icon matPrefix>perm_identity</mat-icon>
         </mat-form-field>
 
         <mat-form-field class="full-width">
           <mat-label>Identificación</mat-label>
-          <input  [(ngModel)]="objeto.doc_identificacion" matInput  placeholder="Ingrese su Cedúla" name="docIdentificacion"  required>
+          <input  [(ngModel)]="objeto.doc_identificacion" matInput
+                  type="text"
+                  minlength="10"
+                  maxlength="10"
+                  (keypress)="onKeyPress($event)"
+                  placeholder="Ingrese su Cedúla" name="docIdentificacion"  required>
           <mat-icon matPrefix>fingerprint</mat-icon>
         </mat-form-field>
 
@@ -58,14 +69,18 @@
         <mat-form-field class="full-width" >
           <mat-label>Telefono</mat-label>
           <span matPrefix>+1 &nbsp;</span>
-          <input required [(ngModel)]="objeto.telefono"  name="telefono" type="tel" matInput placeholder="555-555-1234">
+          <input required [(ngModel)]="objeto.telefono"  name="telefono"
+                 minlength="10" type="tel" matInput placeholder="555-555-1234">
           <mat-icon matSuffix>mode_edit</mat-icon>
         </mat-form-field>
 
         <mat-form-field class="full-width">
           <mat-label>Razón Social</mat-label>
           <input [(ngModel)]="objeto.razonSocial"
-                 matInput  placeholder="Ingrese su razón social" name="razonSocial"  required>
+                 matInput  placeholder="Ingrese su razón social" name="razonSocial"
+                 type="text"
+                 minlength="5"
+                 required>
           <mat-icon matPrefix>spellcheck</mat-icon>
         </mat-form-field>
 
@@ -95,15 +110,19 @@
           <h3>REGISTRO DE USUARIO</h3>
           <mat-form-field class="full-width-dialog">
             <mat-label>Usuario</mat-label>
-            <input  matInput type="email" [(ngModel)]="objeto.email" placeholder="Ingrese su email"  name="email"  required>
+            <input  matInput type="email"
+                    minlength="15"
+                    [(ngModel)]="objeto.email" placeholder="Ingrese su email"  name="email"  required>
             <mat-icon matSuffix >email</mat-icon>
           </mat-form-field>
 
           <mat-form-field class="full-width-dialog">
             <mat-label>Contraseña</mat-label>
-            <input  matInput [(ngModel)]="objeto.clave"  placeholder="Ingrese su Contraseña" name="clave"
+            <input  matInput [(ngModel)]="objeto.clave"
+                    placeholder="Ingrese su Contraseña" name="clave"
                     [type]="hide ? 'password' : 'text'"
-                    required>
+                    required
+            >
             <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
           </mat-form-field>
 

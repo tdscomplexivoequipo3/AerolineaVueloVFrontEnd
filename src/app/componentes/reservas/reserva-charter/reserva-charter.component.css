@@ -106,11 +106,15 @@ button{
   display: flex;
 }
 
+.row_c_cont .i1 input{
+  width: 200px!important;
+  background-color: red!important;
+}
+
 .row_c{
   display: flex;
   flex-direction: column;
   margin-left: 20px;
-
 }
 
 .row_c .label_r{
@@ -166,4 +170,42 @@ button{
 .pasajeros_button:hover{
   background-color: #1d4f71;
   color: #ffffff;
+}
+
+.i1{
+  background-color: #2C3E50 !important;
+  width: 100px;
+  height: 100px;
+}
+
+.calendar{
+  background-color: rgba(255, 0, 0, 0);
+  box-shadow: none;
+  display: flex;
+}
+
+.calendar mat-icon{
+  color: #2C3E50 !important;
+  margin: 0;
+  padding: 0;
+}
+
+.error_label{
+  color: red!important;
+  font-weight: 600 !important;
+  margin-left: 10px;
+}
+
+.action{
+  background-color: #2C3E50;
+  box-shadow: none;
+  border: none;
+  border-radius: 15px;
+  padding: 15px 20px;
+  font-weight: 800;
+  font-size: 15px;
+}
+
+.action:disabled{
+  background-color: #ababab;
 }

@@ -8,7 +8,7 @@ import {UserTokenService} from "../../../services/UserTokenService";
 import {ReservaService} from "../../../services/ReservaService";
 import Swal from "sweetalert2";
 import {GlobalConstants} from "../../../common/GlobalConstants";
-
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-reserva-charter',
@@ -25,7 +25,8 @@ export class ReservaCharterComponent implements OnInit {
               private activatedRoute: ActivatedRoute,
               private serviceVuelo:VueloService,
               private serviceUsuario:UserTokenService,
-              private serviceReserva:ReservaService) {
+              private serviceReserva:ReservaService,
+              private _snackBar: MatSnackBar) {
       this.classReference.user=JSON.parse(sessionStorage.getItem("user")+"");
       if (!this.classReference.user){
         this.router.navigate(['/'])
@@ -48,64 +49,62 @@ export class ReservaCharterComponent implements OnInit {
 
 
   registrar():void{
-    this.observable_user?.subscribe(
-      _objet=>{
-        this.vuelo.idUsuario=_objet.id;
-        this.vuelo.pago=false;
-        this.vuelo.fechaRegistro=new Date();
-        this.vuelo.estado=1;
-        console.log(this.vuelo)
-        this.serviceReserva.registerSinVuelo(this.vuelo).subscribe(data => {
-            Swal.fire({
-              icon: 'success',
-              title: 'Registro Estado',
-              text: 'Registro Correcto',
-              confirmButtonColor: "#0c3255"
-            }).then(async (result) => {
-              if(result.isConfirmed){
-                this.activatedRoute.params.subscribe( params => {
-                  let id = params['email'];
-                  this.router.navigate(['/reservas',id]);
-                })
-              }
-            });
+    this.error_h=false;
+    this.error_f=false;
+    var bandera=true;
 
-          },err=> {
-            Swal.fire({
-              icon: 'warning',
-              title: 'Acceso Denegado',
-              text: err.error.message,
-              confirmButtonColor: "#0c3255"
-            })
-          }
-        );
+    if(this.calculoTiempo()==false){
+      bandera=false;
+      this.error_h=true;
+    }
+    if(this.calculoFechas()==false){
+      bandera=false;
+      this.error_f=true;
+    }
 
-        //__________-
-      }, error => console.log(error));
+    if(bandera){
+      console.log("listo el pollo")
+    }
 
   }
 
-  calculoTiempo():string{
-    if((this.vuelo.horaSalida==null || this.vuelo.horaSalida=='') ||
-      (this.vuelo.horaLlegada==null || this.vuelo.horaLlegada=='')){
-      return '0';
-    }else{
-      var hora1 = this.vuelo.horaSalida.split(":"),
+  calculoTiempo():boolean{
+        var hora1 = this.vuelo.horaSalida.split(":"),
         hora2 =  this.vuelo.horaLlegada.split(":"),
-        t1 = new Date(),
-        t2 = new Date();
+          h1:number=Number(hora1[0]),
+          h2:number=Number(hora2[0]),
+          m1:number=Number(hora1[1]),
+          m2:number=Number(hora2[1]);
 
-      t1.setHours(Number(hora1[0]), Number(hora1[1]), 0);
-      t2.setHours(Number(hora2[0]), Number(hora2[1]), 0);
+        if(h2>h1){
+          return true;
+        }else if(h2==h1 && m2>m1){
+          return true;
+        }
 
-      t1.setHours(t1.getHours() - t2.getHours(), t1.getMinutes() - t2.getMinutes(), t1.getSeconds() - t2.getSeconds());
+      return false;
+  }
 
-      t1.setHours(t1.getHours() - t2.getHours(), t1.getMinutes() - t2.getMinutes(), t1.getSeconds() - t2.getSeconds());
 
-      var result:string=(t1.getHours() ? t1.getHours() + (t1.getHours() > 1 ? " horas" : " hora") : "") + (t1.getMinutes() ? ", " + t1.getMinutes() + (t1.getMinutes() > 1 ? " minutos" : " minuto") : "") + (t1.getSeconds() ? (t1.getHours() || t1.getMinutes() ? " y " : "") + t1.getSeconds() + (t1.getSeconds() > 1 ? " segundos" : " segundo") : "");
-
-      return result;
+  calculoFechas():boolean{
+    if(this.vuelo.fechaIda>this.vuelo.fechaVuelta){
+      return false
     }
-    }
+    return true;
+  }
+
+
+
+  error_f:any=false;
+  error_h:any=false;
+
+  durationInSeconds = 3;
+  showSuccessInCorrect(message: string, action: string) {
+    this._snackBar.open(message, action,{
+      duration: this.durationInSeconds * 1000,
+      panelClass: ['red-snackbar', 'login-snackbar']
+    });
+  }
+
 
 }

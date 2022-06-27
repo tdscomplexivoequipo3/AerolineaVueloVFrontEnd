@@ -8,7 +8,7 @@
     </div>
 
     <div class="total_b">
-      <form class="my-form" #formulario="ngForm">
+      <form class="my-form" #formulario_="ngForm">
         <div class="portada">
           <h3>Registro de Vuelo Charter</h3>
         </div>
@@ -17,31 +17,41 @@
           <div class="row_c">
             <div class="row_c_cont">
               <input [(ngModel)]="vuelo.fechaIda" name="fechaIda"
-                     matInput [matDatepicker]="picker" placeholder="d/m/yyyy" required>
-              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                     matInput [matDatepicker]="picker" placeholder="m/d/yyyy" required
+              >
               <mat-datepicker #picker></mat-datepicker>
             </div>
-
-            <label class="label_">Fecha Ida</label>
+            <label class="label_">
+              Fecha Ida
+            </label>
           </div>
+          <button mat-raised-button class="calendar" (click)="picker.open()">
+            <mat-icon>date_range</mat-icon>
+          </button>
           <div class="row_c">
             <div class="row_c_cont">
               <input [(ngModel)]="vuelo.fechaVuelta" name="fechaVuelta"
-                     matInput [matDatepicker]="picker_v" placeholder="d/m/yyyy" required>
-              <mat-datepicker-toggle matSuffix [for]="picker_v"></mat-datepicker-toggle>
+                     matInput [matDatepicker]="picker_v" placeholder="m/d/yyyy"
+                     required
+                     >
               <mat-datepicker #picker_v></mat-datepicker>
             </div>
             <label class="label_">Fecha Vuelta</label>
           </div>
-
+          <button class="calendar" mat-raised-button (click)="picker_v.open()">
+            <mat-icon>date_range</mat-icon>
+          </button>
         </div>
-
-
+        <label class="label_ error_label" *ngIf="error_f">
+          Fecha de Vuelta erronea
+        </label>
 
         <div class="row">
           <label class="label_t">Horarios</label>
           <div class="row_c">
-            <input  class="input"   type="time" [(ngModel)]="vuelo.horaSalida"
+            <input  class="input"
+                    type="time"
+                    [(ngModel)]="vuelo.horaSalida"
                     name="horaSalida" required>
             <label class="label_">Hora de Salida</label>
           </div>
@@ -49,17 +59,19 @@
             <input  class="input" type="time" [(ngModel)]="vuelo.horaLlegada" name="horaLlegada" required>
             <label class="label_">Hora de LLegada</label>
           </div>
-          <div class="row_c r">
-            <label class="label_r">Total: {{calculoTiempo()}}</label>
-          </div>
-
         </div>
+        <label class="label_ error_label" *ngIf="error_h">
+          Hora de Salida mayor a Hora de LLegada
+        </label>
 
 
         <div class="row">
           <label class="label_t">Observación</label>
           <div class="row_c">
-            <input  class="input" [(ngModel)]="vuelo.observacion" name="observacion" required>
+            <input  class="input" [(ngModel)]="vuelo.observacion" name="observacion" required
+                    type="text"
+                    minlength="5"
+            >
             <label class="label_">Comentario</label>
           </div>
         </div>
@@ -68,13 +80,19 @@
           <label class="label_t">Vuelo</label>
           <div class="row_c">
             <mat-form-field  class="full-width-select" >
-                <input  class="input" [(ngModel)]="vuelo.origen" name="origen" required>
+                <input  class="input" [(ngModel)]="vuelo.origen" name="origen"
+                        type="text"
+                        minlength="5"
+                        required>
                 <label class="label_">Vuelo de Origen</label>
             </mat-form-field>
           </div>
           <div class="row_c">
             <mat-form-field  class="full-width-select" >
-              <input  class="input" [(ngModel)]="vuelo.destino" name="destino" required>
+              <input  class="input" [(ngModel)]="vuelo.destino" name="destino"
+                      type="text"
+                      minlength="5"
+                      required>
               <label class="label_">Vuelo de Destino</label>
             </mat-form-field>
           </div>
@@ -82,9 +100,9 @@
 
         <div class="row_ac">
         <mat-card-actions>
-          <button mat-raised-button
-                  [disabled]="!formulario.valid" (click)="registrar()">
-            RESERVAR
+          <button class="action"
+                  [disabled]="!formulario_.valid" (click)="registrar()">
+            Reservar
           </button >
         </mat-card-actions>
         </div>

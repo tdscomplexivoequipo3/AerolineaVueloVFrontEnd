@@ -13,13 +13,13 @@ import {PasajeroRequest} from "../../../../models/Request/PasajeroRequest";
 import {ReservaService} from "../../../../services/ReservaService";
 import {ActivatedRoute, Router} from "@angular/router";
 import {VueloService} from "../../../../services/Vuelo.service";
-import {ReservaRequest} from "../../../../models/Request/ReservaRequest";
 import {GlobalConstants} from "../../../../common/GlobalConstants";
 import {ReservaAsientoPajeroResponse} from "../../../../models/Response/ReservaAsientoPajeroResponse";
 import {MatAccordion} from "@angular/material/expansion";
 import {MatTableDataSource} from "@angular/material/table";
 import {MatSort} from "@angular/material/sort";
 import {MatPaginator} from "@angular/material/paginator";
+import {MatStepper, MatStepperIntl} from "@angular/material/stepper";
 
 @Component({
   selector: 'app-lista-pasajeros',
@@ -66,6 +66,7 @@ export class ListaPasajerosComponent implements OnInit {
   users: UsuarioResponse[] = [];
   if_onlyread=false;
 
+  @ViewChild('stepper') stepper: MatStepper;
 
 
   constructor(public dialog: MatDialog,
@@ -188,44 +189,50 @@ export class ListaPasajerosComponent implements OnInit {
   }
 
   registrarListado(){
-    this.get();
-    this.activatedRoute.params.subscribe( params => {
 
-      console.log(params['reserva']+"pito")
+    if(this.users.length<4){
+      this.showSuccessInCorrect("Numero minimo de pasajeros: '5'","Alert");
+    }else{
+      this.stepper.next();
+      this.activatedRoute.params.subscribe( params => {
 
-      this.service_reserva.getReservaByid(params['reserva']).subscribe(reserva_obj=>{
+        this.service_reserva.getReservaByid(params['reserva']).subscribe(reserva_obj=>{
 
-        this.users.map(obj=>{
+          this.users.map(obj=>{
 
-          this.service_vuelo.getVueloById(reserva_obj.idVuelo).subscribe(vuelo=>{
+            this.service_vuelo.getVueloById(reserva_obj.idVuelo).subscribe(vuelo=>{
 
-            var asiento=new AsientoRequest();
-            asiento.nombre=this.getNombreAsiento();
-            asiento.estado=1;
-            asiento.idAvion=vuelo.idAvion;
-            this.service_asiento.registerAsient(asiento).subscribe(asiento_=>{
-              var pasajero=new PasajeroRequest();
-              pasajero.nombres=obj.nombres+" "+obj.apellidos;
-              pasajero.docIdentificacion=obj.docIdentificacion;
-              pasajero.estado=false;
-              pasajero.idReserva=params['reserva'];
-              pasajero.idAsiento=asiento_.idAsiento;
+              var asiento=new AsientoRequest();
+              asiento.nombre=this.getNombreAsiento();
+              asiento.estado=1;
+              asiento.idAvion=vuelo.idAvion;
+              this.service_asiento.registerAsient(asiento).subscribe(asiento_=>{
+                var pasajero=new PasajeroRequest();
+                pasajero.nombres=obj.nombres+" "+obj.apellidos;
+                pasajero.docIdentificacion=obj.docIdentificacion;
+                pasajero.estado=false;
+                pasajero.idReserva=params['reserva'];
+                pasajero.idAsiento=asiento_.idAsiento;
 
-              this.service_pasajero.register(pasajero).subscribe(pasajero_=>{
-                var reserva_r=reserva_obj;
-                reserva_r.idUsuario=this.classReference.user.id;
-                reserva_r.estado=0;
-                    this.service_reserva.update(reserva_r).subscribe(actualizacion=>{
-                      //setiar Resltado
-                      this.resultado.push({asiento:asiento_, pasajero:pasajero_});
-                      this.get();
-                    })
+                this.service_pasajero.register(pasajero).subscribe(pasajero_=>{
+                  var reserva_r=reserva_obj;
+                  reserva_r.idUsuario=this.classReference.user.id;
+                  reserva_r.estado=0;
+                  this.service_reserva.update(reserva_r).subscribe(actualizacion=>{
+                    //setiar Resltado
+                    this.resultado.push({asiento:asiento_, pasajero:pasajero_});
+
+                  })
+                })
               })
             })
           })
+          this.get();
         })
       })
-    })
+    }
+
+
   }
 
   asientos:string[]=new Asientos().asientos;
