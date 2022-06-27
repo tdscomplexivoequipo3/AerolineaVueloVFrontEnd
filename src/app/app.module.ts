@@ -173,11 +173,15 @@ const routes: Routes = [
   {path:'administracion/home', component:SliderComponent},
   {path:'restricciones',component:RequisitosvComponent},
   {path:'condiciones',component:CondicionesgComponent},
-  {path:'ofertas/destino/:destino/:id',component:OfertasUsersComponent},
+//  {path:'ofertas/destino/:destino/:id',component:OfertasUsersComponent},
   {path:'inicio/ofertasdestinos',component:OfertasdComponent},
   {path:'ofertas/busqueda/:origen/:destino/:fida/:fregreso',component:OfertasUsersComponent},
   {path:'registro/checking/ticket', component:CheckingTicketComponent},
   {path:'registro/list/ticket/:idvuelo', component:ListadoValidaBoletosComponent},
+  //
+  {path:'ofertas/destino/:destinociudad/:id',component:OfertasUsersComponent},
+  {path:'ofertas/destino/:destinociudad',component:OfertasUsersComponent},
+  {path:'ofertas/busquedapromocion/:destinopromocion/:selectedValue/:fidapromocion/:fregresopromocion',component:OfertasUsersComponent},
 ]
 
 @NgModule({

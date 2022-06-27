@@ -1,7 +1,7 @@
 .componentes{
   padding: 16px;
   background-color: #ffffff;
-  height: 876px;
+  height: auto;
   width: 1420px;
   display:flex;
   border-radius: 10px;
@@ -25,5 +25,4 @@
   box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
   -webkit-transform: translateY(-0.25em);
   transform: translateY(-0.25em);
-
 }

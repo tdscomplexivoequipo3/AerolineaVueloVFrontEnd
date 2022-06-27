@@ -27,6 +27,12 @@ export  class PromocionService  {
 
     return this.http_client.get<PromocionResponse[]>(this.urlEndPoint+"/promocionAll", {headers:reqHeader});
   }
+  getAllPromocionessintoken():Observable<PromocionResponse[]>{
+    var reqHeader = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+    return this.http_client.get<PromocionResponse[]>(this.urlEndPoint+"/promocionAll", {headers:reqHeader});
+  }
 
   getByid(id:any):Observable<PromocionRequest[]>{
     var reqHeader = new HttpHeaders({

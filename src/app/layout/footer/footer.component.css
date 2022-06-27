@@ -6,3 +6,9 @@
 .example-spacer{
   flex: 1 1 auto;
 }
+.imagen{
+  width: 90px;
+  height: 90px;
+  zoom: unset;
+  border-radius: 100%;
+}

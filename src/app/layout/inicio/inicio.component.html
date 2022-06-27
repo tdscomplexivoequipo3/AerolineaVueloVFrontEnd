@@ -16,44 +16,26 @@
         </ng-template>
         <!--inicio componente-->
         <div class="panel">
-          <div class="panel2">
-            <mat-toolbar class="caja3">
-              <mat-form-field appearance="outline" class="cajatrayectoria">
-                <mat-label style="color: black">viaje</mat-label >
-                <mat-select [(ngModel)]="selectedValue"   >
-                  <mat-option *ngFor="let viaje of viajes" [value]="viaje.value">
-                    {{viaje.viewValue}}
-                  </mat-option>
-                </mat-select>
-              </mat-form-field>
-              <mat-form-field appearance="outline" class="cajatrayectoria">
-                <mat-label style="color: black">Tipo de vuelo</mat-label >
-                <mat-select [(ngModel)]="selectedValue1"  name="food" >
-                  <mat-option *ngFor="let vuelo of vuelos" [value]="vuelo.value">
-                    {{vuelo.viewValue}}
-                  </mat-option>
-                </mat-select>
-              </mat-form-field>
-            </mat-toolbar>
+          <div class="panel2"> <form >
+            <mat-form-field appearance="outline" class="caja">
+              <input matInput placeholder="Ciudad de origen" required [formControl]="formulario" [(ngModel)]="origen" >
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="caja">
+              <input matInput placeholder="Ciudad de Destino" required [formControl]="formulario1" [(ngModel)]="destinop">
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="caja">
+              <mat-label>Seleccione una fecha</mat-label>
+              <mat-date-range-input [rangePicker]="picker1">
+                <input matStartDate placeholder="Fecha de Ida" required [formControl]="formulario2" [(ngModel)]="fida1">
+                <input matEndDate placeholder="Fecha de regreso" required [formControl]="formulario3" [(ngModel)]="fregreso1">
+              </mat-date-range-input>
+              <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+              <mat-date-range-picker #picker1></mat-date-range-picker>
+            </mat-form-field>
+            <button mat-stroked-button color="warn" style="width: 180px;height: 40px;margin: 8px" (click)="trasformarFechas()"  [disabled]="!formulario.valid || !formulario1.valid || !formulario2.valid || !formulario3.valid">Buscar</button>
+          </form>
             <div class="panel3">
-              <form >
-                <mat-form-field appearance="outline" class="caja">
-                  <input matInput placeholder="Ciudad de origen" required [formControl]="formulario" >
-                </mat-form-field>
-                <mat-form-field appearance="outline" class="caja">
-                  <input matInput placeholder="Ciudad de Destino" required [formControl]="formulario1">
-                </mat-form-field>
-                <mat-form-field appearance="outline" class="caja">
-                  <mat-label>Seleccione una fecha</mat-label>
-                  <mat-date-range-input [rangePicker]="picker">
-                    <input matStartDate placeholder="Fecha de Ida" required [formControl]="formulario2">
-                    <input matEndDate placeholder="Fecha de regreso" required [formControl]="formulario3">
-                  </mat-date-range-input>
-                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                  <mat-date-range-picker #picker></mat-date-range-picker>
-                </mat-form-field>
-                <button mat-stroked-button color="warn" style="width: 180px;height: 40px;margin: 8px" routerLink="ofertas/busqueda/" [disabled]="!formulario.valid || !formulario1.valid || !formulario2.valid || !formulario3.valid">Buscar</button>
-              </form>
+
             </div>
           </div>
         </div>
@@ -65,27 +47,25 @@
         </ng-template>
         <div class="panel4">
           <mat-form-field appearance="outline" class="caja">
-            <input matInput placeholder="Ciudad de Destino" required >
+            <input matInput placeholder="Ciudad de Destino" required [formControl]="formulario1" required [(ngModel)]="destinopromocion">
           </mat-form-field>
           <mat-form-field appearance="outline" class="cajatrayectoria1">
             <mat-label style="color: black">Precio</mat-label >
-            <mat-select [(ngModel)]="selectedValue"   >
-              <mat-option *ngFor="let precio of precios" [value]="precio.value">
-                {{precio.viewValue}}
-              </mat-option>
+            <mat-select [(ngModel)]="selectedValue" >
+              <mat-option *ngFor="let precio of listprecios;" [value]="precio">{{precio}}</mat-option>
             </mat-select>
           </mat-form-field>
           <mat-form-field appearance="outline" class="caja">
             <mat-label>Seleccione una fecha</mat-label>
             <mat-date-range-input [rangePicker]="picker">
-              <input matStartDate placeholder="Fecha de Ida">
-              <input matEndDate placeholder="Fecha de regreso">
+              <input matStartDate placeholder="Fecha de Ida" [formControl]="formulario2" [(ngModel)]="fechaipromocion">
+              <input matEndDate placeholder="Fecha de regreso" [formControl]="formulario3" [(ngModel)]="fechatpromocion">
             </mat-date-range-input>
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-date-range-picker #picker></mat-date-range-picker>
           </mat-form-field>
 
-          <button mat-stroked-button color="warn" style="width: 180px;height: 40px;margin: 8px">Buscar</button>
+          <button mat-stroked-button color="warn" style="width: 180px;height: 40px;margin: 8px"[disabled]="!formulario1.valid || !formulario2.valid || !formulario3.valid" (click)="EnviarDatosPromocion()">Buscar</button>
         </div>
       </mat-tab>
     </mat-tab-group>
@@ -124,7 +104,7 @@
 </h2>
 </div>
 <div class="content" >
-    <div  *ngFor="let v of vuelost2" class="divContenedor">
+    <div  *ngFor="let v of vuelost3" class="divContenedor">
       <mat-card class="mat-elevation-z2" >
         <img mat-card-img src="{{v.imagen}}" alt="logo"  style="height:200px;width:350px" >
         <mat-card-content >
@@ -133,7 +113,7 @@
           </h1>
         </mat-card-content>
         <mat-card-actions style="text-align: right">
-          <button mat-button color="warn" [routerLink]="['/ofertas/destino/',v.destino,v.idVuelo]"><mat-icon>trending_flat</mat-icon></button>
+          <button mat-button color="warn" [routerLink]="['/ofertas/destino/',v.destino]"><mat-icon>trending_flat</mat-icon></button>
         </mat-card-actions>
       </mat-card>
     </div>

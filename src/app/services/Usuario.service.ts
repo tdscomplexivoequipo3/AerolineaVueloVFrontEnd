@@ -27,12 +27,17 @@ export  class  UsuarioService {
 
     return this.http_client.get<UsuarioResponse[]>(this.urlEndPoint + "/usuarioAll", {headers: reqHeader});
   }
-
-  getAllEmail(): Observable<UsuarioResponse[]> {
+  getAllsinToken(): Observable<UsuarioResponse[]> {
     var reqHeader = new HttpHeaders({
       'Content-Type': 'application/json',
     });
     return this.http_client.get<UsuarioResponse[]>(this.urlEndPoint + "/usuarioAll", {headers: reqHeader});
+  }
+  getAllEmail(email:any): Observable<UsuarioResponse> {
+    var reqHeader = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
+    return this.http_client.get<UsuarioResponse>(this.urlEndPoint + "/"+email, {headers: reqHeader});
   }
 
   getByid(id: any): Observable<UsuarioRequest[]> {

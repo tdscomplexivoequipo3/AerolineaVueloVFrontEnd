@@ -39,24 +39,24 @@
 <div class="panel">
   <div class="panel2">
    <div class="panel3">
-
-     <mat-form-field appearance="outline" class="caja">
-       <input matInput placeholder="Ciudad de origen" required >
-     </mat-form-field>
-     <mat-form-field appearance="outline" class="caja">
-       <input matInput placeholder="Ciudad de Destino" required >
-     </mat-form-field>
-     <mat-form-field appearance="outline" class="caja">
-       <mat-label>Seleccione una fecha</mat-label>
-       <mat-date-range-input [rangePicker]="picker">
-         <input matStartDate placeholder="Fecha de Ida">
-         <input matEndDate placeholder="Fecha de regreso">
-       </mat-date-range-input>
-       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-       <mat-date-range-picker #picker></mat-date-range-picker>
-     </mat-form-field>
-     <button mat-stroked-button color="warn" style="width: 180px;height: 40px;margin: 8px">Buscar</button>
-
+     <form >
+       <mat-form-field appearance="outline" class="caja">
+         <input matInput placeholder="Ciudad de origen" required [formControl]="formulario" [(ngModel)]="origen" >
+       </mat-form-field>
+       <mat-form-field appearance="outline" class="caja">
+         <input matInput placeholder="Ciudad de Destino" required [formControl]="formulario1" [(ngModel)]="destinop">
+       </mat-form-field>
+       <mat-form-field appearance="outline" class="caja">
+         <mat-label>Seleccione una fecha</mat-label>
+         <mat-date-range-input [rangePicker]="picker1">
+           <input matStartDate placeholder="Fecha de Ida" required [formControl]="formulario2" [(ngModel)]="fida1">
+           <input matEndDate placeholder="Fecha de regreso" required [formControl]="formulario3" [(ngModel)]="fregreso1">
+         </mat-date-range-input>
+         <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+         <mat-date-range-picker #picker1></mat-date-range-picker>
+       </mat-form-field>
+       <button mat-stroked-button color="warn" style="width: 180px;height: 40px;margin: 8px" (click)="trasformarFechas()"  [disabled]="!formulario.valid || !formulario1.valid || !formulario2.valid || !formulario3.valid">Buscar</button>
+     </form>
    </div>
   </div>
 </div>
