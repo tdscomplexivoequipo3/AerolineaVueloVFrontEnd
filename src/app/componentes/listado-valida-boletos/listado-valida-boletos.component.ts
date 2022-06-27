@@ -212,7 +212,7 @@ export class ListadoValidaBoletosComponent implements OnInit {
                   }
                 ],
                 {
-                  qr: 'prueba QR https://vuelovc1g1.github.io/VuelaVG1C1fFront/inicio/buscarboleto/',fit: '180'
+                  qr: 'Vuelav-0000'+this.fligth.idVuelo+' - '+this.datos.datos,fit: '180'
                 },
               ]
             },
