@@ -121,6 +121,7 @@ export class DesignationRolesComponent implements OnInit {
         duration: 1 * 1000,
       });
       this.listarRoles();
+      this.dialog.closeAll();
     })
   }
 

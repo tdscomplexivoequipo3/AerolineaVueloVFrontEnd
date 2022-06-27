@@ -1,0 +1,81 @@
+<body>
+<mat-card-content>
+  <div class="btnac">
+    <mat-card-title>REGISTRO DE VUELOS CHARTER</mat-card-title>
+    <br><br>
+    <mat-card-subtitle *ngIf="datoscharter">Complete los datos para el vuelo charter</mat-card-subtitle>
+    <br><br>
+  </div>
+  <mat-card>
+    <br>
+    <div class="grid">
+      <span><strong>Origen: </strong> {{reserva.origen}}</span>
+      <span><strong>Destino: </strong> {{reserva.destino}}</span>
+      <span><strong>Fecha Ida: </strong> {{reserva.fechaIda}}</span>
+      <span><strong>Fecha Llegada: </strong> {{reserva.fechaVuelta}}</span>
+      <span><strong>Hora Salida: </strong> {{reserva.horaSalida}}</span>
+      <span><strong>Hora Llegada: </strong> {{reserva.horaLlegada}}</span>
+    </div>
+    <br>
+  </mat-card>
+  <br><br><br>
+  <form #formulario="ngForm">
+    <div class="grid1">
+      <div>
+        <mat-form-field class="full-width">
+          <mat-label>Precio</mat-label>
+          <input  matInput type="number" placeholder="Ingrese el precio " name="precio" [(ngModel)]="flight.precio"  required>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field class="full-width">
+          <mat-label>Tipo de vuelo</mat-label>
+          <mat-select [(ngModel)]="flight.idTipoVuelo" name="tvuelo" required [disabled]="datoscharter">
+            <mat-option *ngFor="let type of listtypeflight" [value]="type.idTipoVuelo">
+              {{type.nombre}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field class="full-width">
+          <mat-label>Avion</mat-label>
+          <mat-select [(ngModel)]="flight.idAvion" name="avion" required>
+            <mat-option *ngFor="let av of listPlane" [value]="av.idAvion">
+              Placa: {{av.placa}} Tipo: {{av.tipo}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field class="full-width">
+          <mat-label>Observaciones del cliente</mat-label>
+          <input matInput placeholder="observaciones " name="observa" [(ngModel)]="reserva.observacion" required [disabled]="datoscharter">
+        </mat-form-field>
+        <br>
+      </div>
+      <div>
+        <form  #formulario1="ngForm">
+          <div class="grid">
+            <div>
+              <mat-form-field class="full-width">
+                <mat-label>ID vuelo</mat-label>
+                <input  matInput type="number" placeholder="id_vuelo" name="id_vuelo" [(ngModel)]="flightGet.idVuelo"  required [disabled]="datoscharter">
+              </mat-form-field>
+              <label style="color: green" *ngIf="idvuelo">Vuelo Asignado</label>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+  </form>
+  <br>
+  <div class="btnac">
+      <button mat mat-raised-button color="warn" mat-button *ngIf="!idvuelo" [routerLink]="['/registro/gestion/reservas']">Cancelar</button>
+      <button mat-raised-button color="primary" *ngIf="!idvuelo" [disabled]="!formulario.valid" (click)="guardarVuelo()">Crear Vuelo</button>
+      <button mat-raised-button color="primary" *ngIf="idvuelo" (click)="updateReserva(flightGet.idVuelo)">Asignar</button>
+  </div>
+</mat-card-content>
+
+</body>

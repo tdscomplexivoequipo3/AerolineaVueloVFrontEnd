@@ -18,7 +18,7 @@ export class SolicitarvComponent  {
   dialogpositive!: TemplateRef<any>;
   @ViewChild('dialognegative')
   dialognegative!: TemplateRef<any>;
-  usuarios:UsuarioResponse[]=[];
+  usuarios?:UsuarioResponse;
   email:String='';
   listUsuarios:Array<UsuarioResponse>=[];
   emailFormControl = new FormControl('', [Validators.required, Validators.email]);
@@ -27,7 +27,6 @@ export class SolicitarvComponent  {
 
   constructor(public dialog:MatDialog,private service:UsuarioService) { }
   ngOnInit(): void {
-    this.TraerCorreo();
   }
 
   openDialog() {
@@ -40,15 +39,17 @@ export class SolicitarvComponent  {
 this.dialog.open(this.dialognegative);
   }
   TraerCorreo(){
-        this.service.getAllEmail().subscribe(contenedor=>{
+        this.service.getAllEmail(this.email).subscribe(contenedor=>{
           this.usuarios=contenedor
-          for(let e of this.usuarios){
-            this.listUsuarios.push(e);
+          if (this.usuarios.rol=='cliente'){
+            this.openDialog();
+          }else {
+            this.openDialogNo();
           }
         })
   }
 
-  BuscarCorreo(){
+ /* BuscarCorreo(){
     let exist=false;
       for(let em of this.listUsuarios){
         if(this.email==em.email){
@@ -66,7 +67,7 @@ this.dialog.open(this.dialognegative);
       if(exist==false){
         this.openDialogNo();
       }
-  }
+  }*/
 }
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {

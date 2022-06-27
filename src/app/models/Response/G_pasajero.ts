@@ -5,5 +5,5 @@ export class G_pasajero{
   documento_identificacion:any;
   datos:any;
   estado:any;
-  asientoList:G_Asiento[];
+  asientoList:G_Asiento[]=[];
 }

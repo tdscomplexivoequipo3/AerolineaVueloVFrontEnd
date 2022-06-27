@@ -6,17 +6,19 @@
     <p>
       <mat-form-field appearance="outline">
         <mat-label>Número de orden o Código de reserva</mat-label>
-        <input matInput placeholder="Placeholder">
+        <input matInput placeholder="Codigo de reserva" [formControl]="formulario" [(ngModel)]="idreserva">
       </mat-form-field>
     </p>
     <p>
       <mat-form-field appearance="outline">
         <mat-label>Apellido del pasajero</mat-label>
-        <input matInput placeholder="Placeholder">
+        <input matInput placeholder="apellido" [formControl]="formulario1" [(ngModel)]="apellidopasajero">
       </mat-form-field>
     </p>
-    <button mat-flat-button color="accent" class="botonv">Buscar</button>
+    <button mat-flat-button color="accent" class="botonv" [disabled]="!formulario.valid || !formulario1.valid">Buscar</button>
   </form>
-
-
 </div>
+<ng-template #dialogoBoleto>
+
+
+</ng-template>
