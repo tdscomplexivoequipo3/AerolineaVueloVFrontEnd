@@ -150,7 +150,7 @@ export class GestionReservasComponent implements OnInit {
     return this.newArray;
   }
 
-  submit() {
+  submit(){
     var datePipe = new DatePipe("en-US");
     const reportePdf = {
       content:[
