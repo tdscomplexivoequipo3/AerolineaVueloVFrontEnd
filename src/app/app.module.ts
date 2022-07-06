@@ -84,6 +84,7 @@ const routes: Routes = [
   {path:'historial',component:HistorialUserComponent},
   {path:'validation_pasajeros',component:ValidationPasajerosComponent},
   {path:'lista_charter/:id_vuelo',component:ListadoPasajerosComponent},
+  {path:'registro/watch/reportes',component: ReportefacturasComponent},
   {path:'centroa',component:CentroaComponent,
     children:[
       {
@@ -227,7 +228,8 @@ const routes: Routes = [
     OfertasdComponent,
     ListadoValidaBoletosComponent,
     CheckingTicketComponent,
-    RegisterFlightCharterComponent
+    RegisterFlightCharterComponent,
+    ReportefacturasComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
