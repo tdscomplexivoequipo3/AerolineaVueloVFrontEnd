@@ -63,7 +63,34 @@ export class ReservaCharterComponent implements OnInit {
     }
 
     if(bandera){
-      console.log("listo el pollo")
+      this.vuelo.estado=2;
+      this.vuelo.fechaRegistro=new Date();
+      this.vuelo.pago=false;
+      this.observable_user.subscribe(user=>{
+        this.vuelo.idUsuario=user.id;
+        this.serviceReserva.registerSinVuelo(this.vuelo).subscribe(result=>{
+          Swal.fire({
+            icon: 'success',
+            title: 'Vuelo Charter Registrado',
+            text: 'Registro Correcto',
+            confirmButtonColor: "#0c3255"
+          }).then(async (result) => {
+            if(result.isConfirmed){
+              this.activatedRoute.params.subscribe( params => {
+                this.router.navigate(['/reservas']);
+              })
+            }
+          });
+        },err=> {
+            Swal.fire({
+              icon: 'warning',
+              title: 'Error de Creaci´pn',
+              text: err.error.message,
+              confirmButtonColor: "#0c3255"
+            })
+          }
+        );
+      })
     }
 
   }
