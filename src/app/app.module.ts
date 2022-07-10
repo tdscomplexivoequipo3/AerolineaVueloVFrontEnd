@@ -65,12 +65,12 @@ import {CheckingTicketComponent} from "./componentes/checking-ticket/checking-ti
 import {
   RegisterFlightCharterComponent
 } from "./componentes/register-flights/register-flight-charter/register-flight-charter.component";
-//import {ReportefacturasComponent} from "./componentes/reportefacturas/reportefacturas.component";
+import {ReportefacturasComponent} from "./componentes/reportefacturas/reportefacturas.component";
 // modulos primeng
 import {NgxPrintModule} from "ngx-print";
-/*import {ButtonModule} from "primeng/button";
+import {ButtonModule} from "primeng/button";
 import {TableModule} from "primeng/table";
-import {DividerModule} from "primeng/divider";*/
+import {DividerModule} from "primeng/divider";
 import {FlightsStadisticsComponent} from "./componentes/flights-stadistics/flights-stadistics.component";
 import { NgChartsModule } from 'ng2-charts';
 import {BarChartModule} from "@swimlane/ngx-charts";
@@ -184,7 +184,7 @@ const routes: Routes = [
   {path:'registro/checking/ticket', component:CheckingTicketComponent},
   {path:'registro/list/ticket/:idvuelo', component:ListadoValidaBoletosComponent},
   {path:'vuelos/flights-stadistics',component:FlightsStadisticsComponent},
-  //{path:'registro/watch/reportes', component:ReportefacturasComponent},
+  {path:'registro/watch/reportes', component:ReportefacturasComponent},
 ]
 
 @NgModule({
@@ -240,7 +240,7 @@ const routes: Routes = [
     ListadoValidaBoletosComponent,
     CheckingTicketComponent,
     RegisterFlightCharterComponent,
-    //ReportefacturasComponent,
+    ReportefacturasComponent,
     FlightsStadisticsComponent,
   ],
     imports: [
@@ -254,11 +254,11 @@ const routes: Routes = [
         ReactiveFormsModule,
         NgChartsModule,
         //primeng modules
-        //ButtonModule,
-        //TableModule,
+        ButtonModule,
+        TableModule,
         NgxPrintModule,
         BarChartModule,
-        //DividerModule
+        DividerModule
     ],
   providers: [UsuarioService,VueloService,UserTokenService,AsientoService,PasajeroService,ScriptService,
   {provide:HTTP_INTERCEPTORS, useClass: UnAuthorizedInterceptor, multi: true }

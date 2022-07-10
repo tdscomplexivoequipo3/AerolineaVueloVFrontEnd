@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 
 import { ReservaResponse } from 'src/app/models/Response/ReservaResponse';
 import { ReservaService } from 'src/app/services/ReservaService';
-//import { Table } from 'primeng/table'
+import { Table } from 'primeng/table'
 import autoTable,{UserOptions} from 'jspdf-autotable';
 import jsPDF, * as jspdf from 'jspdf';
 import {GlobalConstants} from "../../common/GlobalConstants";
