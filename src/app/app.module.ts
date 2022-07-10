@@ -65,6 +65,16 @@ import {CheckingTicketComponent} from "./componentes/checking-ticket/checking-ti
 import {
   RegisterFlightCharterComponent
 } from "./componentes/register-flights/register-flight-charter/register-flight-charter.component";
+//import {ReportefacturasComponent} from "./componentes/reportefacturas/reportefacturas.component";
+// modulos primeng
+import {NgxPrintModule} from "ngx-print";
+/*import {ButtonModule} from "primeng/button";
+import {TableModule} from "primeng/table";
+import {DividerModule} from "primeng/divider";*/
+import {FlightsStadisticsComponent} from "./componentes/flights-stadistics/flights-stadistics.component";
+import { NgChartsModule } from 'ng2-charts';
+import {BarChartModule} from "@swimlane/ngx-charts";
+
 
 const routes: Routes = [
   {path:'reservas/:email', component:ReservaUsuarioComponent},
@@ -173,6 +183,8 @@ const routes: Routes = [
   {path:'ofertas/busqueda/:origen/:destino/:fida/:fregreso',component:OfertasUsersComponent},
   {path:'registro/checking/ticket', component:CheckingTicketComponent},
   {path:'registro/list/ticket/:idvuelo', component:ListadoValidaBoletosComponent},
+  {path:'vuelos/flights-stadistics',component:FlightsStadisticsComponent},
+  //{path:'registro/watch/reportes', component:ReportefacturasComponent},
 ]
 
 @NgModule({
@@ -227,18 +239,27 @@ const routes: Routes = [
     OfertasdComponent,
     ListadoValidaBoletosComponent,
     CheckingTicketComponent,
-    RegisterFlightCharterComponent
+    RegisterFlightCharterComponent,
+    //ReportefacturasComponent,
+    FlightsStadisticsComponent,
   ],
-  imports: [
-    RouterModule.forRoot(routes),
-    BrowserModule,
-    FormsModule,
-    BrowserAnimationsModule,
-    MaterialModule,
-    HttpClientModule,
-    NgxSpinnerModule,
-    ReactiveFormsModule,
-  ],
+    imports: [
+        RouterModule.forRoot(routes),
+        BrowserModule,
+        FormsModule,
+        BrowserAnimationsModule,
+        MaterialModule,
+        HttpClientModule,
+        NgxSpinnerModule,
+        ReactiveFormsModule,
+        NgChartsModule,
+        //primeng modules
+        //ButtonModule,
+        //TableModule,
+        NgxPrintModule,
+        BarChartModule,
+        //DividerModule
+    ],
   providers: [UsuarioService,VueloService,UserTokenService,AsientoService,PasajeroService,ScriptService,
   {provide:HTTP_INTERCEPTORS, useClass: UnAuthorizedInterceptor, multi: true }
   ],

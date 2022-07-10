@@ -63,7 +63,7 @@ export class ReservaCharterComponent implements OnInit {
     }
 
     if(bandera){
-      this.vuelo.estado=2;
+      this.vuelo.estado=1;
       this.vuelo.fechaRegistro=new Date();
       this.vuelo.pago=false;
       this.observable_user.subscribe(user=>{

@@ -3,17 +3,17 @@
     <div class="container">
 
         <span class="p-float-label">
-            
-            <input id="float-input" type="text" [(ngModel)]="idvuelo" pInputText style="margin: 2;"> 
+
+            <input id="float-input" type="text" [(ngModel)]="idvuelo" pInputText style="margin: 2px;">
             <label for="float-input">Numero de Vuelo</label>
             <button pButton pRipple type="button" icon="pi pi-search" class="p-button-rounded p-button-success p-button-outlined" (click)="ReservafindByIdVuelo(idvuelo)"></button>
         </span>
-        
+
     </div>
     <br>
     <div class="card">
-        
-       
+
+
         <p-table id="1" #dt1 selectionMode="single" [value]="ReservaReporte"  dataKey="id" styleClass="p-datatable-customers" responsiveLayout="scroll"
             [rows]="10" [paginator]="true" stateStorage="session" stateKey="statedemo-session">
             <ng-template pTemplate="header">
@@ -34,7 +34,7 @@
                     <th pSortableColumn="status">Observacion</th>
                 </tr>
                 <tr>
-                    
+
                 </tr>
             </ng-template>
             <ng-template pTemplate="body" let-ReservaReporte>
@@ -66,16 +66,16 @@
                     <td>
                         <span class="image-text">{{ReservaReporte.fechaVuelta}}</span>
                     </td>
-    
+
                     <td>
                         <span class="image-text">{{ReservaReporte.precio}}</span>
                     </td>
-                    
+
                     <td>
                         <span class="image-text">{{ReservaReporte.observacion}}</span>
                     </td>
-                    
-                    
+
+
                 </tr>
             </ng-template>
         </p-table>

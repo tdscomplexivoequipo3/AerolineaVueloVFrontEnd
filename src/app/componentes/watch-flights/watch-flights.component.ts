@@ -8,6 +8,7 @@ import {TypeFlight} from "../../models/TypeFlight";
 import {PromocionRequest} from "../../models/Request/PromocionRequest";
 import {PromocionService} from "../../services/PromocionService";
 import Swal from "sweetalert2";
+import {PromocionResponse} from "../../models/Response/PromocionResponse";
 
 
 @Component({
@@ -17,7 +18,7 @@ import Swal from "sweetalert2";
 })
 export class WatchFlightsComponent implements OnInit {
 
-  prom=false;
+  prom:any;
   carga=true;
   @ViewChild('dialgOferta')
   dialgOferta!: TemplateRef<any>;
@@ -27,6 +28,8 @@ export class WatchFlightsComponent implements OnInit {
   listflightsF:Array<VueloResponse>=[];
 
   typeFlight:TypeFlight=new TypeFlight();
+
+  listaPromociones:Array<PromocionResponse>=[];
 
   promocionRequest:PromocionRequest=new PromocionRequest();
   flight:VueloResponse=new VueloResponse();
@@ -41,6 +44,7 @@ export class WatchFlightsComponent implements OnInit {
 
   ngOnInit(): void {
     this.listarflights();
+    this.listarPromociones();
   }
 
   ngAfterViewInit(): void {
@@ -70,7 +74,12 @@ export class WatchFlightsComponent implements OnInit {
         })
     })
 
+  }
 
+  listarPromociones(){
+    this.promocionService.getAllPromociones().subscribe(value => {
+      this.listaPromociones=value;
+    })
   }
 
   flitrar($event :any) {
@@ -94,14 +103,14 @@ export class WatchFlightsComponent implements OnInit {
     this.dialog.open(this.dialgOferta)
   }
 
-  /*enOferta (idv:any):boolean{
-    this.promocionService.getByid(idv).subscribe(value => {
-      if (value){
-        this.prom=true;
+  enOferta (idv:any){
+    this.prom=null;
+      let promocion=this.listaPromociones.find(value1 => {return value1.idVuelo==idv})
+      if (promocion){
+        this.prom='En oferta';
       }
-    })
-    return this.prom;
-  }*/
+
+  }
 
   promocionar(v:VueloResponse){
     this.promocionRequest.idVuelo=v.idVuelo;
@@ -115,6 +124,7 @@ export class WatchFlightsComponent implements OnInit {
         confirmButtonColor: "#0c3255"
       })
       this.dialog.closeAll();
+      this.listarflights();
     },error => {
       Swal.fire({
         icon: 'warning',

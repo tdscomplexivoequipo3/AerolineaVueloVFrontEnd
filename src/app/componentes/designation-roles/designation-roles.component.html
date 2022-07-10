@@ -132,21 +132,23 @@
     <br>
     <mat-card-subtitle>Registro de roles</mat-card-subtitle>
     <br><br>
-    <mat-form-field class="full-width">
-      <mat-label>Rol</mat-label>
-      <input  matInput   [(ngModel)]="rol.codigo" placeholder="Ingrese nombre del rol" name="rol"  required>
-      <mat-icon matPrefix>perm_identity</mat-icon>
-    </mat-form-field>
-    <br>
-    <mat-form-field class="full-width">
-      <mat-label>Descripción</mat-label>
-      <input  matInput   [(ngModel)]="rol.descripcion" placeholder="Ingrese descripción" name="descripcion"  required>
-      <mat-icon matPrefix>perm_identity</mat-icon>
-    </mat-form-field>
+    <form #formulario="ngForm">
+      <mat-form-field class="full-width">
+        <mat-label>Rol</mat-label>
+        <input  matInput   [(ngModel)]="rol.codigo" placeholder="Ingrese nombre del rol" name="rol"  required>
+        <mat-icon matPrefix>perm_identity</mat-icon>
+      </mat-form-field>
+      <br>
+      <mat-form-field class="full-width">
+        <mat-label>Descripción</mat-label>
+        <input  matInput   [(ngModel)]="rol.descripcion" placeholder="Ingrese descripción" name="descripcion"  required>
+        <mat-icon matPrefix>perm_identity</mat-icon>
+      </mat-form-field>
+    </form>
     <br><br>
     <div>
       <button mat mat-raised-button color="warn" mat-button mat-dialog-close>Cancelar</button>
-      <button mat-raised-button color="primary" (click)="guardarrol()">GUARDAR</button>
+      <button mat-raised-button color="primary"  [disabled]="!formulario.valid" (click)="guardarrol()">GUARDAR</button>
     </div>
   </div>
 </ng-template>
@@ -163,18 +165,21 @@
     <span><strong>Identificacion:</strong> {{usuario.docIdentificacion}}</span><br>
     <span><strong>Nombres: </strong>{{usuario.nombres}} {{usuario.apellidos}}</span>
     <br><br>
-    <mat-form-field class="full-widthrol">
-      <mat-label>Roles</mat-label>
-      <mat-select [(ngModel)]="empleado.cargo" name="avion" required>
-        <mat-option *ngFor="let rol of listRoles" [value]="rol.codigo">
-          {{rol.codigo}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
+    <form #formulario="ngForm">
+      <mat-form-field class="full-widthrol">
+        <mat-label>Roles</mat-label>
+        <mat-select [(ngModel)]="empleado.cargo" name="rolus" required>
+          <mat-option *ngFor="let rol of listRoles" [value]="rol.codigo">
+            {{rol.codigo}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </form>
+
     <br><br>
     <div>
       <button mat mat-raised-button color="warn" mat-button mat-dialog-close>Cancelar</button>
-      <button mat-raised-button color="primary" (click)="guardarAsignacion()">GUARDAR</button>
+      <button mat-raised-button color="primary" [disabled]="!formulario.valid" (click)="guardarAsignacion()">GUARDAR</button>
     </div>
   </div>
 

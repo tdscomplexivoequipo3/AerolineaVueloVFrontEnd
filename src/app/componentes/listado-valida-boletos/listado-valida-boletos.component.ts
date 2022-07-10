@@ -141,6 +141,10 @@ export class ListadoValidaBoletosComponent implements OnInit {
     this.dialog.open(this.dialogboletos);
   }
 
+  terminarBoletacion(){
+    this.listarpasajeros();
+  }
+
   generarboleto(puesto:any, datos:any) {
     this.pasajeroRequest.idPasajero=datos.id;
     this.pasajeroRequest.nombres=datos.datos;

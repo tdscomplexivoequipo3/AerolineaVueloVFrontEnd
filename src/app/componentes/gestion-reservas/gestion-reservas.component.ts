@@ -92,12 +92,12 @@ export class GestionReservasComponent implements OnInit {
             this.vueloService.getVueloById(r.idVuelo).subscribe(v =>{
               if (v.idTipoVuelo==1){
                 this.listreservascharter.push(r);
-                this.dataSource = new MatTableDataSource(this.listreservascharter);
-                this.dataSource.paginator = this.paginator;
-                this.dataSource.sort = this.sort;
               }
             })
           }
+          this.dataSource = new MatTableDataSource(this.listreservascharter);
+          this.dataSource.paginator = this.paginator;
+          this.dataSource.sort = this.sort;
         }
     })
 

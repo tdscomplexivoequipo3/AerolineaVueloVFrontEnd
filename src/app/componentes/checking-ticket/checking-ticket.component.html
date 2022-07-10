@@ -47,7 +47,7 @@
       </ng-container>
 
       <ng-container matColumnDef="estado">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Pasaje </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Pasajeros </th>
         <td mat-cell *matCellDef="let row" style="text-align: center">
           <i class="fa-solid fa-people-group" (click)="listarPasajeros(row)" title="Listado de pasajeros"></i>
         </td>
@@ -93,9 +93,13 @@
         />
         {{ pass.datos}}
       </div>
+
+      <div style="color: #F65B3A; font-size: 16px;font-weight: bold"
+           *ngIf="listarPasajeros.length!=0">No existe ningun boleto asignado para este vuelo</div>
+      <br>
       <br>
       <button mat-dialog-close mat-button color="warn">Cancelar</button>
-      <button mat-button color="accent" type="submit">Imprimir</button>
+      <button mat-button color="accent" type="submit" *ngIf="listarPasajeros.length==0">Imprimir</button>
     </form>
   </section>
 </ng-template>

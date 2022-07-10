@@ -13,7 +13,7 @@ import {ReservaResponse} from "../models/Response/ReservaResponse";
 })
 export  class ReservaService {
 
-  @Injectable({
+  @Injectable( {
     providedIn: 'root'
   })
   private urlEndPoint="https://aerolineavuelov.herokuapp.com/api/reserva";

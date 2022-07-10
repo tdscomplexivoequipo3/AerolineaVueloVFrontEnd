@@ -71,19 +71,22 @@
     <br>
     <mat-card-subtitle>tipo de vuelos</mat-card-subtitle>
     <br><br>
-    <mat-form-field>
-      <mat-label>Vuelo</mat-label>
-      <input  matInput  placeholder="Ingrese el tipo de vuelo"  name="ctvuelo" [(ngModel)]="typeflight.nombre" required>
-    </mat-form-field>
+    <form #formulario="ngForm">
+      <mat-form-field>
+        <mat-label>Vuelo</mat-label>
+        <input  matInput  placeholder="Ingrese el tipo de vuelo"  name="ctvuelo" [(ngModel)]="typeflight.nombre" required>
+      </mat-form-field>
 
-    <mat-form-field>
-      <mat-label>Descripción</mat-label>
-      <input  matInput  placeholder="Ingrese una descrpción del vuelo"  name="tvdvuelo" [(ngModel)]="typeflight.descripcion" required>
-    </mat-form-field>
+      <mat-form-field>
+        <mat-label>Descripción</mat-label>
+        <input  matInput  placeholder="Ingrese una descrpción del vuelo"  name="tvdvuelo" [(ngModel)]="typeflight.descripcion" required>
+      </mat-form-field>
+    </form>
+
     <br><br>
     <div>
       <button mat mat-raised-button color="warn" mat-button mat-dialog-close>Cancelar</button>
-      <button mat-raised-button color="primary" (click)="guardartypeflight()">GUARDAR</button>
+      <button mat-raised-button color="primary" [disabled]="!formulario.valid" (click)="guardartypeflight()">GUARDAR</button>
     </div>
   </div>
 </ng-template>

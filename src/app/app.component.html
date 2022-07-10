@@ -41,118 +41,129 @@
     </div>
 
     <div class="options__menu">
-
-      <a href="/administracion/home">
-        <div class="option">
-          <i class="fas fa-home" title="Inicio"></i>
-          <h4>Inicio</h4>
-        </div>
-      </a>
-
-      <li class="list__item list__item--click" *ngIf="(user.rol).toLowerCase()=='jo' || (user.rol).toLowerCase()=='admin'">
-        <div class="list__button list__button--click">
-          <a>
+      <mat-accordion multi>
+        <a href="/administracion/home">
             <div class="option">
-              <i class="fa-solid fa-plane" title="Gestión de Vuelos"></i>
-              <h4>Vuelos</h4>
+              <i class="fas fa-home" title="Inicio"></i>
+              <h4>Inicio</h4>
             </div>
           </a>
-          <mat-icon class="list__arrow">keyboard_arrow_down</mat-icon>
-        </div>
 
-        <ul class="list__show">
-          <li class="list__inside">
-            <a  class="nav__link nav__link--inside" [routerLink]="['/registro/watch/flights']">
-              <mat-icon>flight_takeoff</mat-icon>
-              <span>  Vuelos</span>
-            </a>
-          </li>
-          <li class="list__inside">
-            <a class="nav__link nav__link--inside" [routerLink]="['/registro/vuelos/type']">
-              <mat-icon> merge_type</mat-icon>
-              <span>  Tipos</span>
-            </a>
-          </li>
-          <li class="list__inside">
-            <a class="nav__link nav__link--inside" [routerLink]="['/registro/avion']">
-              <mat-icon> flight</mat-icon>
-              <span>  Aviones</span>
-            </a>
-          </li>
-        </ul>
-
-      </li>
-
-      <li class="list__item list__item--click" *ngIf="(user.rol).toLowerCase()=='admin'">
-        <div class="list__button list__button--click">
-          <a>
-            <div class="option">
-              <i class="fa-solid fa-users" title="Gestión de Usuarios"></i>
-              <h4>Usuarios</h4>
+        <li class="list__item list__item--click" *ngIf="(user.rol).toLowerCase()=='jo' || (user.rol).toLowerCase()=='admin'">
+            <div class="list__button list__button--click">
+              <a>
+                <div class="option">
+                  <i class="fa-solid fa-plane" title="Gestión de Vuelos"></i>
+                  <h4>Vuelos</h4>
+                </div>
+              </a>
+              <mat-icon class="list__arrow">keyboard_arrow_down</mat-icon>
             </div>
-          </a>
-          <mat-icon class="list__arrow">keyboard_arrow_down</mat-icon>
-        </div>
 
-        <ul class="list__show">
-          <li class="list__inside">
-            <a class="nav__link nav__link--inside" [routerLink]="['/asignacion/roles']">
-              <mat-icon title="asignacion de roles">person</mat-icon>
-              <span>  Usuarios</span>
-            </a>
+            <ul class="list__show">
+              <li class="list__inside">
+                <a  class="nav__link nav__link--inside" [routerLink]="['/registro/watch/flights']">
+                  <mat-icon>flight_takeoff</mat-icon>
+                  <span>  Vuelos</span>
+                </a>
+              </li>
+              <li class="list__inside">
+                <a class="nav__link nav__link--inside" [routerLink]="['/registro/vuelos/type']">
+                  <mat-icon> merge_type</mat-icon>
+                  <span>  Tipos</span>
+                </a>
+              </li>
+              <li class="list__inside">
+                <a class="nav__link nav__link--inside" [routerLink]="['/registro/avion']">
+                  <mat-icon> flight</mat-icon>
+                  <span>  Aviones</span>
+                </a>
+              </li>
+            </ul>
+
           </li>
-        </ul>
-      </li>
 
-      <li class="list__item list__item--click" *ngIf="(user.rol).toLowerCase()=='jo' || (user.rol).toLowerCase()=='admin'">
-        <div class="list__button list__button--click">
-          <a>
-            <div class="option">
-              <i class="far fa-id-badge" title="Gestión de reserva"></i>
-              <h4>Reservas</h4>
+        <li class="list__item list__item--click" *ngIf="(user.rol).toLowerCase()=='admin'">
+            <div class="list__button list__button--click">
+              <a>
+                <div class="option">
+                  <i class="fa-solid fa-users" title="Gestión de Usuarios"></i>
+                  <h4>Usuarios</h4>
+                </div>
+              </a>
+              <mat-icon class="list__arrow">keyboard_arrow_down</mat-icon>
             </div>
-          </a>
-          <mat-icon class="list__arrow">keyboard_arrow_down</mat-icon>
-        </div>
 
-        <ul class="list__show">
-          <li class="list__inside">
-            <a class="nav__link nav__link--inside" [routerLink]="['/registro/gestion/reservas']">
-              <mat-icon title="asignacion de roles">person</mat-icon>
-              <span>  Reservas</span>
-            </a>
+            <ul class="list__show">
+              <li class="list__inside">
+                <a class="nav__link nav__link--inside" [routerLink]="['/asignacion/roles']">
+                  <mat-icon title="asignacion de roles">person</mat-icon>
+                  <span>  Usuarios</span>
+                </a>
+              </li>
+            </ul>
           </li>
-        </ul>
 
-      </li>
-
-      <li class="list__item list__item--click" *ngIf="(user.rol).toLowerCase()=='st' || (user.rol).toLowerCase()=='admin' || (user.rol).toLowerCase()=='jo'">
-        <div class="list__button list__button--click">
-          <a>
-            <div class="option">
-              <i class="fa-solid fa-plane-circle-check" title="Gestion de Chequeo de Boletos"></i>
-              <h4>Chequeo</h4>
-            </div>
-          </a>
-          <mat-icon class="list__arrow">keyboard_arrow_down</mat-icon>
-        </div>
-
-        <ul class="list__show">
-          <li class="list__inside">
-            <a class="nav__link nav__link--inside" [routerLink]="['/registro/checking/ticket']">
-              <i class="fa-solid fa-tickets-airline" title="Cheque ode boletos"></i>
-              <span>Chequeo</span>
+        <li class="list__item list__item--click" *ngIf="(user.rol).toLowerCase()=='jo' || (user.rol).toLowerCase()=='admin'">
+          <div class="list__button list__button--click">
+            <a>
+              <div class="option">
+                <i class="far fa-id-badge" title="Gestión de reserva"></i>
+                <h4>Reservas</h4>
+              </div>
             </a>
-          </li>
-        </ul>
-      </li>
+            <mat-icon class="list__arrow">keyboard_arrow_down</mat-icon>
+          </div>
 
-      <a *ngIf="(user.rol).toLowerCase()=='af' || (user.rol).toLowerCase()=='admin'">
-        <div class="option">
-          <i class="fa fa-list-alt" title="Reportes" [routerLink]="['/registro/watch/reportes']"></i>
-          <h4>Reportes</h4>
-        </div>
-      </a>
+          <ul class="list__show">
+            <li class="list__inside">
+              <a class="nav__link nav__link--inside" [routerLink]="['/registro/gestion/reservas']">
+                <span>  Reservas</span>
+              </a>
+            </li>
+          </ul>
+
+        </li>
+
+        <li class="list__item list__item--click" *ngIf="(user.rol).toLowerCase()=='st' || (user.rol).toLowerCase()=='admin' || (user.rol).toLowerCase()=='jo'">
+          <div class="list__button list__button--click">
+            <a>
+              <div class="option">
+                <i class="fa-solid fa-plane-circle-check" title="Gestion de Chequeo de Boletos"></i>
+                <h4>Chequeo</h4>
+              </div>
+            </a>
+            <mat-icon class="list__arrow">keyboard_arrow_down</mat-icon>
+          </div>
+
+          <ul class="list__show">
+            <li class="list__inside">
+              <a class="nav__link nav__link--inside" [routerLink]="['/registro/checking/ticket']">
+                <i class="fa-solid fa-tickets-airline" title="Cheque ode boletos"></i>
+                <span>Chequeo</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <a *ngIf="(user.rol).toLowerCase()=='af' || (user.rol).toLowerCase()=='admin'">
+          <div class="option">
+            <i class="fa fa-list-alt" title="Reportes" [routerLink]="['/registro/watch/reportes']"></i>
+            <h4>Reportes</h4>
+          </div>
+        </a>
+
+        <a  *ngIf="(user.rol).toLowerCase()=='af' || (user.rol).toLowerCase()=='admin'">
+          <div class="option">
+            <i class="fa-solid fa-square-poll-vertical" title="Estadisticas" [routerLink]="['vuelos/flights-stadistics']"></i>
+            <h4>Estadisticas</h4>
+          </div>
+        </a>
+
+      </mat-accordion>
+
+
+
 
       <a style="margin-top: 40px">
         <div class="option" *ngIf="user">

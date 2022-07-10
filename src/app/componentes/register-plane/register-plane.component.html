@@ -63,7 +63,7 @@
 
 
 <ng-template #dialogvuelo>
-  <form class="my-form">
+  <form class="my-form" #formulario="ngForm">
     <mat-card-title>REGISTRO DE AVIÓN</mat-card-title>
     <br>
     <mat-card-subtitle>Aviones</mat-card-subtitle>
@@ -81,12 +81,12 @@
 
     <mat-form-field class="full-width">
       <mat-label>Descripción</mat-label>
-      <input  matInput  placeholder="Ingrese una descripción" name="tipo" [(ngModel)]="plane.descripcion" required>
+      <input  matInput  placeholder="Ingrese una descripción" name="descripcion" [(ngModel)]="plane.descripcion" required>
     </mat-form-field>
 
     <mat-form-field appearance="fill" class="full-width">
       <mat-label>Estado</mat-label>
-      <mat-select name="estado" [(ngModel)]="plane.estado">
+      <mat-select name="estado" [(ngModel)]="plane.estado" name="estado" required>
         <mat-option value="activo">Activo</mat-option>
         <mat-option value ="inactivo">Inactivo</mat-option>
       </mat-select>
@@ -96,7 +96,7 @@
   <br>
   <div class="btnac">
     <button mat mat-raised-button color="warn" mat-button mat-dialog-close>Cancelar</button>
-    <button mat-raised-button color="primary"(click)="guardarPlane()">GUARDAR</button>
+    <button mat-raised-button color="primary" [disabled]="!formulario.valid" (click)="guardarPlane()">GUARDAR</button>
   </div>
 </ng-template>
 
