@@ -1,12 +1,11 @@
 <body>
 <mat-card class="my-card">
 
-  <div class="mat-card-content-p2">
-    <h1>REGISTRO</h1>
-  </div>
+
 
   <div class="mat-card-content-p1">
     <mat-card-content>
+      <h2 >REGISTRO DE USUARIO</h2>
       <form class="my-form" #formulario="ngForm">
         <mat-form-field class="full-width">
           <mat-label>Nombre</mat-label>
@@ -33,16 +32,36 @@
                   minlength="10"
                   maxlength="10"
                   (keypress)="onKeyPress($event)"
-                  placeholder="Ingrese su Cedúla" name="docIdentificacion"  required>
+                  placeholder="Ingrese su cedúla" name="docIdentificacion"  required>
           <mat-icon matPrefix>fingerprint</mat-icon>
         </mat-form-field>
 
         <mat-form-field  class="full-width-select" >
-          <mat-label>Seleccione su País de nacimiento</mat-label>
+          <mat-label>Seleccione su país de nacimiento</mat-label>
           <mat-select [(ngModel)]="objeto.pais" name="pais" required>
-            <mat-option value="ecuador">Ecuador</mat-option>
+            <mat-option value="alemania">Alemania</mat-option>
+            <mat-option value="argentina">Argentina</mat-option>
+            <mat-option value="australia">Australia</mat-option>
+            <mat-option value="belgica">Bélgica</mat-option>
+            <mat-option value="bolivia">Bolivia</mat-option>
+            <mat-option value="brasil">Brasil</mat-option>
+            <mat-option value="canada">Canadá</mat-option>
+            <mat-option value="chile">Chile</mat-option>
             <mat-option value="colombia">Colombia</mat-option>
-            <mat-option value="perú">Perú</mat-option>
+            <mat-option value="costarica">Costa Rica</mat-option>
+            <mat-option value="croacia">Croacia</mat-option>
+            <mat-option value="dinamarca">Dinamarca</mat-option>
+            <mat-option value="ecuador">Ecuador</mat-option>
+            <mat-option value="españa">España</mat-option>
+            <mat-option value="eeuu">Estados Unidos</mat-option>
+            <mat-option value="francia">Francia</mat-option>
+            <mat-option value="guatemala">Guatemala</mat-option>
+            <mat-option value="italia">Italia</mat-option>
+            <mat-option value="japon">Japón</mat-option>
+            <mat-option value="mexico">México</mat-option>
+            <mat-option value="peru">Perú</mat-option>
+            <mat-option value="suiza">Suiza</mat-option>
+
           </mat-select>
         </mat-form-field>
 
@@ -67,10 +86,10 @@
 
 
         <mat-form-field class="full-width" >
-          <mat-label>Telefono</mat-label>
-          <span matPrefix>+1 &nbsp;</span>
+          <mat-label>Teléfono</mat-label>
+
           <input required [(ngModel)]="objeto.telefono"  name="telefono"
-                 minlength="10" type="tel" matInput placeholder="555-555-1234">
+                 minlength="10" type="tel" matInput placeholder="999-999-9999">
           <mat-icon matSuffix>mode_edit</mat-icon>
         </mat-form-field>
 
@@ -85,7 +104,7 @@
         </mat-form-field>
 
         <section class="section check"
-                 >
+        >
           <mat-checkbox class="example-margin" color="primary"  [(ngModel)]="objeto.terminosCondiciones" name="terminosCondiciones" value="true">Acepto Condiciones</mat-checkbox>
         </section>
 
@@ -105,40 +124,40 @@
 </body>
 
 <ng-template #dialoguser>
-        <form class="dialog" #formulario="ngForm">
-          <img src="assets/icon.png">
-          <h3>REGISTRO DE USUARIO</h3>
-          <mat-form-field class="full-width-dialog">
-            <mat-label>Usuario</mat-label>
-            <input  matInput type="email"
-                    minlength="15"
-                    [(ngModel)]="objeto.email" placeholder="Ingrese su email"  name="email"  required>
-            <mat-icon matSuffix >email</mat-icon>
-          </mat-form-field>
+  <form class="dialog" #formulario="ngForm">
+    <img src="assets/icon.png">
+    <h3>REGISTRO DE USUARIO</h3>
+    <mat-form-field class="full-width-dialog">
+      <mat-label>Usuario</mat-label>
+      <input  matInput type="email"
+              minlength="15"
+              [(ngModel)]="objeto.email" placeholder="Ingrese su email"  name="email"  required>
+      <mat-icon matSuffix >email</mat-icon>
+    </mat-form-field>
 
-          <mat-form-field class="full-width-dialog">
-            <mat-label>Contraseña</mat-label>
-            <input  matInput [(ngModel)]="objeto.clave"
-                    placeholder="Ingrese su Contraseña" name="clave"
-                    [type]="hide ? 'password' : 'text'"
-                    required
-            >
-            <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-          </mat-form-field>
+    <mat-form-field class="full-width-dialog">
+      <mat-label>Contraseña</mat-label>
+      <input  matInput [(ngModel)]="objeto.clave"
+              placeholder="Ingrese su Contraseña" name="clave"
+              [type]="hide ? 'password' : 'text'"
+              required
+      >
+      <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </mat-form-field>
 
-          <mat-form-field class="full-width-dialog">
-            <mat-label>Contraseña</mat-label>
-            <input  matInput  #clave_r  placeholder="Repita la Contraseña" name="clave_r"
-                    [type]="hide_r ? 'password' : 'text'"
-                    required>
-            <mat-icon matSuffix (click)="hide_r = !hide_r">{{hide_r ? 'visibility_off' : 'visibility'}}</mat-icon>
-          </mat-form-field>
+    <mat-form-field class="full-width-dialog">
+      <mat-label>Contraseña</mat-label>
+      <input  matInput  #clave_r  placeholder="Repita la Contraseña" name="clave_r"
+              [type]="hide_r ? 'password' : 'text'"
+              required>
+      <mat-icon matSuffix (click)="hide_r = !hide_r">{{hide_r ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </mat-form-field>
 
-          <mat-label  [style.color]="'red'" *ngIf="error==true">Claves no coincidentes</mat-label>
+    <mat-label  [style.color]="'red'" *ngIf="error==true">Claves no coincidentes</mat-label>
 
-          <mat-card-actions class="card_actions">
-            <button mat-raised-button color="warn" (click)="closeDialog()">CANCELAR</button>
-            <button mat-stroked-button color="primary" (click)="registrar(clave_r.value)" [disabled]="!formulario.valid">CONTINUAR</button>
-          </mat-card-actions>
-        </form>
+    <mat-card-actions class="card_actions">
+      <button mat-raised-button color="warn" (click)="closeDialog()">CANCELAR</button>
+      <button mat-stroked-button color="primary" (click)="registrar(clave_r.value)" [disabled]="!formulario.valid">CONTINUAR</button>
+    </mat-card-actions>
+  </form>
 </ng-template>
