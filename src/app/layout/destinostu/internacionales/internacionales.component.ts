@@ -12,7 +12,7 @@ export class InternacionalesComponent implements OnInit {
   vuelos:VueloResponse[]=[];
   vuelost2:VueloResponse[]=[]
   vuelost3:VueloResponse[]=[]
-  DestinosNacionales: string[] = ['cuenca', 'guayaquil', 'quito','santo domingo','manabi','bolivar','manta','posorja','bolívar','esmeraldas','loja'];
+  DestinosNacionales: string[] = ['Cuenca, Cue - Ecuador', 'Guayaquil, GYE - Ecuador', 'Quito, UIO - Ecuador','santo domingo','manabi','bolivar','manta','posorja','bolívar','esmeraldas','loja'];
 
 
   constructor(private vuelosserviceInternacional:VueloService) { }
