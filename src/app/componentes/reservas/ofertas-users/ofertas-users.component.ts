@@ -43,11 +43,11 @@ export class OfertasUsersComponent implements OnInit {
     localStorage.removeItem('volver');
     this.activatedRoute.params.subscribe( params => {
       this.ciudad = params['destinociudad'];
-      console.log(this.ciudad+'la ciudad');
       this.id= params['id'];
-      console.log(this.id+'este es el id');
       this.destinop=params['destino'];
+      console.log(this.destinop);
       this.origenp=params['origen'];
+      console.log(this.origenp);
       this.fechaidap=params['fida'];
       this.fecharegresop=params['fregreso'];
       //datos recibidos de la busqueda de promocion
@@ -113,6 +113,11 @@ export class OfertasUsersComponent implements OnInit {
     this.service.listAll().subscribe(
       objects=>{
         this.vuelos=objects.filter((obje)=>{
+          console.log(obje.fechaIda.replaceAll("-0","-"))
+          console.log(obje.fechaVuelta.replaceAll("-0","-")==this.fecharegresop);
+          console.log(obje.destino==this.destinop );
+          console.log(obje.origen==this.origenp);
+          console.log(new Date(obje.fechaIda)>=datetoday);
           return obje.idTipoVuelo!=1 && obje.fechaIda.replaceAll("-0","-")==this.fechaidap && obje.fechaVuelta.replaceAll("-0","-")==this.fecharegresop && obje.destino==this.destinop && obje.origen==this.origenp && new Date(obje.fechaIda)>=datetoday;
         });
         /*if(this.vuelos.length==0){

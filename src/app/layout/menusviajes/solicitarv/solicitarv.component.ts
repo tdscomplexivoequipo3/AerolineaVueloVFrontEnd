@@ -47,7 +47,7 @@ this.dialog.open(this.dialognegative);
           }else {
             this.openDialogNo();
           }
-        })
+        },error => this.openDialogNo())
   }
 
  /* BuscarCorreo(){

@@ -45,31 +45,31 @@ export class EstadoComponent implements OnInit {
   }
 
   Buscarid(){
+    let fechahoy=new Date();
     this.service.getVueloByIdNoToken(this.id).subscribe(e=> {
-      console.log(e);
       this.respuesta = e
       let d=this.fecha.getFullYear()+"-"+(this.fecha.getMonth()+1)+"-"+this.fecha.getDate();
       this.respuesta.fechaIda=this.respuesta.fechaIda.replaceAll("-0","-");
       console.log(this.respuesta.fechaIda);
       console.log(d);
-      if(this.respuesta.fechaIda== (d)){
-        if (this.respuesta.estado == 1) {
-          this.respuesta.estado = "En vuelo";
-        } else if (this.respuesta.estado == 3) {
-          this.respuesta.estado = "Pendiente";
-        } else if (this.respuesta.estado == 2) {
-          this.respuesta.estado = "Aterrizo";
+      console.log(fechahoy+"fecha de hoy");
+      if(this.respuesta.fechaIda== (d) ){
+        if (new Date(this.respuesta.fechaIda)>fechahoy) {
+          this.respuesta.estado = " Vuelo Pendiente";
+        } else if (new Date(this.respuesta.fechaIda)==fechahoy) {
+          this.respuesta.estado = "Vuelo por partir";
+        } else if (new Date(this.respuesta.fechaIda)<fechahoy) {
+          this.respuesta.estado = "Vuelo Finalizado";
         }
         this.openDialog();
       }else {
         this.openDialogError();
       }
-
-
+      if(Object.entries(this.respuesta).length==0){
+        this.openDialogError();
       }
 
-    );
-
+    },error => this.openDialogError());
   }
 }
 

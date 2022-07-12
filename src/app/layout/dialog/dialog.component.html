@@ -9,7 +9,7 @@
          <li>Salida <br> <h2>{{respuesta1.horaSalida}}</h2></li>
           <li><img src="https://thumbs.dreamstime.com/b/concepto-de-pancarta-ilustraci%C3%B3n-vuelo-en-nube-viajes-tur%C3%ADsticos-direcci%C3%B3n-avi%C3%B3n-vacaciones-pasajero-comercial-caricaturas-162188813.jpg" alt="imagen" class="imagen"></li>
           <li>Llegada <br> <h2>{{respuesta1.horaLlegada}}</h2></li>
-          <li>Estado <br> <h2 class="etiquetah2" [ngStyle]="{'background-color': respuesta1.estado=='En vuelo'? 'yellow' :respuesta1.estado=='Pendiente'?'green':'red'}">{{respuesta1.estado}}</h2></li>
+          <li>Estado <br> <h2 class="etiquetah2" [ngStyle]="{'background-color': respuesta1.estado==' Vuelo Pendiente'? 'yellow' :respuesta1.estado=='Vuelo por partir'?'green':'red'}">{{respuesta1.estado}}</h2></li>
         </ul>
       </div>
     </div>
