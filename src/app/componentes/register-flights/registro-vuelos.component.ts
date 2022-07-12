@@ -85,7 +85,7 @@ export class RegistroVuelosComponent implements OnInit {
 
   listarPlanes(){
     this.planeService.getAll().subscribe(data=>{
-      this.listPlane=data;
+      this.listPlane=data.filter(value => {return value.estado==true});
     })
   }
 

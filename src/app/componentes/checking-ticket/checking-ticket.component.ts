@@ -88,7 +88,7 @@ export class CheckingTicketComponent implements OnInit {
   listarvuelos(){
     this.listvuelosfe=new Array<VueloResponse>();
       this.flightService.listAll().subscribe(data=>{
-        this.listvuelos=data;
+        this.listvuelos=data.filter(value => {return value.idTipoVuelo==2});
         for (let lv of this.listvuelos){
           lv.idVuelo="0000-"+lv.idVuelo;
           lv.fechaIda=new Date(lv.fechaIda);

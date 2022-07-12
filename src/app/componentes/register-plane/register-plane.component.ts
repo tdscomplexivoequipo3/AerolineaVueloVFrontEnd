@@ -19,7 +19,7 @@ export class RegisterPlaneComponent implements OnInit {
   plane:Plane=new Plane();
   carga=true;
 
-  displayedColumns: string[] = ['id', 'placa', 'tipo', 'descripcion', 'estado', 'edit','delete'];
+  displayedColumns: string[] = ['id', 'placa', 'tipo', 'descripcion', 'estado', 'edit'];
   // @ts-ignore
   dataSource: MatTableDataSource<Plane>;
 
@@ -29,6 +29,10 @@ export class RegisterPlaneComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild('dialogvuelo')
   dialogvuelo!: TemplateRef<any>;
+
+  title="";
+  edit=true;
+  actu=true;
 
   listplanes:Array<Plane>=[];
 
@@ -95,6 +99,47 @@ export class RegisterPlaneComponent implements OnInit {
         })
       }
     );
+  }
+
+  editarAvionAbrir(id:any){
+    this.servicePlane.getByid(id).subscribe(value => {
+      this.plane=value;
+      if (this.plane.estado==true){
+        this.plane.estado='activo';
+      }else{
+        this.plane.estado='inactivo';
+      }
+      this.title="Editar tipo de Vuelo";
+      this.dialog.open(this.dialogvuelo);
+      this.edit=false;
+      this.actu=true;
+    })
+  }
+
+  editarAvion(){
+    if (this.plane.estado=='activo'){
+      this.plane.estado=true;
+    }else{
+      this.plane.estado=false;
+    }
+    this.servicePlane.edit(this.plane).subscribe(value => {
+      Swal.fire({
+        icon: 'success',
+        title: 'Actualización de Avión',
+        text: 'Actualización Correcto',
+        confirmButtonColor: "#0c3255"
+      })
+
+      this.listarPlanes();
+      this.dialog.closeAll();
+    },error => {
+      Swal.fire({
+        icon: 'warning',
+        title: 'Error',
+        text: error.error.message,
+        confirmButtonColor: "#0c3255"
+      })
+    })
   }
 
 }

@@ -8,6 +8,7 @@ import { Table } from 'primeng/table'
 import autoTable,{UserOptions} from 'jspdf-autotable';
 import jsPDF, * as jspdf from 'jspdf';
 import {GlobalConstants} from "../../common/GlobalConstants";
+import {VueloResponse} from "../../models/Response/VueloResponse";
 
 interface jsPDFWithPlugin extends jspdf.jsPDF{
   [x:string]:any;
@@ -41,9 +42,6 @@ export class ReportefacturasComponent implements OnInit {
   GetAllReservas(){
     this.reservaService.listAll().subscribe(data=>{
       this.ReservaReporte=data;
-      console.log('imprimiendo la data de vuelos',data);
-
-
     });
   }
 
@@ -52,36 +50,14 @@ export class ReportefacturasComponent implements OnInit {
     this.dataSourceus.filter = filterValue.trim().toLowerCase();
   }
 
-
-  ReservafindByIdVuelo(id:any){
-    this.reservaService.getReservaByIdVuelo(id).subscribe(data=>{
-      this.ReservaReporte=data as any;
-      console.log(data);
-
-
-    });
+  filtrar($event :any){
+    let reservas;
+    reservas=this.ReservaReporte.filter(value => {return value.idReserva==$event.target.value})
+    if (reservas.length>0){
+      this.ReservaReporte=reservas;
+    }else{
+      this.GetAllReservas();
+    }
   }
-//   exportPdf() {
-//     const doc = new jsPDF()
-//     import("jspdf").then(jsPDF => {
-//         import("jspdf-autotable").then(x => {
-//             const doc = new jsPDF.default(0,0);
-//             doc.autoTable(this.exportColumns, this.products);
-//             doc.save('products.pdf');
-//         })
-//     })
-// }
-
-//   createPdfReport(){
-//     const pdfDefinition:any ={
-//       content:[
-//         {
-//           text: 'hola mundo'
-//         }
-//       ]
-//     }
-//     const pdf = pdfMake.createPdfReport(pdfDefinition);
-//     pdf.open();
-//   }
 
  }

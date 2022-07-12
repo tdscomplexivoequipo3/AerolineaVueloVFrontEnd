@@ -4,10 +4,8 @@
 
         <span class="p-float-label">
 
-            <input id="float-input" type="text" [(ngModel)]="idvuelo" pInputText style="margin: 2px;">
+            <input id="float-input" type="text" (keyup)="filtrar($event)"  pInputText style="margin: 2px;">
             <label for="float-input">Numero de Vuelo</label>
-            <button pButton pRipple type="button" icon="pi pi-search"
-                    class="p-element p-ripple p-button-rounded p-button-success p-button-outlined p-button p-component p-button-icon-only" (click)="ReservafindByIdVuelo(idvuelo)"></button>
         </span>
 
     </div>

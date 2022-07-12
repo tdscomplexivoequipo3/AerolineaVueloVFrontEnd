@@ -146,16 +146,16 @@
           </ul>
         </li>
 
-        <a *ngIf="(user.rol).toLowerCase()=='af' || (user.rol).toLowerCase()=='admin'">
+        <a *ngIf="(user.rol).toLowerCase()=='af' || (user.rol).toLowerCase()=='admin'" [routerLink]="['/registro/watch/reportes']">
           <div class="option">
-            <i class="fa fa-list-alt" title="Reportes" [routerLink]="['/registro/watch/reportes']"></i>
+            <i class="fa fa-list-alt" title="Reportes"></i>
             <h4>Reportes</h4>
           </div>
         </a>
 
-        <a  *ngIf="(user.rol).toLowerCase()=='af' || (user.rol).toLowerCase()=='admin'">
+        <a  *ngIf="(user.rol).toLowerCase()=='af' || (user.rol).toLowerCase()=='admin'" [routerLink]="['/vuelos/flights-stadistics']">
           <div class="option">
-            <i class="fa-solid fa-square-poll-vertical" title="Estadisticas" [routerLink]="['vuelos/flights-stadistics']"></i>
+            <i class="fa-solid fa-square-poll-vertical" title="Estadisticas"></i>
             <h4>Estadisticas</h4>
           </div>
         </a>

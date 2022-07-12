@@ -142,7 +142,7 @@ export class ListadoValidaBoletosComponent implements OnInit {
   }
 
   terminarBoletacion(){
-    this.listarpasajeros();
+    window.location.reload();
   }
 
   generarboleto(puesto:any, datos:any) {

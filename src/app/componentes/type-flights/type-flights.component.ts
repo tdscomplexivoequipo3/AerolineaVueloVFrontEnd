@@ -19,7 +19,7 @@ export class TypeFlightsComponent implements OnInit {
   carga=true;
   typeflight:TypeFlight=new TypeFlight();
 
-  displayedColumns: string[] = ['id', 'nombre', 'descripcion', 'edit','delete'];
+  displayedColumns: string[] = ['id', 'nombre', 'descripcion', 'edit',];
   // @ts-ignore
   dataSource: MatTableDataSource<TypeFlight>;
 
@@ -31,6 +31,10 @@ export class TypeFlightsComponent implements OnInit {
 
   @ViewChild('dialogtypeflight')
   dialogtypeflight!: TemplateRef<any>;
+
+  title="";
+  edit=true;
+  actu=false;
 
   public classReference = GlobalConstants;
   constructor(public dialog: MatDialog, private typeflightService:TypeFlightService) {
@@ -67,7 +71,10 @@ export class TypeFlightsComponent implements OnInit {
   }
 
   abridialogotype(){
+    this.title="Crear tipo de Vuelo";
     this.typeflight=new TypeFlight();
+    this.actu=false;
+    this.edit=true;
     this.dialog.open(this.dialogtypeflight);
   }
 
@@ -75,7 +82,7 @@ export class TypeFlightsComponent implements OnInit {
     this.typeflightService.create(this.typeflight).subscribe(m=>{
       Swal.fire({
         icon: 'success',
-        title: 'Ingreso de Typo de Vuelo',
+        title: 'Ingreso de Tipo de Vuelo',
         text: 'Registro Correcto',
         confirmButtonColor: "#0c3255"
       })
@@ -89,6 +96,37 @@ export class TypeFlightsComponent implements OnInit {
         icon: 'warning',
         title: 'Error',
         text: err.error.message,
+        confirmButtonColor: "#0c3255"
+      })
+    })
+  }
+
+  editartipoVueloAbrir(id:any){
+    this.typeflightService.getByid(id).subscribe(value => {
+      this.typeflight=value;
+      this.title="Editar tipo de Vuelo";
+      this.dialog.open(this.dialogtypeflight);
+      this.edit=false;
+      this.actu=true;
+    })
+  }
+
+  editartypeflight(){
+    this.typeflightService.edit(this.typeflight).subscribe(value => {
+      Swal.fire({
+        icon: 'success',
+        title: 'Actualización de Tipo de Vuelo',
+        text: 'Actualización Correcto',
+        confirmButtonColor: "#0c3255"
+      })
+
+      this.listarTypeflight();
+      this.dialog.closeAll();
+    },error => {
+      Swal.fire({
+        icon: 'warning',
+        title: 'Error',
+        text: error.error.message,
         confirmButtonColor: "#0c3255"
       })
     })

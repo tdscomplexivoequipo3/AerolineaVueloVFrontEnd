@@ -20,8 +20,8 @@ export class TypeFlightService {
     return this.httpClient.get<TypeFlight[]>(this.base_url+"/rolAll", {headers: this.httpHeaders});
   }
 
-  edit(cliente:any, id:String){
-    return this.httpClient.put(this.base_url+"update-client/"+id, cliente);
+  edit(tipov:TypeFlight){
+    return this.httpClient.put(this.base_url, tipov, {headers:this.httpHeaders});
   }
 
   create(tipov:TypeFlight):Observable<TypeFlight>{
@@ -29,7 +29,7 @@ export class TypeFlightService {
   }
 
   getByid(id:String):Observable<any>{
-    return this.httpClient.get<any>(this.base_url+id);
+    return this.httpClient.get<any>(this.base_url+"/id/"+id, {headers:this.httpHeaders});
   }
 
   deleteC(cliente:any, id:String){

@@ -26,6 +26,21 @@ div button{
   width: 100%;
 }
 
+.btnEdi{
+  background: #428bca;
+  border-radius: 5px;
+}
+
+.btnEdi:hover{
+  background: blue;
+  cursor: pointer;
+  transition: .5s;
+}
+
+button{
+  border: transparent;
+  background-color: transparent;
+}
 
 .mat-card-content{
   min-width: 150px;

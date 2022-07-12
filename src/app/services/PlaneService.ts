@@ -18,8 +18,8 @@ export class PlaneService {
     return this.httpClient.get<Plane[]>(this.base_url+"/vueloAll", {headers: this.httpHeaders});
   }
 
-  edit(cliente:any, id:String){
-    return this.httpClient.put(this.base_url+"update-client/"+id, cliente);
+  edit(plane:Plane){
+    return this.httpClient.put(this.base_url,plane, {headers: this.httpHeaders});
   }
 
   create(plane:Plane):Observable<Plane>{
@@ -27,7 +27,7 @@ export class PlaneService {
   }
 
   getByid(id:String):Observable<any>{
-    return this.httpClient.get<any>(this.base_url+id);
+    return this.httpClient.get<any>(this.base_url+"/avion/"+id,{headers:this.httpHeaders});
   }
 
   deleteC(cliente:any, id:String){
