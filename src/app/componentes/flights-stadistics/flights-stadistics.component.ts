@@ -23,16 +23,16 @@ export class FlightsStadisticsComponent implements OnInit {
 
   listareservas:ReservaResponse[]=[];
 
-  mes=['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio','Julio',
-       'Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+  mes=['Julio', 'Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
 
   listaVuelos:VueloResponse[]=[];
   salesData: ChartData<'line'> = {
     labels: this.mes,
     datasets: [
-      { label: 'Cuenca', data: [1000, 1200, 1050, 2000, 500, 200], tension: 0.5 },
-      { label: 'Quito', data: [200, 100, 400, 50, 90, 300], tension: 0.5 },
-      { label: 'Guayaquil', data: [500, 400, 350, 450, 650, 150], tension: 0.5 },
+      { label: 'Cuenca', data: [5, 3, 8, 5, 4, 2], tension: 0.5 },
+      { label: 'Quito', data: [2, 1, 4, 5, 9, 3], tension: 0.5 },
+      { label: 'Guayaquil', data: [5, 4, 3, 2, 6, 1], tension: 0.5 },
+      { label: 'Esmeraldas', data: [4, 2, 3, 2, 4, 1], tension: 0.5 },
     ],
   };
 

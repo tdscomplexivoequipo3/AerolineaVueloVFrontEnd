@@ -47,18 +47,6 @@ export class IngresavComponent implements OnInit {
   openDialogNo() {
     this.dialog.open(this.dialognegative);
   }
-  traerVuelo(){
-    this.serviceVuelos.listAll().subscribe( vu=>{
-      this.vuelos=vu;
-      this.vuelo=vu.filter(u=>u.idVuelo==this.listReservasporId[0].idVuelo).pop();
-    });
-  }
-  TraerUsuario(){
-    this.serviceUser.getAllsinToken().subscribe(us=>{
-      this.listUsuarios=us;
-      this.user=us.filter(u=>u.id==this.listReservasporId[0].idUsuario).pop();
-    });
-  }
 
    TraerReservas(){
     this.reserva=null;
@@ -86,7 +74,9 @@ export class IngresavComponent implements OnInit {
         });
 
       }
-    },error => this.openDialogNo());
+    },error =>{
+      this.openDialogNo()
+    });
 
    }
 
