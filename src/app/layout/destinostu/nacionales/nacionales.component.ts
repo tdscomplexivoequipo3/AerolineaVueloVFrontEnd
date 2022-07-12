@@ -8,7 +8,9 @@ import {VueloResponse} from "../../../models/Response/VueloResponse";
   styleUrls: ['./nacionales.component.css']
 })
 export class NacionalesComponent implements OnInit {
-     vuelos:VueloResponse[]=[];
+
+  carga=true;
+  vuelos:VueloResponse[]=[];
   vuelost2:VueloResponse[]=[]
   vuelost3:VueloResponse[]=[]
   DestinosNacionales: string[] = ['Cuenca, Cue - Ecuador', 'Guayaquil, GYE - Ecuador', 'Quito, UIO - Ecuador','santo domingo','manabi','bolivar','manta','posorja','bolívar','esmeraldas','loja','cuenca','guayaquil','quito'];
@@ -22,6 +24,13 @@ export class NacionalesComponent implements OnInit {
     this.todosVuelos();
     this.TotalCiudades();
   }
+
+  ngAfterViewInit(): void {
+    setTimeout(()=>{
+      this.carga=false;
+    },2000)
+  }
+
   todosVuelos(){
     let day=new Date();
     this.vuelosservice.listAll().subscribe(v =>{this.vuelos=v;

@@ -10,7 +10,7 @@
 </div>
 
 
-  <div  class="divContenedor">
+  <div  class="divContenedor" *ngIf="carga==false">
     <mat-card class="elementos" *ngFor="let v of vuelost2">
       <img src="{{v.imagen}}" alt="logo"  style="height:60%;width:100%">
       <p>Viaja el {{v.fechaIda}}</p>
@@ -29,6 +29,11 @@
         <button mat-button color="warn"><mat-icon [routerLink]="['/ofertas/destino/','vuelo',v.idVuelo]">trending_flat</mat-icon></button>
       </mat-card-actions>
     </mat-card>
+    <div style="text-align: center" *ngIf="vuelost2.length<=0">
+      <span style="font-size: 15px">No existen vuelos nacionales disponibles</span>
+    </div>
   </div>
 
-
+<ng-container *ngIf="carga" style="text-align: center">
+  <span class="loader"></span>
+</ng-container>

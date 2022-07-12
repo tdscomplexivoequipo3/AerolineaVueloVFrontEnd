@@ -14,6 +14,7 @@ export class OfertasdComponent implements OnInit {
   promocionesvalidas:PromocionResponse[]=[];
   vuelopromocion:VueloResponse[]=[];
   vuelomostrar:VueloResponse[]=[];
+  carga=true;
 
   constructor( private promocionesservice:PromocionService,private vueloservice:VueloService) { }
 
@@ -34,6 +35,12 @@ export class OfertasdComponent implements OnInit {
        }
     });
     console.log(this.promocionesvalidas+"hola mundo");
+  }
+
+  ngAfterViewInit(): void {
+    setTimeout(()=>{
+      this.carga=false;
+    },2000)
   }
 
   VuelosValidos(){

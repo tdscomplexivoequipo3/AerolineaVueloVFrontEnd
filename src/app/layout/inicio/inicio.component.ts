@@ -24,6 +24,7 @@ export class InicioComponent implements OnInit {
   formulario3= new FormControl('', [Validators.required]);
   matcher = new MyErrorStateMatcher();
 
+  carga=true;
   user:UsuarioResponse=new UsuarioResponse();
   vuelost:VueloResponse[]=[];
   vuelost2:VueloResponse[]=[];
@@ -119,6 +120,13 @@ export class InicioComponent implements OnInit {
     })
     console.log(this.listVuelos.size);
   }
+
+  ngAfterViewInit(): void {
+    setTimeout(()=>{
+      this.carga=false;
+    },2000)
+  }
+
   filtrar($event :any) {
     let fechahoy=new Date();
     console.log($event)

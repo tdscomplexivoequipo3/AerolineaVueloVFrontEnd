@@ -103,7 +103,8 @@
 </mat-form-field>
 </h2>
 </div>
-<div class="content" >
+
+<div class="content" *ngIf="carga==false">
     <div  *ngFor="let v of vuelost3" class="divContenedor">
       <mat-card class="mat-elevation-z2" >
         <img mat-card-img src="{{v.imagen}}" alt="logo"  style="height:200px;width:350px" >
@@ -118,6 +119,11 @@
       </mat-card>
     </div>
 </div>
+
+<ng-container *ngIf="carga" style="text-align: center">
+  <span class="loader"></span>
+</ng-container>
+
 <div class="divCiudades">
   <a routerLink="/condiciones" style="text-decoration: none;font-size: large">Términos y condiciones generales<mat-icon color="warn">open_in_new</mat-icon></a>
 </div>

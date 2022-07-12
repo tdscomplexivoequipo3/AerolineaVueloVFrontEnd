@@ -26,3 +26,25 @@
   -webkit-transform: translateY(-0.25em);
   transform: translateY(-0.25em);
 }
+
+.loader {
+  width: 40px;
+  height: 40px;
+  border: 5px solid #3f3d3d;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  margin-left: 50%;
+  margin-top: 10%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

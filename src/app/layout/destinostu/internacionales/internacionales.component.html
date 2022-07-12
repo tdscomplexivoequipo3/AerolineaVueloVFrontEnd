@@ -1,4 +1,4 @@
-<div class="componentes">
+<div class="componentes" *ngIf="carga==false">
   <div  *ngFor="let ci of vuelost2" class="divContenedor">
     <mat-card class="elementos" >
       <img mat-card-img src="{{ci.imagen}}" alt="imagenCiudad" style="height:60%;width:100%">
@@ -16,4 +16,11 @@
       </mat-card-actions>
     </mat-card>
   </div>
+  <div style="text-align: center" *ngIf="vuelost2.length<=0">
+    <span style="font-size: 15px">No existen vuelos Internacionales disponibles</span>
+  </div>
 </div>
+
+<ng-container *ngIf="carga" style="text-align: center">
+  <span class="loader"></span>
+</ng-container>

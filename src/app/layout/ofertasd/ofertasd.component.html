@@ -3,7 +3,7 @@
     <h2 class="titulo"><i>Promociones de Vuelos</i> </h2>
   </div>
 </div>
-<div class="primero">
+<div class="primero" *ngIf="carga==false">
   <div class="segundo" *ngFor=" let d of vuelomostrar">
     <div class="imagen">
       <img src="{{d.imagen}}" alt="Imagenpromocion" width="100%" height="100%">
@@ -24,5 +24,12 @@
       </div>
     </div>
   </div>
-
+  <div style="text-align: center" *ngIf="vuelomostrar.length<=0">
+    <span style="font-size: 15px">No existen promociones disponibles</span>
+  </div>
 </div>
+
+<ng-container *ngIf="carga" style="text-align: center">
+  <span class="loader"></span>
+</ng-container>
+
